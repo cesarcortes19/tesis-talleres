@@ -1,4 +1,4 @@
-package com.cursos.action;
+package com.cursos.action.cartelera;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -10,6 +10,14 @@ public class CarteleraAction extends ActionSupport {
     public String execute(){
         return SUCCESS;
     }
+
+    public String cargar(){
+        return "cartelera";
+    }
+
+
+
+
 
 
 

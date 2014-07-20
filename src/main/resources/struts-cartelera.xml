@@ -6,13 +6,17 @@
 
 <struts>
 
-    <package name="cartelera" namespace="/cartelera" extends="default,json-default">
+    <package name="cartelera" namespace="/cartelera" extends="default">
 
-        <action name="cargarCartelera" class="carteleraAction">
+        <action name="*Cartelera" class="CarteleraAction" method="{1}">
+            <result name="cartelera" type="tiles">cartelera</result>
+        </action>
+
+<!--        <action name="cargarCartelera" class="CarteleraAction">
             <result name="success">/pages/cartelera/carteleraPrincipal.jsp</result>
             <result name="input">/pages/cartelera/carteleraPrincipal.jsp</result>
             <result name="error">/pages/cartelera/carteleraPrincipal.jsp</result>
-        </action>
+        </action>-->
 
     </package>
 
