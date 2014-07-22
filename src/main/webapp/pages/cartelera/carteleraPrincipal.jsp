@@ -24,8 +24,8 @@
             margin-top: 50px;
             margin-bottom: 50px;
             margin-left: 100px;
-            border-top: 2px solid #000000;
-            border-left: 2px solid #000000;
+            border-top: 1px solid #000000;
+            border-left: 1px solid #000000;
         }
 
         div.scrollCarteleraItems {
@@ -36,8 +36,8 @@
             margin-left: 20px;
             margin-top: 50px;
             margin-bottom: 50px;
-            border-top: 2px solid #000000;
-            border-left: 2px solid #000000;
+            border-top: 1px solid #000000;
+            border-left: 1px solid #000000;
 
         }
 

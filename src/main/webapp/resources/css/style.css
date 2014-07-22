@@ -11,3 +11,14 @@ div.scrollCarteleraItems
     height:100px;
     overflow:scroll;
 }
+
+
+div.mostrarCurso{
+    width: 250px;
+    height: 200px;
+    font-size: 12px
+}
+
+table.mostrarCurso{
+    padding-bottom: 10px;
+}

@@ -3,6 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <head>
     <link rel="stylesheet" type="text/css" href="<s:url value="/resources/css/menu.css"/>" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="<s:url value="/resources/css/style.css"/>" media="screen"/>
     <script type="text/javascript" src="<s:url value="/resources/js/menu.js"/>"></script>
 </head>
 <body>
@@ -32,7 +33,7 @@
             <div>
                 <ul>
                     <li><a href="#"><span>Crear Curso</span></a></li>
-                    <li><a href="#" ><span>Ver Cursos/Editar</span></a></li>
+                    <li><a href="/pages/cursos/mostrarCursos.jsp" ><span>Ver Cursos2/Editar</span></a></li>
                 </ul>
             </div>
         </li>
@@ -64,7 +65,7 @@
             <div>
                 <ul>
                     <li>
-                        <a href="#" ><span>Ver Cursos</span></a>
+                        <a href="/pages/cursos/mostrarCursos.jsp" ><span>Ver Cursos</span></a>
                     </li>
                     <li>
                         <a href="#" ><span>Inscripcion</span></a>
