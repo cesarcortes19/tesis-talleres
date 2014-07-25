@@ -23,7 +23,7 @@
             float: left;
             margin-top: 50px;
             margin-bottom: 50px;
-            margin-left: 100px;
+            margin-left: 20%;
             border-top: 1px solid #000000;
             border-left: 1px solid #000000;
         }
@@ -31,8 +31,8 @@
         div.scrollCarteleraItems {
             height: 300px;
             overflow: scroll;
-
-            margin-right: 100px;
+            width: auto;
+            margin-right: 20%;
             margin-left: 20px;
             margin-top: 50px;
             margin-bottom: 50px;

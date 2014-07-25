@@ -33,7 +33,7 @@
             <div>
                 <ul>
                     <li><a href="#"><span>Crear Curso</span></a></li>
-                    <li><a href="/pages/cursos/mostrarCursos.jsp" ><span>Ver Cursos2/Editar</span></a></li>
+                    <li><a href="/pages/cursos/mostrarTalleres.jsp" ><span>Ver Cursos2/Editar</span></a></li>
                 </ul>
             </div>
         </li>
@@ -65,7 +65,7 @@
             <div>
                 <ul>
                     <li>
-                        <a href="/pages/cursos/mostrarCursos.jsp" ><span>Ver Cursos</span></a>
+                        <a href="/pages/cursos/mostrarTalleres.jsp" ><span>Ver Cursos</span></a>
                     </li>
                     <li>
                         <a href="#" ><span>Inscripcion</span></a>

@@ -17,12 +17,12 @@
 <body>
 <s:include value="../header.jsp"></s:include>
 
-
-<table class="mostrarCurso">
+<div>
+<table class="mostrarCurso" align="center" style="">
     <tr>
         <td>
             <div class="mostrarCurso">
-                <h4>FUTBOL<h4>
+                FUTBOL
                 <sj:tabbedpanel id="localtabs">
                     <sj:tab id="tab1" target="tone" label="Descripcion"/>
                     <sj:tab id="tab2" target="ttwo" label="Horarios"/>
@@ -35,7 +35,7 @@
             </div>
         </td>
 
-        <td style="padding: 20px;">
+        <td>
             <div class="mostrarCurso">
                 FUTBOL
                 <sj:tabbedpanel id="localtabs3">
@@ -50,7 +50,7 @@
             </div>
         </td>
 
-        <td style="padding: 20px;">
+        <td>
             <div class="mostrarCurso">
                 FUTBOL
                 <sj:tabbedpanel id="localtabs4">
@@ -112,7 +112,7 @@
         </td>
     </tr>
 </table>
-
+    </div>
 
 </body>
 </html>

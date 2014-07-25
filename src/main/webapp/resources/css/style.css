@@ -16,9 +16,16 @@ div.scrollCarteleraItems
 div.mostrarCurso{
     width: 250px;
     height: 200px;
-    font-size: 12px
+    font-size: 12px;
 }
 
 table.mostrarCurso{
     padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.mostrarCurso td{
+    padding: 50px 50px 50px 50px;
+    /*not(:last-child) { ; }*/
 }
