@@ -15,7 +15,7 @@
     }
 
     body {
-        background: rgba(53, 99, 128, 0.41);
+        /*background: rgba(53, 99, 128, 0.41);*/
     }
 
     /*div#menu {
@@ -65,7 +65,7 @@
             <div>
                 <ul>
                     <li>
-                        <a href="/pages/cursos/mostrarTalleres.jsp" ><span>Ver Cursos</span></a>
+                        <a href="/pages/cursos/mostrarTalleres.jsp"><span>Ver Cursos</span></a>
                     </li>
                     <li>
                         <a href="#" ><span>Inscripcion</span></a>
@@ -93,4 +93,10 @@
     </ul>
 </div>
     </div>
+<%--<a class="titulo">Centro Educativo de la Asociación de Profesores de la Universidad Central De Venezuela (CEAPUCV)</a>--%>
+<a class="titulo">CEAPUCV</a>
+<a>aqui debe ir algun logo o imagen</a>
+
+<s:form action="" namespace=""></s:form>
+
 </body>

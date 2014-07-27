@@ -1,3 +1,28 @@
+div.Principal {
+    width: auto;
+    height: auto;
+    background: rgba(53, 99, 128, 0.41);
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 10%;
+    margin-top: 1%;
+    margin-right: 10%;
+    border: 1px solid gray;
+ }
+
+.titulo{
+    font-family: Helvetica, Arial, sans-serif, bold;
+    font-size: 250%;
+    align-content: center;
+    color: beige;
+}
+
+
+
 div.scrollCarteleraItems
 {
     width:400px;
