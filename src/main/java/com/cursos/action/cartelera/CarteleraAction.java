@@ -12,7 +12,7 @@ public class CarteleraAction extends ActionSupport {
     }
 
     public String cargar(){
-        return "cartelera";
+        return "carteleraPrincipal";
     }
 
 

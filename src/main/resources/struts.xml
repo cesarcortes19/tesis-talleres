@@ -8,10 +8,6 @@
     <constant name="struts.devMode" value="true" />
     <constant name="struts.custom.i18n.resources" value="myapp" />
 
-    <include file="example.xml"/>
-    <include file="struts-cartelera.xml"/>
-    <include file="struts-talleres.xml"/>
-
 
     <package name="default" extends="struts-default" namespace="/">
         <result-types>
@@ -19,10 +15,17 @@
         </result-types>
     </package>
 
-    <package name="login" extends="struts-default" namespace="/login">
+    <include file="example.xml"/>
+    <include file="struts-cartelera.xml"/>
+    <include file="struts-talleres.xml"/>
+
+
+
+
+<!--    <package name="login" extends="struts-default" namespace="/login">
 
         <action name="login" class="user" method="execute">
-            <!--            <result name="user" type="tiles">mainTemplate</result>-->
+            &lt;!&ndash;            <result name="user" type="tiles">mainTemplate</result>&ndash;&gt;
             <result name="user">/login.jsp</result>
         </action>
     </package>
@@ -44,7 +47,7 @@
         </action>
 
 
-    </package>
+    </package>-->
 
     <!-- Add addition packages and configuration here. -->
 </struts>

@@ -12,17 +12,16 @@
 <head>
     <title></title>
 </head>
-<sj:head jqueryui="true" jquerytheme="humanity"/>
+<%--<sj:head jqueryui="true" jquerytheme="humanity"/>--%>
 </head>
 <body>
-<s:include value="../header.jsp"></s:include>
 
 <div>
 <table class="mostrarCurso" align="center" style="">
     <tr>
         <td>
             <div class="mostrarCurso">
-                FUTBOL
+                <div class="tituloTaller" style="width: auto; height: 10%">FUTBOL</div>
                 <sj:tabbedpanel id="localtabs">
                     <sj:tab id="tab1" target="tone" label="Descripcion"/>
                     <sj:tab id="tab2" target="ttwo" label="Horarios"/>

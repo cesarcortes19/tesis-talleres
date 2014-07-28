@@ -9,7 +9,7 @@
     <package name="cartelera" namespace="/cartelera" extends="default">
 
         <action name="*Cartelera" class="CarteleraAction" method="{1}">
-            <result name="cartelera" type="tiles">carteleraPrincipal</result>
+            <result name="carteleraPrincipal" type="tiles">carteleraPrincipal</result>
         </action>
 
 <!--        <action name="*Cartelera2" class="CarteleraAction" method="{1}">

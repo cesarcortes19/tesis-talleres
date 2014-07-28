@@ -20,5 +20,11 @@
         <put-attribute name="body"   value="/pages/cartelera/carteleraPrincipal.jsp"/>
     </definition>
 
+    <!--Talleres-->
+    <definition name="talleresPrincipal" extends="mainTemplate">
+        <put-attribute name="title"  value="Cartelera"/>
+        <put-attribute name="body"   value="/pages/talleres/talleresPrincipal.jsp"/>
+    </definition>
+
 
 </tiles-definitions>

@@ -8,21 +8,25 @@
 
     <!-- enable use-expressions -->
     <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/cartelera*" access="hasRole('ROLE_ADMIN')" />
+        <!--<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />-->
+<!--        <intercept-url pattern="/cartelera**" access="permitAll" />
+        <intercept-url pattern="/talleres**" access="permitAll" />-->
 
-        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+
 
         <!-- access denied page -->
         <access-denied-handler error-page="/403" />
 
-        <form-login
+<!--        <form-login
                 login-page="/login/login.action"
                 default-target-url="/welcome"
                 authentication-failure-url="/login/login.action?error"
                 username-parameter="username"
                 password-parameter="password" />
         <logout logout-success-url="/login?logout"  />
-        <!-- enable csrf protection -->
-        <csrf/>
+        &lt;!&ndash; enable csrf protection &ndash;&gt;
+        <csrf/>-->
     </http>
 
 

@@ -7,16 +7,10 @@
 <struts>
 
     <package name="talleres" namespace="/talleres" extends="default">
-<!--
-        <action name="*Talleres" class="TalleresAction" method="{1}">
-            <result name="talleresPrincipal" type="tiles">general</result>
-        </action>-->
 
-        <!--        <action name="cargarCartelera" class="CarteleraAction">
-                    <result name="success">/pages/cartelera/carteleraPrincipal.jsp</result>
-                    <result name="input">/pages/cartelera/carteleraPrincipal.jsp</result>
-                    <result name="error">/pages/cartelera/carteleraPrincipal.jsp</result>
-                </action>-->
+        <action name="*Talleres" class="TalleresAction" method="{1}">
+            <result name="talleresPrincipal" type="tiles">talleresPrincipal</result>
+        </action>
 
     </package>
 

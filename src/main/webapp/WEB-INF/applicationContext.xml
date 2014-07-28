@@ -24,6 +24,7 @@
     <import resource="springConfig/spring-cartelera.xml"/>
     <import resource="springConfig/spring-database.xml"/>
     <import resource="springConfig/spring-security.xml"/>
+    <import resource="springConfig/spring-talleres.xml"/>
 <!--    <import resource="springConfig/spring-tiles.xml"/>-->
 
 
