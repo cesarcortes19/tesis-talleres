@@ -12,6 +12,6 @@ public class TalleresAction extends ActionSupport{
     }
 
     public String crear(){
-        return "talleresCrear";
+        return SUCCESS;
     }
 }

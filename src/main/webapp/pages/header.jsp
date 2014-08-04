@@ -40,7 +40,7 @@
 
             <div>
                 <ul>
-                    <li><a href="#"><span>Crear Taller</span></a></li>
+                    <li><a href="#" onclick="submitFormulario('crearTalleres')"><span>Crear Taller</span></a></li>
                     <li><a href="#" onclick="submitFormulario('cargarTalleres')"><span>Ver Talleres/Editar</span></a></li>
                 </ul>
             </div>
@@ -107,5 +107,6 @@
 
 <s:form action="cargarTalleres" namespace="/talleres" id="cargarTalleres"></s:form>
 <s:form action="cargarCartelera" namespace="/cartelera" id="cargarCartelera"></s:form>
+<s:form action="crearTalleres" namespace="/talleres" id="crearTalleres"></s:form>
 
 </body>

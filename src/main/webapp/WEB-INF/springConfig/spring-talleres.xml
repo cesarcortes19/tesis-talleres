@@ -6,5 +6,9 @@
     <bean id="TalleresAction" class="com.cursos.action.talleres.TalleresAction">
     </bean>
 
+    <bean id="TalleresDao" class="com.cursos.dao.talleres.TalleresDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
 
 </beans>
