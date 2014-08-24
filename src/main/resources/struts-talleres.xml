@@ -9,7 +9,7 @@
     <package name="talleres" namespace="/talleres" extends="default">
 
         <action name="*Talleres" class="TalleresAction" method="{1}">
-            <result name="talleresPrincipal" type="tiles">talleresPrincipal</result>
+            <result name="talleresPrincipal" type="tiles">carteleraPrincipal</result>
         </action>
 
     </package>

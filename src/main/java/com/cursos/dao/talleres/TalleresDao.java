@@ -4,6 +4,9 @@ import com.cursos.model.TalleresModel;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Cesar on 03/08/2014.
  */
@@ -41,6 +44,17 @@ public class TalleresDao {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
         }
 
+    }
+
+    public List<TalleresModel> getTalleress() {
+
+        try {
+            List list = getSessionFactory().getCurrentSession().createQuery("from TalleresModel").list();
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
+            return new ArrayList<TalleresModel>();
+        }
     }
 
 

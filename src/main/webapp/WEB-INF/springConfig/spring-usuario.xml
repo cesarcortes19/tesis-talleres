@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="UsuarioAction"
+          class="com.cursos.action.usuario.UsuarioAction" scope="prototype">
+        <property name="usuarioService" ref="UsuarioService"/>
+    </bean>
+
+    <bean id="UsuarioDao" class="com.cursos.dao.usuario.UsuarioDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+    <bean id="UsuarioService"
+          class="com.cursos.service.usuario.UsuarioService">
+        <property name="usuarioDao" ref="UsuarioDao"/>
+    </bean>
+
+
+
+
+</beans>

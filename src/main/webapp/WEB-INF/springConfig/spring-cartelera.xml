@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="CarteleraAction"
-          class="com.cursos.action.cartelera.CarteleraAction">
+          class="com.cursos.action.cartelera.CarteleraAction" scope="prototype">
     </bean>
 
 

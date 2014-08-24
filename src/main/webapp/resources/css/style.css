@@ -12,50 +12,45 @@ div.Principal {
     margin-top: 1%;
     margin-right: 10%;
     border: 1px solid gray;
- }
+}
 
-.titulo{
+.titulo {
     font-family: Helvetica, Arial, sans-serif, bold;
     font-size: 250%;
     align-content: center;
     color: beige;
 }
 
-
-
-div.scrollCarteleraItems
-{
-    width:400px;
-    height:100px;
-    overflow:scroll;
+div.scrollCarteleraItems {
+    width: 400px;
+    height: 100px;
+    overflow: scroll;
 }
 
-div.scrollCarteleraItems
-{
-    width:400px;
-    height:100px;
-    overflow:scroll;
+div.scrollCarteleraItems {
+    width: 400px;
+    height: 100px;
+    overflow: scroll;
 }
 
-
-div.mostrarCurso{
+div.mostrarCurso {
     width: 250px;
     height: 200px;
     font-size: 12px;
 }
 
-table.mostrarCurso{
+table.mostrarCurso {
     padding-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 
-table.mostrarCurso td{
+table.mostrarCurso td {
     padding: 50px 50px 50px 50px;
     /*not(:last-child) { ; }*/
 }
 
-.tituloTaller{
+.tituloTaller {
     background-color: #fcfdfd;
     width: 20%;
     height: 10%;
@@ -69,10 +64,29 @@ table.mostrarCurso td{
     /*para Firefox*/
     -moz-border-radius: 5px 5px 5px 5px;
     /*para Safari y Chrome*/
-    -webkit-border-radius:  5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
     /* para Opera */
-    border-radius:  5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     border: 1px solid #a6c9e2;
     margin-bottom: 2%;
 
+}
+
+div.formulario {
+    width: 50%;
+    margin: 0 auto;
+    text-align: right;
+
+}
+
+div.botones {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.grid{
+    font-size: 12px;
 }

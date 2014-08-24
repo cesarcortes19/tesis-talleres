@@ -4,9 +4,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
     <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
-    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
     <constant name="struts.devMode" value="true" />
-    <constant name="struts.custom.i18n.resources" value="myapp" />
+    <constant name="struts.custom.i18n.resources" value="myapp,messages" />
 
 
     <package name="default" extends="struts-default" namespace="/">
@@ -18,36 +17,7 @@
     <include file="example.xml"/>
     <include file="struts-cartelera.xml"/>
     <include file="struts-talleres.xml"/>
+    <include file="struts-usuario.xml"/>
+    <include file="struts-representado.xml"/>
 
-
-
-
-<!--    <package name="login" extends="struts-default" namespace="/login">
-
-        <action name="login" class="user" method="execute">
-            &lt;!&ndash;            <result name="user" type="tiles">mainTemplate</result>&ndash;&gt;
-            <result name="user">/login.jsp</result>
-        </action>
-    </package>
-
-    <package name="user" extends="struts-default" namespace="/user">
-        <result-types>
-            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
-        </result-types>
-
-        <action name="user" class="user" method="execute">
-            <result name="user" type="tiles">mainTemplate</result>
-        </action>
-
-        <action name="*menu" class="user" method="{1}">
-            <result name="user" type="tiles">mainTemplate</result>
-            <result name="madhuri" type="tiles">madhuri</result>
-            <result name="alia" type="tiles">alia</result>
-            <result name="addUser" type="tiles">success</result>
-        </action>
-
-
-    </package>-->
-
-    <!-- Add addition packages and configuration here. -->
 </struts>

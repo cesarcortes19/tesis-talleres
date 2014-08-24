@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+
+
+    <!--
+        &lt;!&ndash;CARTELERA&ndash;&gt;
+        <definition name="carteleraPrincipal" extends="mainTemplate">
+            <put-attribute name="title"  value="Cartelera"/>
+            <put-attribute name="body"   value="/pages/cartelera/carteleraPrincipal.jsp"/>
+        </definition>
+    -->
+
+    <!--Talleres-->
+    <!--    <definition name="talleresPrincipal" extends="mainTemplate">
+            <put-attribute name="title"  value="Cartelera"/>
+            <put-attribute name="body"   value="/pages/talleres/talleresPrincipal.jsp"/>
+        </definition>-->
+
+    <!--Talleres-->
+    <definition name="carteleraPrincipals" extends="mainTemplate">
+        <put-attribute name="title"  value="Cartelera"/>
+        <put-attribute name="body"   value="/pages/talleres/talleresPrincipal.jsp"/>
+    </definition>
+
+
+</tiles-definitions>

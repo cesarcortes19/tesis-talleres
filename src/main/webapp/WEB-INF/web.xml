@@ -11,14 +11,12 @@
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
 
-<!--    <context-param>
-        <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-        <param-value>/WEB-INF/tiles.xml</param-value>
-    </context-param>-->
+
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
 
    <!--Spring Security-->
 
@@ -35,6 +33,8 @@
     </filter-mapping>
 
         <!--Filtros Struts-->
+
+
 
     <filter>
         <filter-name>struts2</filter-name>
@@ -53,6 +53,12 @@
             org.apache.struts2.tiles.StrutsTilesListener
         </listener-class>
     </listener>
+
+
+    <context-param>
+        <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+        <param-value>/WEB-INF/tiles.xml</param-value>
+    </context-param>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -12,11 +12,6 @@
 		        http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--<context:component-scan base-package="com.dineshonjava.struts2.bean" />-->
-    <bean id="user" class="com.cursos.action.UserAction">
-    </bean>
-    <bean id="userBean" class="com.cursos.action.UserBean">
-    </bean>
-
 
 
     <!-- Beans Operalot desarrollo-->
@@ -25,7 +20,8 @@
     <import resource="springConfig/spring-database.xml"/>
     <import resource="springConfig/spring-security.xml"/>
     <import resource="springConfig/spring-talleres.xml"/>
+    <import resource="springConfig/spring-usuario.xml"/>
+    <import resource="springConfig/spring-representado.xml"/>
 <!--    <import resource="springConfig/spring-tiles.xml"/>-->
-
 
 </beans>

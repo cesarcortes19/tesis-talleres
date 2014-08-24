@@ -1,19 +1,15 @@
-package com.cursos.model;
+package com.cursos.to;
 
-import org.hibernate.annotations.DynamicUpdate;
+import com.cursos.model.AlumnoModel;
+import com.cursos.model.RoleModel;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Cesar on 15/06/14.
+ * Created by Cesar on 16/08/2014.
  */
-
-@Entity
-@Table(name = "user")
-@DynamicUpdate
-public class UserModel {
+public class UsuarioTo {
 
     private int id;
     private String firstName;
@@ -29,10 +25,6 @@ public class UserModel {
     private String telefono2;
     private String observaciones;
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
     public int getId() {
         return id;
     }
@@ -41,7 +33,6 @@ public class UserModel {
         this.id = id;
     }
 
-    @Column(name = "nombre", unique = false, nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -50,7 +41,6 @@ public class UserModel {
         this.firstName = firstName;
     }
 
-    @Column(name = "apellido", unique = false, nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -59,8 +49,6 @@ public class UserModel {
         this.lastName = lastName;
     }
 
-
-    @Column(name = "cedulaPadre", unique = false, nullable = false)
     public String getCedulaPadre() {
         return cedulaPadre;
     }
@@ -69,8 +57,6 @@ public class UserModel {
         this.cedulaPadre = cedulaPadre;
     }
 
-
-    @Column(name = "cedulaMadre", unique = false, nullable = false)
     public String getCedulaMadre() {
         return cedulaMadre;
     }
@@ -79,9 +65,6 @@ public class UserModel {
         this.cedulaMadre = cedulaMadre;
     }
 
-
-
-    @Column(name = "email", unique = false, nullable = false)
     public String getEmail() {
         return email;
     }
@@ -90,9 +73,6 @@ public class UserModel {
         this.email = email;
     }
 
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id", nullable = true)
     public RoleModel getRoleModel() {
         return roleModel;
     }
@@ -101,7 +81,6 @@ public class UserModel {
         this.roleModel = roleModel;
     }
 
-    @Column(name = "password", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -110,8 +89,6 @@ public class UserModel {
         this.password = password;
     }
 
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "userModel")
     public Set<AlumnoModel> getAlumnoModelSet() {
         return alumnoModelSet;
     }
@@ -120,7 +97,6 @@ public class UserModel {
         this.alumnoModelSet = alumnoModelSet;
     }
 
-    @Column(name = "direccion", nullable = false)
     public String getDireccion() {
         return direccion;
     }
@@ -129,7 +105,6 @@ public class UserModel {
         this.direccion = direccion;
     }
 
-    @Column(name = "telefono1", nullable = false)
     public String getTelefono1() {
         return telefono1;
     }
@@ -138,7 +113,6 @@ public class UserModel {
         this.telefono1 = telefono1;
     }
 
-    @Column(name = "telefono2", nullable = false)
     public String getTelefono2() {
         return telefono2;
     }
@@ -147,7 +121,6 @@ public class UserModel {
         this.telefono2 = telefono2;
     }
 
-    @Column(name = "observaciones", nullable = false)
     public String getObservaciones() {
         return observaciones;
     }

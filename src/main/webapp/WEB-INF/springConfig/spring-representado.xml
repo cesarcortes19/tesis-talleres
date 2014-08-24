@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="RepresentadoAction"
+          class="com.cursos.action.representado.RepresentadoAction" scope="prototype">
+        <property name="representadoService" ref="RepresentadoService"/>
+    </bean>
+
+    <bean id="GridRepresentadoAction"
+          class="com.cursos.action.representado.GridRepresentadoAction" scope="prototype">
+        <property name="representadoService" ref="RepresentadoService"/>
+    </bean>
+
+    <bean id="RepresentadoService"
+          class="com.cursos.service.representado.RepresentadoService">
+        <property name="representadoDao" ref="RepresentadoDao"/>
+    </bean>
+
+    <bean id="RepresentadoDao" class="com.cursos.dao.representado.RepresentadoDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+
+
+
+</beans>

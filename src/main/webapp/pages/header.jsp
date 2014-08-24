@@ -66,6 +66,22 @@
                 </ul>
             </div>
         </li>
+        <%--Solo lo puede ver el administrador--%>
+        <li><a href="#"><span>Administrar Cuentas</span></a>
+            <div>
+                <ul>
+                    <li>
+                        <a href="#" onclick="submitFormulario('crearUsuario')"><span>Crear Usuario</span></a>
+                    </li>
+                    <li>
+                        <a href="#" ><span>Editar Usuario</span></a>
+                    </li>
+                    <li>
+                        <a href="#" ><span>Eliminar Usuario</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
 
         <%--Solo lo deben ver los represententaste y usuarios invitados--%>
         <li><a href="#"><span>Talleres</span></a>
@@ -108,5 +124,7 @@
 <s:form action="cargarTalleres" namespace="/talleres" id="cargarTalleres"></s:form>
 <s:form action="cargarCartelera" namespace="/cartelera" id="cargarCartelera"></s:form>
 <s:form action="crearTalleres" namespace="/talleres" id="crearTalleres"></s:form>
+
+<s:form action="crearUsuario" namespace="/usuario" id="crearUsuario"></s:form>
 
 </body>
