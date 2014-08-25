@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="AlumnoAction"
+          class="com.cursos.action.alumno.AlumnoAction" scope="prototype">
+        <property name="alumnoService" ref="AlumnoService"/>
+    </bean>
+
+    <bean id="GridAlumnoAction"
+          class="com.cursos.action.alumno.GridAlumnoAction" scope="prototype">
+        <property name="alumnoService" ref="AlumnoService"/>
+    </bean>
+
+    <bean id="AlumnoService"
+          class="com.cursos.service.alumno.AlumnoService">
+        <property name="alumnoDao" ref="AlumnoDao"/>
+    </bean>
+
+    <bean id="AlumnoDao" class="com.cursos.dao.alumno.AlumnoDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+
+
+
+</beans>

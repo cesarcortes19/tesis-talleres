@@ -1,9 +1,8 @@
-package com.cursos.action.representado;
+package com.cursos.action.alumno;
 
-import com.cursos.model.RepresentadoModel;
-import com.cursos.service.representado.RepresentadoService;
+import com.cursos.model.AlumnoModel;
+import com.cursos.service.alumno.AlumnoService;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +12,10 @@ import java.util.Map;
  * Created by Cesar on 17/08/2014.
  */
 
-import com.opensymphony.xwork2.ActionSupport;
-import org.apache.log4j.Logger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-
-public class GridRepresentadoAction extends ActionSupport {
+public class GridAlumnoAction extends ActionSupport {
     // Your result List
-    private List<RepresentadoModel> gridModel;
+    private List<AlumnoModel> gridModel;
     // get how many rows we want to have into the grid - rowNum attribute in the
     // grid
     private Integer rows = 0;
@@ -47,8 +40,8 @@ public class GridRepresentadoAction extends ActionSupport {
     private Integer records = 0;
     private boolean loadonce = false;
     private Map<String, Object> session;
-    private List<RepresentadoModel> myCustomers;
-    private RepresentadoService representadoService;
+    private List<AlumnoModel> myCustomers;
+    private AlumnoService alumnoService;
 
 
     public String execute() {
@@ -63,11 +56,11 @@ public class GridRepresentadoAction extends ActionSupport {
 
 
 
-        myCustomers = new ArrayList<RepresentadoModel>();
+        myCustomers = new ArrayList<AlumnoModel>();
 
         try {
             // Count all record (select count(*) from your_custumers)
-            //records = representadoService.countRows();
+            //records = alumnoService.countRows();
 
             if (totalrows != null) {
                 records = totalrows;
@@ -167,14 +160,14 @@ public class GridRepresentadoAction extends ActionSupport {
     /**
      * @return an collection that contains the actual data
      */
-    public List<RepresentadoModel> getGridModel() {
+    public List<AlumnoModel> getGridModel() {
         return gridModel;
     }
 
     /**
      * @param gridModel an collection that contains the actual data
      */
-    public void setGridModel(List<RepresentadoModel> gridModel) {
+    public void setGridModel(List<AlumnoModel> gridModel) {
         this.gridModel = gridModel;
     }
 
@@ -254,20 +247,20 @@ public class GridRepresentadoAction extends ActionSupport {
         this.session = session;
     }
 
-    public List<RepresentadoModel> getMyCustomers() {
+    public List<AlumnoModel> getMyCustomers() {
         return myCustomers;
     }
 
-    public void setMyCustomers(List<RepresentadoModel> myCustomers) {
+    public void setMyCustomers(List<AlumnoModel> myCustomers) {
         this.myCustomers = myCustomers;
     }
 
-    public void setRepresentadoService(RepresentadoService representadoService) {
-        this.representadoService = representadoService;
+    public void setAlumnoService(AlumnoService alumnoService) {
+        this.alumnoService = alumnoService;
     }
 
-    public RepresentadoService getRepresentadoService() {
-        return representadoService;
+    public AlumnoService getAlumnoService() {
+        return alumnoService;
     }
 }
 

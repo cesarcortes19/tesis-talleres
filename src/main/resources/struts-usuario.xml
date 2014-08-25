@@ -14,7 +14,7 @@
             <result name="success" type="tiles">crearUsuario</result>
         </action>
 
-        <action name="cargarRepresentadosJson" class="GridRepresentadoAction" method="{1}">
+        <action name="cargarAlumnosJson" class="GridAlumnoAction" method="{1}">
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,

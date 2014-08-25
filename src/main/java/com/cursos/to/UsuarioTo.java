@@ -12,11 +12,11 @@ import java.util.Set;
 public class UsuarioTo {
 
     private int id;
-    private String firstName;
-    private String lastName;
-    private String cedulaPadre;
-    private String cedulaMadre;
+    private String nombre;
+    private String apellido;
+    private String cedula;
     private String email;
+    private String email2;
     private RoleModel roleModel;
     private String password;
     private Set<AlumnoModel> alumnoModelSet = new HashSet<AlumnoModel>(0);
@@ -33,36 +33,28 @@ public class UsuarioTo {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public String getCedulaPadre() {
-        return cedulaPadre;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setCedulaPadre(String cedulaPadre) {
-        this.cedulaPadre = cedulaPadre;
-    }
-
-    public String getCedulaMadre() {
-        return cedulaMadre;
-    }
-
-    public void setCedulaMadre(String cedulaMadre) {
-        this.cedulaMadre = cedulaMadre;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getEmail() {
@@ -127,5 +119,13 @@ public class UsuarioTo {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public void setEmail2(String email2) {
+        this.email2 = email2;
     }
 }

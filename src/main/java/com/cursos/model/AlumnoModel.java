@@ -16,7 +16,7 @@ public class AlumnoModel {
     private String nombre;
     private String apellido;
     private int edad;
-    private int grado;
+    private String grado;
     private String seccion;
     private UserModel userModel;
 
@@ -70,11 +70,11 @@ public class AlumnoModel {
     }
 
     @Column(name = "grado", nullable = false)
-    public int getGrado() {
+    public String getGrado() {
         return grado;
     }
 
-    public void setGrado(int grado) {
+    public void setGrado(String grado) {
         this.grado = grado;
     }
 

@@ -16,11 +16,11 @@ import java.util.Set;
 public class UserModel {
 
     private int id;
-    private String firstName;
-    private String lastName;
-    private String cedulaPadre;
-    private String cedulaMadre;
+    private String nombre;
+    private String apellido;
+    private String cedula;
     private String email;
+    private String email2;
     private RoleModel roleModel;
     private String password;
     private Set<AlumnoModel> alumnoModelSet = new HashSet<AlumnoModel>(0);
@@ -41,47 +41,43 @@ public class UserModel {
         this.id = id;
     }
 
-    @Column(name = "nombre", unique = false, nullable = false)
-    public String getFirstName() {
-        return firstName;
+    @Column(name = "nombre", unique = false)
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    @Column(name = "apellido", unique = false, nullable = false)
-    public String getLastName() {
-        return lastName;
+    @Column(name = "apellido", unique = false)
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-
-    @Column(name = "cedulaPadre", unique = false, nullable = false)
-    public String getCedulaPadre() {
-        return cedulaPadre;
+    @Column(name = "cedula", unique = true)
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setCedulaPadre(String cedulaPadre) {
-        this.cedulaPadre = cedulaPadre;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
-
-    @Column(name = "cedulaMadre", unique = false, nullable = false)
-    public String getCedulaMadre() {
-        return cedulaMadre;
+    @Column(name = "email2", unique = true)
+    public String getEmail2() {
+        return email2;
     }
 
-    public void setCedulaMadre(String cedulaMadre) {
-        this.cedulaMadre = cedulaMadre;
+    public void setEmail2(String email2) {
+        this.email2 = email2;
     }
 
-
-
-    @Column(name = "email", unique = false, nullable = false)
+    @Column(name = "email", unique = true)
     public String getEmail() {
         return email;
     }
@@ -91,7 +87,7 @@ public class UserModel {
     }
 
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id", nullable = true)
     public RoleModel getRoleModel() {
         return roleModel;
@@ -111,7 +107,7 @@ public class UserModel {
     }
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "userModel")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "userModel")
     public Set<AlumnoModel> getAlumnoModelSet() {
         return alumnoModelSet;
     }
@@ -120,7 +116,7 @@ public class UserModel {
         this.alumnoModelSet = alumnoModelSet;
     }
 
-    @Column(name = "direccion", nullable = false)
+    @Column(name = "direccion")
     public String getDireccion() {
         return direccion;
     }
@@ -129,7 +125,7 @@ public class UserModel {
         this.direccion = direccion;
     }
 
-    @Column(name = "telefono1", nullable = false)
+    @Column(name = "telefono1")
     public String getTelefono1() {
         return telefono1;
     }
@@ -138,7 +134,7 @@ public class UserModel {
         this.telefono1 = telefono1;
     }
 
-    @Column(name = "telefono2", nullable = false)
+    @Column(name = "telefono2")
     public String getTelefono2() {
         return telefono2;
     }
@@ -147,7 +143,7 @@ public class UserModel {
         this.telefono2 = telefono2;
     }
 
-    @Column(name = "observaciones", nullable = false)
+    @Column(name = "observaciones")
     public String getObservaciones() {
         return observaciones;
     }

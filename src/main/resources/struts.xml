@@ -12,12 +12,18 @@
         <result-types>
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
         </result-types>
+        <global-results>
+            <result name="ERROR" type="tiles">crearUsuario</result>
+            <result name="login">/login.jsp</result>
+        </global-results>
     </package>
+
+
 
     <include file="example.xml"/>
     <include file="struts-cartelera.xml"/>
     <include file="struts-talleres.xml"/>
     <include file="struts-usuario.xml"/>
-    <include file="struts-representado.xml"/>
+    <include file="struts-alumno.xml"/>
 
 </struts>

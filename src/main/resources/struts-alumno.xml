@@ -6,13 +6,13 @@
 
 <struts>
 
-    <package name="representado" namespace="/representado" extends="default,json-default">
+    <package name="alumno" namespace="/alumno" extends="default,json-default">
 
-        <action name="*representado" class="RepresentadoAction" method="{1}">
+        <action name="*Alumno" class="AlumnoAction" method="{1}">
 
         </action>
 
-        <action name="*RepresentadosJson" class="GridRepresentadoAction" method="{1}">
+        <action name="*AlumnosJson" class="GridAlumnoAction" method="{1}">
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,

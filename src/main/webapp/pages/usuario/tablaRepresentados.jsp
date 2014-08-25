@@ -33,11 +33,11 @@
 </head>
 <body>
 
-<s:url id="remoteurl" action="cargarRepresentadosJson" namespace="/usuario"/>
-<s:url id="editurl" action="cargarRepresentadosJson" namespace="/usuario"/>
+<s:url id="remoteurl" action="cargarAlumnosJson" namespace="/usuario"/>
+<s:url id="editurl" action="cargarAlumnosJson" namespace="/usuario"/>
 <sjg:grid
-        id="gridRepresentados"
-        caption="Representados"
+        id="gridAlumnos"
+        caption="Alumnos"
         dataType="json"
         href="%{remoteurl}"
         pager="false"
@@ -70,7 +70,7 @@
 
 </sjg:grid>
 <br/>
-<sj:submit id="grid_edit_addbutton" value="Agregar Representado" onClickTopics="rowadd" button="true"/>
+<sj:submit id="grid_edit_addbutton" value="Agregar Alumno" onClickTopics="rowadd" button="true"/>
 <br/>
 <br/>
 </body>

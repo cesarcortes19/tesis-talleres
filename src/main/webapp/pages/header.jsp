@@ -108,7 +108,7 @@
                 <ul>
                     <li><a href="#" class="parent"><span>Cambiar Contrasena</span></a></li>
                     <li><a href="#" class="parent"><span>Editar Cuenta</span></a></li>
-                    <li><a href="#" class="parent"><span>Registrar Representado</span></a></li>
+                    <li><a href="#" class="parent"><span>Registrar Alumno</span></a></li>
                 </ul>
             </div>
         </li>
@@ -125,6 +125,6 @@
 <s:form action="cargarCartelera" namespace="/cartelera" id="cargarCartelera"></s:form>
 <s:form action="crearTalleres" namespace="/talleres" id="crearTalleres"></s:form>
 
-<s:form action="crearUsuario" namespace="/usuario" id="crearUsuario"></s:form>
+<s:form action="executeUsuario" namespace="/usuario" id="crearUsuario"></s:form>
 
 </body>

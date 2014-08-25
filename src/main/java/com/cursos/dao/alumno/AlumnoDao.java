@@ -1,11 +1,11 @@
-package com.cursos.dao.representado;
+package com.cursos.dao.alumno;
 
 import org.hibernate.SessionFactory;
 
 /**
  * Created by Cesar on 17/08/2014.
  */
-public class RepresentadoDao {
+public class AlumnoDao {
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {

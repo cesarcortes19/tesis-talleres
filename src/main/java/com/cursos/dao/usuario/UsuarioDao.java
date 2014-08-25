@@ -1,5 +1,6 @@
 package com.cursos.dao.usuario;
 
+import com.cursos.model.UserModel;
 import org.hibernate.SessionFactory;
 
 /**
@@ -14,5 +15,9 @@ public class UsuarioDao {
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    public void guardar(UserModel userModel) throws Exception{
+        sessionFactory.getCurrentSession().save(userModel);
     }
 }
