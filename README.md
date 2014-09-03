@@ -1,2 +1,2 @@
-tesis-talleres
+tesis-taller
 ==============

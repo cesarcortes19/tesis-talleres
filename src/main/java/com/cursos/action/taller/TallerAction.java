@@ -1,14 +1,14 @@
-package com.cursos.action.talleres;
+package com.cursos.action.taller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by Cesar on 27/07/2014.
  */
-public class TalleresAction extends ActionSupport{
+public class TallerAction extends ActionSupport{
 
     public String cargar(){
-        return "talleresPrincipal";
+        return "tallerPrincipal";
     }
 
     public String crear(){

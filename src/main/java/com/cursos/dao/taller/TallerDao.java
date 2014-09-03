@@ -1,6 +1,6 @@
-package com.cursos.dao.talleres;
+package com.cursos.dao.taller;
 
-import com.cursos.model.TalleresModel;
+import com.cursos.model.TallerModel;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
@@ -10,15 +10,15 @@ import java.util.List;
 /**
  * Created by Cesar on 03/08/2014.
  */
-public class TalleresDao {
+public class TallerDao {
     private SessionFactory sessionFactory;
 
-    public TalleresModel getTalleresById(int id) {
+    public TallerModel getTallerById(int id) {
 
         //return (CountryModel)getSessionFactory().getCurrentSession().get(CountryModel.class, id);
         try {
-            return (TalleresModel) getSessionFactory().getCurrentSession()
-                    .createQuery("from TalleresModel where idCountry=?")
+            return (TallerModel) getSessionFactory().getCurrentSession()
+                    .createQuery("from TallerModel where idCountry=?")
                     .setParameter(0, id).uniqueResult();
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
@@ -26,34 +26,34 @@ public class TalleresDao {
         }
     }
 
-    public void saveTalleres(TalleresModel talleresModel) {
+    public void saveTaller(TallerModel tallerModel) {
 
         try {
-            getSessionFactory().getCurrentSession().save(talleresModel);
+            getSessionFactory().getCurrentSession().save(tallerModel);
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
         }
 
     }
 
-    public void updateTalleres(TalleresModel talleresModel) {
+    public void updateTaller(TallerModel tallerModel) {
 
         try {
-            getSessionFactory().getCurrentSession().update(talleresModel);
+            getSessionFactory().getCurrentSession().update(tallerModel);
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
         }
 
     }
 
-    public List<TalleresModel> getTalleress() {
+    public List<TallerModel> getTallers() {
 
         try {
-            List list = getSessionFactory().getCurrentSession().createQuery("from TalleresModel").list();
+            List list = getSessionFactory().getCurrentSession().createQuery("from TallerModel").list();
             return list;
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
-            return new ArrayList<TalleresModel>();
+            return new ArrayList<TallerModel>();
         }
     }
 

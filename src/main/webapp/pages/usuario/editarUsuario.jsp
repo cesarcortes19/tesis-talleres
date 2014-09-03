@@ -15,32 +15,28 @@
     <title></title>
 
     <script>
-        function crearUsuarioFunction() {
+        function editarUsuarioFunction(){
             var dataGrid = $("#gridAlumno").jqGrid("getRowData");
             var dataJson = JSON.stringify(dataGrid);
             $("#alumnoJson").val(dataJson);
-            $("#formCrearUsuario").submit();
+            $("#formEditarUsuario").submit();
         }
+
     </script>
 </head>
 <body>
 <s:div id="formulario" cssClass="formulario">
-    <s:form action="guardarCrearUsuario" namespace="/administrador/usuario" id="formCrearUsuario" cssClass="formulario">
+    <s:form action="guardarEditarUsuario" namespace="/administrador/usuario" id="formEditarUsuario">
         </br>
         </br>
-        <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre"
-                     onkeypress="return onlyLetters(event);"/>
-        <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido"
-                     onkeypress="return onlyLetters(event);"/>
-        <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula"
-                     onkeypress="return onlyNumberColonAndDot(event);"/>
+        <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre"/>
+        <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido"/>
+        <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula"/>
         <s:textfield key="usuario.form.label.email1" name="usuarioModel.email"/>
         <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2"/>
         <s:password key="usuario.form.label.password" name="usuarioModel.password"/>
-        <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1"
-                     onkeypress="return onlyNumber(event);"/>
-        <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2"
-                     onkeypress="return onlyNumber(event);"/>
+        <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1"/>
+        <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2"/>
         <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion"/>
         <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones"/>
         <s:hidden name="listaAlumnoJson" id="alumnoJson"/>
@@ -51,7 +47,11 @@
     <br/>
 
     <div class="grid">
-        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/alumno"/>
+        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/alumno">
+            <s:param name="idRepresentante">
+                <s:property value="usuarioModel.id"/>
+            </s:param>
+        </s:url>
         <s:url id="editurl" action="editarAlumnosJson" namespace="/alumno"/>
         <sjg:grid
                 id="gridAlumno"
@@ -61,7 +61,7 @@
                 pager="true"
                 navigator="true"
                 navigatorSearchOptions="{sopt:['eq','ne','lt','gt']}"
-                navigatorAddOptions="{height:280,reloadAfterSubmit:false,fontSize:12}"
+                navigatorAddOptions="{height:280,reloadAfterSubmit:false,fontSize:12, fontSizeAdjust:12 }"
                 navigatorEdit="false"
                 navigatorView="false"
                 navigatorDelete="true"
@@ -86,8 +86,7 @@
                             width="200" sortable="false"/>
             <sjg:gridColumn name="grado" index="grado" title="Grado" editable="true" sortable="false"/>
             <sjg:gridColumn name="seccion" index="seccion" title="Seccion" editable="true" sortable="false"/>
-            <sjg:gridColumn name="edad" index="edad" title="Edad" formatter="integer" editable="true" sortable="false"
-                            onkeypress="return onlyNumber(event);"/>
+            <sjg:gridColumn name="edad" index="edad" title="Edad" formatter="integer" editable="true" sortable="false"/>
             <%--<sjg:gridColumn name="birthday" index="birthday" title="Fecha Nacimiento" formatter="date"
                             formatoptions="{newformat : 'd.m.Y H:i', srcformat : 'Y-m-d H:i:s'}" editable="true"/>--%>
         </sjg:grid>
@@ -98,7 +97,7 @@
 
 
     <div class="botones">
-        <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearUsuarioFunction();">
+        <sj:a id="sadaszxc" button="true" buttonIcon="ui-icon-disk" onclick="editarUsuarioFunction();">
             Guardar
         </sj:a>
         <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>

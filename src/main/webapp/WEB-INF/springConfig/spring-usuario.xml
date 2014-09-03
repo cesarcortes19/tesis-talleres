@@ -8,6 +8,11 @@
         <property name="usuarioService" ref="UsuarioService"/>
     </bean>
 
+    <bean id="GridUsuarioAction"
+          class="com.cursos.action.usuario.GridUsuarioAction" scope="prototype">
+        <property name="usuarioService" ref="UsuarioService"/>
+    </bean>
+
     <bean id="UsuarioDao" class="com.cursos.dao.usuario.UsuarioDao">
         <property name="sessionFactory" ref="SessionFactory"/>
     </bean>

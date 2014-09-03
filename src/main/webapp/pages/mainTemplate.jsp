@@ -9,7 +9,7 @@
     </title>
 </head>
 
-<body style="background: gainsboro;">
+<body>
 <div class="Principal">
     <table border="1" width="100%" >
         <tr>

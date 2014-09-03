@@ -8,10 +8,11 @@
 
     <!-- enable use-expressions -->
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/cartelera*" access="hasRole('ROLE_ADMIN')" />
+        <!--<intercept-url pattern="/cartelera/**" access="hasRole('ROLE_ADMIN')" />-->
+        <!--<intercept-url pattern="/administrador/**" access="hasRole('ROLE_ADMIN')" />-->
         <!--<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />-->
 <!--        <intercept-url pattern="/cartelera**" access="permitAll" />
-        <intercept-url pattern="/talleres**" access="permitAll" />-->
+        <intercept-url pattern="/taller**" access="permitAll" />-->
 
 
 

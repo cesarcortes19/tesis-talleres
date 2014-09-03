@@ -16,16 +16,16 @@
         </definition>
     -->
 
-    <!--Talleres-->
-    <!--    <definition name="talleresPrincipal" extends="mainTemplate">
+    <!--Taller-->
+    <!--    <definition name="tallerPrincipal" extends="mainTemplate">
             <put-attribute name="title"  value="Cartelera"/>
-            <put-attribute name="body"   value="/pages/talleres/talleresPrincipal.jsp"/>
+            <put-attribute name="body"   value="/pages/taller/tallerPrincipal.jsp"/>
         </definition>-->
 
-    <!--Talleres-->
+    <!--Taller-->
     <definition name="carteleraPrincipals" extends="mainTemplate">
         <put-attribute name="title"  value="Cartelera"/>
-        <put-attribute name="body"   value="/pages/talleres/talleresPrincipal.jsp"/>
+        <put-attribute name="body"   value="/pages/taller/tallerPrincipal.jsp"/>
     </definition>
 
 

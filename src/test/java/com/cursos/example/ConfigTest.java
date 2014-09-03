@@ -54,7 +54,6 @@ public class ConfigTest extends StrutsTestCase {
         List errors = (List) field_errors.get(field_name);
         assertNotNull("Expected errors for " + field_name, errors);
         assertTrue("Expected errors for " + field_name, errors.size()>0);
-        // TODO: Should be a loop
         assertEquals(error_message,errors.get(0));
 
     }

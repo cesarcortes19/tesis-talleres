@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="taller" namespace="/administrador/taller" extends="default">
+
+        <action name="*CrearTaller" class="TallerAction" method="{1}">
+            <result name="success" type="tiles">tallerPrincipal</result>
+            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        </action>
+
+        <action name="*AdministrarTaller" class="TallerAction" method="{1}">
+            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        </action>
+
+        <action name="*EliminarTaller" class="TallerAction" method="{1}">
+            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        </action>
+
+        <action name="*EditarTaller" class="TallerAction" method="{1}">
+            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        </action>
+
+    </package>
+
+</struts>

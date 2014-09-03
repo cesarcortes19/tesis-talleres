@@ -22,7 +22,7 @@
 
     <include file="example.xml"/>
     <include file="struts-cartelera.xml"/>
-    <include file="struts-talleres.xml"/>
+    <include file="struts-taller.xml"/>
     <include file="struts-usuario.xml"/>
     <include file="struts-alumno.xml"/>
 

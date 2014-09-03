@@ -6,7 +6,7 @@
 
 <tiles-definitions>
 
-    <!--Contiene la confifuracion de la pantalla-->
+<!--Contiene la confifuracion de la pantalla-->
     <definition name="mainTemplate" template="/pages/mainTemplate.jsp">
         <put-attribute name="title"  value="User Registration Form"/>
         <put-attribute name="header" value="/pages/header.jsp"/>
@@ -14,16 +14,57 @@
         <put-attribute name="footer"   value="/pages/footer.jsp"/>
     </definition>
 
-    <!--Talleres-->
+<!--Cartelera-->
     <definition name="carteleraPrincipal" extends="mainTemplate">
         <put-attribute name="title"  value="Cartelera"/>
-        <put-attribute name="body"   value="/pages/talleres/talleresPrincipal.jsp"/>
+        <put-attribute name="body"   value="/pages/cartelera/carteleraPrincipal.jsp"/>
     </definition>
 
-    <!--usuario-->
+    <definition name="carteleraEliminar" extends="mainTemplate">
+        <put-attribute name="title"  value="Cartelera"/>
+        <put-attribute name="body"   value="/pages/cartelera/carteleraEliminar.jsp"/>
+    </definition>
+
+    <definition name="carteleraCrear" extends="mainTemplate">
+        <put-attribute name="title"  value="Cartelera"/>
+        <put-attribute name="body"   value="/pages/cartelera/carteleraCrear.jsp"/>
+    </definition>
+
+<!--Taller-->
+    <definition name="tallerPrinicipal" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/tallerPrincipal.jsp"/>
+    </definition>
+
+    <definition name="tallerCrear" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/tallerCrear.jsp"/>
+    </definition>
+
+    <definition name="tallerAdministrar" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/tallerAdministrar.jsp"/>
+    </definition>
+
+<!--usuario-->
     <definition name="crearUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>
         <put-attribute name="body"   value="/pages/usuario/crearUsuario.jsp"/>
+    </definition>
+
+    <definition name="editarUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Usuario"/>
+        <put-attribute name="body"   value="/pages/usuario/editarUsuario.jsp"/>
+    </definition>
+
+    <definition name="elimninarUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Usuario"/>
+        <put-attribute name="body"   value="/pages/usuario/eliminarUsuario.jsp"/>
+    </definition>
+
+    <definition name="administrarUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Usuario"/>
+        <put-attribute name="body"   value="/pages/usuario/administrarUsuario.jsp"/>
     </definition>
 
 

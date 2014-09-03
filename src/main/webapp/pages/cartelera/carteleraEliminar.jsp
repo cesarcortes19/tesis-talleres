@@ -11,6 +11,8 @@
 <head>
     <style>
 
+/*TODO ajustar estilos de cartelera y mover a archivos css*/
+
         div.scrollCarteleraDetail {
             width: 300px;
             height: 300px;
@@ -62,9 +64,16 @@
     <script>
         function mostrarDetalle(element){
             $("#divDetalleNoticia").html(element);
-
         }
-        </script>
+
+        function eliminarNoticia(element) {
+            var x;
+            if (confirm("¿Está seguro que desea eliminar?") == true) {
+                $("#idNoticia").val(element);
+                $("#eliminarCartelera").submit();
+            }
+        }
+    </script>
 
     <title></title>
 </head>
@@ -82,13 +91,15 @@
     </h3>
     <br>
     <s:iterator value="noticiaList" var="iteradorNoticia" status="statusNoticia">
-    <li>
-        <p class="noticia">
-            <a href="#" onclick="mostrarDetalle('<s:property value="descripcion"/>')"><s:property value="titulo"/></a>
-            <a class="fechaNoticia"></br>(<s:property value="fechaCreacion"/>)</a>
-        <p>
-    </li>
-        </s:iterator>
+        <li>
+            <p class="noticia">
+                <a href="#" onclick="mostrarDetalle('<s:property value="descripcion"/>')"><s:property value="titulo"/></a>
+            </p>
+
+            <a href="#" onclick="eliminarNoticia('<s:property value="id"/>')">Eliminar noticia</a>
+            </br>
+        </li>
+    </s:iterator>
 </div>
 <div class="scrollCarteleraItems">
 
@@ -97,12 +108,15 @@
     </h3>
     <br>
     <li>
-    <div id ="divDetalleNoticia">
-        <p class="detalelNoticia">
-        Seleccione una noticia para ver su detalle
-    <p>
+        <div id ="divDetalleNoticia">
+            <p class="detalelNoticia">
+                Seleccione una noticia para ver su detalle
+            <p>
         </div>
     </li>
 </div>
+<s:form action="eliminarCartelera" namespace="/cartelera" id="eliminarCartelera">
+    <s:hidden name="idNoticia" id="idNoticia"/>
+</s:form>
 </body>
 </html>

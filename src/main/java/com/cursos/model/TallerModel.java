@@ -11,9 +11,9 @@ import java.util.Set;
  * Created by Cesar on 03/08/2014.
  */
 @Entity
-@Table(name = "talleres")
+@Table(name = "taller")
 @DynamicUpdate
-public class TalleresModel {
+public class TallerModel {
 
     private int id;
     private String name;

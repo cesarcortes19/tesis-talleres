@@ -22,15 +22,21 @@ public class UsuarioAction extends ActionSupport {
     private UsuarioService usuarioService;
     private String listaAlumnoJson;
 
-    public String execute(){
+    public String execute(){return SUCCESS;}
+
+    public String cargar(){return SUCCESS;}
+
+    public String cargarEditar(){
+        try {
+            usuarioModel=usuarioService.getUsuarioById(usuarioModel.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
         return SUCCESS;
     }
 
-    public String cargar(){
-        return SUCCESS;
-    }
-
-    public String crear(){
+    public String guardar(){
         Gson gson = new Gson();
         Type listType = new TypeToken<ArrayList<AlumnoModel>>() {
         }.getType();
@@ -51,20 +57,34 @@ public class UsuarioAction extends ActionSupport {
         }catch (Exception e){
             return ERROR;
         }
-
-        return "crearUsuario";
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        return "cargarAdministrarUsuario";
     }
 
-    public String editar(){
-        return SUCCESS;
+    public String guardarEditar(){
+        try {
+            usuarioService.update(usuarioModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        return "cargarAdministrarUsuario";
     }
 
     public String editarContrasena(){
         return SUCCESS;
     }
 
-    public String eliminar(){
-        return SUCCESS ;
+    public String guardarEliminar(){
+        try {
+            usuarioService.eliminar(usuarioModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        return "cargarAdministrarUsuario";
     }
 
     public UserModel getUsuarioModel() {

@@ -6,10 +6,15 @@
 
 <struts>
 
-    <package name="cartelera" namespace="/cartelera" extends="default">
+    <package name="cartelera" namespace="/cartelera" extends="default,json-default">
 
         <action name="*Cartelera" class="CarteleraAction" method="{1}">
             <result name="carteleraPrincipal" type="tiles">carteleraPrincipal</result>
+            <result name="carteleraEliminar" type="tiles">carteleraEliminar</result>
+            <result name="carteleraCrear" type="tiles">carteleraCrear</result>
+            <result name="cargarEliminarCartelera" type="redirectAction">cargarEliminarCartelera</result>
+            <result name="cargarCartelera" type="redirectAction">cargarCartelera</result>
+            <result name="input" type="tiles">carteleraCrear</result>
         </action>
 
 <!--        <action name="*Cartelera2" class="CarteleraAction" method="{1}">
@@ -21,6 +26,16 @@
             <result name="input">/pages/cartelera/carteleraPrincipal.jsp</result>
             <result name="error">/pages/cartelera/carteleraPrincipal.jsp</result>
         </action>-->
+
+        <action name="*CarteleraJson" class="GridCarteleraAction" method="{1}">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.titulo,
+                    ^gridModel\[\d+\]\.noticia
+                </param>
+            </result>
+        </action>
 
     </package>
 

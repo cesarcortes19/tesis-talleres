@@ -3,10 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="TalleresAction" class="com.cursos.action.talleres.TalleresAction" scope="prototype">
+    <bean id="TallerAction" class="com.cursos.action.taller.TallerAction" scope="prototype">
     </bean>
 
-    <bean id="TalleresDao" class="com.cursos.dao.talleres.TalleresDao">
+    <bean id="TallerDao" class="com.cursos.dao.taller.TallerDao">
         <property name="sessionFactory" ref="SessionFactory"/>
     </bean>
 

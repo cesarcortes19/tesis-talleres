@@ -6,15 +6,31 @@
 
 <struts>
 
-    <package name="usuario" namespace="/usuario" extends="default,json-default">
+    <package name="usuario" namespace="/administrador/usuario" extends="default,json-default">
 
-        <action name="*Usuario" class="UsuarioAction" method="{1}">
-            <result name="crearUsuario" type="tiles">crearUsuario</result>
-            <result name="input" type="tiles">crearUsuario</result>
+        <!--<nombreMetodo><nombreAction><NombreFuncionalidad>-->
+
+        <action name="*CrearUsuario" class="UsuarioAction" method="{1}">
             <result name="success" type="tiles">crearUsuario</result>
+            <result name="input" type="tiles">crearUsuario</result>
+            <result name="cargarAdministrarUsuario" type="redirectAction">cargarAdministrarUsuario</result>
         </action>
 
-        <action name="cargarAlumnosJson" class="GridAlumnoAction" method="{1}">
+        <action name="*AdministrarUsuario" class="UsuarioAction" method="{1}">
+            <result name="success" type="tiles">administrarUsuario</result>
+        </action>
+
+        <action name="*EditarUsuario" class="UsuarioAction" method="{1}Editar">
+            <result name="success" type="tiles">editarUsuario</result>
+            <result name="input" type="tiles">editarUsuario</result>
+            <result name="cargarAdministrarUsuario" type="redirectAction">cargarAdministrarUsuario</result>
+        </action>
+
+        <action name="*EliminarUsuario" class="UsuarioAction" method="{1}Eliminar">
+            <result name="cargarAdministrarUsuario" type="redirectAction">cargarAdministrarUsuario</result>
+        </action>
+
+        <action name="*AlumnosJson" class="GridAlumnoAction" method="{1}">
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,
@@ -26,6 +42,21 @@
                     ^gridModel\[\d+\]\.lastLoginDate,
                     ^gridModel\[\d+\]\.lastModified,
                     ^gridModel\[\d+\]\.lastModifiedBy
+                </param>
+            </result>
+        </action>
+
+        <action name="*UsuarioJson" class="GridUsuarioAction" method="{1}">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.nombre,
+                    ^gridModel\[\d+\]\.apellido,
+                    ^gridModel\[\d+\]\.email,
+                    ^gridModel\[\d+\]\.email2,
+                    ^gridModel\[\d+\]\.cedula,
+                    ^gridModel\[\d+\]\.telefono1,
+                    ^gridModel\[\d+\]\.telefono2
                 </param>
             </result>
         </action>

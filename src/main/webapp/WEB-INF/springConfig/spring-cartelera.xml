@@ -3,9 +3,21 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="CarteleraAction"
-          class="com.cursos.action.cartelera.CarteleraAction" scope="prototype">
+    <bean id="CarteleraAction" class="com.cursos.action.cartelera.CarteleraAction" scope="prototype">
+        <property name="carteleraService" ref="CarteleraService"/>
     </bean>
 
+
+    <bean id="GridCarteleraAction" class="com.cursos.action.cartelera.GridCarteleraAction" scope="prototype">
+        <property name="carteleraService" ref="CarteleraService"/>
+    </bean>
+
+    <bean id="CarteleraService" class="com.cursos.service.cartelera.CarteleraService">
+        <property name="carteleraDao" ref="CarteleraDao"/>
+    </bean>
+
+    <bean id="CarteleraDao" class="com.cursos.dao.cartelera.CarteleraDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
 
 </beans>

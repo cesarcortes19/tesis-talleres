@@ -14,8 +14,9 @@
             <list>
                 <value>com.cursos.model.RoleModel</value>
                 <value>com.cursos.model.UserModel</value>
-                <value>com.cursos.model.TalleresModel</value>
+                <value>com.cursos.model.TallerModel</value>
                 <value>com.cursos.model.AlumnoModel</value>
+                <value>com.cursos.model.NoticiaModel</value>
 
             </list>
         </property>

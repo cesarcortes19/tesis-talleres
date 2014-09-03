@@ -1,7 +1,7 @@
 div.Principal {
     width: auto;
     height: auto;
-    background: rgba(53, 99, 128, 0.41);
+    background: rgba(0, 156, 255, 0.41);
     /*para Firefox*/
     -moz-border-radius: 15px 15px 15px 15px;
     /*para Safari y Chrome*/
@@ -75,8 +75,14 @@ table.mostrarCurso td {
 div.formulario {
     width: 50%;
     margin: 0 auto;
-    text-align: right;
+    text-align: left;
+    padding-top: 3%;
+}
 
+form.formulario{
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 3%;
 }
 
 div.botones {
@@ -89,4 +95,22 @@ div.botones {
 
 .grid{
     font-size: 12px;
+    width: 100%;
+}
+
+.gridCenter{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+
+.error {
+    background-color: #BC1010;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    margin-left: 16px;
+    margin-top: 6px;
+    position: absolute;
 }

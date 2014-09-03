@@ -1,7 +1,10 @@
-package com.cursos.action.alumno;
+package com.cursos.action.usuario;
 
-import com.cursos.model.AlumnoModel;
+import com.cursos.model.NoticiaModel;
+import com.cursos.model.UserModel;
 import com.cursos.service.alumno.AlumnoService;
+import com.cursos.service.cartelera.CarteleraService;
+import com.cursos.service.usuario.UsuarioService;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.ArrayList;
@@ -9,13 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Cesar on 17/08/2014.
+ * Created by Cesar on 25/08/2014.
  */
-
-
-public class GridAlumnoAction extends ActionSupport {
+public class GridUsuarioAction extends ActionSupport {
     // Your result List
-    private List<AlumnoModel> gridModel;
+    private List<UserModel> gridModel;
     // get how many rows we want to have into the grid - rowNum attribute in the
     // grid
     private Integer rows = 0;
@@ -40,9 +41,8 @@ public class GridAlumnoAction extends ActionSupport {
     private Integer records = 0;
     private boolean loadonce = false;
     private Map<String, Object> session;
-    private List<AlumnoModel> myCustomers;
-    private AlumnoService alumnoService;
-    private int idRepresentante;
+    private List<UserModel> myCustomers;
+    private UsuarioService usuarioService;
 
 
     public String execute() {
@@ -55,13 +55,11 @@ public class GridAlumnoAction extends ActionSupport {
 
     public String cargar() {
 
-
-
-        myCustomers = new ArrayList<AlumnoModel>();
+        myCustomers = new ArrayList<UserModel>();
 
         try {
             // Count all record (select count(*) from your_custumers)
-            //records = alumnoService.countRows();
+            records = usuarioService.getContador();
 
             if (totalrows != null) {
                 records = totalrows;
@@ -77,7 +75,7 @@ public class GridAlumnoAction extends ActionSupport {
             if (to > records) to = records;
 
 
-            //myCustomers = userService.getUsers(from, to);
+            myCustomers = usuarioService.getAll(from,to);
             setGridModel(myCustomers);
 
 
@@ -161,14 +159,14 @@ public class GridAlumnoAction extends ActionSupport {
     /**
      * @return an collection that contains the actual data
      */
-    public List<AlumnoModel> getGridModel() {
+    public List<UserModel> getGridModel() {
         return gridModel;
     }
 
     /**
      * @param gridModel an collection that contains the actual data
      */
-    public void setGridModel(List<AlumnoModel> gridModel) {
+    public void setGridModel(List<UserModel> gridModel) {
         this.gridModel = gridModel;
     }
 
@@ -248,28 +246,20 @@ public class GridAlumnoAction extends ActionSupport {
         this.session = session;
     }
 
-    public List<AlumnoModel> getMyCustomers() {
+    public List<UserModel> getMyCustomers() {
         return myCustomers;
     }
 
-    public void setMyCustomers(List<AlumnoModel> myCustomers) {
+    public void setMyCustomers(List<UserModel> myCustomers) {
         this.myCustomers = myCustomers;
     }
 
-    public void setAlumnoService(AlumnoService alumnoService) {
-        this.alumnoService = alumnoService;
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
-    public AlumnoService getAlumnoService() {
-        return alumnoService;
-    }
-
-    public int getIdRepresentante() {
-        return idRepresentante;
-    }
-
-    public void setIdRepresentante(int idRepresentante) {
-        this.idRepresentante = idRepresentante;
+    public UsuarioService getUsuarioService() {
+        return usuarioService;
     }
 }
 
