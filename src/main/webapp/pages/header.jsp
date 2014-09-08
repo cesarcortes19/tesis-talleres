@@ -44,8 +44,10 @@
 
             <div>
                 <ul>
-                    <li><a href="#" onclick="submitFormulario('crearTaller')"><span>Crear Taller</span></a></li>
-                    <li><a href="#" onclick="submitFormulario('cargarTaller')"><span>Ver Taller/Editar</span></a></li>
+                    <li><a href="<s:url action="cargarCrearTaller" namespace="/administrador/taller"/>"><span>Crear Taller</span></a></li>
+                    <li><a href="<s:url action="cargarAdministrarTaller" namespace="/administrador/taller"/>"><span>Administrar Taller</span></a></li>
+                    <li><a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir en Taller</span></a></li>
+                    <%--<li><a href="<s:url action="cargarTaller" namespace="/usuario/taller"/>"><span>Ver Talleres</span></a></li>--%>
                 </ul>
             </div>
         </li>
@@ -122,8 +124,6 @@
 <a class="titulo">CEAPUCV</a>
 <a>aqui debe ir algun logo o imagen</a>
 
-<s:form action="cargarTaller" namespace="/taller" id="cargarTaller"></s:form>
-<s:form action="crearTaller" namespace="/taller" id="crearTaller"></s:form>
 <%--Cartelera--%>
 <s:form action="cargarCartelera" namespace="/cartelera" id="cargarCartelera"></s:form>
 <s:form action="cargarEliminarCartelera" namespace="/cartelera" id="cargarEliminarCartelera"/>

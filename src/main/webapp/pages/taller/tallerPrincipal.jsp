@@ -19,39 +19,48 @@
 <div>
 <table class="mostrarCurso" align="center" style="">
 
-    <s:iterator value="noticiaList" var="iteradorNoticia" status="statusNoticia">
-        <li>
-            <p class="noticia">
-                <a href="#" onclick="mostrarDetalle('<s:property value="descripcion"/>')"><s:property value="titulo"/></a>
-                <a class="fechaNoticia"></br>(<s:property value="fechaCreacion"/>)</a>
-            <p>
-        </li>
-    </s:iterator>
-
+<%--
 <s:iterator value="listTallerModel" step="" status="statusTaller">
     <tr>
-    <s:iterator value="noticiaList" var="iteradorNoticia" status="statusNoticia">
         <s:if test="%{#statusTaller.index%2 == 0}">
+            <s:if test="%{#statusTaller.index == 0}">
             </tr>
             <tr>
+            </s:if>
         </s:if>
+--%>
         <td>
             <div class="mostrarCurso">
-                <div class="tituloTaller" style="width: auto; height: 10%">FUTBOL</div>
+                <div class="tituloTaller" style="width: auto; height: 10%"><s:property value="name"/></div>
                 <sj:tabbedpanel id="localtabs">
                     <sj:tab id="tab1" target="tone" label="Descripcion"/>
                     <sj:tab id="tab2" target="ttwo" label="Horarios"/>
-                    <div id="tone">Esto es una actividad para ni;os entre 10 y 15 a;os, que tengan aptitudes para el deporte y esten interesados en el area</div>
-                    <div id="ttwo">Lunes 3 - 5pm<br> Martes 5-7pm;<br> Viernes 11 - 1pm</div>
+                    <sj:tab id="tab3" target="tthree" label="Horarios"/>
+                    <div id="tone"><s:property value="descripcion"/></div>
+                    <div id="ttwo"><s:property value="horario"/></div>
+                    <div id="tthree"><s:property value="cantidadAlumnosActual"/>/<s:property value="cantidadAlumnosMaxima"/></div>
+                </sj:tabbedpanel>
+                <br>
+                <sj:a id="save" button="true" buttonIcon="ui-icon-disk" value="Save"
+                      onclick="createBarcode();">Pre-inscribir</sj:a>
+            </div>
+            <div class="mostrarCurso">
+                <div class="tituloTaller" style="width: auto; height: 10%"><s:property value="name"/></div>
+                <sj:tabbedpanel id="localtabs">
+                    <sj:tab id="tab1" target="tone" label="Descripcion"/>
+                    <sj:tab id="tab2" target="ttwo" label="Horarios"/>
+                    <sj:tab id="tab3" target="tthree" label="Horarios"/>
+                    <div id="tone"><s:property value="descripcion"/></div>
+                    <div id="ttwo"><s:property value="horario"/></div>
+                    <div id="tthree"><s:property value="cantidadAlumnosActual"/>/<s:property value="cantidadAlumnosMaxima"/></div>
                 </sj:tabbedpanel>
                 <br>
                 <sj:a id="save" button="true" buttonIcon="ui-icon-disk" value="Save"
                       onclick="createBarcode();">Pre-inscribir</sj:a>
             </div>
         </td>
-
-
-    </s:iterator>
+<%--    </s:iterator>
+    </tr>--%>
 </table>
     </div>
 

@@ -1,6 +1,7 @@
 package com.cursos.service.usuario;
 
 import com.cursos.dao.usuario.UsuarioDao;
+import com.cursos.excepciones.NotFoundException;
 import com.cursos.model.UserModel;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,5 +46,14 @@ public class UsuarioService {
     public void eliminar(UserModel usuarioModel) throws Exception{
         usuarioModel = usuarioDao.getUsuarioById(usuarioModel.getId());
         usuarioDao.eliminar(usuarioModel);
+    }
+
+    public UserModel getUsuarioByCi(UserModel userModelParam) throws Exception{
+         UserModel userModel = usuarioDao.getUsuarioByCi(userModelParam);
+
+        if(userModel == null)
+            throw new NotFoundException(userModelParam.getCedula());
+
+        return userModel;
     }
 }

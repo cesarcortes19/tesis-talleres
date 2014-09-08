@@ -4,8 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="TallerAction" class="com.cursos.action.taller.TallerAction" scope="prototype">
+        <property name="tallerService" ref="TallerService"/>
+        <property name="usuarioService" ref="UsuarioService"/>
     </bean>
 
+    <bean id="TallerService" class="com.cursos.service.taller.TallerService">
+        <property name="tallerDao" ref="TallerDao"/>
+    </bean>
     <bean id="TallerDao" class="com.cursos.dao.taller.TallerDao">
         <property name="sessionFactory" ref="SessionFactory"/>
     </bean>

@@ -13,16 +13,16 @@ import java.util.List;
 public class TallerDao {
     private SessionFactory sessionFactory;
 
-    public TallerModel getTallerById(int id) {
+    public TallerModel getTallerById(int id) throws Exception{
 
         //return (CountryModel)getSessionFactory().getCurrentSession().get(CountryModel.class, id);
         try {
             return (TallerModel) getSessionFactory().getCurrentSession()
-                    .createQuery("from TallerModel where idCountry=?")
+                    .createQuery("from TallerModel where id=?")
                     .setParameter(0, id).uniqueResult();
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
-            return null;
+            throw e;
         }
     }
 
@@ -37,7 +37,6 @@ public class TallerDao {
     }
 
     public void updateTaller(TallerModel tallerModel) {
-
         try {
             getSessionFactory().getCurrentSession().update(tallerModel);
         } catch (HibernateException e) {
@@ -57,6 +56,15 @@ public class TallerDao {
         }
     }
 
+    public void eliminarTaller(TallerModel tallerModel) {
+        try {
+            getSessionFactory().getCurrentSession().delete(tallerModel);
+        } catch (HibernateException e) {
+            e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
+        }
+
+    }
+
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -64,5 +72,15 @@ public class TallerDao {
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    public List<TallerModel> getTalleresNoInscritos(int idRepresentado) {
+        try {
+            List list = getSessionFactory().getCurrentSession().createQuery("from TallerModel where id not in ").list();
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
+            return new ArrayList<TallerModel>();
+        }
     }
 }

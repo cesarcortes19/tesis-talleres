@@ -33,7 +33,7 @@
         <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido"
                      onkeypress="return onlyLetters(event);"/>
         <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula"
-                     onkeypress="return onlyNumberColonAndDot(event);"/>
+                     onkeypress="return onlyNumber(event);"/>
         <s:textfield key="usuario.form.label.email1" name="usuarioModel.email"/>
         <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2"/>
         <s:password key="usuario.form.label.password" name="usuarioModel.password"/>

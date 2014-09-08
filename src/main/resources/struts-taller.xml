@@ -9,22 +9,40 @@
     <package name="taller" namespace="/administrador/taller" extends="default">
 
         <action name="*CrearTaller" class="TallerAction" method="{1}">
-            <result name="success" type="tiles">tallerPrincipal</result>
-            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+            <result name="success" type="tiles">crearTaller</result>
+            <result name="input" type="tiles">crearTaller</result>
+            <result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>
         </action>
 
-        <action name="*AdministrarTaller" class="TallerAction" method="{1}">
-            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        <action name="*AdministrarTaller" class="TallerAction" method="{1}Administrar">
+            <result name="success" type="tiles">administrarTaller</result>
         </action>
 
-        <action name="*EliminarTaller" class="TallerAction" method="{1}">
-            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        <action name="*EliminarTaller" class="TallerAction" method="{1}Eliminar">
+            <result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>
         </action>
 
-        <action name="*EditarTaller" class="TallerAction" method="{1}">
-            <result name="tallerPrincipal" type="tiles">carteleraPrincipal</result>
+        <action name="*EditarTaller" class="TallerAction" method="{1}Editar">
+            <result name="success" type="tiles">editarTaller</result>
+            <result name="input" type="tiles">editarTaller</result>
+            <result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>
         </action>
 
+        <action name="*InscribirTaller" class="TallerAction" method="{1}">
+            <result name="input" type="tiles">cargarUsuarioInscribirTaller</result>
+            <result name="success" type="tiles">cargarUsuarioInscribirTaller</result>
+            <result name="cargarRepresentadosInscribirTaller" type="redirectAction">/usuario/taller/cargarRepresentadosInscribirTaller</result>
+        </action>
+
+    </package>
+
+    <package name="usuarioTaller" namespace="/usuario/taller" extends="default">
+
+        <action name="*InscribirTaller" class="TallerAction" method="{1}Inscribir">
+            <result name="input" type="tiles">inscribirTaller</result>
+            <result name="cargarRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
+            <result name="cargarInscribirTaller" type="redirectAction">cargarInscribirTaller</result>
+        </action>
     </package>
 
 </struts>

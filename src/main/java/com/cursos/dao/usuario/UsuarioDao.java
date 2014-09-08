@@ -83,4 +83,16 @@ public class UsuarioDao {
         }
 
     }
+
+    public UserModel getUsuarioByCi(UserModel userModel) throws Exception{
+        try {
+            return (UserModel)getSessionFactory().getCurrentSession()
+                    .createQuery("from UserModel where cedula =:ci")
+                    .setParameter("ci",userModel.getCedula())
+                    .uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

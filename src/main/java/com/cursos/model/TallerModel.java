@@ -15,16 +15,23 @@ import java.util.Set;
 @DynamicUpdate
 public class TallerModel {
 
-    private int id;
-    private String name;
-    private int cantidadAlumnosMaxima;
-    private int cantidadAlumnosactual;
-    private String horario;
-   /* private Set<AlumnoModel> alumnoModelSet = new HashSet<AlumnoModel>(0);*/
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
+    private int id;
+    @Column(name = "nombre")
+    private String name;
+    @Column(name = "cantidad_alumnos_maxima")
+    private int cantidadAlumnosMaxima;
+    @Column(name = "cantidad_alumnos_actual")
+    private int cantidadAlumnosactual;
+    @Column(name = "descripcion")
+    private String descripcion;
+    @Column(name = "horario")
+    private String horario;
+   /* private Set<AlumnoModel> alumnoModelSet = new HashSet<AlumnoModel>(0);*/
+
+
     public int getId() {
         return id;
     }
@@ -33,7 +40,7 @@ public class TallerModel {
         this.id = id;
     }
 
-    @Column(name = "nombre")
+
     public String getName() {
         return name;
     }
@@ -42,7 +49,7 @@ public class TallerModel {
         this.name = name;
     }
 
-    @Column(name = "cantidad_alumnos_maxima")
+
     public int getCantidadAlumnosMaxima() {
         return cantidadAlumnosMaxima;
     }
@@ -51,7 +58,7 @@ public class TallerModel {
         this.cantidadAlumnosMaxima = cantidadAlumnosMaxima;
     }
 
-    @Column(name = "cantidad_alumnos_actual")
+
     public int getCantidadAlumnosactual() {
         return cantidadAlumnosactual;
     }
@@ -60,7 +67,6 @@ public class TallerModel {
         this.cantidadAlumnosactual = cantidadAlumnosactual;
     }
 
-    @Column(name = "horario")
     public String getHorario() {
         return horario;
     }
@@ -69,8 +75,16 @@ public class TallerModel {
         this.horario = horario;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-/*    public Set<AlumnoModel> getAlumnoModelSet() {
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+
+    /*    public Set<AlumnoModel> getAlumnoModelSet() {
         return alumnoModelSet;
     }
 

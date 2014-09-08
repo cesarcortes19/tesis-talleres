@@ -36,14 +36,34 @@
         <put-attribute name="body"   value="/pages/taller/tallerPrincipal.jsp"/>
     </definition>
 
-    <definition name="tallerCrear" extends="mainTemplate">
+    <definition name="crearTaller" extends="mainTemplate">
         <put-attribute name="title"  value="Talleres"/>
-        <put-attribute name="body"   value="/pages/taller/tallerCrear.jsp"/>
+        <put-attribute name="body"   value="/pages/taller/crearTaller.jsp"/>
     </definition>
 
-    <definition name="tallerAdministrar" extends="mainTemplate">
+    <definition name="editarTaller" extends="mainTemplate">
         <put-attribute name="title"  value="Talleres"/>
-        <put-attribute name="body"   value="/pages/taller/tallerAdministrar.jsp"/>
+        <put-attribute name="body"   value="/pages/taller/editarTaller.jsp"/>
+    </definition>
+
+    <definition name="administrarTaller" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/administrarTaller.jsp"/>
+    </definition>
+
+    <definition name="cargarUsuarioInscribirTaller" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/cargarUsuarioInscribirTaller.jsp"/>
+    </definition>
+
+    <definition name="inscribirTaller" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/inscripcionTaller.jsp"/>
+    </definition>
+
+    <definition name="representadosInscribirTaller" extends="mainTemplate">
+        <put-attribute name="title"  value="Talleres"/>
+        <put-attribute name="body"   value="/pages/taller/representadosInscribirTaller.jsp"/>
     </definition>
 
 <!--usuario-->

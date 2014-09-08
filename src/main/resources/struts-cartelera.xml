@@ -27,16 +27,6 @@
             <result name="error">/pages/cartelera/carteleraPrincipal.jsp</result>
         </action>-->
 
-        <action name="*CarteleraJson" class="GridCarteleraAction" method="{1}">
-            <result name="success" type="json">
-                <param name="includeProperties">
-                    ^gridModel\[\d+\]\.id,
-                    ^gridModel\[\d+\]\.titulo,
-                    ^gridModel\[\d+\]\.noticia
-                </param>
-            </result>
-        </action>
-
     </package>
 
 </struts>
