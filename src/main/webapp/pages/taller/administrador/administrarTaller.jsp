@@ -45,7 +45,7 @@
                     <sj:tabbedpanel id="%{#iteradorTaller.id}">
                         <sj:tab id="tab1" target="tone" label="Descripcion"/>
                         <sj:tab id="tab2" target="ttwo" label="Horarios"/>
-                        <sj:tab id="tab3" target="tthree" label="Horarios"/>
+                        <sj:tab id="tab3" target="tthree" label="Alumnos"/>
                         <div id="tone"><s:property value="descripcion"/></div>
                         <div id="ttwo"><s:property value="horario"/></div>
                         <div id="tthree"><s:property value="cantidadAlumnosactual"/>/<s:property

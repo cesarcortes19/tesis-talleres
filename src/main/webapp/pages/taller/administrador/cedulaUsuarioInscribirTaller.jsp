@@ -22,6 +22,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <s:form action="buscarInscribirTaller" namespace="/administrador/taller">
     <s:textfield key="taller.form.label.inscripcion.cedula" name="userModel.cedula"
                  onkeypress="return onlyNumber(event);"/>
+    <s:submit cssClass="botonSubmit"/>
 </s:form>
 </body>
 </html>

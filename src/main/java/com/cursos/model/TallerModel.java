@@ -17,7 +17,7 @@ public class TallerModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
+    @Column(name = "id_taller", unique = true, nullable = false)
     private int id;
     @Column(name = "nombre")
     private String name;
@@ -29,7 +29,11 @@ public class TallerModel {
     private String descripcion;
     @Column(name = "horario")
     private String horario;
-   /* private Set<AlumnoModel> alumnoModelSet = new HashSet<AlumnoModel>(0);*/
+    @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "tallerModel")
+    private Set<AlumnoTallerModel> alumnoTallerModelset = new HashSet<AlumnoTallerModel>();
+
+/*    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tallerModelSet")
+    private Set<AlumnoModel> alumnoModelSet = new HashSet<AlumnoModel>(0);*/
 
 
     public int getId() {
@@ -81,6 +85,14 @@ public class TallerModel {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Set<AlumnoTallerModel> getAlumnoTallerModelset() {
+        return alumnoTallerModelset;
+    }
+
+    public void setAlumnoTallerModelset(Set<AlumnoTallerModel> alumnoTallerModelset) {
+        this.alumnoTallerModelset = alumnoTallerModelset;
     }
 
 

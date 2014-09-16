@@ -1,13 +1,21 @@
 package com.cursos.action.taller;
 
 import com.cursos.excepciones.NotFoundException;
+import com.cursos.excepciones.TallerMaximaCapacidadException;
+import com.cursos.model.AlumnoModel;
 import com.cursos.model.TallerModel;
 import com.cursos.model.UserModel;
+import com.cursos.service.alumno.AlumnoService;
 import com.cursos.service.taller.TallerService;
 import com.cursos.service.usuario.UsuarioService;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+import org.hibernate.Hibernate;
+import org.springframework.security.authentication.AuthenticationManager;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Cesar on 27/07/2014.
@@ -18,6 +26,9 @@ public class TallerAction extends ActionSupport {
     private TallerService tallerService;
     private UserModel userModel;
     private UsuarioService usuarioService;
+    private AuthenticationManager authenticationManager;
+    private AlumnoModel alumnoModel;
+    private AlumnoService alumnoService;
 
     public String cargar() {
         return SUCCESS;
@@ -77,9 +88,9 @@ public class TallerAction extends ActionSupport {
     * via administrador*/
     public String buscar() {
         try {
-            usuarioService.getUsuarioByCi(userModel);
+            userModel = usuarioService.getUsuarioByCi(userModel);
         } catch (Exception e) {
-            if (e instanceof NotFoundException){
+            if (e instanceof NotFoundException) {
                 addActionMessage(((NotFoundException) e).getElem() + " Usuario no encontrado");
                 return INPUT;
             }
@@ -89,31 +100,50 @@ public class TallerAction extends ActionSupport {
         return "cargarRepresentadosInscribirTaller";
     }
 
-    public String cargarRepresentadosInscribir(){
-/*TODO identificar que role tiene por spring*/
-        try {
-            if(userModel.getRoleModel().getName() == "Admin"){
+    public String cargarRepresentadosInscribir() {
+        HttpServletRequest request = ServletActionContext.getRequest();
 
-            }else{
+        try {
+            if (request.isUserInRole("ROLE_ADMIN")) {
+
+            } else {
                 userModel = usuarioService.getUsuarioByCi(userModel);
-            }
+            }/*TODO comprobar role autenticado*/
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
         }
-
-        return SUCCESS;
+        Hibernate.initialize(userModel.getAlumnoModelSet());
+        return "listadoRepresentadosInscribir";
     }
 
-    public String cargarInscribir() {
-        int idRepresentado=0;
+    public String cargarTallerInscribir() {
         try {
-            tallerList = tallerService.getTalleresNoInscritos(idRepresentado);
+            tallerList = tallerService.getTalleresNoInscritos(alumnoModel);
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
         }
-        return SUCCESS;
+        return "listadoTallerInscribir";
+    }
+
+    /**.
+     * Metodo que recibe el id del alumno y el ide del taller que inscribio
+     * @return
+     */
+    public String guardarInscribir() {
+        try {
+            tallerService.realizarInscripcion(alumnoModel.getId(),tallerModel.getId());
+        } catch (Exception e) {
+            if(e instanceof TallerMaximaCapacidadException)
+            {
+                addActionMessage(((NotFoundException) e).getMessage());
+                return INPUT;
+            }
+            e.printStackTrace();
+            return ERROR;
+        }
+        return "listadoRepresentadosInscribir";
     }
 
 
@@ -155,5 +185,29 @@ public class TallerAction extends ActionSupport {
 
     public void setUsuarioService(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
+    }
+
+    public AuthenticationManager getAuthenticationManager() {
+        return authenticationManager;
+    }
+
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
+
+    public AlumnoModel getAlumnoModel() {
+        return alumnoModel;
+    }
+
+    public void setAlumnoModel(AlumnoModel alumnoModel) {
+        this.alumnoModel = alumnoModel;
+    }
+
+    public void setAlumnoService(AlumnoService alumnoService) {
+        this.alumnoService = alumnoService;
+    }
+
+    public AlumnoService getAlumnoService() {
+        return alumnoService;
     }
 }

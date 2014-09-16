@@ -31,7 +31,11 @@
         <action name="*InscribirTaller" class="TallerAction" method="{1}">
             <result name="input" type="tiles">cargarUsuarioInscribirTaller</result>
             <result name="success" type="tiles">cargarUsuarioInscribirTaller</result>
-            <result name="cargarRepresentadosInscribirTaller" type="redirectAction">/usuario/taller/cargarRepresentadosInscribirTaller</result>
+            <result name="cargarRepresentadosInscribirTaller" type="chain">
+                <param name="actionName">cargarRepresentadosInscribirTaller</param>
+                <param name="namespace">/usuario/taller</param>
+                <!--<param name="userModel">${userModel}</param>-->
+            </result>
         </action>
 
     </package>
@@ -40,8 +44,9 @@
 
         <action name="*InscribirTaller" class="TallerAction" method="{1}Inscribir">
             <result name="input" type="tiles">inscribirTaller</result>
-            <result name="cargarRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
-            <result name="cargarInscribirTaller" type="redirectAction">cargarInscribirTaller</result>
+            <result name="listadoRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
+            <result name="listadoTallerInscribir" type="tiles">listadoTallerInscribir</result>
+            <!--<result name="listadoTallerInscribir" type="tiles">listadoTallerInscribir</result>-->
         </action>
     </package>
 

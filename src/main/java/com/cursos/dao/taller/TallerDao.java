@@ -1,10 +1,12 @@
 package com.cursos.dao.taller;
 
+import com.cursos.model.AlumnoModel;
 import com.cursos.model.TallerModel;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -74,13 +76,14 @@ public class TallerDao {
         return sessionFactory;
     }
 
-    public List<TallerModel> getTalleresNoInscritos(int idRepresentado) {
+    public List<TallerModel> getTalleresNoInscritos(AlumnoModel alumnoModel, List<Integer> listIdsTalleres) throws Exception{
         try {
-            List list = getSessionFactory().getCurrentSession().createQuery("from TallerModel where id not in ").list();
+            List list = getSessionFactory().getCurrentSession().createQuery("from TallerModel c where c.id not IN (:lista) ")
+                    .setParameterList("lista",listIdsTalleres).list();
             return list;
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
-            return new ArrayList<TallerModel>();
+            throw e;
         }
     }
 }

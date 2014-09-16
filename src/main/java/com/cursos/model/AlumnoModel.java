@@ -3,6 +3,8 @@ package com.cursos.model;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Cesar on 06/08/2014.
@@ -11,19 +13,34 @@ import javax.persistence.*;
 @Table(name = "alumno")
 @DynamicUpdate
 public class AlumnoModel {
-
-    private int id;
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String grado;
-    private String seccion;
-    private UserModel userModel;
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
+    @Column(name = "id_alumno", unique = true, nullable = false)
+    private int id;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+    @Column(name = "apellido", nullable = false)
+    private String apellido;
+    @Column(name = "edad", nullable = false)
+    private int edad;
+    @Column(name = "grado", nullable = false)
+    private String grado;
+    @Column(name = "seccion", nullable = false)
+    private String seccion;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user", nullable = false, updatable = true)
+    private UserModel userModel;
+
+/*    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "alumno_taller", joinColumns = {
+            @JoinColumn(name = "id_alumno", nullable = false, updatable = true) },
+            inverseJoinColumns = { @JoinColumn(name = "id_taller",
+                    nullable = false, updatable = true) })
+    private Set<TallerModel> tallerModelSet = new HashSet<TallerModel>(0);*/
+
+    @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "alumnoModel")
+    private Set<AlumnoTallerModel> alumnoTallerModelSet = new HashSet<AlumnoTallerModel>();
+
     public int getId() {
         return id;
     }
@@ -32,7 +49,6 @@ public class AlumnoModel {
         this.id = id;
     }
 
-    @Column(name = "nombre", nullable = false)
     public String getNombre() {
         return nombre;
     }
@@ -41,7 +57,7 @@ public class AlumnoModel {
         this.nombre = nombre;
     }
 
-    @Column(name = "apellido", nullable = false)
+
     public String getApellido() {
         return apellido;
     }
@@ -50,8 +66,6 @@ public class AlumnoModel {
         this.apellido = apellido;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_user", nullable = false, updatable = true)
     public UserModel getUserModel() {
         return userModel;
     }
@@ -60,7 +74,7 @@ public class AlumnoModel {
         this.userModel = userModel;
     }
 
-    @Column(name = "edad", nullable = false)
+
     public int getEdad() {
         return edad;
     }
@@ -69,7 +83,7 @@ public class AlumnoModel {
         this.edad = edad;
     }
 
-    @Column(name = "grado", nullable = false)
+
     public String getGrado() {
         return grado;
     }
@@ -78,7 +92,7 @@ public class AlumnoModel {
         this.grado = grado;
     }
 
-    @Column(name = "seccion", nullable = false)
+
     public String getSeccion() {
         return seccion;
     }
@@ -87,12 +101,21 @@ public class AlumnoModel {
         this.seccion = seccion;
     }
 
-    /*    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "stock_category", catalog = "mkyongdb", joinColumns = {
-            @JoinColumn(name = "STOCK_ID", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID",
-                    nullable = false, updatable = false) })
-    public Set<Category> getCategories() {
-        return this.categories;
+/*    public Set<TallerModel> getTallerModelSet() {
+        return tallerModelSet;
+    }
+
+    public void setTallerModelSet(Set<TallerModel> tallerModelSet) {
+        this.tallerModelSet = tallerModelSet;
     }*/
+
+    public Set<AlumnoTallerModel> getAlumnoTallerModelSet() {
+        return alumnoTallerModelSet;
+    }
+
+    public void setAlumnoTallerModelSet(Set<AlumnoTallerModel> alumnoTallerModelSet) {
+        this.alumnoTallerModelSet = alumnoTallerModelSet;
+    }
+
+
 }

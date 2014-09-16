@@ -8,10 +8,6 @@
     </bean>
 
 
-    <bean id="GridCarteleraAction" class="com.cursos.action.cartelera.GridCarteleraAction" scope="prototype">
-        <property name="carteleraService" ref="CarteleraService"/>
-    </bean>
-
     <bean id="CarteleraService" class="com.cursos.service.cartelera.CarteleraService">
         <property name="carteleraDao" ref="CarteleraDao"/>
     </bean>

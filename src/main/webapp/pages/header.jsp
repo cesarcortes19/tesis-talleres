@@ -40,6 +40,18 @@
 <div id="menu">
     <ul class="menu">
 
+
+        <li><a href="#"><span>Gestionar Pagos</span></a>
+            <div>
+                <ul>
+                    <li><a href="<s:url action="cargarTodosUsuariosGestionarPagos" namespace="/administrador/pagos"/>"><span>Ver pagos de todos los usuarios</span></a></li>
+                    <li><a href="<s:url action="cargarGestionarPagos" namespace="/administrador/pagos"/>"><span>Gestionar Pagos Usuario </span></a></li>
+                    <%--<li><a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir en Taller</span></a></li>--%>
+                    <%--<li><a href="<s:url action="cargarTaller" namespace="/usuario/taller"/>"><span>Ver Talleres</span></a></li>--%>
+                </ul>
+            </div>
+        </li>
+
         <li><a href="#"><span>Administrar Taller</span></a>
 
             <div>
@@ -51,7 +63,6 @@
                 </ul>
             </div>
         </li>
-
         <%--Solo lo puede ver el administrador--%>
         <li><a href="#"><span>Administrar Cartelera</span></a>
 
@@ -116,7 +127,7 @@
             </div>
         </li>
 
-        <li class="last"><a href="#"><span>Contactenos</span></a></li>
+        <%--<li class="last"><a href="#"><span>Contactenos</span></a></li>--%>
     </ul>
 </div>
     </div>

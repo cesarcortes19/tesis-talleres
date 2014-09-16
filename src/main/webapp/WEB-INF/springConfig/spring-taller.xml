@@ -6,10 +6,13 @@
     <bean id="TallerAction" class="com.cursos.action.taller.TallerAction" scope="prototype">
         <property name="tallerService" ref="TallerService"/>
         <property name="usuarioService" ref="UsuarioService"/>
+        <property name="authenticationManager" ref="AuthenticationManager"/>
+        <property name="alumnoService" ref="AlumnoService"/>
     </bean>
 
     <bean id="TallerService" class="com.cursos.service.taller.TallerService">
         <property name="tallerDao" ref="TallerDao"/>
+        <property name="alumnoDao" ref="AlumnoDao"/>
     </bean>
     <bean id="TallerDao" class="com.cursos.dao.taller.TallerDao">
         <property name="sessionFactory" ref="SessionFactory"/>

@@ -22,6 +22,7 @@
     <import resource="springConfig/spring-taller.xml"/>
     <import resource="springConfig/spring-usuario.xml"/>
     <import resource="springConfig/spring-alumno.xml"/>
+    <import resource="springConfig/spring-pagos.xml"/>
 <!--    <import resource="springConfig/spring-tiles.xml"/>-->
 
 </beans>

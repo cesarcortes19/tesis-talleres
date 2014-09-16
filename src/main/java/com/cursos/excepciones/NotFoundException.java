@@ -11,7 +11,7 @@ public class NotFoundException extends Exception {
 
 
     public NotFoundException(String elem) {
-        super("exception.not.found ", null);
+        super("exception.taller.maxima.capacidad", null);
         this.elem = elem;
     }
 /*throw new NonUniqueException(barcodeDefinition.getName());*/

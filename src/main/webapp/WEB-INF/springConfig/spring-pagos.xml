@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="PagosAction" class="com.cursos.action.pagos.PagosAction" scope="prototype">
+        <property name="pagosService" ref="PagosService"/>
+        <property name="usuarioService" ref="UsuarioService"/>
+        <property name="tallerService" ref="TallerService"/>
+    </bean>
+
+
+    <bean id="PagosService" class="com.cursos.service.pagos.PagosService">
+        <property name="pagosDao" ref="PagosDao"/>
+    </bean>
+
+    <bean id="PagosDao" class="com.cursos.dao.pagos.PagosDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+</beans>
