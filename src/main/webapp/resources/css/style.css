@@ -1,24 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
+
+.logo {
+    width: 45%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 div.Principal {
     width: auto;
     height: auto;
-    background: rgba(0, 156, 255, 0.41);
-    /*para Firefox*/
-    -moz-border-radius: 15px 15px 15px 15px;
-    /*para Safari y Chrome*/
-    -webkit-border-radius: 15px 15px 15px 15px;
-    /* para Opera */
-    border-radius: 15px 15px 15px 15px;
-    margin-left: 10%;
-    margin-top: 1%;
-    margin-right: 10%;
-    border: 1px solid gray;
-}
-
-.titulo {
-    font-family: Helvetica, Arial, sans-serif, bold;
-    font-size: 250%;
-    align-content: center;
-    color: beige;
+    margin-left: 6%;
+    margin-right: 6%;
 }
 
 div.scrollCarteleraItems {
@@ -79,7 +76,7 @@ div.formulario {
     padding-top: 3%;
 }
 
-form.formulario{
+form.formulario {
     width: 50%;
     margin: 0 auto;
     padding-top: 3%;
@@ -93,16 +90,15 @@ div.botones {
     padding-top: 2%;
 }
 
-.grid{
+.grid {
     font-size: 12px;
     width: 100%;
 }
 
-.gridCenter{
+.gridCenter {
     margin-left: 3%;
     margin-right: 3%;
 }
-
 
 .error {
     background-color: #BC1010;

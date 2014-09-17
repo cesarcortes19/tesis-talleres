@@ -11,7 +11,7 @@
 
 <body>
 <div class="Principal">
-    <table border="1" width="100%" >
+    <table border="0" width="100%" >
         <tr>
             <td colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute><br/></td>
         </tr>

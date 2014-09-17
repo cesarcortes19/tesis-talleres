@@ -21,21 +21,12 @@
 <body>
 
 <style type="text/css">
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        /*background: rgba(53, 99, 128, 0.41);*/
-    }
-
-    /*div#menu {
-        margin:30px auto;
-        width:80%;
-    }*/
 
 </style>
+<div class="bannerHeader" id="bannerHeader">
+    <img id="logo" class="logo" src="<s:url value="/resources/images/logo_gestion_talleres.png"/>" />
+</div>
+
 <div id="contendorMenu">
 <div id="menu">
     <ul class="menu">
@@ -132,8 +123,6 @@
 </div>
     </div>
 <%--<a class="titulo">Centro Educativo de la Asociación de Profesores de la Universidad Central De Venezuela (CEAPUCV)</a>--%>
-<a class="titulo">CEAPUCV</a>
-<a>aqui debe ir algun logo o imagen</a>
 
 <%--Cartelera--%>
 <s:form action="cargarCartelera" namespace="/cartelera" id="cargarCartelera"></s:form>
