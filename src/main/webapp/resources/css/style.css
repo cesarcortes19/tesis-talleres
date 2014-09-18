@@ -72,10 +72,90 @@ table.mostrarCurso td {
 div.formulario {
     width: 50%;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
     padding-top: 3%;
 }
 
+.label {
+    font-family: "Trebuchet MS";
+    font-weight:bold;
+    font-size:12pt;
+    cursor: default;
+}
+
+.errorLabel {
+    font-family: "Trebuchet MS";
+    font-weight:bold;
+    font-size:12pt;
+    cursor: default;
+}
+.errorMessage {
+    font-family: "Trebuchet MS";
+    font-weight:bold;
+    font-size:10pt;
+    color: red;
+}
+.box {
+    width: 200px;
+    height: 20px;
+    background:#fff;
+    font-family: "Trebuchet MS";
+    font-size:10pt;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:15px;
+    padding:10px;
+    border-top:1px solid #CCCCCC;
+    border-left:1px solid #CCCCCC;
+    border-right:1px solid #999999;
+    border-bottom:1px solid #999999;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+
+
+.boxArea {
+    width: 200px;
+    height: 40px;
+    background:#fff;
+    font-family: "Trebuchet MS";
+    font-size:10pt;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:15px;
+    padding:10px;
+    border-top:1px solid #CCCCCC;
+    border-left:1px solid #CCCCCC;
+    border-right:1px solid #999999;
+    border-bottom:1px solid #999999;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+div.formInterno {
+    width: 564px;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border: 1px solid #d0d0d0;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+div.TituloformInterno {
+    width: 564px;
+    height: auto;
+    margin: 0 auto;
+    font-family: "Trebuchet MS";
+    text-align: left;
+    font-size: 28px;
+    font-weight:bold;
+    padding-top: 3%;
+
+
+}
 form.formulario {
     width: 50%;
     margin: 0 auto;
@@ -83,7 +163,7 @@ form.formulario {
 }
 
 div.botones {
-    width: 50%;
+    width: 564px;
     margin: 0 auto;
     font-size: 12px;
     text-align: center;
