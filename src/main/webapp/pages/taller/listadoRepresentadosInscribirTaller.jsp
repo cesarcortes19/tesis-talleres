@@ -35,8 +35,9 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </br>
 </br>
 <div class="mostrarRepresentados">
+
+    <s:iterator value="userModel.alumnoModelSet" var="iteradorAlumnnos" status="statusAlumnos">
     <div class="infoRepresentado">
-        <s:iterator value="userModel.alumnoModelSet" var="iteradorAlumnnos" status="statusAlumnos">
         <a>Nombre: <s:property value="nombre"/></a></br>
         <a>Apellido: <s:property value="apellido"/></a></br>
         <a>Edad: <s:property value="edad"/></a></br>

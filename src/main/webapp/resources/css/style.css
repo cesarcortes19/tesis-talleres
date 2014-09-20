@@ -156,6 +156,22 @@ div.TituloformInterno {
     font-weight:bold;
 
 }
+
+div.infoRepresentado{
+    /*width: 564px;
+    height: auto;*/
+    font-family: "Trebuchet MS";
+    margin: 0 auto;
+    text-align: left;
+    display:inline-block;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 6%;
+    border: 1px solid #d0d0d0;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
 form.formulario {
     width: 50%;
     margin: 0 auto;
