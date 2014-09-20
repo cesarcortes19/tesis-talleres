@@ -142,26 +142,26 @@ div.formulario {
 }
 
 div.formInterno {
-    width: 564px;
-    height: auto;
+    /*width: 564px;
+    height: auto;*/
     margin: 0 auto;
     text-align: center;
+    display:inline-block;
     padding-top: 3%;
     padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 6%;
     border: 1px solid #d0d0d0;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
 }
 div.TituloformInterno {
-    width: 564px;
-    height: auto;
+    display:inline-block;
     margin: 0 auto;
     font-family: "Trebuchet MS";
-    text-align: left;
+    text-align: center;
     font-size: 28px;
     font-weight:bold;
-    padding-top: 3%;
-
 
 }
 form.formulario {
@@ -171,16 +171,16 @@ form.formulario {
 }
 
 div.botones {
-    width: 564px;
     margin: 0 auto;
     font-size: 12px;
     text-align: center;
-    padding-top: 2%;
+    padding-top: 4%;
 }
 
 .grid {
+    display: inline-block;
     font-size: 12px;
-    width: 100%;
+    width:auto;
 }
 
 .gridCenter {

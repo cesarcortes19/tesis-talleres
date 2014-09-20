@@ -25,23 +25,25 @@
     </script>
 </head>
 <body>
-<s:div id="formulario" cssClass="formulario">
+<div id="formulario" class="formulario">
+    <div id="titulo" class="TituloformInterno">
+        Editar Usuario
+        <div id="formularioInterno" class="formInterno">
     <s:form action="guardarEditarUsuario" namespace="/administrador/usuario" id="formEditarUsuario">
-        </br>
-        </br>
-        <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre"/>
-        <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido"/>
-        <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula"/>
-        <s:textfield key="usuario.form.label.email1" name="usuarioModel.email"/>
-        <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2"/>
-        <s:password key="usuario.form.label.password" name="usuarioModel.password"/>
-        <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1"/>
-        <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2"/>
-        <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion"/>
-        <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones"/>
+
+        <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box"/>
+        <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"/>
+        <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box"/>
+        <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box"/>
+        <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box"/>
+        <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box"/>
+        <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box"/>
+        <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea"/>
+        <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea"/>
         <s:hidden name="listaAlumnoJson" id="alumnoJson"/>
     </s:form>
-
+    </div>
+    </div>
 
     <br/>
     <br/>
@@ -102,7 +104,7 @@
         </sj:a>
         <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
-</s:div>
+</div>
 </body>
 </br>
 </br>
