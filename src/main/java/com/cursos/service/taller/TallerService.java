@@ -1,16 +1,16 @@
 package com.cursos.service.taller;
 
 import com.cursos.dao.alumno.AlumnoDao;
+import com.cursos.dao.taller.AlumnoTallerDao;
 import com.cursos.dao.taller.TallerDao;
 import com.cursos.excepciones.TallerMaximaCapacidadException;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.AlumnoTallerModel;
 import com.cursos.model.TallerModel;
 import org.springframework.transaction.annotation.Transactional;
-import sun.swing.BakedArrayList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,6 +23,7 @@ public class TallerService {
 
     private TallerDao tallerDao;
     private AlumnoDao alumnoDao;
+    private AlumnoTallerDao alumnoTallerDao;
 
     public void setTallerDao(TallerDao tallerDao) {
         this.tallerDao = tallerDao;
@@ -87,5 +88,31 @@ public class TallerService {
         //tallerModel.getAlumnoModelSet().add(alumnoModel);
         alumnoDao.updateAlumno(alumnoModel);
         tallerDao.updateTaller(tallerModel);
+    }
+
+    public void realizarDesinscripcion(AlumnoTallerModel alumnoTallerModel) throws Exception{
+        Date utilDate = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        alumnoTallerModel = alumnoTallerDao.getAlumnoTallerModel(alumnoTallerModel);
+        alumnoTallerModel.setFechaDesinscripcion(sqlDate);
+        alumnoTallerDao.updateAlumnoTallerModel(alumnoTallerModel);
+    }
+
+    public Integer getContadorAllTalleresByUser(int idUsuario)throws Exception{
+        return alumnoTallerDao.getContadorAllTalleresByUser(idUsuario);
+
+    }
+
+    public void setAlumnoTallerDao(AlumnoTallerDao alumnoTallerDao) {
+        this.alumnoTallerDao = alumnoTallerDao;
+    }
+
+    public AlumnoTallerDao getAlumnoTallerDao() {
+        return alumnoTallerDao;
+    }
+
+
+    public List<AlumnoTallerModel> getAllTalleresByUser(Integer id) throws Exception{
+        return alumnoTallerDao.getAllTalleresByUser(id);
     }
 }

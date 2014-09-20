@@ -3,6 +3,7 @@ package com.cursos.action.taller;
 import com.cursos.excepciones.NotFoundException;
 import com.cursos.excepciones.TallerMaximaCapacidadException;
 import com.cursos.model.AlumnoModel;
+import com.cursos.model.AlumnoTallerModel;
 import com.cursos.model.TallerModel;
 import com.cursos.model.UserModel;
 import com.cursos.service.alumno.AlumnoService;
@@ -29,6 +30,8 @@ public class TallerAction extends ActionSupport {
     private AuthenticationManager authenticationManager;
     private AlumnoModel alumnoModel;
     private AlumnoService alumnoService;
+    private AlumnoTallerModel alumnoTallerModel;
+
 
     public String cargar() {
         return SUCCESS;
@@ -146,6 +149,17 @@ public class TallerAction extends ActionSupport {
         return "listadoRepresentadosInscribir";
     }
 
+    public String realizarDesinscripcion(){
+        try {
+            tallerService.realizarDesinscripcion(alumnoTallerModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        addActionMessage("Transaccion Exitosa");
+        return "listadoRepresentadosInscribir";
+    }
+
 
     public TallerModel getTallerModel() {
         return tallerModel;
@@ -209,5 +223,13 @@ public class TallerAction extends ActionSupport {
 
     public AlumnoService getAlumnoService() {
         return alumnoService;
+    }
+
+    public AlumnoTallerModel getAlumnoTallerModel() {
+        return alumnoTallerModel;
+    }
+
+    public void setAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) {
+        this.alumnoTallerModel = alumnoTallerModel;
     }
 }

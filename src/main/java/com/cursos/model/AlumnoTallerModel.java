@@ -3,6 +3,7 @@ package com.cursos.model;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by Cesar on 14/09/2014.
@@ -45,6 +46,8 @@ public class AlumnoTallerModel {
     private Boolean noviembre;
     @Column(name = "diciembre", nullable = true)
     private Boolean diciembre;
+    @Column(name = "fecha_desinscripcion", nullable = true)
+    private Date fechaDesinscripcion;
 
     public AlumnoTallerModel() {
     }
@@ -172,5 +175,13 @@ public class AlumnoTallerModel {
 
     public void setDiciembre(Boolean diciembre) {
         this.diciembre = diciembre;
+    }
+
+    public Date getFechaDesinscripcion() {
+        return fechaDesinscripcion;
+    }
+
+    public void setFechaDesinscripcion(Date fechaDesinscripcion) {
+        this.fechaDesinscripcion = fechaDesinscripcion;
     }
 }
