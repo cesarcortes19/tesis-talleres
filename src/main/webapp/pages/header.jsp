@@ -43,13 +43,20 @@
             </div>
         </li>
 
+        <li><a href="#"><span>Gestionar Inscripcion</span></a>
+            <div>
+                <ul>
+                    <li><a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir/Desinscribir</span></a></li>
+                </ul>
+            </div>
+        </li>
+
         <li><a href="#"><span>Administrar Taller</span></a>
 
             <div>
                 <ul>
                     <li><a href="<s:url action="cargarCrearTaller" namespace="/administrador/taller"/>"><span>Crear Taller</span></a></li>
                     <li><a href="<s:url action="cargarAdministrarTaller" namespace="/administrador/taller"/>"><span>Administrar Taller</span></a></li>
-                    <li><a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir en Taller</span></a></li>
                     <%--<li><a href="<s:url action="cargarTaller" namespace="/usuario/taller"/>"><span>Ver Talleres</span></a></li>--%>
                 </ul>
             </div>

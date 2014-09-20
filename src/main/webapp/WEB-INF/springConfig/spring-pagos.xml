@@ -9,6 +9,11 @@
         <property name="tallerService" ref="TallerService"/>
     </bean>
 
+    <bean id="GridPagosAction" class="com.cursos.action.pagos.GridPagosAction" scope="prototype">
+        <!--<property name="pagosService" ref="PagosService"/>-->
+        <property name="tallerService" ref="TallerService"/>
+    </bean>
+
 
     <bean id="PagosService" class="com.cursos.service.pagos.PagosService">
         <property name="pagosDao" ref="PagosDao"/>

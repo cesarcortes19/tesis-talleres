@@ -21,7 +21,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         function inscribirTallerFunction(element){
             $("#hiddenAlumnoModel").val(element);
             $("#formInsribirTaller").submit();
+        }
 
+        function desinscribirTaller(element){
+            $("#hiddenAlumnoModelDesinscribir").val(element);
+            $("#formDesinscribirTaller").submit();
         }
     </script>
 </head>
@@ -41,7 +45,14 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         <a>Apellido: <s:property value="apellido"/></a></br>
         <a>Edad: <s:property value="edad"/></a></br>
         <a>Grado: <s:property value="grado"/><s:property value="seccion"/></a></br>
-        <sj:a id="inscribir%{#iteradorAlumnnos.id}" button="true" buttonIcon="ui-icon-circle-check" value="Save"
+            <a>------------Talleres Inscritos---------</a></br>
+            <s:iterator value="alumnoTallerModelSet" var="iteradorTalleresAlumno" status="statusTalleresAlumno">
+                <s:property value="tallerModel.name"/> <a href="#" onclick="desinscribirTaller('<s:property value="tallerModel.id"/>')"> DESINSCRIBIR</a>
+            </s:iterator>
+
+            <br>
+            <br>
+            <sj:a id="inscribir%{#iteradorAlumnnos.id}" button="true" buttonIcon="ui-icon-circle-check" value="Save"
               onclick="inscribirTallerFunction('%{#iteradorAlumnnos.id}');">Inscribir en Taller</sj:a>
     </div>
     </br>
@@ -53,5 +64,10 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <s:form action="cargarTallerInscribirTaller" namespace="/usuario/taller" id="formInsribirTaller">
     <s:hidden name="alumnoModel.id" id="hiddenAlumnoModel"/>
 </s:form>
+
+<s:form action="realizarDesinscripcionTaller" namespace="/usuario/taller" id="formDesinscribirTaller">
+    <s:hidden name="alumnoTallerModel.id" id="hiddenAlumnoModelDesinscribir"/>
+</s:form>
+
 </body>
 </html>

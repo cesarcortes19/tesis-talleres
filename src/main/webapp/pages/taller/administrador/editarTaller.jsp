@@ -23,10 +23,16 @@
 <div id="formulario" cssClass="formulario">
     <s:form action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller">
         <s:hidden name="tallerModel.id"/>
-        <s:textfield key="taller.form.label.nombre" name="tallerModel.name"/>
-        <s:textfield key="taller.form.label.horario" name="tallerModel.horario"/>
-        <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion"/>
-        <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);"/>
+            <s:textfield key="taller.form.label.nombre" name="tallerModel.name"/>
+            <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion"/>
+            <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);"/>
+            <s:textfield key="taller.form.label.horario.lunes" name="tallerModel.horarioLunes"/>
+            <s:textfield key="taller.form.label.horario.martes" name="tallerModel.horarioMartes"/>
+            <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles"/>
+            <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves"/>
+            <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes"/>
+            <s:textfield key="taller.form.label.horario.sabado" name="tallerModel.horarioSabado"/>
+            <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo"/>
     </s:form>
     <div class="botones">
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="editarTallerFunction();">

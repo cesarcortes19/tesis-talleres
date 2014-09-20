@@ -16,4 +16,33 @@
         </action>
     </package>
 
+    <package name="pagosUsuario" namespace="/usuario/pagos" extends="default">
+        <action name="*Pagos" class="GridPagosAction" method="{1}">
+        </action>
+
+
+        <action name="*PagosJson" class="GridPagosAction" method="{1}">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.alumnoModel\.nombre,
+                    ^gridModel\[\d+\]\.tallerModel\.name,
+                    ^gridModel\[\d+\]\.enero,
+                    ^gridModel\[\d+\]\.febrero,
+                    ^gridModel\[\d+\]\.marzo,
+                    ^gridModel\[\d+\]\.abril,
+                    ^gridModel\[\d+\]\.mayo,
+                    ^gridModel\[\d+\]\.junio,
+                    ^gridModel\[\d+\]\.julio,
+                    ^gridModel\[\d+\]\.agosto,
+                    ^gridModel\[\d+\]\.septiembre,
+                    ^gridModel\[\d+\]\.octubre,
+                    ^gridModel\[\d+\]\.noviembre,
+                    ^gridModel\[\d+\]\.diciembre
+                </param>
+            </result>
+        </action>
+
+    </package>
+
 </struts>

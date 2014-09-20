@@ -48,6 +48,11 @@
             <result name="listadoTallerInscribir" type="tiles">listadoTallerInscribir</result>
             <!--<result name="listadoTallerInscribir" type="tiles">listadoTallerInscribir</result>-->
         </action>
+
+        <action name="*DesinscripcionTaller" class="TallerAction" method="{1}Desinscripcion">
+            <result name="input" type="tiles">inscribirTaller</result>
+            <result name="listadoRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
+        </action>
     </package>
 
 </struts>

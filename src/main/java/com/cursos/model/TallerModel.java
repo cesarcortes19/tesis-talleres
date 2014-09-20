@@ -27,8 +27,20 @@ public class TallerModel {
     private int cantidadAlumnosactual;
     @Column(name = "descripcion")
     private String descripcion;
-    @Column(name = "horario")
-    private String horario;
+    @Column(name = "horario_lunes")
+    private String horarioLunes;
+    @Column(name = "horario_martes")
+    private String horarioMartes;
+    @Column(name = "horario_miercoles")
+    private String horarioMiercoles;
+    @Column(name = "horario_jueves")
+    private String horarioJueves;
+    @Column(name = "horario_viernes")
+    private String horarioViernes;
+    @Column(name = "horario_sabado")
+    private String horarioSabado;
+    @Column(name = "horario_domingo")
+    private String horarioDomingo;
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "tallerModel")
     private Set<AlumnoTallerModel> alumnoTallerModelset = new HashSet<AlumnoTallerModel>();
 
@@ -71,12 +83,60 @@ public class TallerModel {
         this.cantidadAlumnosactual = cantidadAlumnosactual;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getHorarioLunes() {
+        return horarioLunes;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHorarioLunes(String horarioLunes) {
+        this.horarioLunes = horarioLunes;
+    }
+
+    public String getHorarioMartes() {
+        return horarioMartes;
+    }
+
+    public void setHorarioMartes(String horarioMartes) {
+        this.horarioMartes = horarioMartes;
+    }
+
+    public String getHorarioMiercoles() {
+        return horarioMiercoles;
+    }
+
+    public void setHorarioMiercoles(String horarioMiercoles) {
+        this.horarioMiercoles = horarioMiercoles;
+    }
+
+    public String getHorarioJueves() {
+        return horarioJueves;
+    }
+
+    public void setHorarioJueves(String horarioJueves) {
+        this.horarioJueves = horarioJueves;
+    }
+
+    public String getHorarioViernes() {
+        return horarioViernes;
+    }
+
+    public void setHorarioViernes(String horarioViernes) {
+        this.horarioViernes = horarioViernes;
+    }
+
+    public String getHorarioSabado() {
+        return horarioSabado;
+    }
+
+    public void setHorarioSabado(String horarioSabado) {
+        this.horarioSabado = horarioSabado;
+    }
+
+    public String getHorarioDomingo() {
+        return horarioDomingo;
+    }
+
+    public void setHorarioDomingo(String horarioDomingo) {
+        this.horarioDomingo = horarioDomingo;
     }
 
     public String getDescripcion() {
@@ -103,4 +163,6 @@ public class TallerModel {
     public void setAlumnoModelSet(Set<AlumnoModel> alumnoModelSet) {
         this.alumnoModelSet = alumnoModelSet;
     }*/
+
+
 }

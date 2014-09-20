@@ -27,9 +27,15 @@
     <div id="formularioInterno" class="formInterno">
         <s:form action="guardarCrearTaller" namespace="/administrador/taller" id="formCrearTaller">
             <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario" name="tallerModel.horario" cssClass="box"/>
             <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea"/>
-            <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" cssClass="box" onkeypress="return onlyNumber(event);"/>
+            <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.lunes" name="tallerModel.horarioLunes" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.martes" name="tallerModel.horarioMartes" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.sabado" name="tallerModel.horarioSabado" cssClass="box"/>
+            <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo" cssClass="box"/>
         </s:form>
     </div>
     <div class="botones">

@@ -14,11 +14,6 @@
             <message key="requiredstring"/>
         </field-validator>
     </field>
-    <field name="tallerModel.horario">
-        <field-validator type="requiredstring">
-            <message key="requiredstring"/>
-        </field-validator>
-    </field>
 
     <field name="tallerModel.cantidadAlumnosMaxima">
         <field-validator type="int">

@@ -13,10 +13,18 @@
     <bean id="TallerService" class="com.cursos.service.taller.TallerService">
         <property name="tallerDao" ref="TallerDao"/>
         <property name="alumnoDao" ref="AlumnoDao"/>
+        <property name="alumnoTallerDao" ref="AlumnoTallerDao"/>
     </bean>
+
     <bean id="TallerDao" class="com.cursos.dao.taller.TallerDao">
         <property name="sessionFactory" ref="SessionFactory"/>
     </bean>
+
+    <bean id="AlumnoTallerDao" class="com.cursos.dao.taller.AlumnoTallerDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+
 
 
 </beans>

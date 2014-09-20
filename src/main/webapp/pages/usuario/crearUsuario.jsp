@@ -29,12 +29,16 @@
         </br>
         </br>
         <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre"
-                     onkeypress="return onlyLetters(event);"/>
+                     onkeypress="return onlyLetters(event);" theme="simple"/>
+        <br>
+        <br>
         <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido"
                      onkeypress="return onlyLetters(event);"/>
         <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula"
                      onkeypress="return onlyNumber(event);"/>
         <s:textfield key="usuario.form.label.email1" name="usuarioModel.email"/>
+        <br>
+        <br>
         <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2"/>
         <s:password key="usuario.form.label.password" name="usuarioModel.password"/>
         <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1"
