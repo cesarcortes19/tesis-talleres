@@ -20,14 +20,20 @@
 </head>
 <body>
 
-<div id="formulario" cssClass="formulario">
-    <s:form action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller">
-        <s:hidden name="tallerModel.id"/>
-        <s:textfield key="taller.form.label.nombre" name="tallerModel.name"/>
-        <s:textfield key="taller.form.label.horario" name="tallerModel.horario"/>
-        <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion"/>
-        <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);"/>
-    </s:form>
+<div id="formulario" class="formulario">
+    <div id="titulo" class="TituloformInterno">
+        Editar Taller
+
+        <div id="formularioInterno" class="formInterno">
+            <s:form action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller">
+                <s:hidden name="tallerModel.id"/>
+                <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario" name="tallerModel.horario" cssClass="box"/>
+                <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea"/>
+                <s:textfield key="taller.form.label.cantidad.inscripciones" cssClass="box" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);"/>
+            </s:form>
+        </div>
+    </div>
     <div class="botones">
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="editarTallerFunction();">
             Guardar

@@ -21,19 +21,26 @@
 </head>
 <body>
 
-<div id="formulario" cssClass="formulario">
-    <s:form action="guardarCartelera" namespace="/cartelera" id="guardarCartelera">
-        <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="requerido"/>
-        <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="requerido"/>
-    </s:form>
+<div id="formulario" class="formulario">
+    <div id="titulo" class="TituloformInterno">
+        Crear Noticia
+
+    <div id="formularioInterno" class="formInterno">
+        <s:form action="guardarCartelera" namespace="/cartelera" id="guardarCartelera">
+            <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box"/>
+            <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea"/>
+        </s:form>
+    </div>
+    </div>
+    <div class="botones">
+        <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearNoticiaFunction();">
+            Guardar
+        </sj:a>
+        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+    </div>
 </div>
 
-        <div class="botones">
-            <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearNoticiaFunction();">
-                Guardar
-            </sj:a>
-            <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
-        </div>
+
 
 </body>
 </html>
