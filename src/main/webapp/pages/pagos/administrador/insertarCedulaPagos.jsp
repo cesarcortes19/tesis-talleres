@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Cesar
@@ -10,15 +11,28 @@
 <html>
 <head>
     <title></title>
+    <script>
+        function enviarCedulaFunction() {
+            $("#buscarUsuarioGestionarPagos").submit();
+        }
+    </script>
 </head>
 <body>
 
 <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
-<s:form action="buscarUsuarioGestionarPagos" namespace="/administrador/pagos">
-    <s:textfield key="taller.form.label.inscripcion.cedula" name="userModel.cedula"
-                 onkeypress="return onlyNumber(event);"/>
-    <s:submit cssClass="botonSubmit"/>
-</s:form>
-
+<div class="formulario">
+    <div id="titulo" class="TituloformInterno">
+        Gestionar Pagos
+        <div class="formInterno">
+            <s:form action="buscarUsuarioGestionarPagos" id="buscarUsuarioGestionarPagos" namespace="/administrador/pagos">
+                <s:textfield key="taller.form.label.inscripcion.cedula" cssClass="box" name="userModel.cedula"
+                             onkeypress="return onlyNumber(event);"/>
+            </s:form>
+        </div>
+    </div>
+    <div class="botones">
+        <sj:a id="enviar" button="true" buttonIcon="ui-icon-check" onclick="enviarCedulaFunction();">Enviar</sj:a>
+    </div>
+</div>
 </body>
 </html>

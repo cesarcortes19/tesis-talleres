@@ -164,7 +164,16 @@ div.TituloformInterno {
     font-weight:bold;
 
 }
+div.tituloRepresentante{
+    font-family: "Trebuchet MS";
+    text-align: left;
+    font-size: 18px;
+    border-bottom: 1px solid #d0d0d0;
+}
 
+div.mostrarRepresentados{
+    text-align: center;
+}
 div.infoRepresentado{
     /*width: 564px;
     height: auto;*/
@@ -175,8 +184,9 @@ div.infoRepresentado{
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 3%;
-    padding-right: 6%;
+    padding-right: 3%;
     border: 1px solid #d0d0d0;
+    background: #f2f5f7;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
 }
@@ -187,6 +197,12 @@ form.formulario {
 }
 
 div.botones {
+    margin: 0 auto;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 4%;
+}
+div.botones2 {
     margin: 0 auto;
     font-size: 12px;
     text-align: center;
