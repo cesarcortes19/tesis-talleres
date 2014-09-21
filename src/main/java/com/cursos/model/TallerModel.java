@@ -41,6 +41,8 @@ public class TallerModel {
     private String horarioSabado;
     @Column(name = "horario_domingo")
     private String horarioDomingo;
+    @Column(name = "costo")
+    private Double costo;
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "tallerModel")
     private Set<AlumnoTallerModel> alumnoTallerModelset = new HashSet<AlumnoTallerModel>();
 

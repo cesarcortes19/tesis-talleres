@@ -50,7 +50,11 @@ public class PagosAction extends ActionSupport {
             return ERROR;
         }
         return "infoPagosUsuario";
+    }
 
+    public String cargarTodosUsuarios(){
+
+        return "infoPagosTodosUsuario";
     }
 
     public UserModel getUsuarioAutenticado(){

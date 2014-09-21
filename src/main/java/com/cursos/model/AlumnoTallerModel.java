@@ -48,6 +48,8 @@ public class AlumnoTallerModel {
     private Boolean diciembre;
     @Column(name = "fecha_desinscripcion", nullable = true)
     private Date fechaDesinscripcion;
+    @Column(name = "fecha_inscripcion", nullable = true)
+    private Date fechaInscripcion;
 
     public AlumnoTallerModel() {
     }
@@ -183,5 +185,13 @@ public class AlumnoTallerModel {
 
     public void setFechaDesinscripcion(Date fechaDesinscripcion) {
         this.fechaDesinscripcion = fechaDesinscripcion;
+    }
+
+    public Date getFechaInscripcion() {
+        return fechaInscripcion;
+    }
+
+    public void setFechaInscripcion(Date fechaInscripcion) {
+        this.fechaInscripcion = fechaInscripcion;
     }
 }

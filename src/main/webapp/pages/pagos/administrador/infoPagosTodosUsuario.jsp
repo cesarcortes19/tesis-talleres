@@ -19,43 +19,17 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     <title></title>
 
     <script>
-        function inscribirTallerFunction(element) {
-            $("#hiddenAlumnoModel").val(element);
-            $("#formInsribirTaller").submit();
-        }
 
-        function getTriggerEnter() {
-            var e = jQuery.Event("keydown");
-            e.which = 13; // # Some key code value
-            e.keyCode = 13;
-            $("#pagosGrid input").trigger(e);
-            return true;
-        }
-        $.subscribe('grid_complete', function(event, data) {
-            habilitarCheckbox();
-        });
-
-        function habilitarCheckbox(){
-            $(':checkbox').each(function( index ) {
-                $(this).removeAttr('disabled');
-            });
-        }
     </script>
 </head>
 <body>
 
 <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
 
-<div class="tituloRepresentante">
-    <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Telefono:</b> <s:property value="userModel.telefono1"/>
-</div>
-</br>
-</br>
 
-<s:property value="usermodel.id"/>
 <s:url id="remoteurl" action="cargarPagosJson" namespace="/usuario/pagos">
     <s:param name="userModel.id">
-        <s:property value="userModel.id"/>
+        -1
     </s:param>
 </s:url>
 
@@ -73,10 +47,9 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             cellEdit="true"
             altRows="true"
             autowidth="true"
-            groupField="['alumnoModel.nombre']"
+            groupField="['tallerModel.name']"
             groupCollapse="false"
-            groupText="['Representado: <b>{0}']"
-
+            groupText="['Taller: <b>{0}']"
             onGridCompleteTopics="grid_complete"
             >
 
@@ -88,17 +61,17 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         hidden="true"/>
 
         <sjg:gridColumn name="alumnoModel.nombre"
-                        title=" "
+                        title="Representado"
                         index="representado"
                         align="center"
-                        hidden="true"
-                        width="1"/>
+                        />
 
         <sjg:gridColumn name="tallerModel.name"
                         title="Taller"
                         index="taller"
                         align="center"
-                        sortable="false"/>
+                        sortable="false"
+                hidden="true"/>
 
         <sjg:gridColumn name="enero"
                         title="Ene"

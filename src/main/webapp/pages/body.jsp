@@ -17,7 +17,7 @@
     <s:form  action="addUsermenu">
         <s:textfield name="userName" key="user.name" />
         <s:textfield name="userAge" key="user.age" value=""/>
-        <s:radio name="userGender" key="user.gender" list="{'Male','Female'}" />
+        <s:radio  theme="simple" name="userGender" key="user.gender" list="{'Male','Female'}" />
         <s:select name="userJob"  key="user.job" list="%{#{'Software':'Software','Hardware':'Hardware','Networking':'Networking','Marketing':'Marketing'}}"/>
         <s:checkboxlist name="userHobbies" key="user.hobby" list="{'Cricket','Football','Drawing','Cooking','Driving','Movie'}" />
         <s:submit key="submit" align="center"/>

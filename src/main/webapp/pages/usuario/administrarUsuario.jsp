@@ -47,7 +47,6 @@
         }
 
 
-
     </script>
 </head>
 <body>
@@ -81,7 +80,8 @@
     <sjg:gridColumn name="id" index="id" title="ID" width="60" formatter="integer" editable="false"
                     hidden="true"/>
     <s:property value='nombre'/>
-    <sjg:gridColumn name="nombre" frozen="true" index="nombre" title="Nombre" width="250" edittype="text" align="center"/>
+    <sjg:gridColumn name="nombre" frozen="true" index="nombre" title="Nombre" width="250" edittype="text"
+                    align="center"/>
     <sjg:gridColumn name="apellido" index="apellido" title="Apellido" align="center"/>
     <sjg:gridColumn name="email" index="email" title="Email" align="center"/>
     <sjg:gridColumn name="email2" index="email2" title="Email Alternativo" align="center"/>

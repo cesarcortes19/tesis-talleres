@@ -15,7 +15,6 @@ import java.util.Set;
 @Table(name = "user")
 @DynamicUpdate
 public class UserModel implements UsuarioInterface {
-
     private int id;
     private String nombre;
     private String apellido;

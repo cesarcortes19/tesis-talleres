@@ -12,14 +12,15 @@
             <result name="success" type="tiles">insertarCedulaPagos</result>
             <result name="input" type="tiles">insertarCedulaPagos</result>
             <result name="infoPagosUsuario" type="tiles">infoPagosUsuario</result>
+            <result name="infoPagosTodosUsuario" type="tiles">infoPagosTodosUsuario</result>
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
     </package>
 
     <package name="pagosUsuario" namespace="/usuario/pagos" extends="default">
+
         <action name="*Pagos" class="GridPagosAction" method="{1}">
         </action>
-
 
         <action name="*PagosJson" class="GridPagosAction" method="{1}">
             <result name="success" type="json">
@@ -38,11 +39,13 @@
                     ^gridModel\[\d+\]\.septiembre,
                     ^gridModel\[\d+\]\.octubre,
                     ^gridModel\[\d+\]\.noviembre,
-                    ^gridModel\[\d+\]\.diciembre
+                    ^gridModel\[\d+\]\.diciembre,
+                    ^gridModel\[\d+\]\.fechaDesinscripcion,
+                    ^gridModel\[\d+\]\.fechaInscripcion,
+                    ^gridModel\[\d+\]\.tallerModel\.costo
                 </param>
             </result>
         </action>
-
     </package>
 
 </struts>

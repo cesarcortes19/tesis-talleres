@@ -104,6 +104,11 @@
         <put-attribute name="body"   value="/pages/pagos/infoPagosUsuario.jsp"/>
     </definition>
 
+    <definition name="infoPagosTodosUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Informacion Usuario"/>
+        <put-attribute name="body"   value="/pages/pagos/administrador/infoPagosTodosUsuario.jsp"/>
+    </definition>
+
     <!--ERROR-->
     <definition name="ERROR" extends="mainTemplate">
         <put-attribute name="title"  value="ERROR"/>
