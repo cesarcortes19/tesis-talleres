@@ -96,7 +96,7 @@
         </li>
 
         <%--Solo lo deben ver los represententaste y usuarios invitados--%>
-        <li><a href="#"><span>Taller</span></a>
+        <%--<li><a href="#"><span>Taller</span></a>
 
             <div>
                 <ul>
@@ -110,8 +110,8 @@
             </div>
         </li>
 
-        <%--Solo lo deben ver los represententaste y usuarios invitados--%>
-        <li><a href="#"><span>Cartelera</span></a></li>
+        &lt;%&ndash;Solo lo deben ver los represententaste y usuarios invitados&ndash;%&gt;
+        <li><a href="#"><span>Cartelera</span></a></li>--%>
 
         <%--Solo lo deben ver los represententaste--%>
         <li><a href="#" class="parent"><span>Configuraci&oacute;n</span></a>

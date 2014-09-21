@@ -26,11 +26,21 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 
 <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
 
+<div id="selectTalleres" style="width: 50%">
+    <label> Busqueda por taller: </label>
+<s:select label="Busqueda por taller"
+          headerValue="Seleccione un taller"
+          headerKey="-1"
+          list="tallerModelList"
+          listKey="id"
+          listValue="name"
+          name="tallerModel.id" id="selectTaller"
+          theme="simple"/>
+</div>
+<br>
 
-<s:url id="remoteurl" action="cargarPagosJson" namespace="/usuario/pagos">
-    <s:param name="userModel.id">
-        -1
-    </s:param>
+<br>
+<s:url id="remoteurl" action="cargarPagosJson" namespace="/administrador/pagos">
 </s:url>
 
 <div class="ajusteciente">
@@ -47,9 +57,9 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             cellEdit="true"
             altRows="true"
             autowidth="true"
-            groupField="['tallerModel.name']"
+            groupField="['alumnoModel.userModel.userInfo']"
             groupCollapse="false"
-            groupText="['Taller: <b>{0}']"
+            groupText="['Representante: <b>{0}']"
             onGridCompleteTopics="grid_complete"
             >
 
@@ -66,12 +76,17 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         />
 
+        <sjg:gridColumn name="alumnoModel.userModel.userInfo"
+                        title=" "
+                        index="usuario"
+                        align="center"
+                        width="1"/>
+
         <sjg:gridColumn name="tallerModel.name"
                         title="Taller"
                         index="taller"
                         align="center"
-                        sortable="false"
-                hidden="true"/>
+                        sortable="false"/>
 
         <sjg:gridColumn name="enero"
                         title="Ene"
@@ -195,46 +210,24 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         sortable="false"/>
 
+        <sjg:gridColumn name="fechaDesinscripcion"
+                        title="Desinscripci"
+                        index="fechaDesinscripcion"
+                        editable="true"
+                        align="center"
+                        sortable="false"
+                        hidden="true"/>
+
+        <sjg:gridColumn name="fechaInscripcion"
+                        title="Inscripci&oacuten"
+                        index="fechaInscripcion"
+                        editable="true"
+                        align="center"
+                        sortable="false"
+                        hidden="true"/>
+
     </sjg:grid>
 
 </div>
-<br>
-<br>
-<br>
-<h3>Realizar Pago</h3><br>
-<div id="mensajeCalculoPago"><b>¡ATENCI&Oacute;N!:</b> Segun los meses seleccionados por usted, la aplicaci&oacuten ha calculado que su pago debe ser por el monto de 1250 Bs. </div>
-<s:form action="cargarTallerInscribirTaller" namespace="/usuario/taller" id="formInsribirTaller">
-    <table style="border-spacing: 50px;">
-        <tr>
-            <td>
-                <label style="display:inline-block"><b>Tipo de pago:</b></label>
-                <%--<s:textfield id="namePlanPrize" name="pagosModel.tipoPago" theme="simple"/>--%>
-                <s:radio  theme="simple" name="userGender" key="user.gender" list="{'Deposito','Transferencia','Efectivo' }" />
-            </td>
-
-            <td>
-                <label style="display:inline-block"><b>N&uacutemero Comprobante:</b></label>
-                <s:textfield id="namePlanPrize" name="pagosModel.tipoPago" theme="simple"/>
-            </td>
-
-            <td>
-                <label style="display:inline-block"><b>Monto a pagar:</b></label>
-                <s:textfield id="namePlanPrize" name="pagosModel.tipoPago" theme="simple"/>
-            </td>
-
-
-        </tr>
-    </table>
-
-    <div class="botones">
-        <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="crearNoticiaFunction();">
-            Realizar Pago
-        </sj:a>
-        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
-    </div>
-
-
-    <s:hidden name="userModel.id" id="hiddenUserModel"/>
-</s:form>
 </body>
 </html>

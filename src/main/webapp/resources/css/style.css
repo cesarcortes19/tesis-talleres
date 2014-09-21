@@ -154,6 +154,8 @@ div.formInterno {
     border: 1px solid #d0d0d0;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    border-radius: 8px;
+
 }
 div.TituloformInterno {
     display:inline-block;
@@ -162,8 +164,8 @@ div.TituloformInterno {
     text-align: center;
     font-size: 28px;
     font-weight:bold;
-
 }
+
 div.tituloRepresentante{
     font-family: "Trebuchet MS";
     text-align: left;

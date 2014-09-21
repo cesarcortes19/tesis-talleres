@@ -15,6 +15,34 @@
             <result name="infoPagosTodosUsuario" type="tiles">infoPagosTodosUsuario</result>
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
+
+        <action name="*PagosJson" class="GridPagosAction" method="{1}">
+            <param name="userModel.id">-989</param>
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.alumnoModel\.nombre,
+                    ^gridModel\[\d+\]\.alumnoModel\.userModel\.nombre,
+                    ^gridModel\[\d+\]\.alumnoModel\.userModel\.cedula,
+                    ^gridModel\[\d+\]\.alumnoModel\.userModel\.userInfo,
+                    ^gridModel\[\d+\]\.tallerModel\.name,
+                    ^gridModel\[\d+\]\.enero,
+                    ^gridModel\[\d+\]\.febrero,
+                    ^gridModel\[\d+\]\.marzo,
+                    ^gridModel\[\d+\]\.abril,
+                    ^gridModel\[\d+\]\.mayo,
+                    ^gridModel\[\d+\]\.junio,
+                    ^gridModel\[\d+\]\.julio,
+                    ^gridModel\[\d+\]\.agosto,
+                    ^gridModel\[\d+\]\.septiembre,
+                    ^gridModel\[\d+\]\.octubre,
+                    ^gridModel\[\d+\]\.noviembre,
+                    ^gridModel\[\d+\]\.diciembre,
+                    ^gridModel\[\d+\]\.fechaDesinscripcion,
+                    ^gridModel\[\d+\]\.fechaInscripcion
+                </param>
+            </result>
+        </action>
     </package>
 
     <package name="pagosUsuario" namespace="/usuario/pagos" extends="default">

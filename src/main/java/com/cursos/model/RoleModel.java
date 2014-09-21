@@ -38,7 +38,7 @@ public class RoleModel {
         this.name = name;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "roleModel")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "roleModel")
     public Set<UserModel> getUserModelList() {
         return userModelList;
     }

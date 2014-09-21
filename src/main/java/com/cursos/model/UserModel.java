@@ -28,6 +28,8 @@ public class UserModel implements UsuarioInterface {
     private String telefono1;
     private String telefono2;
     private String observaciones;
+    @Transient
+    private String userInfo;
 
     @Override
     @Id
@@ -150,5 +152,14 @@ public class UserModel implements UsuarioInterface {
     @Override
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public String getUserInfo() {
+        String userInfo = this.nombre+" "+this.apellido+" C.I:"+this.cedula;
+        return userInfo;
+    }
+
+    public void setUserInfo(String userInfo) {
+        this.userInfo = userInfo;
     }
 }

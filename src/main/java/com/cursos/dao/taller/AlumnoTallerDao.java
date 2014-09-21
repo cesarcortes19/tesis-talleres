@@ -54,4 +54,15 @@ public class AlumnoTallerDao {
             throw e;
         }
     }
+
+    public List<AlumnoTallerModel> getAllTalleresAllUsuarios() {
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("from AlumnoTallerModel");
+            return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

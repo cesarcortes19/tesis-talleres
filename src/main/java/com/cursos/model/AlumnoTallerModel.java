@@ -194,4 +194,6 @@ public class AlumnoTallerModel {
     public void setFechaInscripcion(Date fechaInscripcion) {
         this.fechaInscripcion = fechaInscripcion;
     }
+
+
 }

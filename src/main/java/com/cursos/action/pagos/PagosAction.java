@@ -1,6 +1,7 @@
 package com.cursos.action.pagos;
 
 import com.cursos.excepciones.NotFoundException;
+import com.cursos.model.TallerModel;
 import com.cursos.model.UserModel;
 import com.cursos.service.pagos.PagosService;
 import com.cursos.service.taller.TallerService;
@@ -11,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by Cesar on 14/09/2014.
@@ -20,6 +22,8 @@ public class PagosAction extends ActionSupport {
     private UserModel userModel;
     private UsuarioService usuarioService;
     private TallerService tallerService;
+    private TallerModel tallerModel;
+    private List<TallerModel> tallerModelList;
 
     public String execute(){
         return SUCCESS;
@@ -54,6 +58,12 @@ public class PagosAction extends ActionSupport {
 
     public String cargarTodosUsuarios(){
 
+        try {
+            tallerModelList = tallerService.getAllTaller();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
         return "infoPagosTodosUsuario";
     }
 
@@ -93,5 +103,21 @@ public class PagosAction extends ActionSupport {
 
     public TallerService getTallerService() {
         return tallerService;
+    }
+
+    public TallerModel getTallerModel() {
+        return tallerModel;
+    }
+
+    public void setTallerModel(TallerModel tallerModel) {
+        this.tallerModel = tallerModel;
+    }
+
+    public List<TallerModel> getTallerModelList() {
+        return tallerModelList;
+    }
+
+    public void setTallerModelList(List<TallerModel> tallerModelList) {
+        this.tallerModelList = tallerModelList;
     }
 }
