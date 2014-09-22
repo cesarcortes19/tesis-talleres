@@ -7,6 +7,8 @@ import com.cursos.excepciones.TallerMaximaCapacidadException;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.AlumnoTallerModel;
 import com.cursos.model.TallerModel;
+import com.cursos.util.HibernateUtil;
+import org.hibernate.Hibernate;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -114,5 +116,14 @@ public class TallerService {
 
     public List<AlumnoTallerModel> getAllTalleresByUser(Integer id) throws Exception{
         return alumnoTallerDao.getAllTalleresByUser(id);
+    }
+
+    public List<AlumnoTallerModel> getAllTalleresAllUsuarios() throws Exception{
+        List <AlumnoTallerModel> atm =alumnoTallerDao.getAllTalleresAllUsuarios();
+        for (AlumnoTallerModel alumnoTallerModel: atm  ){
+            Hibernate.initialize(alumnoTallerModel.getAlumnoModel().getUserModel());
+        }
+
+        return atm;
     }
 }

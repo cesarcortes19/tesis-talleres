@@ -2,9 +2,7 @@ package com.cursos.model;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Cesar on 20/09/2014.
@@ -13,7 +11,12 @@ import javax.persistence.Table;
 @Table(name = "pagos")
 @DynamicUpdate
 public class PagosModel {
-    @Column(name = "usuario_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario", nullable = true)
     private UserModel userModel;
     @Column(name = "tipo_pago", nullable = false)
     private PagoType tipoPago;

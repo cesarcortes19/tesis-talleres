@@ -18,6 +18,7 @@
                 <value>com.cursos.model.AlumnoModel</value>
                 <value>com.cursos.model.NoticiaModel</value>
                 <value>com.cursos.model.AlumnoTallerModel</value>
+                <value>com.cursos.model.PagosModel</value>
 
             </list>
         </property>

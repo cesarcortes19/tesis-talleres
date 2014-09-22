@@ -76,7 +76,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             groupField="['alumnoModel.nombre']"
             groupCollapse="false"
             groupText="['Representado: <b>{0}']"
-
             onGridCompleteTopics="grid_complete"
             >
 
@@ -221,6 +220,22 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         editable="true"
                         align="center"
                         sortable="false"/>
+
+        <sjg:gridColumn name="fechaDesinscripcion"
+                        title="Desinscripci"
+                        index="fechaDesinscripcion"
+                        editable="true"
+                        align="center"
+                        sortable="false"
+                        hidden="true"/>
+
+        <sjg:gridColumn name="fechaInscripcion"
+                        title="Inscripci&oacuten"
+                        index="fechaInscripcion"
+                        editable="true"
+                        align="center"
+                        sortable="false"
+                        hidden="true"/>
 
     </sjg:grid>
 

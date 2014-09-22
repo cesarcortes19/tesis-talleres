@@ -1,17 +1,16 @@
 package com.cursos.action.pagos;
 
 import com.cursos.model.AlumnoTallerModel;
-import com.cursos.model.NoticiaModel;
 import com.cursos.model.UserModel;
-import com.cursos.service.alumno.AlumnoService;
-import com.cursos.service.cartelera.CarteleraService;
 import com.cursos.service.taller.TallerService;
-import com.cursos.service.usuario.UsuarioService;
+import com.cursos.util.HibernateUtil;
 import com.opensymphony.xwork2.ActionSupport;
+import org.hibernate.Hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Created by Cesar on 25/08/2014.
@@ -77,8 +76,18 @@ public class GridPagosAction extends ActionSupport {
             // Set to = max rows
             if (to > records) to = records;
 
+            /*Se valida que venga del administrador para mostrar todos los usuarios*/
+            if (userModel.getId() == -989) {
+                myCustomers = tallerService.getAllTalleresAllUsuarios();
 
-            myCustomers = tallerService.getAllTalleresByUser(userModel.getId());
+            } else {
+                if (userModel.getId() > 0) {
+                    myCustomers = tallerService.getAllTalleresByUser(userModel.getId());
+                }
+
+            }
+
+
             setGridModel(myCustomers);
 
 
@@ -257,13 +266,12 @@ public class GridPagosAction extends ActionSupport {
         this.myCustomers = myCustomers;
     }
 
+    public TallerService getTallerService() {
+        return tallerService;
+    }
 
     public void setTallerService(TallerService tallerService) {
         this.tallerService = tallerService;
-    }
-
-    public TallerService getTallerService() {
-        return tallerService;
     }
 
     public UserModel getUserModel() {
