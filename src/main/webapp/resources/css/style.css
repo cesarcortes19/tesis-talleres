@@ -119,6 +119,7 @@ div.formulario {
     border-bottom:1px solid #999999;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    border-radius: 8px;
 }
 
 
@@ -139,6 +140,7 @@ div.formulario {
     border-bottom:1px solid #999999;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    border-radius: 8px;
 }
 
 div.formInterno {
@@ -166,6 +168,21 @@ div.TituloformInterno {
     font-weight:bold;
     padding-bottom: 5%;
 }
+div.tituloNoticia {
+    margin: 0 auto;
+    font-family: "Trebuchet MS";
+    text-align: center;
+    font-size: 16px;
+    font-weight:bold;
+}
+
+div.descripcionNoticia {
+    margin: 0 auto;
+    font-family: "Trebuchet MS";
+    text-align: justify;
+    font-size: 12px;
+
+}
 
 div.tituloRepresentante{
     font-family: "Trebuchet MS";
@@ -192,13 +209,52 @@ div.infoRepresentado{
     background: #f2f5f7;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+div.noticia {
+    width: 310px;
+    height: 210px;
+    font-size: 12px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    border: 1px solid #d0d0d0;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+div.imagenDialogo {
+
+    text-align: center;
+}
+div.tituloNoticiaDialogo {
+    text-align: center;
+}
+div.descripcionNoticiaDialogo {
+    text-align: justify;
+}
+
+div.fechaNoticiaDialogo {
+    text-align: center;
+}
+
+
+div.dialogoNoticia {
+    width: 70%;
+    height: 70%;
 }
 form.formulario {
     width: 50%;
     margin: 0 auto;
     padding-top: 3%;
 }
-
+div.cartelera {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
 div.botones {
     margin: 0 auto;
     font-size: 12px;

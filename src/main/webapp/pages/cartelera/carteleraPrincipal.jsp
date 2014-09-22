@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Cesar
@@ -10,59 +11,23 @@
 <html>
 <head>
     <style>
-
-        div.scrollCarteleraDetail {
-            width: 300px;
-            height: 300px;
-            overflow: scroll;
-            /*para Firefox*/
-            -moz-border-radius: 15px 0px 15px 15px;
-            /*para Safari y Chrome*/
-            -webkit-border-radius: 15px 0px 15px 15px;
-            /* para Opera */
-            border-radius: 15px 0px 15px 15px;
-            float: left;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            margin-left: 20%;
-            border-top: 1px solid #000000;
-            border-left: 1px solid #000000;
-        }
-
-        div.scrollCarteleraItems {
-            height: 300px;
-            overflow: scroll;
-            width: auto;
-            margin-right: 20%;
-            margin-left: 20px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            border-top: 1px solid #000000;
-            border-left: 1px solid #000000;
-
-        }
-
-        .noticia {
-            font-size: 13px;
-            font-weight: bold;
-            font-family: Trebuchet MS, Arial, san-serif;
-            margin-left: 10px;
+        .noticia:hover{
+            border: 3px solid #d0d0d0;
             cursor: pointer;
         }
-
-        .detalelNoticia {
-            font-size: 12px;
-            font-weight: bold;
-            font-family: Trebuchet MS, Arial, san-serif;
-            margin-left: 10px;
-        }
-
     </style>
-
     <script>
         function mostrarDetalle(element){
             $("#divDetalleNoticia").html(element);
 
+        }
+
+        function abrirNoticia(imagen, titulo, descripcion, fecha){
+
+            $("#tituloNoticiaDialogo").html('<b>'+ titulo + '</b>');
+            $("#descripcionNoticiaDialogo").html(descripcion);
+            $("#fechaNoticiaDialogo").html('<b>'+ fecha + '</b>');
+            $("#myeffectdialog").dialog('open');
         }
         </script>
 
@@ -70,39 +35,62 @@
 </head>
 <body>
 
+<div class="cartelera">
 
-<h1 align="center">
-    <u>Cartelera Informativa</u>
-</h1>
+    <div id="titulo" class="TituloformInterno">
+        Cartelera Informativa
+    </div>
 
-<div class="scrollCarteleraDetail">
+    <div>
+        <table class="mostrarCurso" align="center">
 
-    <h3 align="center">
-        <u>NOTICIA</u>
-    </h3>
-    <br>
-    <s:iterator value="noticiaList" var="iteradorNoticia" status="statusNoticia">
-    <li>
-        <p class="noticia">
-            <a href="#" onclick="mostrarDetalle('<s:property value="descripcion"/>')"><s:property value="titulo"/></a>
-            <a class="fechaNoticia"></br>(<s:property value="fechaCreacion"/>)</a>
-        <p>
-    </li>
-        </s:iterator>
+        <s:iterator value="noticiaList" var="iteradorNoticia" status="statusNoticia">
+        <s:if test="%{#statusNoticia.index%3 == 0}">
+            </tr>
+            <tr>
+                </s:if>
+                    <td>
+                        <div class="noticia" onclick="abrirNoticia('','<s:property value="titulo"/>','<s:property value="descripcion"/>','<s:property value="fechaCreacion"/>')">
+                            <img src="<s:url value="/resources/images/Logo Ceapucv2.jpg"/>" width="100px" height="100px"/>
+                            <br>
+                            <div class="tituloNoticia">
+                            <s:property value="titulo"/>
+                            </div>
+                            </br>
+                            <div class="descripcionNoticia">
+                            <s:property value="descripcion"/>
+                            </div>
+                            </br><b>(<s:property value="fechaCreacion"/>)</b>
+                        </div>
+                    </td>
+            </s:iterator>
+            </tr>
+            </table>
+    </div>
 </div>
-<div class="scrollCarteleraItems">
-
-    <h3 align="center">
-        <u>DETALLE NOTICIA</u>
-    </h3>
+<div id="dialogoNoticia">
+<sj:dialog id="myeffectdialog" showEffect="slide" hideEffect="explode" autoOpen="false" modal="true" title="Noticia" openTopics="openEffectDialog" closeTopics="closeEffectDialog"  minHeight="500" minWidth="500">
+    <div id="imagenDialogo" class="imagenDialogo">
+        <img src="<s:url value="/resources/images/Logo Ceapucv2.jpg"/>" width="250px" height="250px"/>
+    </div>
     <br>
-    <li>
-    <div id ="divDetalleNoticia">
-        <p class="detalelNoticia">
-        Seleccione una noticia para ver su detalle
-    <p>
-        </div>
-    </li>
+    <div id="tituloNoticiaDialogo" class="tituloNoticiaDialogo">
+
+    </div>
+    </br>
+    <div id="descripcionNoticiaDialogo" class="descripcionNoticiaDialogo">
+        <s:property value="descripcion"/>
+    </div>
+    </br>
+    <div id="fechaNoticiaDialogo" class="fechaNoticiaDialogo">
+
+    </div>
+<hr />
+</sj:dialog>
 </div>
+<!--sj:a onClickTopics="openEffectDialog" button="true" buttonIcon="ui-icon-newwin">
+    Open effect dialog
+<!/sj:a-->
+
 </body>
 </html>
