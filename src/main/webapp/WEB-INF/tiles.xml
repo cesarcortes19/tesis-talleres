@@ -109,6 +109,21 @@
         <put-attribute name="body"   value="/pages/pagos/administrador/infoPagosTodosUsuario.jsp"/>
     </definition>
 
+    <definition name="insertarCedulaHistorialPagos" extends="mainTemplate">
+        <put-attribute name="title"  value="Insertar Cedula Pagos"/>
+        <put-attribute name="body"   value="/pages/pagos/administrador/insertarCedulaHistorialPagos.jsp"/>
+    </definition>
+
+    <definition name="histrorialPagosUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Informacion Usuario"/>
+        <put-attribute name="body"   value="/pages/pagos/historialPagosUsuario.jsp"/>
+    </definition>
+
+    <definition name="historialPagosTodosUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Informacion Usuario"/>
+        <put-attribute name="body"   value="/pages/pagos/administrador/historialPagosTodosUsuario.jsp"/>
+    </definition>
+
     <!--ERROR-->
     <definition name="ERROR" extends="mainTemplate">
         <put-attribute name="title"  value="ERROR"/>

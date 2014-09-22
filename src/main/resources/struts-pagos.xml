@@ -16,6 +16,14 @@
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
 
+        <action name="*HistorialPagos" class="PagosAction" method="{1}Historial">
+            <result name="success" type="tiles">insertarCedulaHistorialPagos</result>
+            <result name="input" type="tiles">insertarCedulaHistorialPagos</result>
+            <result name="historialPagosUsuario" type="tiles">histrorialPagosUsuario</result>
+            <result name="historialPagosTodosUsuario" type="tiles">historialPagosTodosUsuario</result>
+            <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
+        </action>
+
         <action name="*PagosJson" class="GridPagosAction" method="{1}">
             <param name="userModel.id">-989</param>
             <result name="success" type="json">
@@ -43,7 +51,27 @@
                 </param>
             </result>
         </action>
+
+        <action name="*HistorialJson" class="GridHistorialPagosAction" method="{1}">
+            <param name="userModel.id">-989</param>
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.userModel\.nombre,
+                    ^gridModel\[\d+\]\.userModel\.userInfo,
+                    ^gridModel\[\d+\]\.numeroComprobante,
+                    ^gridModel\[\d+\]\.mesesPagos,
+                    ^gridModel\[\d+\]\.montoIngresado,
+                    ^gridModel\[\d+\]\.montoCalculado,
+                    ^gridModel\[\d+\]\.logTransaccion,
+                    ^gridModel\[\d+\]\.fechaPago,
+                    ^gridModel\[\d+\]\.status
+                </param>
+            </result>
+        </action>
     </package>
+
 
     <package name="pagosUsuario" namespace="/usuario/pagos" extends="default">
 
@@ -71,6 +99,24 @@
                     ^gridModel\[\d+\]\.fechaDesinscripcion,
                     ^gridModel\[\d+\]\.fechaInscripcion,
                     ^gridModel\[\d+\]\.tallerModel\.costo
+                </param>
+            </result>
+        </action>
+
+        <action name="*HistorialJson" class="GridHistorialPagosAction" method="{1}">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.userModel\.nombre,
+                    ^gridModel\[\d+\]\.userModel\.userInfo,
+                    ^gridModel\[\d+\]\.numeroComprobante,
+                    ^gridModel\[\d+\]\.mesesPagos,
+                    ^gridModel\[\d+\]\.montoIngresado,
+                    ^gridModel\[\d+\]\.montoCalculado,
+                    ^gridModel\[\d+\]\.logTransaccion,
+                    ^gridModel\[\d+\]\.status,
+                    ^gridModel\[\d+\]\.fechaPago
                 </param>
             </result>
         </action>

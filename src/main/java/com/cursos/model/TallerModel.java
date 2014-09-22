@@ -43,6 +43,8 @@ public class TallerModel {
     private String horarioDomingo;
     @Column(name = "costo")
     private Double costo;
+    @Column(name = "costoInscripcion")
+    private Double costoInscripcion;
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "tallerModel")
     private Set<AlumnoTallerModel> alumnoTallerModelset = new HashSet<AlumnoTallerModel>();
 
@@ -157,6 +159,21 @@ public class TallerModel {
         this.alumnoTallerModelset = alumnoTallerModelset;
     }
 
+    public Double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Double costo) {
+        this.costo = costo;
+    }
+
+    public Double getCostoInscripcion() {
+        return costoInscripcion;
+    }
+
+    public void setCostoInscripcion(Double costoInscripcion) {
+        this.costoInscripcion = costoInscripcion;
+    }
 
     /*    public Set<AlumnoModel> getAlumnoModelSet() {
         return alumnoModelSet;

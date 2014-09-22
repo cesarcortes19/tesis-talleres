@@ -1,6 +1,6 @@
 package com.cursos.action.pagos;
 
-import com.cursos.model.AlumnoTallerModel;
+import com.cursos.model.PagosModel;
 import com.cursos.model.UserModel;
 import com.cursos.service.pagos.PagosService;
 import com.cursos.service.taller.TallerService;
@@ -16,9 +16,9 @@ import java.util.Map;
 /**
  * Created by Cesar on 25/08/2014.
  */
-public class GridPagosAction extends ActionSupport {
+public class GridHistorialPagosAction extends ActionSupport {
     // Your result List
-    private List<AlumnoTallerModel> gridModel;
+    private List<PagosModel> gridModel;
     // get how many rows we want to have into the grid - rowNum attribute in the
     // grid
     private Integer rows = 0;
@@ -43,8 +43,7 @@ public class GridPagosAction extends ActionSupport {
     private Integer records = 0;
     private boolean loadonce = false;
     private Map<String, Object> session;
-    private List<AlumnoTallerModel> myCustomers;
-    private TallerService tallerService;
+    private List<PagosModel> myCustomers;
     private UserModel userModel;
     private PagosService pagosService;
 
@@ -59,11 +58,11 @@ public class GridPagosAction extends ActionSupport {
 
     public String cargar() {
 
-        myCustomers = new ArrayList<AlumnoTallerModel>();
+        myCustomers = new ArrayList<PagosModel>();
 
         try {
             // Count all record (select count(*) from your_custumers)
-            records = tallerService.getContadorAllTalleresByUser(userModel.getId());
+            /*records = pagosService.getContadorAllPagosByUser(userModel.getId());*/
 
             if (totalrows != null) {
                 records = totalrows;
@@ -80,11 +79,11 @@ public class GridPagosAction extends ActionSupport {
 
             /*Se valida que venga del administrador para mostrar todos los usuarios*/
             if (userModel.getId() == -989) {
-                myCustomers = tallerService.getAllTalleresAllUsuarios();
+                myCustomers = pagosService.getHistorialPagosAllUsuarios();
 
             } else {
                 if (userModel.getId() > 0) {
-                    myCustomers = tallerService.getAllTalleresByUser(userModel.getId());
+                    myCustomers = pagosService.getHistorialPagosByUsuario(userModel.getId());
                 }
 
             }
@@ -173,14 +172,14 @@ public class GridPagosAction extends ActionSupport {
     /**
      * @return an collection that contains the actual data
      */
-    public List<AlumnoTallerModel> getGridModel() {
+    public List<PagosModel> getGridModel() {
         return gridModel;
     }
 
     /**
      * @param gridModel an collection that contains the actual data
      */
-    public void setGridModel(List<AlumnoTallerModel> gridModel) {
+    public void setGridModel(List<PagosModel> gridModel) {
         this.gridModel = gridModel;
     }
 
@@ -260,20 +259,12 @@ public class GridPagosAction extends ActionSupport {
         this.session = session;
     }
 
-    public List<AlumnoTallerModel> getMyCustomers() {
+    public List<PagosModel> getMyCustomers() {
         return myCustomers;
     }
 
-    public void setMyCustomers(List<AlumnoTallerModel> myCustomers) {
+    public void setMyCustomers(List<PagosModel> myCustomers) {
         this.myCustomers = myCustomers;
-    }
-
-    public TallerService getTallerService() {
-        return tallerService;
-    }
-
-    public void setTallerService(TallerService tallerService) {
-        this.tallerService = tallerService;
     }
 
     public UserModel getUserModel() {
