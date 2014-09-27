@@ -73,6 +73,36 @@ public class PagosAction extends ActionSupport {
         return (UserModel)auth;
     }
 
+    public String cargarCedulaHistorial(){
+        return SUCCESS;
+    }
+
+    public String buscarUsuarioHistorial(){
+
+        HttpServletRequest request = ServletActionContext.getRequest();
+        try {
+            if (request.isUserInRole("ROLE_ADMIN")) {
+                userModel = usuarioService.getUsuarioByCi(userModel);
+            } else {
+                //if (request.isUserInRole("ROLE_REPRESENTANTE"))
+                //userModel = getUsuarioAutenticado();
+                userModel = usuarioService.getUsuarioByCi(userModel);
+            }/*TODO comprobar role autenticado*/
+        } catch (Exception e) {
+            if (e instanceof NotFoundException) {
+                addActionMessage(((NotFoundException) e).getElem() + " Usuario no encontrado");
+                return INPUT;
+            }
+            e.printStackTrace();
+            return ERROR;
+        }
+        return "historialPagosUsuario";
+    }
+
+    public String cargarTodosHistorial(){
+        return "historialPagosTodosUsuario";
+    }
+
     public UserModel getUserModel() {
         return userModel;
     }

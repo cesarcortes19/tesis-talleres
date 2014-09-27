@@ -50,6 +50,9 @@
     </script>
 </head>
 <body>
+<div id="titulo" class="TituloformInterno">
+    Ver todos los usuarios
+</div>
 <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
 <s:url id="remoteurl" action="cargarUsuarioJson" namespace="/administrador/usuario"/>
 <s:url id="editurl" action="editarUsuarioJson" namespace="/administrador/usuario"/>
@@ -73,9 +76,6 @@
         viewrecords="true"
         autowidth="true"
         shrinkToFit="false"
-        groupField="['telefono2']"
-        groupCollapse="false"
-        groupText="['<b>{0} - Customer(s)</b>']"
         >
     <sjg:gridColumn name="id" index="id" title="ID" width="60" formatter="integer" editable="false"
                     hidden="true"/>
@@ -83,6 +83,7 @@
     <sjg:gridColumn name="nombre" frozen="true" index="nombre" title="Nombre" width="250" edittype="text"
                     align="center"/>
     <sjg:gridColumn name="apellido" index="apellido" title="Apellido" align="center"/>
+    <sjg:gridColumn name="cedula" index="cedula" title="Cédula" align="center"/>
     <sjg:gridColumn name="email" index="email" title="Email" align="center"/>
     <sjg:gridColumn name="email2" index="email2" title="Email Alternativo" align="center"/>
     <sjg:gridColumn name="telefono1" index="telefono1" title="Telefono" align="center"/>
@@ -101,6 +102,7 @@
     <sj:a id="eliminar" button="true" buttonIcon="ui-icon-trash" onclick="eliminarUsuario();">
         Eliminar Usuario
     </sj:a>
+    </br >
     </br >
     <sj:a id="ver" button="true" buttonIcon="ui-icon-folder-open" onclick="verUsuario();">
         Ver Usuario

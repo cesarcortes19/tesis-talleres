@@ -24,10 +24,15 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </head>
 <body>
 
+<div id="titulo" class="TituloformInterno">
+    Informaci&oacute;n de pago
+</div>
+
+
 <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
 
 <div id="selectTalleres" style="width: 50%">
-    <label> Busqueda por taller: </label>
+    <label>Filtrar por taller: </label>
 <s:select label="Busqueda por taller"
           headerValue="Seleccione un taller"
           headerKey="-1"
@@ -39,7 +44,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </div>
 <br>
 
-<br>
 <s:url id="remoteurl" action="cargarPagosJson" namespace="/administrador/pagos">
 </s:url>
 
@@ -196,35 +200,34 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         editoptions="{ value:'True:False'}"
                         align="center"
                         sortable="false"/>
-
-        <sjg:gridColumn name="costo"
-                        title="Costo"
-                        index="costo"
-                        align="center"
-                        sortable="false"/>
-
+<%--
         <sjg:gridColumn name="status"
                         title="Estado"
                         index="status"
                         editable="true"
                         align="center"
-                        sortable="false"/>
-
-        <sjg:gridColumn name="fechaDesinscripcion"
-                        title="Desinscripci"
-                        index="fechaDesinscripcion"
-                        editable="true"
-                        align="center"
-                        sortable="false"
-                        hidden="true"/>
-
+                        sortable="false"/>--%>
         <sjg:gridColumn name="fechaInscripcion"
-                        title="Inscripci&oacuten"
+                        title="Inscripción"
                         index="fechaInscripcion"
                         editable="true"
                         align="center"
                         sortable="false"
-                        hidden="true"/>
+                        formatter="date"
+                        formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
+                />
+
+        <sjg:gridColumn name="fechaDesinscripcion"
+                        title="Desinscripción"
+                        index="fechaDesinscripcion"
+                        editable="true"
+                        align="center"
+                        sortable="false"
+                        formatter="date"
+                        formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
+                cssStyle="border-color: red"/>
+
+
 
     </sjg:grid>
 

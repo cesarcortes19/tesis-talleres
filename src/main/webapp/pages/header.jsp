@@ -35,8 +35,10 @@
         <li><a href="#"><span>Gestionar Pagos</span></a>
             <div>
                 <ul>
-                    <li><a href="<s:url action="cargarTodosUsuariosGestionarPagos" namespace="/administrador/pagos"/>"><span>Ver pagos de todos los usuarios</span></a></li>
-                    <li><a href="<s:url action="cargarGestionarPagos" namespace="/administrador/pagos"/>"><span>Gestionar Pagos Usuario </span></a></li>
+                    <li><a href="<s:url action="cargarTodosUsuariosGestionarPagos" namespace="/administrador/pagos"/>"><span>Control de pagos</span></a></li>
+                    <li><a href="<s:url action="cargarGestionarPagos" namespace="/administrador/pagos"/>"><span>Gestionar pago usuario </span></a></li>
+                    <li><a href="<s:url action="cargarTodosHistorialPagos" namespace="/administrador/pagos"/>"><span>Historial de pagos(todos) </span></a></li>
+                    <li><a href="<s:url action="cargarCedulaHistorialPagos" namespace="/administrador/pagos"/>"><span>Historial de pagos(usuario) </span></a></li>
                     <%--<li><a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir en Taller</span></a></li>--%>
                     <%--<li><a href="<s:url action="cargarTaller" namespace="/usuario/taller"/>"><span>Ver Talleres</span></a></li>--%>
                 </ul>

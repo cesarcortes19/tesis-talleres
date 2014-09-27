@@ -3,6 +3,7 @@ package com.cursos.model;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by Cesar on 20/09/2014.
@@ -23,7 +24,7 @@ public class PagosModel {
     @Column(name = "numero_comprobante", nullable = false)
     private String numeroComprobante;
     @Column(name = "meses_pagos", nullable = false)
-    private double mesesPagos;
+    private int mesesPagos;
     @Column(name = "monto_ingresado", nullable = false)
     private double montoIngresado;
     @Column(name = "monto_calculado_por_aplicacion", nullable = false)
@@ -32,6 +33,8 @@ public class PagosModel {
     private StatusType status;
     @Column(name = "log_transacion", nullable = false)
     private String logTransaccion;
+    @Column(name = "fecha_pago", nullable = false)
+    private Date fechaPago;
 
     public enum PagoType {TRANSFERENCIA, DEPOSITO}
     public enum StatusType {PENDIENTE, PAGO, RECHAZADO}
@@ -60,11 +63,11 @@ public class PagosModel {
         this.numeroComprobante = numeroComprobante;
     }
 
-    public double getMesesPagos() {
+    public int getMesesPagos() {
         return mesesPagos;
     }
 
-    public void setMesesPagos(double mesesPagos) {
+    public void setMesesPagos(int mesesPagos) {
         this.mesesPagos = mesesPagos;
     }
 
@@ -98,5 +101,21 @@ public class PagosModel {
 
     public void setStatus(StatusType status) {
         this.status = status;
+    }
+
+    public Date getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(Date fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

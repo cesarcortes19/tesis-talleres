@@ -15,6 +15,11 @@
     </bean>
 
 
+    <bean id="GridHistorialPagosAction" class="com.cursos.action.pagos.GridHistorialPagosAction" scope="prototype">
+        <property name="pagosService" ref="PagosService"/>
+    </bean>
+
+
     <bean id="PagosService" class="com.cursos.service.pagos.PagosService">
         <property name="pagosDao" ref="PagosDao"/>
     </bean>
