@@ -25,7 +25,7 @@
     <div id="titulo" class="TituloformInterno">
         Crear Noticia
 
-    <div id="formularioInterno" class="formInterno">
+    <div id="formularioInterno" class="formInternoCrearNoticia">
         <s:form action="guardarCartelera" namespace="/cartelera" id="guardarCartelera">
             <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box"/>
             <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea" />

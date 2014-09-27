@@ -30,6 +30,8 @@ public class UserModel implements UsuarioInterface {
     private String observaciones;
     @Transient
     private String userInfo;
+    @Transient
+    private String confirmPassword;
 
     @Override
     @Id
@@ -161,5 +163,13 @@ public class UserModel implements UsuarioInterface {
 
     public void setUserInfo(String userInfo) {
         this.userInfo = userInfo;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

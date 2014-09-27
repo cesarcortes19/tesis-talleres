@@ -74,7 +74,7 @@
 <!--usuario-->
     <definition name="crearUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>
-        <put-attribute name="body"   value="/pages/usuario/crearUsuario.jsp"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/crearUsuario.jsp"/>
     </definition>
 
     <definition name="editarUsuario" extends="mainTemplate">
@@ -82,14 +82,19 @@
         <put-attribute name="body"   value="/pages/usuario/editarUsuario.jsp"/>
     </definition>
 
+    <definition name="editarPassword" extends="mainTemplate">
+        <put-attribute name="title"  value="Editar Contraseña"/>
+        <put-attribute name="body"   value="/pages/usuario/editarPassword.jsp"/>
+    </definition>
+
     <definition name="elimninarUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>
-        <put-attribute name="body"   value="/pages/usuario/eliminarUsuario.jsp"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/eliminarUsuario.jsp"/>
     </definition>
 
     <definition name="administrarUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>
-        <put-attribute name="body"   value="/pages/usuario/administrarUsuario.jsp"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/administrarUsuario.jsp"/>
     </definition>
 
 <!--GESTIONAR PAGAGO-->

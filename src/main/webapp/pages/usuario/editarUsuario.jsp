@@ -21,6 +21,9 @@
             $("#alumnoJson").val(dataJson);
             $("#formEditarUsuario").submit();
         }
+        function redireccionar(url){
+            $("#formEditarPassword").submit();
+        }
 
     </script>
 </head>
@@ -103,8 +106,14 @@
             Guardar
         </sj:a>
         <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="editarPassword" button="true" buttonIcon="ui-icon-close" onclick="redireccionar()">Editar Contraseña</sj:a>
     </div>
 </div>
+
+
+<s:form action='cargarPasswordEditarUsuario' namespace='/usuario' id="formEditarPassword">
+    <s:hidden name="usuarioModel.id" id="idUsuario"/>
+</s:form>
 </body>
 </br>
 </br>

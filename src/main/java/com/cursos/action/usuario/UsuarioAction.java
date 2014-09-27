@@ -72,8 +72,12 @@ public class UsuarioAction extends ActionSupport {
         return "cargarAdministrarUsuario";
     }
 
-    public String editarContrasena(){
+    public String passwordEditar(){
         return SUCCESS;
+    }
+
+    public String cargarPasswordEditar(){
+        return INPUT;
     }
 
     public String guardarEliminar(){
@@ -110,4 +114,5 @@ public class UsuarioAction extends ActionSupport {
     public UsuarioService getUsuarioService() {
         return usuarioService;
     }
+
 }

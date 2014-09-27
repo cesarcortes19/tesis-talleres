@@ -63,4 +63,13 @@
 
     </package>
 
+    <package name="usuarioPassword" namespace="/usuario" extends="default,json-default">
+
+        <action name="*EditarUsuario" class="UsuarioAction" method="{1}Editar">
+            <result name="success" type="tiles">editarUsuario</result>
+            <result name="input" type="tiles">editarPassword</result>
+
+        </action>
+    </package>
+
 </struts>

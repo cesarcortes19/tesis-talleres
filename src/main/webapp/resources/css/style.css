@@ -158,7 +158,21 @@ div.formInterno {
     -webkit-border-radius: 8px;
     border-radius: 8px;
 }
-
+div.formInternoCrearNoticia {
+    /*width: 564px;
+    height: auto;*/
+    margin: 0 auto;
+    text-align: center;
+    display:inline-block;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 8%;
+    border: 1px solid #d0d0d0;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
 
 div.TituloformInterno {
     display:inline-block;
