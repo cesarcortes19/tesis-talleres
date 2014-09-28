@@ -14,6 +14,13 @@
         <put-attribute name="footer"   value="/pages/footer.jsp"/>
     </definition>
 
+    <definition name="loginTemplate" template="/pages/loginTemplate.jsp">
+        <put-attribute name="title"  value="Login"/>
+        <put-attribute name="headerLogin"  value="/pages/headerLogin.jsp"/>
+        <put-attribute name="body"   value="/pages/body.jsp"/>
+        <put-attribute name="footer"   value="/pages/footer.jsp"/>
+    </definition>
+
 <!--Cartelera-->
     <definition name="carteleraPrincipal" extends="mainTemplate">
         <put-attribute name="title"  value="Cartelera"/>
@@ -133,6 +140,12 @@
     <definition name="ERROR" extends="mainTemplate">
         <put-attribute name="title"  value="ERROR"/>
         <put-attribute name="body"   value="/pages/error.jsp"/>
+    </definition>
+
+    <!--Login-->
+    <definition name="cargarLogin" extends="loginTemplate">
+        <put-attribute name="title"  value="Login"/>
+        <put-attribute name="body"   value="/login.jsp"/>
     </definition>
 
 

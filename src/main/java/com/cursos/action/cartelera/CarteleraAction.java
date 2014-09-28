@@ -16,6 +16,7 @@ public class CarteleraAction extends ActionSupport {
     private NoticiaModel noticiaModel;
     private CarteleraService carteleraService;
     private String idNoticia;
+    private String error;
 
     public String execute(){
         return SUCCESS;
@@ -26,7 +27,12 @@ public class CarteleraAction extends ActionSupport {
 
     public String cargar(){
     try {
+        if(error!=null)
+        {
+            addActionMessage(error);
+        }
             noticiaList = carteleraService.getNoticias(null,null);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
@@ -94,5 +100,13 @@ public class CarteleraAction extends ActionSupport {
 
     public void setNoticiaModel(NoticiaModel noticiaModel) {
         this.noticiaModel = noticiaModel;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 }

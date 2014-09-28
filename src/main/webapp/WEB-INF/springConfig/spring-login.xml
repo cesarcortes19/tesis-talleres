@@ -4,5 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <bean id="loginAction"
+          class="com.cursos.action.login.LoginAction" scope="prototype">
+        <property name="authenticationManager" ref="AuthenticationManager"/>
+    </bean>
 
 </beans>

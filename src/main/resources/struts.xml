@@ -26,5 +26,7 @@
     <include file="struts-usuario.xml"/>
     <include file="struts-alumno.xml"/>
     <include file="struts-pagos.xml"/>
+    <include file="struts-login.xml"/>
+
 
 </struts>

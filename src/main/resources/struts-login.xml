@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="login" namespace="/login" extends="default,json-default">
+
+        <!--<nombreMetodo><nombreAction><NombreFuncionalidad>-->
+        <action name="*Login" class="loginAction" method="{1}">
+            <result name="success" type="redirectAction">
+                <param name="namespace">/cartelera</param>
+                <param  name="actionName">cargarCartelera</param>
+            </result>
+            <result name="cargar" type="tiles">cargarLogin</result>
+            <result name="input" type="chain">
+                <param name="namespace">/cartelera</param>
+                <param  name="actionName">cargarCartelera</param>
+                <param  name="error"></param>
+            </result>
+        </action>
+
+    </package>
+
+</struts>

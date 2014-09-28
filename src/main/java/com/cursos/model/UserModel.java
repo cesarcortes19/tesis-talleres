@@ -28,6 +28,7 @@ public class UserModel implements UsuarioInterface {
     private String telefono1;
     private String telefono2;
     private String observaciones;
+    private boolean enable;
     @Transient
     private String userInfo;
     @Transient
@@ -171,5 +172,14 @@ public class UserModel implements UsuarioInterface {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    @Column(name = "enable")
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }
