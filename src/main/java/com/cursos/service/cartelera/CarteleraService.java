@@ -5,6 +5,7 @@ import com.cursos.dao.usuario.UsuarioDao;
 import com.cursos.model.NoticiaModel;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,6 +37,9 @@ public class CarteleraService {
     }
 
     public void guardar(NoticiaModel noticiaModel)throws Exception{
+
+        Date date = new Date();
+        noticiaModel.setFechaCreacion(date);
         carteleraDao.guardar(noticiaModel);
     }
 }

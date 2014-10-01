@@ -34,12 +34,15 @@
         }
 
         function eliminarUsuario() {
+
             s = $("#gridUsuario").jqGrid('getGridParam', 'selrow');
             if (s == null) {
                 $(".actionMessage").remove();
                 addInformativeMessage("gridUsuario", "<s:text name="form.error.grid.noSelection"/>");
                 return false;
             } else {
+                if(!confirm("¿Está seguro que desea eliminar este usuario? Se perderan todos los datos asociados a este usuario"))
+                    return true;
                 var id = $("#gridUsuario").jqGrid('getCell', s, 'id');
                 $('#eliminarUsuario').val(id);
             }

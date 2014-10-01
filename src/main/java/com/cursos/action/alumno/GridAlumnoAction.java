@@ -77,7 +77,7 @@ public class GridAlumnoAction extends ActionSupport {
             if (to > records) to = records;
 
 
-            //myCustomers = userService.getUsers(from, to);
+            myCustomers = alumnoService.getAlumnoByIdRepresentante(idRepresentante);
             setGridModel(myCustomers);
 
 

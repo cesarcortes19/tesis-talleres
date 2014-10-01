@@ -3,6 +3,7 @@ package com.cursos.service.usuario;
 import com.cursos.dao.usuario.UsuarioDao;
 import com.cursos.excepciones.NotFoundException;
 import com.cursos.model.UserModel;
+import com.cursos.util.convertidor.UsuarioConverter;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -31,6 +32,12 @@ public class UsuarioService {
     }
 
     public void update(UserModel userModel) throws Exception {
+        userModel = UsuarioConverter.convertirUsuario(userModel, getUsuarioById(userModel.getId()));
+        usuarioDao.update(userModel);
+    }
+
+    public void updateAdministrador(UserModel userModel) throws Exception {
+         userModel = UsuarioConverter.convertirAdministrador(userModel, getUsuarioById(userModel.getId()));
         usuarioDao.update(userModel);
     }
 

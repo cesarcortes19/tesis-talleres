@@ -48,7 +48,7 @@
         <s:if test="%{#statusNoticia.index%3 == 0}">
             </tr>
             <tr>
-                </s:if>
+            </s:if>
                     <td>
                         <div class="noticia" onclick="abrirNoticia('','<s:property value="titulo"/>','<s:property value="descripcion"/>','<s:property value="fechaCreacion"/>')">
                             <img src="<s:url value="/resources/images/Logo Ceapucv2.jpg"/>" width="100px" height="100px"/>

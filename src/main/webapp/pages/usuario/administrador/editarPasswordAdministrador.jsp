@@ -8,7 +8,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script type="text/javascript" src="<s:url value="/resources/js/taller.js"/>"></script>
 <html>
 <head>
     <title></title>
@@ -17,7 +16,7 @@
         function CompararPassword(){
 
             if($("#newPass").val() == $("#newPassRepeat").val()){
-                $("#editarPasswordUsuario").submit();
+                $("#editarPasswordadministrador").submit();
             }else{
                 alert("El campo Nueva Contraseña y Confirmar Contraseña deben ser identicos.")
             }
@@ -32,11 +31,11 @@
 <div id="formulario" class="formulario">
     <div id="titulo" class="TituloformInterno">
         Editar Contraseña
-
         <div id="formularioInterno" class="formInternoCrearNoticia">
-            <s:form action="passwordEditarUsuario" namespace="/usuario" id="editarPasswordUsuario">
+            <s:form action="guardarEditarPasswordAdmin" namespace="/administrador/usuario" id="editarPasswordadministrador">
                 <s:textfield id="newPass" key="usuario.form.label.newpassword" name="usuarioModel.password" cssClass="box"/>
                 <s:textfield id="newPassRepeat" key="usuario.form.label.confirmarpassword" name="usuarioModel.confirmPassword" cssClass="box" />
+                <s:hidden name="usuarioModel.id"/>
             </s:form>
         </div>
     </div>

@@ -1,17 +1,47 @@
 <?xml version="1.0"?>
 <!DOCTYPE validators PUBLIC
-          "-//Apache Struts//XWork Validator 1.0.2//EN"
-          "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 <validators>
-  <field name="usuarioModel.nombre">
-    <field-validator type="requiredstring">
-      <message key="requiredstring"/>
-    </field-validator>
-  </field>
-  
-  <field name="usuarioModel.apellido">
-    <field-validator type="requiredstring">
-      <message key="requiredstring"/>
-    </field-validator>
-  </field>
+    <field name="usuarioModel.nombre">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+
+    <field name="usuarioModel.apellido">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+    <field name="usuarioModel.cedula">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+
+    <field name="usuarioModel.email">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+
+    <field name="usuarioModel.telefono1">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+
+    <field name="usuarioModel.password">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+
+    <field name="usuarioModel.direccion">
+        <field-validator type="requiredstring">
+            <message key="requiredstring"/>
+        </field-validator>
+    </field>
+
 </validators>

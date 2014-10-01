@@ -4,12 +4,16 @@ import com.cursos.model.NoticiaModel;
 import com.cursos.service.cartelera.CarteleraService;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
  * Created by Cesar on 29/06/14.
  */
-public class CarteleraAction extends ActionSupport {
+public class CarteleraAction extends ActionSupport{
 
 
     private List<NoticiaModel> noticiaList;
@@ -17,6 +21,7 @@ public class CarteleraAction extends ActionSupport {
     private CarteleraService carteleraService;
     private String idNoticia;
     private String error;
+    private File fileUpload;
 
     public String execute(){
         return SUCCESS;
@@ -62,6 +67,9 @@ public class CarteleraAction extends ActionSupport {
 
     public String guardar(){
         try {
+            Path path = Paths.get(fileUpload.getPath());
+            byte[] data = Files.readAllBytes(path);
+            noticiaModel.setPicture(data);
             carteleraService.guardar(noticiaModel);
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,5 +116,13 @@ public class CarteleraAction extends ActionSupport {
 
     public void setError(String error) {
         this.error = error;
+    }
+
+    public File getFileUpload() {
+        return fileUpload;
+    }
+
+    public void setFileUpload(File fileUpload) {
+        this.fileUpload = fileUpload;
     }
 }

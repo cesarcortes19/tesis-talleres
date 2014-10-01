@@ -9,23 +9,30 @@ import com.cursos.to.UsuarioTo;
  */
 public class UsuarioConverter {
 
-    public static UsuarioInterface convertir(UsuarioInterface usuarioParam) {
-        UsuarioInterface usuario;
-        if (usuarioParam instanceof UserModel)
-            usuario = new UsuarioTo();
-        else
-            usuario = new UserModel();
-
-        usuario.setId(usuarioParam.getId());
-        usuario.setNombre(usuarioParam.getNombre());
-        usuario.setApellido(usuarioParam.getApellido());
-        usuario.setCedula(usuarioParam.getCedula());
-        usuario.setDireccion(usuarioParam.getDireccion());
-        usuario.setEmail(usuarioParam.getEmail());
-        usuario.setEmail2(usuarioParam.getEmail2());
-        usuario.setAlumnoModelSet(usuarioParam.getAlumnoModelSet());
-        usuario.setObservaciones(usuarioParam.getObservaciones());
-        return usuario;
+    public static UserModel convertirAdministrador(UserModel userModelForm, UserModel userModelBD ) {
+        userModelBD.setNombre(userModelForm.getNombre());
+        userModelBD.setApellido(userModelForm.getApellido());
+        userModelBD.setCedula(userModelForm.getCedula());
+        userModelBD.setEmail(userModelForm.getEmail());
+        userModelBD.setEmail2(userModelForm.getEmail2());
+        userModelBD.setTelefono1(userModelForm.getTelefono1());
+        userModelBD.setTelefono2(userModelForm.getTelefono2());
+        userModelBD.setDireccion(userModelForm.getDireccion());
+        userModelBD.setObservaciones(userModelForm.getObservaciones());
+        return userModelBD;
     }
 
+
+    public static UserModel convertirUsuario(UserModel userModelForm, UserModel userModelBD) {
+        userModelBD.setNombre(userModelForm.getNombre());
+        userModelBD.setApellido(userModelForm.getApellido());
+        userModelBD.setCedula(userModelForm.getCedula());
+        userModelBD.setEmail(userModelForm.getEmail());
+        userModelBD.setEmail2(userModelForm.getEmail2());
+        userModelBD.setTelefono1(userModelForm.getTelefono1());
+        userModelBD.setTelefono2(userModelForm.getTelefono2());
+        userModelBD.setDireccion(userModelForm.getDireccion());
+        userModelBD.setObservaciones(userModelForm.getObservaciones());
+        return userModelBD;
+    }
 }

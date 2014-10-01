@@ -6,5 +6,5 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%
-    response.sendRedirect("cartelera/cargarCartelera.action");
+    response.sendRedirect("/todos/cartelera/cargarCartelera.action");
 %>

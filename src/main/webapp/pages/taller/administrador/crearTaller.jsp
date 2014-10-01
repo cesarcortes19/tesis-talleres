@@ -44,7 +44,7 @@
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearTallerFuncion();">
             Guardar
         </sj:a>
-        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
 </div>
 
@@ -52,7 +52,7 @@
     <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearNoticiaFunction();">
         Guardar
     </sj:a>
-    <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+    <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
 </div>--%>
 
 </body>

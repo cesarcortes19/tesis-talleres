@@ -26,6 +26,8 @@ public class NoticiaModel {
     private String descripcion;
     @Column(name = "fecha_creacion", nullable = false)
     private Date fechaCreacion;
+    @Column(name = "imagen", nullable = true)
+    private byte[] picture;
 
 
     public int getId() {
@@ -66,5 +68,13 @@ public class NoticiaModel {
 
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 }

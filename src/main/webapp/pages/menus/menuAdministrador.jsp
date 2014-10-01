@@ -17,12 +17,11 @@
             <li>
                 <a href="<s:url action="cargarCedulaHistorialPagos" namespace="/administrador/pagos"/>"><span>Historial de pagos(usuario) </span></a>
             </li>
-            <%--<li><a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir en Taller</span></a></li>--%>
-            <%--<li><a href="<s:url action="cargarTaller" namespace="/usuario/taller"/>"><span>Ver Talleres</span></a></li>--%>
         </ul>
     </div>
 </li>
 <li><a href="#"><span>Gestionar Inscripcion</span></a>
+
     <div>
         <ul>
             <li>
@@ -40,9 +39,8 @@
                 <a href="<s:url action="cargarCrearTaller" namespace="/administrador/taller"/>"><span>Crear Taller</span></a>
             </li>
             <li>
-                <a href="<s:url action="cargarAdministrarTaller" namespace="/administrador/taller"/>"><span>Administrar Taller</span></a>
+                <a href="<s:url action="cargarAdministrarTaller" namespace="/administrador/taller"/>"><span>Administrar Talleres</span></a>
             </li>
-            <%--<li><a href="<s:url action="cargarTaller" namespace="/usuario/taller"/>"><span>Ver Talleres</span></a></li>--%>
         </ul>
     </div>
 </li>
@@ -52,66 +50,36 @@
     <div>
         <ul>
             <li>
-                <a href="#" onclick="submitFormulario('cargarCartelera')"><span>Ver Cartelera</span></a>
+                <a href="<s:url action="crearCartelera" namespace="/administrador/cartelera"/>"><span>Crear Noticia</span></a>
             </li>
-            <li>
-                <a href="#"
-                   onclick="submitFormulario('crearCartelera')"><span>Crear Noticia</span></a>
-            </li>
-            <li>
-                <a href="#"
-                   onclick="submitFormulario('cargarEliminarCartelera')"><span>Eliminar Noticia</span></a>
+            <li><a href="<s:url action="cargarEliminarCartelera" namespace="/administrador/cartelera"/>"><span>Eliminar Noticia</span></a>
             </li>
         </ul>
     </div>
 </li>
 <%--Solo lo puede ver el administrador--%>
 <li><a href="#"><span>Administrar Cuentas</span></a>
-    <div>
-        <ul>
-            <li>
-                <a href="#"
-                   onclick="submitFormulario('crearUsuario')"><span>Crear Usuario</span></a>
-            </li>
-            <li>
-                <a href="#"
-                   onclick="submitFormulario('editarEliminarUsuario')"><span>Administrar Usuarios</span></a>
-            </li>
-            <%--                    <li>
-                                    <a href="#" onclick="submitFormulario('consultarUsuario')"><span>Consultar Usuarios</span></a>
-                                </li>--%>
-        </ul>
-    </div>
-</li>
-
-<%--Solo lo deben ver los represententaste y usuarios invitados--%>
-<%--<li><a href="#"><span>Taller</span></a>
 
     <div>
         <ul>
             <li>
-                <a href="#" onclick="submitFormulario('cargarTaller')"><span>Ver Taller</span></a>
+                <a href="<s:url action="cargarCrearUsuario" namespace="/administrador/usuario"/>"><span>Crear Usuario</span></a>
             </li>
-            <li>
-                <a href="#" ><span>Inscripci&oacute;n</span></a>
+            <li><a href="<s:url action="cargarAdministrarUsuario" namespace="/administrador/usuario"/>"><span>Administrar Usuarios</span></a>
             </li>
         </ul>
     </div>
 </li>
 
-&lt;%&ndash;Solo lo deben ver los represententaste y usuarios invitados&ndash;%&gt;
-<li><a href="#"><span>Cartelera</span></a></li>--%>
-
-<%--Solo lo deben ver los represententaste--%>
-<li><a href="#" class="parent"><span>Configuraci&oacute;n</span></a>
+<li><a href="#" class="parent"><span>Cuenta: Administrador</span></a>
 
     <div>
         <ul>
-            <li><a href="#" class="parent"><span>Cambiar Contrasena</span></a></li>
-            <li><a href="#" class="parent"><span>Editar Cuenta</span></a></li>
-            <li><a href="#" class="parent"><span>Registrar Alumno</span></a></li>
+
+            <li>
+                <a href="<s:url action="cargarEditarAdministrador" namespace="/administrador/usuario"/>"><span>Editar Cuenta</span></a>
+            </li>
+            <li><a href="<s:url value="/logout"/>"><span>Cerrar Sesi&oacute;n</span></a></li>
         </ul>
     </div>
-</li>
-<li><a href="<s:url value="/logout"/>" class="parent"><span>Logout</span></a>
 </li>

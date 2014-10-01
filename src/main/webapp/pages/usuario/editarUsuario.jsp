@@ -52,24 +52,23 @@
     <br/>
 
     <div class="grid">
-        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/alumno">
+        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/administrador/alumno">
             <s:param name="idRepresentante">
                 <s:property value="usuarioModel.id"/>
             </s:param>
         </s:url>
-        <s:url id="editurl" action="editarAlumnosJson" namespace="/alumno"/>
+        <s:url id="editurl" action="editarAlumnosJson" namespace="/administrador/alumno"/>
         <sjg:grid
                 id="gridAlumno"
                 caption="Alumnos"
                 dataType="json"
-                href="%{editurl}"
+                href="%{remoteurl}"
                 pager="true"
                 navigator="true"
                 navigatorSearchOptions="{sopt:['eq','ne','lt','gt']}"
                 navigatorAddOptions="{height:280,reloadAfterSubmit:false,fontSize:12, fontSizeAdjust:12 }"
                 navigatorEdit="false"
                 navigatorView="false"
-                navigatorDelete="true"
                 navigatorSearch="false"
                 navigatorRefresh="false"
                 navigatorViewOptions="true"
@@ -84,7 +83,7 @@
                 rowNum="3"
                 pagerInput="false"
                 >
-            <sjg:gridColumn name="ID" index="id" title="ID" width="60" hidden="true"/>
+            <sjg:gridColumn name="id" index="id" title="Id" width="60" hidden="true"/>
             <sjg:gridColumn name="nombre" frozen="true" index="nombre" title="Nombre" width="200"
                             editable="true" edittype="text" sortable="false"/>
             <sjg:gridColumn name="apellido" index="apellido" title="Apellido" editable="true" edittype="text"
@@ -105,8 +104,8 @@
         <sj:a id="sadaszxc" button="true" buttonIcon="ui-icon-disk" onclick="editarUsuarioFunction();">
             Guardar
         </sj:a>
-        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
-        <sj:a id="editarPassword" button="true" buttonIcon="ui-icon-close" onclick="redireccionar()">Editar Contraseña</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="editarPassword" button="true" buttonIcon="ui-icon-pencil" onclick="redireccionar()">Editar Contraseña</sj:a>
     </div>
 </div>
 

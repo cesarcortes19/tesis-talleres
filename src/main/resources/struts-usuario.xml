@@ -8,6 +8,19 @@
 
     <package name="usuario" namespace="/administrador/usuario" extends="default,json-default">
 
+
+        <action name="*Administrador" class="UsuarioAction" method="{1}Administrador">
+            <result name="cargarEditarAdministrador" type="tiles">editarAdministrador</result>
+            <result name="input" type="tiles">editarAdministrador</result>
+            <result name="successGuardarEditarAdministrador" type="redirectAction">cargarEditarAdministrador</result>
+        </action>
+
+        <action name="*PasswordAdmin" class="UsuarioAction" method="{1}PasswordAdministrador">
+            <result name="success" type="tiles">editarPasswordAdministrador</result>
+            <result name="input" type="tiles">editarPasswordAdministrador</result>
+            <result name="cargarEditarAdministrador" type="tiles">editarAdministrador</result>
+        </action>
+
         <!--<nombreMetodo><nombreAction><NombreFuncionalidad>-->
 
         <action name="*CrearUsuario" class="UsuarioAction" method="{1}">
@@ -15,6 +28,8 @@
             <result name="input" type="tiles">crearUsuario</result>
             <result name="cargarAdministrarUsuario" type="redirectAction">cargarAdministrarUsuario</result>
         </action>
+
+
 
         <action name="*AdministrarUsuario" class="UsuarioAction" method="{1}">
             <result name="success" type="tiles">administrarUsuario</result>
@@ -34,14 +49,11 @@
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,
-                    ^gridModel\[\d+\]\.name,
-                    ^gridModel\[\d+\]\.email,
-                    ^gridModel\[\d+\]\.status,
-                    ^gridModel\[\d+\]\.roleModel\.idRole,
-                    ^gridModel\[\d+\]\.roleModel\.nameRole,
-                    ^gridModel\[\d+\]\.lastLoginDate,
-                    ^gridModel\[\d+\]\.lastModified,
-                    ^gridModel\[\d+\]\.lastModifiedBy
+                    ^gridModel\[\d+\]\.nombre,
+                    ^gridModel\[\d+\]\.apellido,
+                    ^gridModel\[\d+\]\.grado,
+                    ^gridModel\[\d+\]\.seccion,
+                    ^gridModel\[\d+\]\.edad,
                 </param>
             </result>
         </action>
@@ -68,7 +80,6 @@
         <action name="*EditarUsuario" class="UsuarioAction" method="{1}Editar">
             <result name="success" type="tiles">editarUsuario</result>
             <result name="input" type="tiles">editarPassword</result>
-
         </action>
     </package>
 

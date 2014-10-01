@@ -47,6 +47,7 @@ public class TallerAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /*Carga todos los talleres, lo utilizan todos los roles*/
     public String cargarAdministrar() {
         try {
             tallerList = tallerService.getAllTaller();

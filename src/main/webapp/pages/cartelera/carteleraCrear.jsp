@@ -8,13 +8,41 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script type="text/javascript" src="<s:url value="/resources/js/taller.js"/>"></script>
+<%--<script type="text/javascript" src="<s:url value="/resources/js/taller.js"/>"></script>--%>
+<script type="text/javascript"  src="<s:url value="/resources/js/fileupload/vendor/jquery.ui.widget.js"/>"></script>
+<script type="text/javascript"  src="<s:url value="/resources/js/fileupload/jquery.iframe-transport.js"/>"></script>
+<script type="text/javascript"  src="<s:url value="/resources/js/fileupload/jquery.fileupload.js"/>"></script>
 <html>
 <head>
     <title></title>
     <script>
         function crearNoticiaFunction() {
             $("#guardarCartelera").submit();
+        }
+
+        $(document).ready(function () {
+            //Subir imagen y mostrar en div
+            $('#input-image').change(function (e) {
+                addImage(e);
+            });
+
+        });
+
+        function addImage(e) {
+            var file = e.target.files[0],
+                    imageType = /image.*/;
+
+            if (!file.type.match(imageType))
+                return;
+
+            var reader = new FileReader();
+            reader.onload = fileOnload;
+            reader.readAsDataURL(file);
+        }
+
+        function fileOnload(e) {
+            var result = e.target.result;
+            $('#imgSalida').attr("src", result);
         }
     </script>
 
@@ -26,17 +54,21 @@
         Crear Noticia
 
     <div id="formularioInterno" class="formInternoCrearNoticia">
-        <s:form action="guardarCartelera" namespace="/cartelera" id="guardarCartelera">
+        <s:form method="POST" action="guardarCartelera" namespace="/administrador/cartelera" id="guardarCartelera" enctype="multipart/form-data">
             <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box"/>
             <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea" />
+            <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
         </s:form>
+        <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src=""/><br><br>
+            <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>
+        </div>
     </div>
     </div>
     <div class="botones">
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearNoticiaFunction();">
             Guardar
         </sj:a>
-        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
 </div>
 

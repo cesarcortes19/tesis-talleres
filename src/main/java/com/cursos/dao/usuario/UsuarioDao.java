@@ -25,7 +25,7 @@ public class UsuarioDao {
     public List<UserModel> getAll(Integer from, Integer to) throws Exception {
         try {
             Query query = getSessionFactory().getCurrentSession().
-                    createQuery("from UserModel");
+                    createQuery("from UserModel where roleModel.id =:idRole").setParameter("idRole",2);
             if (from == null) {
                 from = 0;
             }

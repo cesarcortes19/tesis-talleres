@@ -75,6 +75,12 @@
 
     <package name="pagosUsuario" namespace="/usuario/pagos" extends="default">
 
+        <action name="*HistorialPagos" class="PagosAction" method="{1}Historial">
+            <result name="historialPagosUsuario" type="tiles">histrorialPagosUsuario</result>
+            <result name="historialPagosTodosUsuario" type="tiles">historialPagosTodosUsuario</result>
+            <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
+        </action>
+
         <action name="*Pagos" class="GridPagosAction" method="{1}">
         </action>
 
@@ -119,6 +125,12 @@
                     ^gridModel\[\d+\]\.fechaPago
                 </param>
             </result>
+        </action>
+
+        <action name="*GestionarPagos" class="PagosAction" method="{1}">
+            <result name="infoPagosUsuario" type="tiles">infoPagosUsuario</result>
+            <result name="infoPagosTodosUsuario" type="tiles">infoPagosTodosUsuario</result>
+            <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
     </package>
 

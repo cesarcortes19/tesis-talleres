@@ -6,7 +6,7 @@
 
 <struts>
 
-    <package name="cartelera" namespace="/cartelera" extends="default,json-default">
+    <package name="cartelera" namespace="/administrador/cartelera" extends="default,json-default">
 
         <action name="*Cartelera" class="CarteleraAction" method="{1}">
             <result name="carteleraPrincipal" type="tiles">carteleraPrincipal</result>
@@ -15,6 +15,22 @@
             <result name="cargarEliminarCartelera" type="redirectAction">cargarEliminarCartelera</result>
             <result name="cargarCartelera" type="redirectAction">cargarCartelera</result>
             <result name="input" type="tiles">carteleraCrear</result>
+            <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/gif,image/jpeg,image/png</param>
+                <param name="maximumSize">3145728</param>
+            </interceptor-ref>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+
         </action>
 
 <!--        <action name="*Cartelera2" class="CarteleraAction" method="{1}">
@@ -29,4 +45,9 @@
 
     </package>
 
+    <package name="carteleraUsuario" namespace="/todos/cartelera" extends="default,json-default">
+    <action name="*Cartelera" class="CarteleraAction" method="{1}">
+        <result name="carteleraPrincipal" type="tiles">carteleraPrincipal</result>
+    </action>
+    </package>
 </struts>

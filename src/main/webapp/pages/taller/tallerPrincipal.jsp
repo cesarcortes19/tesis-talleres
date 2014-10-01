@@ -10,59 +10,45 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <html>
 <head>
-    <title></title>
+    <title>Talleres</title>
 </head>
 <%--<sj:head jqueryui="true" jquerytheme="humanity"/>--%>
 </head>
 <body>
+<div id="formulario" class="formulario">
+    <div id="titulo" class="TituloformInterno">
+        Talleres
+    </div>
+</div>
 
-<div>
-<table class="mostrarCurso" align="center" style="">
+    <div>
+        <table class="mostrarCurso" align="center">
 
-<%--
-<s:iterator value="listTallerModel" step="" status="statusTaller">
-    <tr>
-        <s:if test="%{#statusTaller.index%2 == 0}">
-            <s:if test="%{#statusTaller.index == 0}">
+            <s:iterator value="tallerList" var="iteradorTaller" status="statusTaller">
+            <s:if test="%{#statusTaller.index%3 == 0}">
             </tr>
             <tr>
-            </s:if>
-        </s:if>
---%>
-        <td>
-            <div class="mostrarCurso">
-                <div class="tituloTaller" style="width: auto; height: 10%"><s:property value="name"/></div>
-                <sj:tabbedpanel id="localtabs">
-                    <sj:tab id="tab1" target="tone" label="Descripcion"/>
-                    <sj:tab id="tab2" target="ttwo" label="Horarios"/>
-                    <sj:tab id="tab3" target="tthree" label=" Alumnos"/>
-                    <div id="tone"><s:property value="descripcion"/></div>
-                    <div id="ttwo"><s:property value="horario"/></div>
-                    <div id="tthree"><s:property value="cantidadAlumnosActual"/>/<s:property value="cantidadAlumnosMaxima"/></div>
-                </sj:tabbedpanel>
-                <br>
-                <sj:a id="save" button="true" buttonIcon="ui-icon-disk" value="Save"
-                      onclick="createBarcode();">Pre-inscribir</sj:a>
-            </div>
-            <div class="mostrarCurso">
-                <div class="tituloTaller" style="width: auto; height: 10%"><s:property value="name"/></div>
-                <sj:tabbedpanel id="localtabs">
-                    <sj:tab id="tab1" target="tone" label="Descripcion"/>
-                    <sj:tab id="tab2" target="ttwo" label="Horarios"/>
-                    <sj:tab id="tab3" target="tthree" label="Alumnos"/>
-                    <div id="tone"><s:property value="descripcion"/></div>
-                    <div id="ttwo"><s:property value="horario"/></div>
-                    <div id="tthree"><s:property value="cantidadAlumnosActual"/>/<s:property value="cantidadAlumnosMaxima"/></div>
-                </sj:tabbedpanel>
-                <br>
-                <sj:a id="save" button="true" buttonIcon="ui-icon-disk" value="Save"
-                      onclick="createBarcode();">Pre-inscribir</sj:a>
-            </div>
-        </td>
-<%--    </s:iterator>
-    </tr>--%>
-</table>
+                </s:if>
+                <td>
+                    <div class="mostrarCurso">
+                        <div class="tituloTaller" style="width: auto; height: 10%"><s:property value="name"/></div>
+                        <sj:tabbedpanel id="%{#iteradorTaller.id}">
+                            <sj:tab id="tab1" target="tone" label="Descripcion"/>
+                            <sj:tab id="tab2" target="ttwo" label="Horarios"/>
+                            <sj:tab id="tab3" target="tthree" label="Alumnos"/>
+                            <div id="tone"><s:property value="descripcion"/></div>
+                            <div id="ttwo"><s:property value="horario"/></div>
+                            <div id="tthree"><s:property value="cantidadAlumnosactual"/>/<s:property
+                                    value="cantidadAlumnosMaxima"/> Alumnos</div>
+                        </sj:tabbedpanel>
+                        <br>
+                    </div>
+                </td>
+                </s:iterator>
+            </tr>
+        </table>
     </div>
+
 
 </body>
 </html>

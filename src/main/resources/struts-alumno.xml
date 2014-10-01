@@ -6,7 +6,7 @@
 
 <struts>
 
-    <package name="alumno" namespace="/alumno" extends="default,json-default">
+    <package name="alumno" namespace="/administrador/alumno" extends="default,json-default">
 
         <action name="*Alumno" class="AlumnoAction" method="{1}">
 
@@ -16,14 +16,11 @@
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,
-                    ^gridModel\[\d+\]\.name,
-                    ^gridModel\[\d+\]\.email,
-                    ^gridModel\[\d+\]\.status,
-                    ^gridModel\[\d+\]\.roleModel\.idRole,
-                    ^gridModel\[\d+\]\.roleModel\.nameRole,
-                    ^gridModel\[\d+\]\.lastLoginDate,
-                    ^gridModel\[\d+\]\.lastModified,
-                    ^gridModel\[\d+\]\.lastModifiedBy
+                    ^gridModel\[\d+\]\.nombre,
+                    ^gridModel\[\d+\]\.apellido,
+                    ^gridModel\[\d+\]\.grado,
+                    ^gridModel\[\d+\]\.seccion,
+                    ^gridModel\[\d+\]\.edad,
                 </param>
             </result>
         </action>

@@ -30,13 +30,14 @@
         <div id="formularioInterno" class="formInterno">
             <s:form action="guardarCrearUsuario" namespace="/administrador/usuario" id="formCrearUsuario">
 
-                <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box"/>
-                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"/>
-                <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box"/>
+                <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" onkeypress="return onlyLetters(event);" cssClass="box"/>
+                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" onkeypress="return onlyLetters(event);" cssClass="box"/>
+                <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" onkeypress="return onlyNumber(event);" cssClass="box"/>
+                <s:password key="usuario.form.label.password" name="usuarioModel.password" cssClass="box"/>
                 <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box"/>
                 <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box"/>
-                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box"/>
-                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box"/>
+                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" onkeypress="return onlyNumber(event);" cssClass="box"/>
+                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" onkeypress="return onlyNumber(event);" cssClass="box"/>
                 <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea"/>
                 <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea"/>
                 <s:hidden name="listaAlumnoJson" id="alumnoJson"/>
@@ -98,7 +99,7 @@
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="crearUsuarioFunction();">
             Guardar
         </sj:a>
-        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
 </div>
 </body>

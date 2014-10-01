@@ -78,6 +78,17 @@
         <put-attribute name="body"   value="/pages/taller/listadoTallerInscribir.jsp"/>
     </definition>
 
+<!--Administrador-->
+    <definition name="editarAdministrador" extends="mainTemplate">
+        <put-attribute name="title"  value="Editar Administrador"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/editarAdministrador.jsp"/>
+    </definition>
+
+    <definition name="editarPasswordAdministrador" extends="mainTemplate">
+        <put-attribute name="title"  value="Usuario"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/editarPasswordAdministrador.jsp"/>
+    </definition>
+
 <!--usuario-->
     <definition name="crearUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>

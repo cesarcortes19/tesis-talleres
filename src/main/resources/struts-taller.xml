@@ -42,6 +42,7 @@
 
     <package name="usuarioTaller" namespace="/usuario/taller" extends="default">
 
+
         <action name="*InscribirTaller" class="TallerAction" method="{1}Inscribir">
             <result name="input" type="tiles">inscribirTaller</result>
             <result name="listadoRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
@@ -52,6 +53,12 @@
         <action name="*DesinscripcionTaller" class="TallerAction" method="{1}Desinscripcion">
             <result name="input" type="tiles">inscribirTaller</result>
             <result name="listadoRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
+        </action>
+    </package>
+
+    <package name="todosTaller" namespace="/todos/taller" extends="default">
+        <action name="cargarVerTaller" class="TallerAction" method="cargarAdministrar">
+            <result name="success" type="tiles">tallerPrinicipal</result>
         </action>
     </package>
 

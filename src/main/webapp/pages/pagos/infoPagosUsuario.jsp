@@ -272,7 +272,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="crearNoticiaFunction();">
             Realizar Pago
         </sj:a>
-        <sj:a id="cancelar" button="true" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
 
 

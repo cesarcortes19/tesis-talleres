@@ -3,7 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 
 <head>
     <link rel="stylesheet" type="text/css" href="<s:url value="/resources/css/menu.css"/>" media="screen"/>
@@ -11,10 +11,8 @@
     <script type="text/javascript" src="<s:url value="/resources/js/validation.js"/>"></script>
     <script type="text/javascript" src="<s:url value="/resources/js/messages.js"/>"></script>
     <script type="text/javascript" src="<s:url value="/resources/js/menu.js"/>"></script>
+    <script type="text/javascript" src="<s:url value="/resources/js/util.js"/>"></script>
     <script>
-        function submitFormulario(element) {
-            $("#" + element).submit();
-        }
 
         function loginFunction() {
             if ($("#cedulaLogin").val() == "" || $("#passwordLogin").val() == "") {
@@ -40,32 +38,32 @@
 
             <td>
                 <sec:authorize access="isAnonymous()">
-                <div>
-                    <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;"
-                                     theme="jquery"/>
-                    <table>
-                        <td>
-                            <div align="right">
+                    <div>
+                        <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;"
+                                         theme="jquery"/>
+                        <table>
+                            <td>
+                                <div align="right">
 
-                                <s:form action="autenticarLogin" namespace="/login" id="idFormLogin">
-                                    <s:textfield id="cedulaLogin" key="usuario.form.label.cedula"
-                                                 name="userModel.cedula"
-                                                 cssClass="boxHeader"/>
-                                    <s:password id="passwordLogin" key="usuario.form.label.password"
-                                                name="userModel.password"
-                                                cssClass="boxHeader"/>
-                                </s:form>
-                            </div>
-                        </td>
-                        <td style="vertical-align: bottom">
-                            <div class="botonesHeader" align="right">
-                                <sj:a id="autenticarse" button="true" onclick="loginFunction();">
-                                    Enviar
-                                </sj:a>
-                            </div>
-                        </td>
-                    </table>
-                </div>
+                                    <s:form action="autenticarLogin" namespace="/login" id="idFormLogin">
+                                        <s:textfield id="cedulaLogin" key="usuario.form.label.cedula"
+                                                     name="userModel.cedula"
+                                                     cssClass="boxHeader"/>
+                                        <s:password id="passwordLogin" key="usuario.form.label.password"
+                                                    name="userModel.password"
+                                                    cssClass="boxHeader"/>
+                                    </s:form>
+                                </div>
+                            </td>
+                            <td style="vertical-align: bottom">
+                                <div class="botonesHeader" align="right">
+                                    <sj:a id="autenticarse" button="true" onclick="loginFunction();">
+                                        Enviar
+                                    </sj:a>
+                                </div>
+                            </td>
+                        </table>
+                    </div>
                 </sec:authorize>
             </td>
         </tr>
@@ -74,7 +72,6 @@
     <div id="contendorMenu">
         <div id="menu">
             <ul class="menu">
-
 
 
                 <sec:authorize access="hasRole('Administrador')">
@@ -86,22 +83,11 @@
                 </sec:authorize>
 
                 <sec:authorize access="isAnonymous()">
-                    <s:include value="/pages/menus/menuAdministrador.jsp"></s:include>
+                    <s:include value="/pages/menus/menuUsuarioNoLogeado.jsp"></s:include>
                 </sec:authorize>
                 <%--<li class="last"><a href="#"><span>Contactenos</span></a></li>--%>
             </ul>
         </div>
     </div>
-    <%--<a class="titulo">Centro Educativo de la Asociación de Profesores de la Universidad Central De Venezuela (CEAPUCV)</a>--%>
-
-    <%--Cartelera--%>
-    <s:form action="cargarCartelera" namespace="/cartelera" id="cargarCartelera"></s:form>
-    <s:form action="cargarEliminarCartelera" namespace="/cartelera" id="cargarEliminarCartelera"/>
-    <s:form action="crearCartelera" namespace="/cartelera" id="crearCartelera"/>
-    <%--Usuarios Administrador--%>
-    <s:form action="cargarCrearUsuario" namespace="/administrador/usuario" id="crearUsuario"></s:form>
-    <s:form action="cargarAdministrarUsuario" namespace="/administrador/usuario"
-            id="editarEliminarUsuario"></s:form>
-    <%--<s:form action="consultarUsuario" namespace="/administrador/usuario" id="consultarUsuario"></s:form>--%>
-
+</div>
 </body>

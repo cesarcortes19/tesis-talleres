@@ -11,12 +11,12 @@
         <!--<nombreMetodo><nombreAction><NombreFuncionalidad>-->
         <action name="*Login" class="loginAction" method="{1}">
             <result name="success" type="redirectAction">
-                <param name="namespace">/cartelera</param>
+                <param name="namespace">/todos/cartelera</param>
                 <param  name="actionName">cargarCartelera</param>
             </result>
             <result name="cargar" type="tiles">cargarLogin</result>
             <result name="input" type="chain">
-                <param name="namespace">/cartelera</param>
+                <param name="namespace">/todos/cartelera</param>
                 <param  name="actionName">cargarCartelera</param>
                 <param  name="error"></param>
             </result>
