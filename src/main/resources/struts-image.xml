@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="image" namespace="/todo/Image" extends="struts-default">
+
+        <result-types>
+            <result-type name="MyBytesResult"
+                         class="MyBytesResult" />
+        </result-types>
+
+        <action name="ImageAction" class="ImageAction">
+            <result name="success" type="MyBytesResult">
+            </result>
+        </action>
+
+    </package>
+
+</struts>

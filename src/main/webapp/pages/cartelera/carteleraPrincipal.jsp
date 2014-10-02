@@ -43,7 +43,7 @@
 
     <div>
         <table class="mostrarCurso" align="center">
-
+            <img src="<s:url namespace="/todo/Image" action='ImageAction?imageId=darksouls.jpg' />" />
         <s:iterator value="noticiaList" var="iteradorNoticia" status="statusNoticia">
         <s:if test="%{#statusNoticia.index%3 == 0}">
             </tr>
