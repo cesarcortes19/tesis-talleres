@@ -37,15 +37,17 @@
             </td>
 
             <td>
+                <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;"
+                                 theme="jquery"/>
                 <sec:authorize access="isAnonymous()">
                     <div>
-                        <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;"
-                                         theme="jquery"/>
+<%--                        <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;"
+                                         theme="jquery"/>--%>
                         <table>
                             <td>
                                 <div align="right">
 
-                                    <s:form action="autenticarLogin" namespace="/login" id="idFormLogin">
+                                    <s:form action="autenticarLogin" namespace="/todos/usuario" id="idFormLogin">
                                         <s:textfield id="cedulaLogin" key="usuario.form.label.cedula"
                                                      name="userModel.cedula"
                                                      cssClass="boxHeader"/>
@@ -74,11 +76,11 @@
             <ul class="menu">
 
 
-                <sec:authorize access="hasRole('Administrador')">
+                <sec:authorize access="hasRole('ADMINISTRADOR')">
                     <s:include value="/pages/menus/menuAdministrador.jsp"></s:include>
                 </sec:authorize>
 
-                <sec:authorize access="hasRole('Representante')">
+                <sec:authorize access="hasRole('REPRESENTANTE')">
                     <s:include value="/pages/menus/menuRepresentante.jsp"></s:include>
                 </sec:authorize>
 

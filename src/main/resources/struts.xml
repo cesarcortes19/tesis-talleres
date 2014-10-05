@@ -13,7 +13,7 @@
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
         </result-types>
         <global-results>
-            <result name="ERROR" type="tiles">ERROR</result>
+            <result name="error" type="tiles">errorTiles</result>
             <result name="login">/login.jsp</result>
         </global-results>
     </package>

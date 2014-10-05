@@ -6,7 +6,7 @@
 
 <struts>
 
-    <package name="image" namespace="/todo/Image" extends="struts-default">
+    <package name="image" namespace="/todos/Image" extends="struts-default">
 
         <result-types>
             <result-type name="MyBytesResult"

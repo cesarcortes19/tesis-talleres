@@ -148,7 +148,7 @@
     </definition>
 
     <!--ERROR-->
-    <definition name="ERROR" extends="mainTemplate">
+    <definition name="errorTiles" extends="mainTemplate">
         <put-attribute name="title"  value="ERROR"/>
         <put-attribute name="body"   value="/pages/error.jsp"/>
     </definition>

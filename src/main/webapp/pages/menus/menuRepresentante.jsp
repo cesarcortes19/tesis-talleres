@@ -36,12 +36,13 @@
         </ul>
     </div>
 </li>
+
 <%--Solo lo deben ver los represententaste--%>
-<li><a href="#" class="parent"><span>Configuraci&oacute;n</span></a>
+<li><a href="#" class="parent"><span>Usuario: <s:property value="#session.currentUser"/></span></a>
     <div>
         <ul>
-            <li><a href="<s:url action="cargarEditarUsuario" namespace="/usuario"/>" class="parent"><span>Editar Cuenta</span></a></li>
-            <li><a href="<s:url value="/logout"/>" class="parent"><span>Cerrar Sesi&oacute;n</span></a></li>
+            <li><a href="<s:url action="cargarEditarUsuario" namespace="/usuario"/>"><span>Editar Cuenta</span></a></li>
+            <li><a href="<s:url value="/logout"/>"><span>Cerrar Sesi&oacute;n</span></a></li>
         </ul>
     </div>
 </li>

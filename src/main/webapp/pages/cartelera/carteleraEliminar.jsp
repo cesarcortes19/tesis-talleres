@@ -46,7 +46,17 @@
                 </s:if>
                 <td>
                     <div class="noticia">
-                        <img src="<s:url value="/resources/images/Logo Ceapucv2.jpg"/>" width="100px" height="100px"/>
+                        <s:if test="%{picture!=null}">
+                            <img id="idImageToShow<s:property value="id"/>" src="
+                                <s:url namespace="/todos/Image" action='ImageAction'>
+                                    <s:param name="imageId"><s:property value="id"/></s:param>
+                                </s:url>
+                            " width="100px" height="100px"/>
+                        </s:if>
+                        <s:else>
+                            <img id="idImageToShow<s:property value="id"/>" src="<s:url value="/resources/images/Logo_Ceapucv2.jpg"/>" width="100px"
+                                 height="100px"/>
+                        </s:else>
                         <br>
                         <div class="tituloNoticia">
                             <s:property value="titulo"/>

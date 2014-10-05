@@ -30,24 +30,23 @@
             <interceptor-ref name="workflow">
                 <param name="excludeMethods">input,back,cancel,browse</param>
             </interceptor-ref>
-
         </action>
 
-<!--        <action name="*Cartelera2" class="CarteleraAction" method="{1}">
-            <result name="cartelera" type="tiles">*.loqquesa</result>
-        </action>-->
+        <!--        <action name="*Cartelera2" class="CarteleraAction" method="{1}">
+                    <result name="cartelera" type="tiles">*.loqquesa</result>
+                </action>-->
 
-<!--        <action name="cargarCartelera" class="CarteleraAction">
-            <result name="success">/pages/cartelera/carteleraPrincipal.jsp</result>
-            <result name="input">/pages/cartelera/carteleraPrincipal.jsp</result>
-            <result name="error">/pages/cartelera/carteleraPrincipal.jsp</result>
-        </action>-->
+        <!--        <action name="cargarCartelera" class="CarteleraAction">
+                    <result name="success">/pages/cartelera/carteleraPrincipal.jsp</result>
+                    <result name="input">/pages/cartelera/carteleraPrincipal.jsp</result>
+                    <result name="error">/pages/cartelera/carteleraPrincipal.jsp</result>
+                </action>-->
 
     </package>
 
     <package name="carteleraUsuario" namespace="/todos/cartelera" extends="default,json-default">
-    <action name="*Cartelera" class="CarteleraAction" method="{1}">
-        <result name="carteleraPrincipal" type="tiles">carteleraPrincipal</result>
-    </action>
+        <action name="*Cartelera" class="CarteleraAction" method="{1}">
+            <result name="carteleraPrincipal" type="tiles">carteleraPrincipal</result>
+        </action>
     </package>
 </struts>

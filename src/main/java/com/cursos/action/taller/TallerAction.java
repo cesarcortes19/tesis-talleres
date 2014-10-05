@@ -1,5 +1,6 @@
 package com.cursos.action.taller;
 
+import com.cursos.ViewNames;
 import com.cursos.excepciones.NotFoundException;
 import com.cursos.excepciones.TallerMaximaCapacidadException;
 import com.cursos.model.AlumnoModel;
@@ -13,6 +14,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Hibernate;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -65,6 +69,7 @@ public class TallerAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
         return "cargarAdministrarTaller";
     }
 
@@ -108,11 +113,17 @@ public class TallerAction extends ActionSupport {
         HttpServletRequest request = ServletActionContext.getRequest();
 
         try {
-            if (request.isUserInRole("ROLE_ADMIN")) {
 
-            } else {
+            if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
-            }/*TODO comprobar role autenticado*/
+            }else
+            if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                userModel = new UserModel();
+                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                User userAuth = (User)auth.getPrincipal();
+                userModel.setCedula(userAuth.getUsername());
+                userModel = usuarioService.getUsuarioByCi(userModel);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;

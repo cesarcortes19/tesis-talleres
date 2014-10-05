@@ -271,9 +271,14 @@ div.noticia {
     border-radius: 8px;
 }
 div.imagenDialogo {
-
     text-align: center;
 }
+
+.imagenDialogo img{
+    width:300px;
+    height:300px;
+}
+
 div.tituloNoticiaDialogo {
     text-align: center;
 }

@@ -28,9 +28,17 @@
             <s:form action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller">
                 <s:hidden name="tallerModel.id"/>
                 <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box"/>
-                <s:textfield key="taller.form.label.horario" name="tallerModel.horario" cssClass="box"/>
                 <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea"/>
-                <s:textfield key="taller.form.label.cantidad.inscripciones" cssClass="box" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);"/>
+                <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.lunes" name="tallerModel.horarioLunes" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.martes" name="tallerModel.horarioMartes" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.sabado" name="tallerModel.horarioSabado" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo" cssClass="box"/>
+                <s:textfield key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
+                <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
             </s:form>
         </div>
     </div>

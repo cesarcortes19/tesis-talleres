@@ -1,5 +1,6 @@
 package com.cursos.action.usuario;
 
+import com.cursos.ViewNames;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.RoleModel;
@@ -11,7 +12,12 @@ import com.google.gson.reflect.TypeToken;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.PredicateUtils;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -28,11 +34,21 @@ public class UsuarioAction extends ActionSupport {
 
     public String cargar(){return SUCCESS;}
 
-    /*TODO validacion se que usuario esta logeado*/
+    /*TODO validacion de que usuario esta logeado*/
     public String cargarEditar(){
         try {
-            usuarioModel=usuarioService.getUsuarioById(usuarioModel.getId());
-        } catch (Exception e) {
+            HttpServletRequest request = ServletActionContext.getRequest();
+            if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
+                usuarioModel=usuarioService.getUsuarioById(usuarioModel.getId());
+            }else
+                if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                    usuarioModel = new UserModel();
+                    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                    User userAuth = (User)auth.getPrincipal();
+                    usuarioModel.setCedula(userAuth.getUsername());
+                    usuarioModel=usuarioService.getUsuarioByCi(usuarioModel);
+                }
+         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
         }

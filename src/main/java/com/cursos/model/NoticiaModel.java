@@ -29,6 +29,8 @@ public class NoticiaModel {
     @Column(name = "imagen", nullable = true)
     private byte[] picture;
 
+    private String pictureString;
+
 
     public int getId() {
         return id;
@@ -76,5 +78,14 @@ public class NoticiaModel {
 
     public void setPicture(byte[] picture) {
         this.picture = picture;
+    }
+
+    @Transient
+    public String getPictureString() {
+        return new String(this.picture);
+    }
+
+    public void setPictureString(byte[] picture) {
+        this.pictureString = new String(this.picture);
     }
 }

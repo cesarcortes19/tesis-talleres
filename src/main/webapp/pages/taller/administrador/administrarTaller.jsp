@@ -32,6 +32,7 @@
 <body>
 
 <div>
+    <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
     <table class="mostrarCurso" align="center">
 
         <s:iterator value="tallerList" var="iteradorTaller" status="statusTaller">
@@ -43,19 +44,49 @@
                 <div class="mostrarCurso">
                     <div class="tituloTaller" style="width: auto; height: 10%"><s:property value="name"/></div>
                     <sj:tabbedpanel id="%{#iteradorTaller.id}">
-                        <sj:tab id="tab1" target="tone" label="Descripcion"/>
+                        <sj:tab id="tab1" target="tone" label="Detalle"/>
                         <sj:tab id="tab2" target="ttwo" label="Horarios"/>
                         <sj:tab id="tab3" target="tthree" label="Alumnos"/>
-                        <div id="tone"><s:property value="descripcion"/></div>
-                        <div id="ttwo"><s:property value="horario"/></div>
-                        <div id="tthree"><s:property value="cantidadAlumnosactual"/>/<s:property
-                                value="cantidadAlumnosMaxima"/> Alumnos</div>
+                        <div id="tone"><br>
+                            <b>Costo inscripci&oacute;n:</b> <s:property value="costo"/> Bs.<br><br>
+                            <b>Costo mensualidad:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
+                            <s:property value="descripcion"/>
+
+                        </div>
+                        <div id="ttwo"><br>
+                            <s:if test="%{horarioLunes!=''}">
+                                <b>Lunes:</b> <s:property value="horarioLunes"/><br><br>
+                            </s:if>
+                            <s:if test="%{horarioMartes!=''}">
+                                <b>Martes:</b> <s:property value="horarioMartes"/><br><br>
+                            </s:if>
+                            <s:if test="%{horarioMiercoles!=''}">
+                            <b>Mi&eacute;rcoles:</b> <s:property value="horarioMiercoles"/><br><br>
+                                </s:if>
+                                <s:if test="%{horarioJueves!=''}">
+                                <b>Jueves:</b> <s:property value="horarioJueves"/><br><br>
+                                </s:if>
+                                <s:if test="%{horarioViernes!=''}">
+                                <b>Viernes: </b><s:property value="horarioViernes"/><br><br>
+                                </s:if>
+                                <s:if test="%{horarioSabado!=''}">
+                                <b>S&aacute;bado:</b> <s:property value="horarioSabado"/><br><br>
+                                </s:if>
+                                <s:if test="%{horarioDomingo!=''}">
+                                <b>Domingo:</b> <s:property value="horarioDomingo"/><br><br>
+                                </s:if>
+
+                        </div>
+                        <div id="tthree"><br>
+                            <b>Cupos:</b> <s:property value="cantidadAlumnosactual"/>/<s:property
+                                value="cantidadAlumnosMaxima"/> Alumnos
+                        </div>
                     </sj:tabbedpanel>
                     <br>
-                                            <sj:a id="editarTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-pencil" value="Save"
-                                                  onclick="editarTallerFunction('%{#iteradorTaller.id}');">Editar</sj:a>
-                                            <sj:a id="eliminarTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-trash" value="Save"
-                                                  onclick="eliminarTallerFunction('%{#iteradorTaller.id}');">Eliminar</sj:a>
+                    <sj:a id="editarTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-pencil" value="Save"
+                          onclick="editarTallerFunction('%{#iteradorTaller.id}');">Editar</sj:a>
+                    <sj:a id="eliminarTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-trash" value="Save"
+                          onclick="eliminarTallerFunction('%{#iteradorTaller.id}');">Eliminar</sj:a>
                 </div>
             </td>
             </s:iterator>

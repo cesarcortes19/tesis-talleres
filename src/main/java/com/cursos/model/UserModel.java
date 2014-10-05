@@ -33,6 +33,7 @@ public class UserModel implements UsuarioInterface {
     private String userInfo;
     @Transient
     private String confirmPassword;
+    private String fullName;
 
     @Override
     @Id
@@ -181,5 +182,15 @@ public class UserModel implements UsuarioInterface {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    @Transient
+    public String getFullName() {
+        String userInfo = this.nombre+" "+this.apellido;
+        return userInfo;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }
