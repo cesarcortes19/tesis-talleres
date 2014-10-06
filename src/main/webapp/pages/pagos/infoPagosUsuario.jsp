@@ -250,18 +250,18 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         <tr>
             <td>
                 <label style="display:inline-block"><b>Tipo de pago:</b></label>
-                <%--<s:textfield id="namePlanPrize" name="pagosModel.tipoPago" theme="simple"/>--%>
+                <%--<s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>--%>
                 <s:radio  theme="simple" name="userGender" key="user.gender" list="{'Deposito','Transferencia','Efectivo' }" />
             </td>
 
             <td>
                 <label style="display:inline-block"><b>N&uacutemero Comprobante:</b></label>
-                <s:textfield id="namePlanPrize" name="pagosModel.tipoPago" theme="simple"/>
+                <s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>
             </td>
 
             <td>
                 <label style="display:inline-block"><b>Monto a pagar:</b></label>
-                <s:textfield id="namePlanPrize" name="pagosModel.tipoPago" theme="simple"/>
+                <s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>
             </td>
 
 

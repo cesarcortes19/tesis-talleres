@@ -47,12 +47,22 @@
             <result name="input" type="tiles">inscribirTaller</result>
             <result name="listadoRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
             <result name="listadoTallerInscribir" type="tiles">listadoTallerInscribir</result>
+            <result name="cargarRepresentadosInscribirTaller" type="chain">
+                <param name="actionName">cargarRepresentadosInscribirTaller</param>
+                <param name="namespace">/usuario/taller</param>
+                <param name="model"></param>
+            </result>
             <!--<result name="listadoTallerInscribir" type="tiles">listadoTallerInscribir</result>-->
         </action>
 
         <action name="*DesinscripcionTaller" class="TallerAction" method="{1}Desinscripcion">
             <result name="input" type="tiles">inscribirTaller</result>
             <result name="listadoRepresentadosInscribir" type="tiles">representadosInscribirTaller</result>
+            <result name="cargarRepresentadosInscribirTaller" type="chain">
+                <param name="actionName">cargarRepresentadosInscribirTaller</param>
+                <param name="namespace">/usuario/taller</param>
+                <param name="model"></param>
+            </result>
         </action>
     </package>
 

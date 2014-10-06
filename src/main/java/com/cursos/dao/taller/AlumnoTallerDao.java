@@ -1,6 +1,8 @@
 package com.cursos.dao.taller;
 
+import com.cursos.model.AlumnoModel;
 import com.cursos.model.AlumnoTallerModel;
+import com.cursos.model.TallerModel;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -60,6 +62,31 @@ public class AlumnoTallerDao {
             Query query = getSessionFactory().getCurrentSession()
                     .createQuery("from AlumnoTallerModel");
             return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public AlumnoTallerModel getAlumnoTallerByTallerAndAlumno(AlumnoModel alumnoModel, TallerModel tallerModel) throws Exception{
+        try {
+            return (AlumnoTallerModel) getSessionFactory().getCurrentSession()
+                    .createQuery("from AlumnoTallerModel where alumnoModel.id=:idAlumno and tallerModel.id=:idTaller")
+                    .setParameter("idAlumno",alumnoModel.getId())
+                    .setParameter("idTaller", tallerModel.getId())
+                    .uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public AlumnoTallerModel getAlumnoTallerById(AlumnoTallerModel alumnoTallerModel) throws Exception{
+        try {
+            return (AlumnoTallerModel) getSessionFactory().getCurrentSession()
+                    .createQuery("from AlumnoTallerModel where id=:id")
+                    .setParameter("id",alumnoTallerModel.getId())
+                    .uniqueResult();
         } catch (HibernateException e) {
             e.printStackTrace();
             throw e;

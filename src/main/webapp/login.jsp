@@ -25,8 +25,8 @@
 </head>
 <body>
 
-<s:form action="autenticarLogin" namespace="/todos/usuario" id="">
-
+<s:form action="autenticarLogin" namespace="/login" id="">
+dadasdasdasdasd
     <s:textfield key="usuario.form.label.cedula" name="userModel.cedula" cssClass="box"/>
     <s:textfield key="usuario.form.label.password" name="userModel.password" cssClass="box"/>
 <s:submit/>

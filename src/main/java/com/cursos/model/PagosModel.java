@@ -19,8 +19,10 @@ public class PagosModel {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = true)
     private UserModel userModel;
+    @Column(name = "modo_pago", nullable = false)
+    private ModoPago modoPago;
     @Column(name = "tipo_pago", nullable = false)
-    private PagoType tipoPago;
+    private TipoPago tipoPago;
     @Column(name = "numero_comprobante", nullable = false)
     private String numeroComprobante;
     @Column(name = "meses_pagos", nullable = false)
@@ -36,8 +38,10 @@ public class PagosModel {
     @Column(name = "fecha_pago", nullable = false)
     private Date fechaPago;
 
-    public enum PagoType {TRANSFERENCIA, DEPOSITO}
-    public enum StatusType {PENDIENTE, PAGO, RECHAZADO}
+    public enum ModoPago {TRANSFERENCIA, DEPOSITO, EFECTIVO}
+    public enum StatusType {REALIZADO_POR_REPRESENTANTE, PAGO_APROBADO_ADMINISTRADOR, PAGO_RECHAZADO}
+    public enum TipoPago {MENSUALIDAD, INSCRIPCION}
+
 
     public UserModel getUserModel() {
         return userModel;
@@ -47,11 +51,19 @@ public class PagosModel {
         this.userModel = userModel;
     }
 
-    public PagoType getTipoPago() {
+    public ModoPago getModoPago() {
+        return modoPago;
+    }
+
+    public void setModoPago(ModoPago modoPago) {
+        this.modoPago = modoPago;
+    }
+
+    public TipoPago getTipoPago() {
         return tipoPago;
     }
 
-    public void setTipoPago(PagoType tipoPago) {
+    public void setTipoPago(TipoPago tipoPago) {
         this.tipoPago = tipoPago;
     }
 
@@ -118,4 +130,6 @@ public class PagosModel {
     public void setId(int id) {
         this.id = id;
     }
+
+
 }

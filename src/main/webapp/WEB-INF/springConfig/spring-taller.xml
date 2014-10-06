@@ -8,6 +8,7 @@
         <property name="usuarioService" ref="UsuarioService"/>
         <property name="authenticationManager" ref="AuthenticationManager"/>
         <property name="alumnoService" ref="AlumnoService"/>
+        <property name="pagosService" ref="PagosService"/>
     </bean>
 
     <bean id="TallerService" class="com.cursos.service.taller.TallerService">

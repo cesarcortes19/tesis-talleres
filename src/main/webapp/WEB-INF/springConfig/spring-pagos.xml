@@ -22,6 +22,9 @@
 
     <bean id="PagosService" class="com.cursos.service.pagos.PagosService">
         <property name="pagosDao" ref="PagosDao"/>
+        <property name="alumnoDao" ref="AlumnoDao"/>
+        <property name="tallerDao" ref="TallerDao"/>
+        <property name="alumnoTallerDao" ref="AlumnoTallerDao"/>
     </bean>
 
     <bean id="PagosDao" class="com.cursos.dao.pagos.PagosDao">

@@ -1,6 +1,8 @@
 package com.cursos.dao.pagos;
 
+import com.cursos.model.AlumnoModel;
 import com.cursos.model.PagosModel;
+import com.cursos.model.TallerModel;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -32,6 +34,10 @@ public class PagosDao {
         }
     }
 
+    public void guardar(PagosModel pagosModel) throws Exception  {
+        sessionFactory.getCurrentSession().save(pagosModel);
+    }
+
     public List<PagosModel> getHistorialPagosByUsuario(int id) {
         try {
             Query query = getSessionFactory().getCurrentSession()
@@ -42,4 +48,6 @@ public class PagosDao {
             throw e;
         }
     }
+
+
 }

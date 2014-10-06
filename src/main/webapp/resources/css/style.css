@@ -289,6 +289,10 @@ div.descripcionNoticiaDialogo {
 div.fechaNoticiaDialogo {
     text-align: center;
 }
+div.pagoInscripcionDialogo {
+    text-align: center;
+    margin-bottom: 25px;
+}
 
 
 div.dialogoNoticia {

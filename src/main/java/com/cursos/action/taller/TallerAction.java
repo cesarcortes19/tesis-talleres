@@ -3,11 +3,9 @@ package com.cursos.action.taller;
 import com.cursos.ViewNames;
 import com.cursos.excepciones.NotFoundException;
 import com.cursos.excepciones.TallerMaximaCapacidadException;
-import com.cursos.model.AlumnoModel;
-import com.cursos.model.AlumnoTallerModel;
-import com.cursos.model.TallerModel;
-import com.cursos.model.UserModel;
+import com.cursos.model.*;
 import com.cursos.service.alumno.AlumnoService;
+import com.cursos.service.pagos.PagosService;
 import com.cursos.service.taller.TallerService;
 import com.cursos.service.usuario.UsuarioService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,8 +17,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 /**
  * Created by Cesar on 27/07/2014.
@@ -35,6 +34,10 @@ public class TallerAction extends ActionSupport {
     private AlumnoModel alumnoModel;
     private AlumnoService alumnoService;
     private AlumnoTallerModel alumnoTallerModel;
+    private PagosModel pagosModel;
+    private String modoPago;
+    private PagosService pagosService;
+    private Map<String, Object> model = new HashMap<String, Object>();
 
 
     public String cargar() {
@@ -116,11 +119,10 @@ public class TallerAction extends ActionSupport {
 
             if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
-            }else
-            if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+            } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
                 userModel = new UserModel();
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-                User userAuth = (User)auth.getPrincipal();
+                User userAuth = (User) auth.getPrincipal();
                 userModel.setCedula(userAuth.getUsername());
                 userModel = usuarioService.getUsuarioByCi(userModel);
             }
@@ -128,7 +130,11 @@ public class TallerAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
+
         Hibernate.initialize(userModel.getAlumnoModelSet());
+        if (model.get(ViewNames.MENSAJE) != null) {
+            addActionMessage((String) model.get(ViewNames.MENSAJE));
+        }
         return "listadoRepresentadosInscribir";
     }
 
@@ -142,34 +148,50 @@ public class TallerAction extends ActionSupport {
         return "listadoTallerInscribir";
     }
 
-    /**.
+    /**
+     * .
      * Metodo que recibe el id del alumno y el ide del taller que inscribio
+     *
      * @return
      */
     public String guardarInscribir() {
         try {
-            tallerService.realizarInscripcion(alumnoModel.getId(),tallerModel.getId());
+            /*Se define como se pago*/
+            if (modoPago.equals("1"))
+                pagosModel.setModoPago(PagosModel.ModoPago.DEPOSITO);
+            else if (modoPago.equals("2"))
+                pagosModel.setModoPago(PagosModel.ModoPago.TRANSFERENCIA);
+            else if (modoPago.equals("3"))
+                pagosModel.setModoPago(PagosModel.ModoPago.EFECTIVO);
+            else return ERROR;
+            pagosModel.setTipoPago(PagosModel.TipoPago.INSCRIPCION);
+            /*Se defino quien realizo el pago*/
+
+            tallerService.realizarInscripcion(alumnoModel.getId(), tallerModel.getId());
+            pagosService.realizarPagoTaller(alumnoModel,tallerModel, pagosModel);
+
         } catch (Exception e) {
-            if(e instanceof TallerMaximaCapacidadException)
-            {
+            if (e instanceof TallerMaximaCapacidadException) {
                 addActionMessage(((NotFoundException) e).getMessage());
                 return INPUT;
             }
             e.printStackTrace();
             return ERROR;
         }
-        return "listadoRepresentadosInscribir";
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa"));
+        return "cargarRepresentadosInscribirTaller";
     }
 
-    public String realizarDesinscripcion(){
+    public String realizarDesinscripcion() {
         try {
             tallerService.realizarDesinscripcion(alumnoTallerModel);
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
         }
-        addActionMessage("Transaccion Exitosa");
-        return "listadoRepresentadosInscribir";
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        return "cargarRepresentadosInscribirTaller";
     }
 
 
@@ -229,12 +251,12 @@ public class TallerAction extends ActionSupport {
         this.alumnoModel = alumnoModel;
     }
 
-    public void setAlumnoService(AlumnoService alumnoService) {
-        this.alumnoService = alumnoService;
-    }
-
     public AlumnoService getAlumnoService() {
         return alumnoService;
+    }
+
+    public void setAlumnoService(AlumnoService alumnoService) {
+        this.alumnoService = alumnoService;
     }
 
     public AlumnoTallerModel getAlumnoTallerModel() {
@@ -243,5 +265,37 @@ public class TallerAction extends ActionSupport {
 
     public void setAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) {
         this.alumnoTallerModel = alumnoTallerModel;
+    }
+
+    public PagosModel getPagosModel() {
+        return pagosModel;
+    }
+
+    public void setPagosModel(PagosModel pagosModel) {
+        this.pagosModel = pagosModel;
+    }
+
+    public String getModoPago() {
+        return modoPago;
+    }
+
+    public void setModoPago(String modoPago) {
+        this.modoPago = modoPago;
+    }
+
+    public void setPagosService(PagosService pagosService) {
+        this.pagosService = pagosService;
+    }
+
+    public PagosService getPagosService() {
+        return pagosService;
+    }
+
+    public Map<String, Object> getModel() {
+        return model;
+    }
+
+    public void setModel(Map<String, Object> model) {
+        this.model = model;
     }
 }

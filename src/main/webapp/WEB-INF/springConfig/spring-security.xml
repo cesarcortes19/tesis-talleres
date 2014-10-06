@@ -9,7 +9,7 @@
 
     <!-- enable use-expressions -->
     <security:http auto-config="true" use-expressions="true">
-        <security:intercept-url pattern="/login/**" access="permitAll"/>
+        <!--<security:intercept-url pattern="/login/**" access="permitAll"/>
         <security:intercept-url pattern="/login/*" access="permitAll"/>
         <security:intercept-url pattern="\A/login\Z" access="permitAll"/>
         <security:intercept-url pattern="\A/login(\?.*|/.*)\Z" access="permitAll"/>
@@ -18,8 +18,9 @@
         <security:intercept-url pattern="\A/login/**" access="permitAll"/>
         <security:intercept-url pattern="\A/login/**" access="permitAll"/>
         <security:intercept-url pattern="/login/autenticarLogin.action" access="permitAll"/>
-        <security:intercept-url pattern="\A/login/autenticarLogin.action" access="permitAll"/>
+        <security:intercept-url pattern="\A/login/autenticarLogin.action" access="permitAll"/>-->
         <security:intercept-url pattern="/todos/**" access="permitAll"/>
+        <security:intercept-url pattern="/login/**" access="permitAll"/>
         <security:intercept-url pattern="/administrador/**" access="hasRole('ADMINISTRADOR')"/>
         <security:intercept-url pattern="/usuario/**" access="hasAnyRole('REPRESENTANTE','ADMINISTRADOR')"/>
         <!-- access denied page -->
@@ -29,10 +30,10 @@
                 login-page="/todos/cartelera/cargarCartelera.action"
                 default-target-url="/todos/cartelera/cargarCartelera.action"
                 authentication-failure-url="/todos/cartelera/cargarCartelera.action" />-->
-        <logout logout-success-url="/login?logout"  />
+        <!--<logout logout-success-url="/login?logout"  />-->
         <security:logout logout-url="/logout" logout-success-url="/todos/cartelera/cargarCartelera.action" />
         <!-- enable csrf protection -->
-        <csrf/>
+<!--        <csrf/>-->
     </security:http>
 
 

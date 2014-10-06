@@ -47,7 +47,7 @@
                             <td>
                                 <div align="right">
 
-                                    <s:form action="autenticarLogin" namespace="/todos/usuario" id="idFormLogin">
+                                    <s:form action="autenticarLogin" namespace="/login" id="idFormLogin">
                                         <s:textfield id="cedulaLogin" key="usuario.form.label.cedula"
                                                      name="userModel.cedula"
                                                      cssClass="boxHeader"/>
