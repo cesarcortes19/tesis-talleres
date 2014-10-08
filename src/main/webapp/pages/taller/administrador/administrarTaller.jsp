@@ -20,7 +20,6 @@
             $("#hiddenIdEliminarTaller").val(element);
             $("#idFormEliminar").submit();
         }
-
     }
 
     function editarTallerFunction(element) {
@@ -51,7 +50,6 @@
                             <b>Costo inscripci&oacute;n:</b> <s:property value="costo"/> Bs.<br><br>
                             <b>Costo mensualidad:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
                             <s:property value="descripcion"/>
-
                         </div>
                         <div id="ttwo"><br>
                             <s:if test="%{horarioLunes!=''}">
@@ -61,25 +59,25 @@
                                 <b>Martes:</b> <s:property value="horarioMartes"/><br><br>
                             </s:if>
                             <s:if test="%{horarioMiercoles!=''}">
-                            <b>Mi&eacute;rcoles:</b> <s:property value="horarioMiercoles"/><br><br>
-                                </s:if>
-                                <s:if test="%{horarioJueves!=''}">
+                                <b>Mi&eacute;rcoles:</b> <s:property value="horarioMiercoles"/><br><br>
+                            </s:if>
+                            <s:if test="%{horarioJueves!=''}">
                                 <b>Jueves:</b> <s:property value="horarioJueves"/><br><br>
-                                </s:if>
-                                <s:if test="%{horarioViernes!=''}">
+                            </s:if>
+                            <s:if test="%{horarioViernes!=''}">
                                 <b>Viernes: </b><s:property value="horarioViernes"/><br><br>
-                                </s:if>
-                                <s:if test="%{horarioSabado!=''}">
+                            </s:if>
+                            <s:if test="%{horarioSabado!=''}">
                                 <b>S&aacute;bado:</b> <s:property value="horarioSabado"/><br><br>
-                                </s:if>
-                                <s:if test="%{horarioDomingo!=''}">
+                            </s:if>
+                            <s:if test="%{horarioDomingo!=''}">
                                 <b>Domingo:</b> <s:property value="horarioDomingo"/><br><br>
-                                </s:if>
+                            </s:if>
 
                         </div>
                         <div id="tthree"><br>
                             <b>Cupos:</b> <s:property value="cantidadAlumnosactual"/>/<s:property
-                                value="cantidadAlumnosMaxima"/> Alumnos
+                                    value="cantidadAlumnosMaxima"/> Alumnos
                         </div>
                     </sj:tabbedpanel>
                     <br>

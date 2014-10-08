@@ -18,6 +18,15 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <head>
     <title></title>
 
+    <style type="text/css">
+        .ui-jqgrid tr.jqgrow td {
+            white-space: normal;
+            height: 110px;
+            padding: 10px 2px 10px 2px;
+        }
+    </style>
+
+
     <script>
 
     </script>
@@ -46,6 +55,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             groupCollapse="false"
             >
         <sjg:gridColumn name="id"
+
                         title="id"
                         index="id"
                         align="center"
@@ -82,6 +92,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         title="Transacción"
                         index="logTransaccion"
                         sortable="false"
+                        edittype="textarea"
+                        cssStyle="color: #BC1010"
                         />
         <sjg:gridColumn name="status"
                         title="Estado"
