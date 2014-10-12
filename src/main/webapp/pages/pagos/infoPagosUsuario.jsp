@@ -44,8 +44,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </head>
 <body>
 
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
-
 <div class="tituloRepresentante">
     <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Telefono:</b> <s:property value="userModel.telefono1"/>
 </div>

@@ -1,5 +1,6 @@
 package com.cursos.action.pagos;
 
+import com.cursos.ViewNames;
 import com.cursos.excepciones.NotFoundException;
 import com.cursos.model.TallerModel;
 import com.cursos.model.UserModel;
@@ -10,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -25,26 +27,30 @@ public class PagosAction extends ActionSupport {
     private TallerModel tallerModel;
     private List<TallerModel> tallerModelList;
 
-    public String execute(){
+    public String execute() {
         return SUCCESS;
     }
 
-    public String cargar(){
+    public String cargar() {
         return SUCCESS;
     }
 
     /**/
-    public String buscarUsuario(){
+    public String buscarUsuario() {
 
         HttpServletRequest request = ServletActionContext.getRequest();
         try {
-            if (request.isUserInRole("ROLE_ADMIN")) {
+            if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
-            } else {
-                //if (request.isUserInRole("ROLE_REPRESENTANTE"))
-                //userModel = getUsuarioAutenticado();
-                userModel = usuarioService.getUsuarioByCi(userModel);
-            }/*TODO comprobar role autenticado*/
+            } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                    userModel = new UserModel();
+                    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                    User userAuth = (User) auth.getPrincipal();
+                    userModel.setCedula(userAuth.getUsername());
+                    userModel = usuarioService.getUsuarioByCi(userModel);
+                }
+            }
         } catch (Exception e) {
             if (e instanceof NotFoundException) {
                 addActionMessage(((NotFoundException) e).getElem() + " Usuario no encontrado");
@@ -56,7 +62,7 @@ public class PagosAction extends ActionSupport {
         return "infoPagosUsuario";
     }
 
-    public String cargarTodosUsuarios(){
+    public String cargarTodosUsuarios() {
 
         try {
             tallerModelList = tallerService.getAllTaller();
@@ -67,27 +73,32 @@ public class PagosAction extends ActionSupport {
         return "infoPagosTodosUsuario";
     }
 
-    public UserModel getUsuarioAutenticado(){
+    public UserModel getUsuarioAutenticado() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
-        return (UserModel)auth;
+        return (UserModel) auth;
     }
 
-    public String cargarCedulaHistorial(){
+    public String cargarCedulaHistorial() {
         return SUCCESS;
     }
 
-    public String buscarUsuarioHistorial(){
+    public String buscarUsuarioHistorial() {
 
         HttpServletRequest request = ServletActionContext.getRequest();
         try {
-            if (request.isUserInRole("ROLE_ADMIN")) {
+            if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
-            } else {
-                //if (request.isUserInRole("ROLE_REPRESENTANTE"))
-                //userModel = getUsuarioAutenticado();
-                userModel = usuarioService.getUsuarioByCi(userModel);
-            }/*TODO comprobar role autenticado*/
+            } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                    userModel = new UserModel();
+                    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                    User userAuth = (User) auth.getPrincipal();
+                    userModel.setCedula(userAuth.getUsername());
+                    userModel = usuarioService.getUsuarioByCi(userModel);
+                }
+
+            }
         } catch (Exception e) {
             if (e instanceof NotFoundException) {
                 addActionMessage(((NotFoundException) e).getElem() + " Usuario no encontrado");
@@ -99,7 +110,7 @@ public class PagosAction extends ActionSupport {
         return "historialPagosUsuario";
     }
 
-    public String cargarTodosHistorial(){
+    public String cargarTodosHistorial() {
         return "historialPagosTodosUsuario";
     }
 
@@ -111,28 +122,28 @@ public class PagosAction extends ActionSupport {
         this.userModel = userModel;
     }
 
-    public void setPagosService(PagosService pagosService) {
-        this.pagosService = pagosService;
-    }
-
     public PagosService getPagosService() {
         return pagosService;
     }
 
-    public void setUsuarioService(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
+    public void setPagosService(PagosService pagosService) {
+        this.pagosService = pagosService;
     }
 
     public UsuarioService getUsuarioService() {
         return usuarioService;
     }
 
-    public void setTallerService(TallerService tallerService) {
-        this.tallerService = tallerService;
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
     public TallerService getTallerService() {
         return tallerService;
+    }
+
+    public void setTallerService(TallerService tallerService) {
+        this.tallerService = tallerService;
     }
 
     public TallerModel getTallerModel() {

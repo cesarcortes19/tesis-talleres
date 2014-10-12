@@ -57,7 +57,6 @@
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,
-                    ^gridModel\[\d+\]\.id,
                     ^gridModel\[\d+\]\.userModel\.nombre,
                     ^gridModel\[\d+\]\.userModel\.userInfo,
                     ^gridModel\[\d+\]\.numeroComprobante,
@@ -79,9 +78,6 @@
             <result name="historialPagosUsuario" type="tiles">histrorialPagosUsuario</result>
             <result name="historialPagosTodosUsuario" type="tiles">historialPagosTodosUsuario</result>
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
-        </action>
-
-        <action name="*Pagos" class="GridPagosAction" method="{1}">
         </action>
 
         <action name="*PagosJson" class="GridPagosAction" method="{1}">
@@ -113,25 +109,22 @@
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,
-                    ^gridModel\[\d+\]\.id,
-                    ^gridModel\[\d+\]\.userModel\.nombre,
-                    ^gridModel\[\d+\]\.userModel\.userInfo,
+<!--                    ^gridModel\[\d+\]\.userModel\.nombre,
+                    ^gridModel\[\d+\]\.userModel\.userInfo,-->
                     ^gridModel\[\d+\]\.numeroComprobante,
                     ^gridModel\[\d+\]\.mesesPagos,
                     ^gridModel\[\d+\]\.montoIngresado,
                     ^gridModel\[\d+\]\.montoCalculado,
                     ^gridModel\[\d+\]\.logTransaccion,
-                    ^gridModel\[\d+\]\.status,
-                    ^gridModel\[\d+\]\.fechaPago
+                    ^gridModel\[\d+\]\.fechaPago,
+                    ^gridModel\[\d+\]\.status
                 </param>
             </result>
         </action>
 
-        <action name="*GestionarPagos" class="PagosAction" method="{1}">
+        <action name="*GestionarPagosRepresentante" class="PagosAction" method="{1}">
             <result name="infoPagosUsuario" type="tiles">infoPagosUsuario</result>
-            <result name="infoPagosTodosUsuario" type="tiles">infoPagosTodosUsuario</result>
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
     </package>
-
 </struts>

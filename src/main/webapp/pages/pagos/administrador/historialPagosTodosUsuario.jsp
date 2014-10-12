@@ -38,7 +38,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     </div>
 </div>
 
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
+
 
 <s:url id="remoteurl" action="cargarHistorialJson" namespace="/administrador/pagos">
 </s:url>
@@ -109,9 +109,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         formatter="date"
                         formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
                 />
-
-
-
     </sjg:grid>
 
 </div>

@@ -6,7 +6,7 @@
     <div>
         <ul>
             <li>
-                <a href="<s:url action="buscarUsuarioGestionarPagos" namespace="/usuario/pagos"/>"><span>Gestionar pago usuario </span></a>
+                <a href="<s:url action="buscarUsuarioGestionarPagosRepresentante" namespace="/usuario/pagos"/>"><span>Gestionar pago usuario </span></a>
             </li>
             <li>
                 <a href="<s:url action="buscarUsuarioHistorialPagos" namespace="/usuario/pagos"/>"><span>Historial de pagos</span></a>

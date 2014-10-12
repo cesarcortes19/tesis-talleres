@@ -18,9 +18,13 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <head>
     <title></title>
 
-    <script>
-
-    </script>
+    <style type="text/css">
+        .ui-jqgrid tr.jqgrow td {
+            white-space: normal;
+            height: 110px;
+            padding: 10px 2px 10px 2px;
+        }
+    </style>
 </head>
 <body>
 <div id="formulario" class="formulario">
@@ -28,8 +32,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         Historial de pago
     </div>
 </div>
-
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
+<div class="tituloRepresentante">
+    <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Telefono:</b> <s:property value="userModel.telefono1"/>
+</div>
+</br>
+</br>
 
 <s:url id="remoteurl" action="cargarHistorialJson" namespace="/usuario/pagos">
     <s:param name="userModel.id">
@@ -53,11 +60,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         hidden="true"/>
 
-        <sjg:gridColumn name="userModel.nombre"
+<%--        <sjg:gridColumn name="userModel.nombre"
                         title="Representante"
                         index="representante"
                         align="center"
-                />
+                />--%>
 
         <sjg:gridColumn name="numeroComprobante"
                         title="Nro. Comprobante"
@@ -84,6 +91,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         title="Transacción"
                         index="logTransaccion"
                         sortable="false"
+                        edittype="textarea"
+                        cssStyle="color: #BC1010"
                 />
         <sjg:gridColumn name="status"
                         title="Estado"
@@ -99,9 +108,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         formatter="date"
                         formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
                 />
-
-
-
     </sjg:grid>
 
 </div>

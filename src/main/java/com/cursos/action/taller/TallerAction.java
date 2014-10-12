@@ -116,7 +116,6 @@ public class TallerAction extends ActionSupport {
         HttpServletRequest request = ServletActionContext.getRequest();
 
         try {
-
             if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
             } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
