@@ -12,7 +12,7 @@
         <property name="password" value="123456" />
     </bean>-->
 
-    <bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="jndiName" value="java:comp/env/jdbc/db_taller"/>
     </bean>
 
