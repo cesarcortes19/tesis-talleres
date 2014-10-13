@@ -19,23 +19,23 @@ public class PagosModel {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = true)
     private UserModel userModel;
-    @Column(name = "modo_pago", nullable = false)
+    @Column(name = "modo_pago", nullable = true)
     private ModoPago modoPago;
-    @Column(name = "tipo_pago", nullable = false)
+    @Column(name = "tipo_pago", nullable = true)
     private TipoPago tipoPago;
-    @Column(name = "numero_comprobante", nullable = false)
+    @Column(name = "numero_comprobante", nullable = true)
     private String numeroComprobante;
-    @Column(name = "meses_pagos", nullable = false)
+    @Column(name = "meses_pagos", nullable = true)
     private int mesesPagos;
-    @Column(name = "monto_ingresado", nullable = false)
+    @Column(name = "monto_ingresado", nullable = true)
     private double montoIngresado;
-    @Column(name = "monto_calculado_por_aplicacion", nullable = false)
+    @Column(name = "monto_calculado_por_aplicacion", nullable = true)
     private double montoCalculado;
-    @Column(name = "status_transaccion", nullable = false)
+    @Column(name = "status_transaccion", nullable = true)
     private StatusType status;
-    @Column(name = "log_transacion", nullable = false)
+    @Column(name = "log_transacion", nullable = true)
     private String logTransaccion;
-    @Column(name = "fecha_pago", nullable = false)
+    @Column(name = "fecha_pago", nullable = true)
     private Date fechaPago;
 
     public enum ModoPago {TRANSFERENCIA, DEPOSITO, EFECTIVO}

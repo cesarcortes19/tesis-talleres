@@ -1,6 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Cesar
@@ -17,8 +18,9 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <html>
 <head>
     <title></title>
-
+    <script type="text/javascript" src="<s:url value="/resources/js/util.js"/>"></script>
     <script>
+
         function inscribirTallerFunction(element) {
             $("#hiddenAlumnoModel").val(element);
             $("#formInsribirTaller").submit();
@@ -33,6 +35,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         }
         $.subscribe('grid_complete', function(event, data) {
             habilitarCheckbox();
+            marcarInscripcionDeisncripcion();
+
         });
 
         function habilitarCheckbox(){
@@ -40,6 +44,19 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                 $(this).removeAttr('disabled');
             });
         }
+
+        function realizarPagoFunction (){
+            list = $("#pagosGrid").jqGrid('getRowData');
+            $("#stringPagos").val(JSON.stringify(list));
+            $("#formRealizarPago").submit()
+        }
+
+        function obtenerDataCheckbox(){
+            list = JSON.stringify($("#pagosGrid").jqGrid('getRowData'));
+            $("#stringPagos").val(list);
+        }
+
+
     </script>
 </head>
 <body>
@@ -206,34 +223,31 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         sortable="false"/>
 
-        <sjg:gridColumn name="costo"
-                        title="Costo"
+        <sjg:gridColumn name="tallerModel.costo"
+                        title="Costo(Bs)"
                         index="costo"
                         align="center"
+                        formatter="currency"
                         sortable="false"/>
-
-        <sjg:gridColumn name="status"
-                        title="Estado"
-                        index="status"
-                        editable="true"
-                        align="center"
-                        sortable="false"/>
-
-        <sjg:gridColumn name="fechaDesinscripcion"
-                        title="Desinscripci"
-                        index="fechaDesinscripcion"
-                        editable="true"
-                        align="center"
-                        sortable="false"
-                        hidden="true"/>
 
         <sjg:gridColumn name="fechaInscripcion"
-                        title="Inscripci&oacuten"
+                        title="Inscripción"
                         index="fechaInscripcion"
                         editable="true"
                         align="center"
                         sortable="false"
-                        hidden="true"/>
+                        formatter="date"
+                        formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
+                />
+
+        <sjg:gridColumn name="fechaDesinscripcion"
+                        title="Desinscripción"
+                        index="fechaDesinscripcion"
+                        editable="true"
+                        align="center"
+                        sortable="false"
+                        formatter="date"
+                        formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"/>
 
     </sjg:grid>
 
@@ -243,38 +257,37 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <br>
 <h3>Realizar Pago</h3><br>
 <div id="mensajeCalculoPago"><b>¡ATENCI&Oacute;N!:</b> Segun los meses seleccionados por usted, la aplicaci&oacuten ha calculado que su pago debe ser por el monto de 1250 Bs. </div>
-<s:form action="cargarTallerInscribirTaller" namespace="/usuario/taller" id="formInsribirTaller">
+<s:form action="realizarGestionPago" namespace="/usuario/pagos" id="formRealizarPago">
+    <s:hidden name="userModel.id"/>
     <table style="border-spacing: 50px;">
         <tr>
             <td>
                 <label style="display:inline-block"><b>Tipo de pago:</b></label>
                 <%--<s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>--%>
-                <s:radio  theme="simple" name="userGender" key="user.gender" list="{'Deposito','Transferencia','Efectivo' }" />
+                <sec:authorize access="hasRole('ADMINISTRADOR')">
+                    <s:radio  theme="simple" name="pagosTo.modoPago" list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo'}" value="2" />
+                </sec:authorize>
+                <sec:authorize access="hasRole('REPRESENTANTE')">
+                    <s:radio  theme="simple" name="pagosTo.modoPago" list="#{'1':'Deposito','2':'Transferencia'}" value="2" />
+                </sec:authorize>
             </td>
 
             <td>
                 <label style="display:inline-block"><b>N&uacutemero Comprobante:</b></label>
-                <s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>
+                <s:textfield id="idNumeroComprobante" name="pagosTo.numeroComprobante" theme="simple"/>
             </td>
-
-            <td>
-                <label style="display:inline-block"><b>Monto a pagar:</b></label>
-                <s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>
-            </td>
-
 
         </tr>
     </table>
 
     <div class="botones">
-        <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="crearNoticiaFunction();">
+        <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="realizarPagoFunction();">
             Realizar Pago
         </sj:a>
         <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
 
-
-    <s:hidden name="userModel.id" id="hiddenUserModel"/>
+    <s:hidden name="pagosTo.jsonPagos" id="stringPagos"/>
 </s:form>
 </body>
 </html>

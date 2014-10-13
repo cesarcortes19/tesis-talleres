@@ -145,13 +145,13 @@
 
                 <%--Se comrpueba que usuario esta logueado por que el representante no puede pagar en efectivo--%>
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
-                    <s:radio id="idTipoPago" name="modoPago" key="label.pago.tipo"
-                             list="#{'1':'Deposito','2':'Transferencia'}" value="2"/>
+                    <s:radio onchange="cambioModoPago();" id="idTipoPago" name="modoPago" key="label.pago.tipo"
+                             list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo' }" value="2"/>
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('REPRESENTANTE')">
-                    <s:radio onchange="cambioModoPago();" id="idTipoPago" name="modoPago" key="label.pago.tipo"
-                             list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo' }" value="2"/>
+                    <s:radio id="idTipoPago" name="modoPago" key="label.pago.tipo"
+                             list="#{'1':'Deposito','2':'Transferencia'}" value="2"/>
                 </sec:authorize>
 
                 <s:textfield id="idNumeroComprobante" name="pagosModel.numeroComprobante" key="label.pago.numero.comprobante"/>

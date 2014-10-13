@@ -126,5 +126,11 @@
             <result name="infoPagosUsuario" type="tiles">infoPagosUsuario</result>
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
+
+        <action name="*GestionPago" class="PagosAction" method="{1}GestionPago">
+            <result name="infoPagosUsuario" type="tiles">infoPagosUsuario</result>
+            <result name="input" type="tiles">infoPagosUsuario</result>
+            <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
+        </action>
     </package>
 </struts>

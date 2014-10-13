@@ -2,11 +2,13 @@ package com.cursos.action.pagos;
 
 import com.cursos.ViewNames;
 import com.cursos.excepciones.NotFoundException;
+import com.cursos.model.PagosModel;
 import com.cursos.model.TallerModel;
 import com.cursos.model.UserModel;
 import com.cursos.service.pagos.PagosService;
 import com.cursos.service.taller.TallerService;
 import com.cursos.service.usuario.UsuarioService;
+import com.cursos.to.PagosTo;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.security.core.Authentication;
@@ -26,6 +28,9 @@ public class PagosAction extends ActionSupport {
     private TallerService tallerService;
     private TallerModel tallerModel;
     private List<TallerModel> tallerModelList;
+    private PagosTo pagosTo;
+    private String modoPago;
+    private PagosModel pagosModel;
 
     public String execute() {
         return SUCCESS;
@@ -110,6 +115,22 @@ public class PagosAction extends ActionSupport {
         return "historialPagosUsuario";
     }
 
+    /*Realiza el pago */
+    public String realizarGestionPago() {
+
+
+        HttpServletRequest request = ServletActionContext.getRequest();
+        try {
+
+            pagosService.realizarPagoTaller(pagosService.contruirObjetoPagos(pagosTo), pagosTo);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        return "historialPagosUsuario";
+    }
+
     public String cargarTodosHistorial() {
         return "historialPagosTodosUsuario";
     }
@@ -160,5 +181,13 @@ public class PagosAction extends ActionSupport {
 
     public void setTallerModelList(List<TallerModel> tallerModelList) {
         this.tallerModelList = tallerModelList;
+    }
+
+    public PagosTo getPagosTo() {
+        return pagosTo;
+    }
+
+    public void setPagosTo(PagosTo pagosTo) {
+        this.pagosTo = pagosTo;
     }
 }

@@ -56,6 +56,10 @@ public class AlumnoTallerModel {
     public AlumnoTallerModel() {
     }
 
+    public AlumnoTallerModel(int id) {
+        this.id=id;
+    }
+
     public AlumnoTallerModel(TallerModel tallerModel, AlumnoModel alumnoModel) {
         this.tallerModel = tallerModel;
         this.alumnoModel = alumnoModel;

@@ -17,8 +17,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <html>
 <head>
     <title></title>
-
+    <script type="text/javascript" src="<s:url value="/resources/js/util.js"/>"></script>
     <script>
+        $.subscribe('grid_complete', function(event, data) {
+            marcarInscripcionDeisncripcion();
+        });
 
     </script>
 </head>
@@ -65,6 +68,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             groupCollapse="false"
             groupText="['Representante: <b>{0}']"
             onGridCompleteTopics="grid_complete"
+
             >
 
 
