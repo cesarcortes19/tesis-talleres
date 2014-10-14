@@ -12,6 +12,6 @@
     </bean>-->
 
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/DatabaseName"/>
+        <property name="jndiName" value="java:comp/env/jdbc/db_taller"/>
     </bean>
 </beans>
