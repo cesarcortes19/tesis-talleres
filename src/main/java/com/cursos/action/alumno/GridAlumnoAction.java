@@ -42,7 +42,7 @@ public class GridAlumnoAction extends ActionSupport {
     private Map<String, Object> session;
     private List<AlumnoModel> myCustomers;
     private AlumnoService alumnoService;
-    private int idRepresentante;
+    private String cedulaRepresentante;
 
 
     public String execute() {
@@ -77,7 +77,7 @@ public class GridAlumnoAction extends ActionSupport {
             if (to > records) to = records;
 
 
-            myCustomers = alumnoService.getAlumnoByIdRepresentante(idRepresentante);
+            myCustomers = alumnoService.getAlumnoByCedulaRepresentante(cedulaRepresentante);
             setGridModel(myCustomers);
 
 
@@ -264,12 +264,12 @@ public class GridAlumnoAction extends ActionSupport {
         return alumnoService;
     }
 
-    public int getIdRepresentante() {
-        return idRepresentante;
+    public String getCedulaRepresentante() {
+        return cedulaRepresentante;
     }
 
-    public void setIdRepresentante(int idRepresentante) {
-        this.idRepresentante = idRepresentante;
+    public void setCedulaRepresentante(String cedulaRepresentante) {
+        this.cedulaRepresentante = cedulaRepresentante;
     }
 }
 

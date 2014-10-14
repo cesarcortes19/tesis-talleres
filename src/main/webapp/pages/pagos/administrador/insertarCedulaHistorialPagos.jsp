@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
+
 <div class="formulario">
     <div id="titulo" class="TituloformInterno">
         Gestionar Pagos

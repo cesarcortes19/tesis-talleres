@@ -31,9 +31,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     Informaci&oacute;n de pago
 </div>
 
-
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
-
 <div id="selectTalleres" style="width: 50%">
     <label>Filtrar por taller: </label>
 <s:select label="Busqueda por taller"

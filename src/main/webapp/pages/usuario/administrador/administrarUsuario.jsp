@@ -56,7 +56,7 @@
 <div id="titulo" class="TituloformInterno">
     Ver todos los usuarios
 </div>
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
+
 <s:url id="remoteurl" action="cargarUsuarioJson" namespace="/administrador/usuario"/>
 <s:url id="editurl" action="editarUsuarioJson" namespace="/administrador/usuario"/>
 <sjg:grid

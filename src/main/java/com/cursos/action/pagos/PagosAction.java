@@ -117,18 +117,15 @@ public class PagosAction extends ActionSupport {
 
     /*Realiza el pago */
     public String realizarGestionPago() {
-
-
-        HttpServletRequest request = ServletActionContext.getRequest();
         try {
-
             pagosService.realizarPagoTaller(pagosService.contruirObjetoPagos(pagosTo), pagosTo);
-
+            userModel = usuarioService.getUsuarioById(userModel.getId());
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
         }
-        return "historialPagosUsuario";
+        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        return "infoPagosUsuario";
     }
 
     public String cargarTodosHistorial() {

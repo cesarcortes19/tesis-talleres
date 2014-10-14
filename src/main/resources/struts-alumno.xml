@@ -8,11 +8,24 @@
 
     <package name="alumno" namespace="/administrador/alumno" extends="default,json-default">
 
-        <action name="*Alumno" class="AlumnoAction" method="{1}">
-
+        <action name="*AlumnosJson" class="GridAlumnoAction" method="{1}">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    ^gridModel\[\d+\]\.id,
+                    ^gridModel\[\d+\]\.nombre,
+                    ^gridModel\[\d+\]\.apellido,
+                    ^gridModel\[\d+\]\.grado,
+                    ^gridModel\[\d+\]\.seccion,
+                    ^gridModel\[\d+\]\.edad,
+                </param>
+            </result>
         </action>
 
-        <action name="*AlumnosJson" class="GridAlumnoAction" method="{1}">
+    </package>
+
+    <package name="userAlum" namespace="/usuario/cargar" extends="default,json-default">
+
+        <action name="*AlumnosCargar" class="GridAlumnoAction" method="{1}">
             <result name="success" type="json">
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,

@@ -113,8 +113,13 @@
                         </div>
                     </sj:tabbedpanel>
                     <br>
-                    <sj:a id="inscribirTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-circle-check"
-                          onclick="abrirPopUpPagoInscripcion('%{#iteradorTaller.id}','%{#iteradorTaller.costoInscripcion}');">Inscribir</sj:a>
+                    <s:if test="%{#iteradorTaller.cantidadAlumnosMaxima > #iteradorTaller.cantidadAlumnosactual}">
+                        <sj:a id="inscribirTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-circle-check"
+                             onclick="abrirPopUpPagoInscripcion('%{#iteradorTaller.id}','%{#iteradorTaller.costoInscripcion}');">Inscribir</sj:a>
+                    </s:if>
+                    <s:else>
+                        No hay cupos diposnibles
+                    </s:else>
                 </div>
             </td>
             </s:iterator>
@@ -139,6 +144,8 @@
 
 
         <s:form id="inscripcionFormulario" action="guardarInscribirTaller" namespace="/usuario/taller">
+            <s:hidden name="userModel.cedula"/>
+            <s:hidden name="userModel.id"/>
             <s:hidden name="tallerModel.id" id="hiddenIdTallerInscribir"/>
             <s:hidden name="alumnoModel.id"/>
             <s:hidden name="pagosModel.montoCalculado" id="hiddenMontoCalculado"/>

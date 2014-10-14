@@ -97,10 +97,14 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 
 <s:form action="cargarTallerInscribirTaller" namespace="/usuario/taller" id="formInsribirTaller">
     <s:hidden name="alumnoModel.id" id="hiddenAlumnoModel"/>
+    <s:hidden name="userModel.cedula"/>
+    <s:hidden name="userModel.id"/>
 </s:form>
 
 <s:form action="realizarDesinscripcionTaller" namespace="/usuario/taller" id="formDesinscribirTaller">
     <s:hidden name="alumnoTallerModel.id" id="hiddenAlumnoModelDesinscribir"/>
+    <s:hidden name="userModel.cedula"/>
+    <s:hidden name="userModel.id"/>
 </s:form>
 
 </body>

@@ -32,7 +32,7 @@ public class UsuarioService {
     }
 
     public void update(UserModel userModel) throws Exception {
-        userModel = UsuarioConverter.convertirUsuario(userModel, getUsuarioById(userModel.getId()));
+        userModel = UsuarioConverter.convertirUsuario(userModel, getUsuarioByCi(userModel));
         usuarioDao.update(userModel);
     }
 

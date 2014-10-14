@@ -24,7 +24,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </head>
 <body>
 
-<s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
+
 <div class="formulario">
     <div id="titulo" class="TituloformInterno">
         Inscripci&oacute;n/Desinscripci&oacute;n

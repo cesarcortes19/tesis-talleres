@@ -25,6 +25,10 @@ public class AlumnoService {
         return alumnoDao.getAlumnoByIdRepresentante(id);
     }
 
+    public List<AlumnoModel> getAlumnoByCedulaRepresentante(String cedula) throws Exception{
+        return alumnoDao.getAlumnoByCedulaRepresentante(cedula);
+    }
+
     public void setAlumnoDao(AlumnoDao alumnoDao) {
         this.alumnoDao = alumnoDao;
     }

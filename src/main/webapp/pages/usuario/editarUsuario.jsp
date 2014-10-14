@@ -32,7 +32,7 @@
     <div id="titulo" class="TituloformInterno">
         Editar Usuario
         <div id="formularioInterno" class="formInterno">
-    <s:form action="guardarEditarUsuario" namespace="/administrador/usuario" id="formEditarUsuario">
+    <s:form action="guardarEditarUsuario" namespace="/usuario" id="formEditarUsuario">
 
         <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box"/>
         <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"/>
@@ -52,35 +52,24 @@
     <br/>
 
     <div class="grid">
-        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/administrador/alumno">
-            <s:param name="idRepresentante">
-                <s:property value="usuarioModel.id"/>
+        <s:url id="remoteurl" action="cargarAlumnosCargar" namespace="/usuario/cargar">
+            <s:param name="cedulaRepresentante">
+                <s:property value="usuarioModel.cedula"/>
             </s:param>
         </s:url>
-        <s:url id="editurl" action="editarAlumnosJson" namespace="/administrador/alumno"/>
         <sjg:grid
                 id="gridAlumno"
                 caption="Alumnos"
                 dataType="json"
                 href="%{remoteurl}"
-                pager="true"
-                navigator="true"
-                navigatorSearchOptions="{sopt:['eq','ne','lt','gt']}"
-                navigatorAddOptions="{height:280,reloadAfterSubmit:false,fontSize:12, fontSizeAdjust:12 }"
                 navigatorEdit="false"
                 navigatorView="false"
                 navigatorSearch="false"
                 navigatorRefresh="false"
-                navigatorViewOptions="true"
-                navigatorDeleteOptions="{height:280}"
                 gridModel="gridModel"
-                editurl="%{editurl}"
-                onSelectRowTopics="rowselect"
-                viewrecords="true"
                 width="500"
                 height="100"
                 pagerButtons="false"
-                rowNum="3"
                 pagerInput="false"
                 >
             <sjg:gridColumn name="id" index="id" title="Id" width="60" hidden="true"/>
@@ -112,6 +101,7 @@
 
 <s:form action='cargarPasswordEditarUsuario' namespace='/usuario' id="formEditarPassword">
     <s:hidden name="usuarioModel.id" id="idUsuario"/>
+    <s:hidden name="usuarioModel.cedula"/>
 </s:form>
 </body>
 </br>

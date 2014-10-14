@@ -31,7 +31,7 @@
 <body>
 
 <div>
-    <s:actionmessage cssStyle="border:0px solid black;padding: 0 200 0 200;font-size:14px;" theme="jquery"/>
+
     <table class="mostrarCurso" align="center">
 
         <s:iterator value="tallerList" var="iteradorTaller" status="statusTaller">

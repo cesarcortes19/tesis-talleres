@@ -41,7 +41,7 @@ public class PagosDao {
     public List<PagosModel> getHistorialPagosByUsuario(int id) {
         try {
             Query query = getSessionFactory().getCurrentSession()
-                    .createQuery("from PagosModel where id=:id").setParameter("id",id);
+                    .createQuery("from PagosModel where userModel.id=:id").setParameter("id",id);
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();

@@ -97,6 +97,8 @@ public class TallerService {
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         alumnoTallerModel = alumnoTallerDao.getAlumnoTallerModel(alumnoTallerModel);
         alumnoTallerModel.setFechaDesinscripcion(sqlDate);
+        alumnoTallerModel.getTallerModel().setCantidadAlumnosactual(alumnoTallerModel.getTallerModel().getCantidadAlumnosactual()-1);
+        tallerDao.updateTaller(alumnoTallerModel.getTallerModel());
         alumnoTallerDao.updateAlumnoTallerModel(alumnoTallerModel);
     }
 

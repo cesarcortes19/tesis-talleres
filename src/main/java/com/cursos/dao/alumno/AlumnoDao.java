@@ -40,4 +40,16 @@ public class AlumnoDao {
         }
 
     }
+
+    public List<AlumnoModel> getAlumnoByCedulaRepresentante(String cedulaRepresentante) throws Exception {
+        try {
+            Query query = getSessionFactory().getCurrentSession().
+                    createQuery("from AlumnoModel where userModel.cedula =:cedulaRepresentante").setParameter("cedulaRepresentante", cedulaRepresentante);
+            return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
 }

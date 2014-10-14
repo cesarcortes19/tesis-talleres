@@ -24,10 +24,10 @@
     <include file="struts-cartelera.xml"/>
     <include file="struts-taller.xml"/>
     <include file="struts-usuario.xml"/>
-    <include file="struts-alumno.xml"/>
     <include file="struts-pagos.xml"/>
     <include file="struts-login.xml"/>
     <include file="struts-image.xml"/>
+    <include file="struts-alumno.xml"/>
 
 
 </struts>

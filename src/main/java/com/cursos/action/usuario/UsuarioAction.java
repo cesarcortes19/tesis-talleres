@@ -91,20 +91,21 @@ public class UsuarioAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
-        addActionMessage(getText("mensaje.transaccion.exitosa"));
-        return "cargarAdministrarUsuario";
+        addActionMessage(getText("mensaje.transaccion.exitosa") + " (Editar)");
+        return "success";
     }
 
     public String passwordEditar(){
         try {
             String password = usuarioModel.getPassword();
-            usuarioModel = usuarioService.getUsuarioById(usuarioModel.getId());
+            usuarioModel = usuarioService.getUsuarioByCi(usuarioModel);
             usuarioModel.setPassword(password);
             usuarioService.update(usuarioModel);
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
         }
+        addActionMessage(getText("mensaje.transaccion.exitosa")+" (Editar Password)");
         return SUCCESS;
     }
 
@@ -133,7 +134,7 @@ public class UsuarioAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
-        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        addActionMessage(getText("mensaje.transaccion.exitosa") + " (Eliminar)");
         return "cargarAdministrarUsuario";
     }
 
@@ -154,7 +155,7 @@ public class UsuarioAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
-        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        addActionMessage(getText("mensaje.transaccion.exitosa") + " (Editar)");
         return "cargarEditarAdministrador";
     }
 

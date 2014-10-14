@@ -178,7 +178,7 @@ public class TallerAction extends ActionSupport {
             return ERROR;
         }
         addActionMessage(getText("mensaje.transaccion.exitosa"));
-        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa"));
+        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa")+" (Inscripción)");
         return "cargarRepresentadosInscribirTaller";
     }
 
@@ -189,7 +189,7 @@ public class TallerAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
-        addActionMessage(getText("mensaje.transaccion.exitosa"));
+        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa")+" (Desinscripción)");
         return "cargarRepresentadosInscribirTaller";
     }
 
