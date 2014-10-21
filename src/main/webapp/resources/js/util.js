@@ -4,7 +4,7 @@
 
 /*redirecciona a la cartelera*/
 function botonCancelar(){
-    if (confirm('¿Está seguro que desea cancelar?'))
+    if (confirm('\u00BFEst\u00e1 seguro que desea cancelar?'))
         window.location.href = '/todos/cartelera/cargarCartelera.action';
 }
 

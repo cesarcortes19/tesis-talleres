@@ -10,7 +10,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <style>
+        .noticia:hover {
+            border: 3px solid #d0d0d0;
+            cursor: pointer;
+        }
+    </style>
     <script>
         function mostrarDetalle(element){
             $("#divDetalleNoticia").html(element);
@@ -22,6 +27,22 @@
                 $("#idNoticia").val(element);
                 $("#eliminarCartelera").submit();
             }
+        }
+
+        function abrirNoticia(imagen, titulo, descripcion, fecha,idImageToShow) {
+
+            $("#tituloNoticiaDialogo").html('<b>' + titulo + '</b>');
+            $("#descripcionNoticiaDialogo").html(descripcion);
+            $("#fechaNoticiaDialogo").html('<b> Creado: </b>' + fecha);
+
+            /*elimina la imagen que estaba anteriormente en el div para que no se duplique*/
+            $("#imagenDialogo").children("img").remove();
+
+            /*Toma la imagen de la cartelera y la coloca en el modal para evitar ir al servidor*/
+            var img = $("#"+idImageToShow).clone();
+            $("#imagenDialogo").append(img);
+
+            $("#myeffectdialog").dialog('open');
         }
     </script>
 
@@ -45,7 +66,9 @@
             <tr>
                 </s:if>
                 <td>
-                    <div class="noticia">
+                    <div class="noticia"
+                         onclick="abrirNoticia('','<s:property value="titulo"/>','<s:property value="descripcion"/>'
+                                 ,'<s:property value="fechaCreacion"/>','idImageToShow<s:property value="id"/>')">
                         <s:if test="%{picture!=null}">
                             <img id="idImageToShow<s:property value="id"/>" src="
                                 <s:url namespace="/todos/Image" action='ImageAction'>
@@ -65,7 +88,7 @@
                         <div class="descripcionNoticia">
                             <s:property value="descripcion"/>
                         </div>
-                        </br><b>(<s:property value="fechaCreacion"/>)</b>
+                        </br><b>Creado: <s:property value="fechaCreacion"/></b>
                     </div>
                     <div class="botones">
 
@@ -79,7 +102,28 @@
         </table>
     </div>
 </div>
+<div id="dialogoNoticia">
+    <sj:dialog id="myeffectdialog" showEffect="scale" hideEffect="scale" autoOpen="false" modal="true" title="Noticia"
+               openTopics="openEffectDialog" closeTopics="closeEffectDialog" minHeight="500" minWidth="500">
+        <div id="imagenDialogo" class="imagenDialogo">
+                <%--<img id="imgDialog" width="250px" height="250px"/>--%>
+        </div>
+        <br>
 
+        <div id="tituloNoticiaDialogo" class="tituloNoticiaDialogo">
+
+        </div>
+        </br>
+        <div id="descripcionNoticiaDialogo" class="descripcionNoticiaDialogo">
+            <s:property value="descripcion"/>
+        </div>
+        </br>
+        <div id="fechaNoticiaDialogo" class="fechaNoticiaDialogo">
+
+        </div>
+        <hr/>
+    </sj:dialog>
+</div>
 
             <!--a href="#" onclick="eliminarNoticia('<!s:property value="id"/>')">Eliminar noticia</a-->
 

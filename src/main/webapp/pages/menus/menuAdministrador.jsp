@@ -49,14 +49,14 @@
 
     <div>
         <ul>
-            <li>
+<%--            <li>
                 <a href="<s:url action="cargarCartelera" namespace="/todos/cartelera"/>"><span>Ver Cartelera</span></a>
-            </li>
+            </li>--%>
 
             <li>
                 <a href="<s:url action="crearCartelera" namespace="/administrador/cartelera"/>"><span>Crear Noticia</span></a>
             </li>
-            <li><a href="<s:url action="cargarEliminarCartelera" namespace="/administrador/cartelera"/>"><span>Eliminar Noticia</span></a>
+            <li><a href="<s:url action="cargarEliminarCartelera" namespace="/administrador/cartelera"/>"><span>Administrar Noticias</span></a>
             </li>
         </ul>
     </div>

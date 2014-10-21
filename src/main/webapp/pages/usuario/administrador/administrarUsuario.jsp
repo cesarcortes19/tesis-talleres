@@ -100,16 +100,13 @@
         Crear Usuario
     </sj:a>
     <sj:a id="editar" button="true" buttonIcon="ui-icon-pencil" onclick="editarUsuario();">
-        Editar Usuario
+        Ver/Editar Usuario
     </sj:a>
     <sj:a id="eliminar" button="true" buttonIcon="ui-icon-trash" onclick="eliminarUsuario();">
         Eliminar Usuario
     </sj:a>
     </br >
     </br >
-    <sj:a id="ver" button="true" buttonIcon="ui-icon-folder-open" onclick="verUsuario();">
-        Ver Usuario
-    </sj:a>
 </div>
 
 <s:form action="cargarEditarUsuario" namespace="/administrador/usuario" id="guardarEditarUsuario">

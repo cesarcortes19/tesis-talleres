@@ -31,4 +31,8 @@
         <property name="sessionFactory" ref="SessionFactory"/>
     </bean>
 
+    <bean id="DetallePagosDao" class="com.cursos.dao.pagos.DetallePagosDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
 </beans>

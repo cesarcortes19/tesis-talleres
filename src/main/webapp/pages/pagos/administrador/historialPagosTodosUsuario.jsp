@@ -17,19 +17,69 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <html>
 <head>
     <title></title>
-
+    <script type="text/javascript" src="<s:url value="/resources/js/jquery.blockUI.js"/>"></script>
     <style type="text/css">
+
         .ui-jqgrid tr.jqgrow td {
             white-space: normal;
             height: 110px;
             padding: 10px 2px 10px 2px;
         }
+
     </style>
 
 
     <script>
 
-    </script>
+        $(document).ajaxStop($.unblockUI);
+
+        function formatLink(cellvalue, options, rowObject) {
+            if(cellvalue == "REALIZADO_POR_REPRESENTANTE"){
+                return "<a href='#' onClick='javascript:aceptarPago("+rowObject.id+")'> ACEPTAR </a> <a>&nbsp &nbsp/&nbsp &nbsp</a>" +
+                        "<a href='#' onClick='javascript:rechazarPago("+rowObject.id+")'> RECHAZAR </a>";
+            }
+            if(cellvalue == "PAGO_APROBADO_ADMINISTRADOR"){
+                return "<a> PAGO APROBADO </a>";
+            }
+            if(cellvalue == "PAGO_RECHAZADO"){
+                return "<a> PAGO RECHAZADO </a>";
+            }
+        }
+
+        function aceptarPago(idRowObject){
+            if (!confirm('\u00BFEst\u00e1 seguro que desea ACEPTAR el pago?'))
+                return;
+            $.blockUI();
+            /*Funcion ajax que actualiza el estado en aceptado*/
+            $.ajax({
+                url: "/administrador/pagos/aceptarPago.action",
+                data: { idPago: idRowObject },
+                dataType: "json",
+                type: 'post',
+                success: function (data) {
+                    alert("entroEnsuccess");
+                    $("#pagosGrid").jqGrid('setCell', idRowObject, 'status', 'PAGO_APROBADO_ADMINISTRADOR');
+                }
+            });
+        }
+
+        function rechazarPago(idRowObject){
+            if (!confirm('\u00BFEst\u00e1 seguro que desea RECHAZAR el pago?'))
+                return;
+            $.blockUI();
+            /*Funcion ajax que actualiza el estado en aceptado*/
+            $.ajax({
+                url: "/administrador/pagos/rechazarPago.action",
+                data: { idPago: idRowObject},
+                dataType: "json",
+                type: 'post',
+                success: function (data) {
+                    $("#pagosGrid").jqGrid('setCell', idRowObject, 'status', 'PAGO_RECHAZADO');
+                }
+            });
+        }
+
+   </script>
 </head>
 <body>
 <div id="formulario" class="formulario">
@@ -61,9 +111,23 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         hidden="true"/>
 
-        <sjg:gridColumn name="userModel.nombre"
+        <sjg:gridColumn name="userModel.fullName"
                         title="Representante"
                         index="representante"
+                        align="center"
+                        sortable="true"
+                />
+
+<%--        <sjg:gridColumn name="userModel.apellido"
+                        title="Apellido"
+                        index="apellido"
+                        align="center"
+                        sortable="true"
+                />--%>
+
+        <sjg:gridColumn name="userModel.cedula"
+                        title="C.I."
+                        index="cedula"
                         align="center"
                 />
 
@@ -73,6 +137,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                 />
 
+<%--
         <sjg:gridColumn name="montoIngresado"
                         title="Monto Ingresado"
                         index="montoIngresado"
@@ -80,6 +145,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         sortable="false"
                         formatter="currency"
                 />
+--%>
 
         <sjg:gridColumn name="montoCalculado"
                         title="Monto Calculado"
@@ -95,11 +161,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         edittype="textarea"
                         cssStyle="color: #BC1010"
                         />
-        <sjg:gridColumn name="status"
-                        title="Estado"
-                        index="status"
-                        sortable="false"
-                        />
 
         <sjg:gridColumn name="fechaPago"
                         title="Fecha Pago"
@@ -108,6 +169,14 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         sortable="false"
                         formatter="date"
                         formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
+                />
+
+        <sjg:gridColumn name="status"
+                        title="Estado"
+                        index="status"
+                        align="center"
+                        sortable="false"
+                        formatter="formatLink"
                 />
     </sjg:grid>
 

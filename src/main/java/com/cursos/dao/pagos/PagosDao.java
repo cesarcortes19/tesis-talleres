@@ -23,10 +23,10 @@ public class PagosDao {
         return sessionFactory;
     }
 
-    public List<PagosModel> getHistorialPagosAllUsuarios() {
+    public List<PagosModel> getHistorialPagosAllUsuarios() throws Exception {
         try {
             Query query = getSessionFactory().getCurrentSession()
-                    .createQuery("from PagosModel");
+                    .createQuery("from PagosModel order by fechaPago desc ");
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -38,11 +38,31 @@ public class PagosDao {
         sessionFactory.getCurrentSession().save(pagosModel);
     }
 
-    public List<PagosModel> getHistorialPagosByUsuario(int id) {
+    public List<PagosModel> getHistorialPagosByUsuario(int id) throws Exception{
         try {
             Query query = getSessionFactory().getCurrentSession()
-                    .createQuery("from PagosModel where userModel.id=:id").setParameter("id",id);
+                    .createQuery("from PagosModel where userModel.id=:id order by fechaPago desc ").setParameter("id",id);
             return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public PagosModel getPagoById(int id) throws Exception{
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("from PagosModel where id=:id").setParameter("id",id);
+            return (PagosModel) query.uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void actualizar(PagosModel pagosModel) throws Exception{
+        try {
+            getSessionFactory().getCurrentSession().update(pagosModel);
         } catch (HibernateException e) {
             e.printStackTrace();
             throw e;

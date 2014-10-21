@@ -27,7 +27,7 @@ public class AlumnoTallerDao {
         return (AlumnoTallerModel)sessionFactory.getCurrentSession().get(alumnoTallerModel.getClass(), alumnoTallerModel.getId());
     }
 
-    public void updateAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) {
+    public void updateAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) throws Exception{
         sessionFactory.getCurrentSession().update(alumnoTallerModel);
     }
 
