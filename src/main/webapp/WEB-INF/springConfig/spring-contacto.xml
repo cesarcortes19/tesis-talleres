@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ContactoAction" class="com.cursos.action.contacto.ContactoAction" scope="prototype">
+        <property name="contactoService" ref="ContactoService"/>
+    </bean>
+
+    <bean id="ContactoService" class="com.cursos.service.contacto.ContactoService">
+        <property name="contactoDao" ref="ContactoDao"/>
+    </bean>
+
+    <bean id="ContactoDao" class="com.cursos.dao.contacto.ContactoDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+</beans>

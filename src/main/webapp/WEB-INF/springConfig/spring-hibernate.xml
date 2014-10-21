@@ -19,12 +19,14 @@
                 <value>com.cursos.model.NoticiaModel</value>
                 <value>com.cursos.model.AlumnoTallerModel</value>
                 <value>com.cursos.model.PagosModel</value>
+                <value>com.cursos.model.ContactoModel</value>
+
 
             </list>
         </property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.connection.datasource">java://comp/env/jdbc/db_taller</prop>
+                <!--prop key="hibernate.connection.datasource">java://comp/env/jdbc/db_taller</prop-->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.jdbc.batch_size">50</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>

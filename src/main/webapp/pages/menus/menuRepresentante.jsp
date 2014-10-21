@@ -46,4 +46,4 @@
         </ul>
     </div>
 </li>
-</li>
+<li><a href="<s:url action="cargarVerContacto" namespace="/todos/contacto"/>"><span>Contactanos</span></a></li>
