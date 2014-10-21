@@ -13,7 +13,9 @@
     <title></title>
     <script>
         function editarTallerFunction() {
+            if(confirm("¿Está seguro que desea editar el taller?")){
             $("#formEditarTaller").submit();
+            }
         }
     </script>
 

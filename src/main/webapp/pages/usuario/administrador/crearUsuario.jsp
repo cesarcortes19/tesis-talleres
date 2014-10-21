@@ -16,10 +16,12 @@
 
     <script>
         function crearUsuarioFunction() {
-            var dataGrid = $("#gridAlumno").jqGrid("getRowData");
-            var dataJson = JSON.stringify(dataGrid);
-            $("#alumnoJson").val(dataJson);
-            $("#formCrearUsuario").submit();
+            if(confirm("¿Está seguro que desea crear el usuario?")){
+                var dataGrid = $("#gridAlumno").jqGrid("getRowData");
+                var dataJson = JSON.stringify(dataGrid);
+                $("#alumnoJson").val(dataJson);
+                $("#formCrearUsuario").submit();
+            }
         }
     </script>
 </head>

@@ -17,7 +17,10 @@
     <title></title>
     <script>
         function editarContacto() {
-            $("#formEditarContacto").submit();
+           if(confirm("¿Está seguro que desea editar la información de contacto?")){
+               $("#formEditarContacto").submit();
+           }
+
         }
 
 

@@ -16,10 +16,12 @@
 
     <script>
         function editarUsuarioFunction(){
-            var dataGrid = $("#gridAlumno").jqGrid("getRowData");
-            var dataJson = JSON.stringify(dataGrid);
-            $("#alumnoJson").val(dataJson);
-            $("#formEditarUsuario").submit();
+            if(confirm("¿Está seguro que desea editar?")){
+                var dataGrid = $("#gridAlumno").jqGrid("getRowData");
+                var dataJson = JSON.stringify(dataGrid);
+                $("#alumnoJson").val(dataJson);
+                $("#formEditarUsuario").submit();
+            }
         }
         function redireccionar(url){
             $("#formEditarPassword").submit();

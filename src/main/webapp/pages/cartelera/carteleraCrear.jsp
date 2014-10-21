@@ -17,7 +17,9 @@
     <title></title>
     <script>
         function crearNoticiaFunction() {
+            if(confirm("¿Está seguro que desea crear la noticia?")){
             $("#guardarCartelera").submit();
+            }
         }
 
         $(document).ready(function () {

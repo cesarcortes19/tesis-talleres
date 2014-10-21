@@ -13,7 +13,10 @@
     <title></title>
     <script>
         function crearTallerFuncion() {
+            if(confirm("¿Está seguro que desea crear el taller?")){
             $("#formCrearTaller").submit();
+
+            }
         }
     </script>
 
