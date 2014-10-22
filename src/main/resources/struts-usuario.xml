@@ -35,6 +35,12 @@
             <result name="success" type="tiles">administrarUsuario</result>
         </action>
 
+        <action name="*EditarCuentaUsuario" class="UsuarioAction" method="{1}EditarCuenta">
+            <result name="success" type="tiles">editarCuentaUsuario</result>
+            <result name="input" type="tiles">editarCuentaUsuario</result>
+            <result name="cargarAdministrarUsuario" type="redirectAction">cargarAdministrarUsuario</result>
+        </action>
+
         <action name="*EditarUsuario" class="UsuarioAction" method="{1}Editar">
             <result name="success" type="tiles">editarUsuario</result>
             <result name="input" type="tiles">editarUsuario</result>

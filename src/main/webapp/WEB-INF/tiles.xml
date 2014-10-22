@@ -89,6 +89,10 @@
         <put-attribute name="body"   value="/pages/usuario/administrador/editarPasswordAdministrador.jsp"/>
     </definition>
 
+    <definition name="editarCuentaUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Usuario"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/editarCuentaUsuario.jsp"/>
+    </definition>
 <!--usuario-->
     <definition name="crearUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>

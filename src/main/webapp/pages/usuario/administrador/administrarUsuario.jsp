@@ -112,7 +112,7 @@
     </sj:a>
 </div>
 
-<s:form action="cargarEditarUsuario" namespace="/administrador/usuario" id="guardarEditarUsuario">
+<s:form action="cargarEditarCuentaUsuario" namespace="/administrador/usuario" id="guardarEditarUsuario">
     <s:hidden name="usuarioModel.id" id="editarUsario"/>
 </s:form>
 <s:form action="guardarEliminarUsuario" namespace="/administrador/usuario" id="guardarEliminarUsuario">

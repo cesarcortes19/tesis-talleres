@@ -54,6 +54,26 @@ public class UsuarioAction extends ActionSupport {
         }
         return SUCCESS;
     }
+//Esta funcion carga el editar cuenta de usuario para el modulo de administrador.
+    public String cargarEditarCuenta(){
+        try {
+            HttpServletRequest request = ServletActionContext.getRequest();
+            if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
+                usuarioModel=usuarioService.getUsuarioById(usuarioModel.getId());
+            }else
+            if (request.isUserInRole(ViewNames.REPRESENTATE)) {
+                usuarioModel = new UserModel();
+                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                User userAuth = (User)auth.getPrincipal();
+                usuarioModel.setCedula(userAuth.getUsername());
+                usuarioModel=usuarioService.getUsuarioByCi(usuarioModel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        return SUCCESS;
+    }
 
     public String guardar(){
         Gson gson = new Gson();
