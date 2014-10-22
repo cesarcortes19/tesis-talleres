@@ -18,7 +18,7 @@ public class CarteleraDao {
     public List<NoticiaModel> getNoticias(Integer from, Integer to) throws Exception{
         try {
             Query query = getSessionFactory().getCurrentSession().
-                    createQuery("from NoticiaModel");
+                    createQuery("from NoticiaModel order by fechaCreacion desc");
             if (from == null) {
                 from = 0;
             }

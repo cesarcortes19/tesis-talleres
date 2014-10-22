@@ -4,6 +4,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Cesar on 20/09/2014.
@@ -37,6 +39,8 @@ public class PagosModel {
     private String logTransaccion;
     @Column(name = "fecha_pago", nullable = true)
     private Date fechaPago;
+    @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "pagosModel")
+    private Set<DetallePagoModel> detallePagoModels = new HashSet<DetallePagoModel>();
 
     public enum ModoPago {TRANSFERENCIA, DEPOSITO, EFECTIVO}
     public enum StatusType {REALIZADO_POR_REPRESENTANTE, PAGO_APROBADO_ADMINISTRADOR, PAGO_RECHAZADO}
@@ -131,5 +135,11 @@ public class PagosModel {
         this.id = id;
     }
 
+    public Set<DetallePagoModel> getDetallePagoModels() {
+        return detallePagoModels;
+    }
 
+    public void setDetallePagoModels(Set<DetallePagoModel> detallePagoModels) {
+        this.detallePagoModels = detallePagoModels;
+    }
 }

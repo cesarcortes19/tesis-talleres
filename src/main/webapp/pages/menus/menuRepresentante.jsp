@@ -32,13 +32,15 @@
 
     <div>
         <ul>
-            <li><a href="<s:url action="cargarCartelera" namespace="/todos/cartelera"/>"><span>Ver Cartelera</span></a></li>
+            <li><a href="<s:url action="cargarCartelera" namespace="/todos/cartelera"/>"><span>Ver Cartelera</span></a>
+            </li>
         </ul>
     </div>
 </li>
 
 <%--Solo lo deben ver los represententaste--%>
 <li><a href="#" class="parent"><span>Usuario: <s:property value="#session.currentUser"/></span></a>
+
     <div>
         <ul>
             <li><a href="<s:url action="cargarEditarUsuario" namespace="/usuario"/>"><span>Editar Cuenta</span></a></li>

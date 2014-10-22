@@ -51,8 +51,8 @@
     <br/>
 
     <div class="grid">
-        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/alumno"/>
-        <s:url id="editurl" action="editarAlumnosJson" namespace="/alumno"/>
+        <s:url id="remoteurl" action="cargarAlumnosJson" namespace="/administrador/alumno"/>
+        <s:url id="editurl" action="editarAlumnosJson" namespace="/administrador/alumno"/>
         <sjg:grid
                 id="gridAlumno"
                 caption="Alumnos"
@@ -65,6 +65,7 @@
                 navigatorEdit="false"
                 navigatorView="false"
                 navigatorDelete="true"
+                navigatorAdd="true"
                 navigatorSearch="false"
                 navigatorRefresh="false"
                 navigatorViewOptions="true"

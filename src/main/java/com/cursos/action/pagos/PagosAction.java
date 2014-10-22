@@ -31,6 +31,8 @@ public class PagosAction extends ActionSupport {
     private PagosTo pagosTo;
     private String modoPago;
     private PagosModel pagosModel;
+    private String idPago;
+    private String msg;
 
     public String execute() {
         return SUCCESS;
@@ -128,6 +130,26 @@ public class PagosAction extends ActionSupport {
         return "infoPagosUsuario";
     }
 
+    public String aceptarPago() throws Exception {
+        try {
+            pagosService.aceptarPago(idPago);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+    public String rechazarPago() throws Exception {
+        try {
+            pagosService.rechazarPago(idPago);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
     public String cargarTodosHistorial() {
         return "historialPagosTodosUsuario";
     }
@@ -186,5 +208,21 @@ public class PagosAction extends ActionSupport {
 
     public void setPagosTo(PagosTo pagosTo) {
         this.pagosTo = pagosTo;
+    }
+
+    public String getIdPago() {
+        return idPago;
+    }
+
+    public void setIdPago(String idPago) {
+        this.idPago = idPago;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

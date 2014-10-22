@@ -21,6 +21,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     <script type="text/javascript" src="<s:url value="/resources/js/util.js"/>"></script>
     <script>
 
+        var globalMontoAcumulado = 0;
+
         function inscribirTallerFunction(element) {
             $("#hiddenAlumnoModel").val(element);
             $("#formInsribirTaller").submit();
@@ -33,36 +35,68 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             $("#pagosGrid input").trigger(e);
             return true;
         }
-        $.subscribe('grid_complete', function(event, data) {
+        $.subscribe('grid_complete', function (event, data) {
             habilitarCheckbox();
             marcarInscripcionDeisncripcion();
 
         });
 
-        function habilitarCheckbox(){
-            $(':checkbox').each(function( index ) {
-                $(this).removeAttr('disabled');
+        function habilitarCheckbox() {
+            $(':checkbox').each(function (index) {
+                <sec:authorize access="hasRole('REPRESENTANTE')">
+                if ($(this).val() == "false" || $(this).val().length < 2) {
+                    $(this).removeAttr('disabled');
+                }
+                </sec:authorize>
+                <sec:authorize access="hasRole('ADMINISTRADOR')">
+                    $(this).removeAttr('disabled');
+                </sec:authorize>
+                elementParent = $(this).parent().parent();
+                idRow = elementParent.attr('id');
+                monto = $("#pagosGrid").jqGrid('getCell', idRow, 'tallerModel.costo');
+
+                if ($(this).val() == "false" || $(this).val().length < 2) {
+
+                    this.setAttribute("onchange", "sumarRestarDiv (" + monto + ",false,this)");
+                } else {
+                    this.setAttribute("onchange", "sumarRestarDiv (0,true, this)");
+                }
             });
         }
 
-        function realizarPagoFunction (){
+        function sumarRestarDiv(monto, statusInicialCheck, elemento) {
+            if (!statusInicialCheck) {
+                if ($(elemento).is(":checked")) {
+                    globalMontoAcumulado = globalMontoAcumulado + monto;
+                } else {
+                    globalMontoAcumulado = globalMontoAcumulado - monto;
+                }
+            }
+
+            $("#spanMonto").html(globalMontoAcumulado);
+
+
+        }
+
+        function realizarPagoFunction() {
             list = $("#pagosGrid").jqGrid('getRowData');
             $("#stringPagos").val(JSON.stringify(list));
             $("#formRealizarPago").submit()
         }
 
-        function obtenerDataCheckbox(){
+        function obtenerDataCheckbox() {
             list = JSON.stringify($("#pagosGrid").jqGrid('getRowData'));
             $("#stringPagos").val(list);
         }
-
 
     </script>
 </head>
 <body>
 
 <div class="tituloRepresentante">
-    <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Telefono:</b> <s:property value="userModel.telefono1"/>
+    <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Telefono:</b>
+    <s:property value="userModel.telefono1"/>
 </div>
 </br>
 </br>
@@ -111,6 +145,53 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         <sjg:gridColumn name="tallerModel.name"
                         title="Taller"
                         index="taller"
+                        align="center"
+                        sortable="false"/>
+
+        <sjg:gridColumn name="inscripcion"
+                        title="Inscripcion"
+                        index="inscripcion"
+                        editable="true"
+                        formatter="checkbox"
+                        edittype="checkbox"
+                        editoptions="{ value:'True:False'}"
+                        align="center"
+                        sortable="false"/>
+
+        <sjg:gridColumn name="septiembre"
+                        title="Sep"
+                        index="septiembre"
+                        editable="true"
+                        formatter="checkbox"
+                        edittype="checkbox"
+                        editoptions="{ value:'True:False'}"
+                        align="center"
+                        sortable="false"/>
+        <sjg:gridColumn name="octubre"
+                        title="Oct"
+                        index="octubre"
+                        editable="true"
+                        formatter="checkbox"
+                        edittype="checkbox"
+                        editoptions="{ value:'True:False'}"
+                        align="center"
+                        sortable="false"/>
+        <sjg:gridColumn name="noviembre"
+                        title="Nov"
+                        index="noviembre"
+                        editable="true"
+                        formatter="checkbox"
+                        edittype="checkbox"
+                        editoptions="{ value:'True:False'}"
+                        align="center"
+                        sortable="false"/>
+        <sjg:gridColumn name="diciembre"
+                        title="Dic"
+                        index="diciembre"
+                        editable="true"
+                        formatter="checkbox"
+                        edittype="checkbox"
+                        editoptions="{ value:'True:False'}"
                         align="center"
                         sortable="false"/>
 
@@ -167,61 +248,28 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         edittype="checkbox"
                         editoptions="{ value:'True:False'}"
                         align="center"
-                        sortable="false"/>
-        <sjg:gridColumn name="julio"
-                        title="Jul"
-                        index="julio"
-                        editable="true"
-                        formatter="checkbox"
-                        edittype="checkbox"
-                        editoptions="{ value:'True:False'}"
-                        align="center"
-                        sortable="false"/>
-        <sjg:gridColumn name="agosto"
-                        title="Ago"
-                        index="agosto"
-                        editable="true"
-                        formatter="checkbox"
-                        edittype="checkbox"
-                        editoptions="{ value:'True:False'}"
-                        align="center"
-                        sortable="false"/>
-        <sjg:gridColumn name="septiembre"
-                        title="Sep"
-                        index="septiembre"
-                        editable="true"
-                        formatter="checkbox"
-                        edittype="checkbox"
-                        editoptions="{ value:'True:False'}"
-                        align="center"
-                        sortable="false"/>
-        <sjg:gridColumn name="octubre"
-                        title="Oct"
-                        index="octubre"
-                        editable="true"
-                        formatter="checkbox"
-                        edittype="checkbox"
-                        editoptions="{ value:'True:False'}"
-                        align="center"
-                        sortable="false"/>
-        <sjg:gridColumn name="noviembre"
-                        title="Nov"
-                        index="noviembre"
-                        editable="true"
-                        formatter="checkbox"
-                        edittype="checkbox"
-                        editoptions="{ value:'True:False'}"
-                        align="center"
-                        sortable="false"/>
-        <sjg:gridColumn name="diciembre"
-                        title="Dic"
-                        index="diciembre"
-                        editable="true"
-                        formatter="checkbox"
-                        edittype="checkbox"
-                        editoptions="{ value:'True:False'}"
-                        align="center"
-                        sortable="false"/>
+                        sortable="false"
+                />
+
+        <%--        <sjg:gridColumn name="julio"
+                                title="Jul"
+                                index="julio"
+                                editable="true"
+                                formatter="checkbox"
+                                edittype="checkbox"
+                                editoptions="{ value:'True:False'}"
+                                align="center"
+                                sortable="false"/>
+                <sjg:gridColumn name="agosto"
+                                title="Ago"
+                                index="agosto"
+                                editable="true"
+                                formatter="checkbox"
+                                edittype="checkbox"
+                                editoptions="{ value:'True:False'}"
+                                align="center"
+                                sortable="false"/>--%>
+
 
         <sjg:gridColumn name="tallerModel.costo"
                         title="Costo(Bs)"
@@ -255,20 +303,26 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <br>
 <br>
 <br>
+
 <h3>Realizar Pago</h3><br>
-<div id="mensajeCalculoPago"><b>¡ATENCI&Oacute;N!:</b> Segun los meses seleccionados por usted, la aplicaci&oacuten ha calculado que su pago debe ser por el monto de 1250 Bs. </div>
+
+<div id="mensajeCalculoPago"><b>¡ATENCI&Oacute;N!:</b> Segun los meses seleccionados por usted, la aplicaci&oacuten ha
+    calculado que su pago debe ser por el monto de <span id="spanMonto">0</span> Bs.
+</div>
 <s:form action="realizarGestionPago" namespace="/usuario/pagos" id="formRealizarPago">
     <s:hidden name="userModel.id"/>
     <table style="border-spacing: 50px;">
         <tr>
             <td>
                 <label style="display:inline-block"><b>Tipo de pago:</b></label>
-                <%--<s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>--%>
+                    <%--<s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>--%>
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
-                    <s:radio  theme="simple" name="pagosTo.modoPago" list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo'}" value="2" />
+                    <s:radio theme="simple" name="pagosTo.modoPago"
+                             list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo'}" value="2"/>
                 </sec:authorize>
                 <sec:authorize access="hasRole('REPRESENTANTE')">
-                    <s:radio  theme="simple" name="pagosTo.modoPago" list="#{'1':'Deposito','2':'Transferencia'}" value="2" />
+                    <s:radio theme="simple" name="pagosTo.modoPago" list="#{'1':'Deposito','2':'Transferencia'}"
+                             value="2"/>
                 </sec:authorize>
             </td>
 
@@ -284,7 +338,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="realizarPagoFunction();">
             Realizar Pago
         </sj:a>
-        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close"
+              value="Cancelar">Cancelar</sj:a>
     </div>
 
     <s:hidden name="pagosTo.jsonPagos" id="stringPagos"/>

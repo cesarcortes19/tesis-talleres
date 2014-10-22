@@ -42,6 +42,7 @@ public class TallerAction extends ActionSupport {
     private PagosModel pagosModel;
     private String modoPago;
     private PagosService pagosService;
+    private int cantidadTalleresPorInscribir;
     private Map<String, Object> model = new HashMap<String, Object>();
     private File fileUpload;
 
@@ -145,12 +146,14 @@ public class TallerAction extends ActionSupport {
         try {
             if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
+                cantidadTalleresPorInscribir = tallerService.getTalleresNoInscritos(alumnoModel).size();
             } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
                 userModel = new UserModel();
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 User userAuth = (User) auth.getPrincipal();
                 userModel.setCedula(userAuth.getUsername());
                 userModel = usuarioService.getUsuarioByCi(userModel);
+                cantidadTalleresPorInscribir = tallerService.getTalleresNoInscritos(alumnoModel).size();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -331,6 +334,14 @@ public class TallerAction extends ActionSupport {
 
     public void setModel(Map<String, Object> model) {
         this.model = model;
+    }
+
+    public int getCantidadTalleresPorInscribir() {
+        return cantidadTalleresPorInscribir;
+    }
+
+    public void setCantidadTalleresPorInscribir(int cantidadTalleresPorInscribir) {
+        this.cantidadTalleresPorInscribir = cantidadTalleresPorInscribir;
     }
 
     public File getFileUpload() {

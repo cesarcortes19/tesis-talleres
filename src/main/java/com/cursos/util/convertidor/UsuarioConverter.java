@@ -33,6 +33,9 @@ public class UsuarioConverter {
         userModelBD.setTelefono2(userModelForm.getTelefono2());
         userModelBD.setDireccion(userModelForm.getDireccion());
         userModelBD.setObservaciones(userModelForm.getObservaciones());
+        if(userModelForm.getPassword()!=null){
+            userModelBD.setPassword(userModelForm.getPassword());
+        }
         return userModelBD;
     }
 }

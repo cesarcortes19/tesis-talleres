@@ -12,6 +12,7 @@
     <script type="text/javascript" src="<s:url value="/resources/js/messages.js"/>"></script>
     <script type="text/javascript" src="<s:url value="/resources/js/menu.js"/>"></script>
     <script type="text/javascript" src="<s:url value="/resources/js/util.js"/>"></script>
+    <script type="text/javascript" src="<s:url value="/resources/js/jquery.blockUI.js"/>"></script>
     <script>
 
         function loginFunction() {

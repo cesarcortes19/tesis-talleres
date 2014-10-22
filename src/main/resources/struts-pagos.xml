@@ -31,9 +31,11 @@
                     ^gridModel\[\d+\]\.id,
                     ^gridModel\[\d+\]\.alumnoModel\.nombre,
                     ^gridModel\[\d+\]\.alumnoModel\.userModel\.nombre,
+                    ^gridModel\[\d+\]\.alumnoModel\.userModel\.apellido,
                     ^gridModel\[\d+\]\.alumnoModel\.userModel\.cedula,
                     ^gridModel\[\d+\]\.alumnoModel\.userModel\.userInfo,
                     ^gridModel\[\d+\]\.tallerModel\.name,
+                    ^gridModel\[\d+\]\.inscripcion,
                     ^gridModel\[\d+\]\.enero,
                     ^gridModel\[\d+\]\.febrero,
                     ^gridModel\[\d+\]\.marzo,
@@ -58,6 +60,9 @@
                 <param name="includeProperties">
                     ^gridModel\[\d+\]\.id,
                     ^gridModel\[\d+\]\.userModel\.nombre,
+                    ^gridModel\[\d+\]\.userModel\.apellido,
+                    ^gridModel\[\d+\]\.userModel\.cedula,
+                    ^gridModel\[\d+\]\.userModel\.fullName,
                     ^gridModel\[\d+\]\.userModel\.userInfo,
                     ^gridModel\[\d+\]\.numeroComprobante,
                     ^gridModel\[\d+\]\.mesesPagos,
@@ -69,6 +74,26 @@
                 </param>
             </result>
         </action>
+
+        <action name="aceptarPago" class="PagosAction" method="aceptarPago">
+            <result name="success" type="json">
+            </result>
+            <result name="error" type="json">
+            </result>
+        </action>
+        <action name="rechazarPago" class="PagosAction" method="rechazarPago">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    msg
+                </param>
+            </result>
+            <result name="error" type="json">
+                <param name="includeProperties">
+                    msg
+                </param>
+            </result>
+        </action>
+
     </package>
 
 
@@ -86,6 +111,7 @@
                     ^gridModel\[\d+\]\.id,
                     ^gridModel\[\d+\]\.alumnoModel\.nombre,
                     ^gridModel\[\d+\]\.tallerModel\.name,
+                    ^gridModel\[\d+\]\.inscripcion,
                     ^gridModel\[\d+\]\.enero,
                     ^gridModel\[\d+\]\.febrero,
                     ^gridModel\[\d+\]\.marzo,
