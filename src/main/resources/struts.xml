@@ -29,6 +29,7 @@
     <include file="struts-image.xml"/>
     <include file="struts-alumno.xml"/>
     <include file="struts-contacto.xml"/>
+    <include file="struts-reporte.xml"/>
 
 
 </struts>

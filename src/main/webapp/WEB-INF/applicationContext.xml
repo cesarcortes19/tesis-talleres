@@ -26,6 +26,7 @@
     <import resource="springConfig/spring-login.xml"/>
     <import resource="springConfig/spring-image.xml"/>
     <import resource="springConfig/spring-contacto.xml"/>
+    <import resource="springConfig/spring-reporte.xml"/>
 <!--    <import resource="springConfig/spring-tiles.xml"/>-->
 
 </beans>
