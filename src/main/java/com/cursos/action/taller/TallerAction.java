@@ -17,6 +17,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +43,7 @@ public class TallerAction extends ActionSupport {
     private String modoPago;
     private PagosService pagosService;
     private Map<String, Object> model = new HashMap<String, Object>();
+    private File fileUpload;
 
 
     public String cargar() {
@@ -45,8 +51,16 @@ public class TallerAction extends ActionSupport {
     }
 
     public String cargarEditar() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
         try {
             tallerModel = tallerService.getTallerById(tallerModel.getId());
+            Map<Integer, byte[]> pictureMap = new HashMap<Integer, byte[]>();
+
+                pictureMap.put(tallerModel.getId(), tallerModel.getPicture());
+
+            session.removeAttribute("pictureMap");
+            session.setAttribute("pictureMap", pictureMap);
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
@@ -56,8 +70,16 @@ public class TallerAction extends ActionSupport {
 
     /*Carga todos los talleres, lo utilizan todos los roles*/
     public String cargarAdministrar() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
         try {
             tallerList = tallerService.getAllTaller();
+            Map<Integer, byte[]> pictureMap = new HashMap<Integer, byte[]>();
+            for (TallerModel tm : tallerList) {
+                pictureMap.put(tm.getId(), tm.getPicture());
+            }
+            session.removeAttribute("pictureMap");
+            session.setAttribute("pictureMap", pictureMap);
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
@@ -67,6 +89,11 @@ public class TallerAction extends ActionSupport {
 
     public String guardar() {
         try {
+            if(fileUpload!=null) {
+                Path path = Paths.get(fileUpload.getPath());
+                byte[] data = Files.readAllBytes(path);
+                tallerModel.setPicture(data);
+            }
             tallerService.guardarTaller(tallerModel);
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,8 +165,16 @@ public class TallerAction extends ActionSupport {
     }
 
     public String cargarTallerInscribir() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
         try {
             tallerList = tallerService.getTalleresNoInscritos(alumnoModel);
+            Map<Integer, byte[]> pictureMap = new HashMap<Integer, byte[]>();
+            for (TallerModel tm : tallerList) {
+                pictureMap.put(tm.getId(), tm.getPicture());
+            }
+            session.removeAttribute("pictureMap");
+            session.setAttribute("pictureMap", pictureMap);
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
@@ -296,5 +331,13 @@ public class TallerAction extends ActionSupport {
 
     public void setModel(Map<String, Object> model) {
         this.model = model;
+    }
+
+    public File getFileUpload() {
+        return fileUpload;
+    }
+
+    public void setFileUpload(File fileUpload) {
+        this.fileUpload = fileUpload;
     }
 }

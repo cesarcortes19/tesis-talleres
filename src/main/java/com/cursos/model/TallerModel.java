@@ -45,6 +45,11 @@ public class TallerModel {
     private Double costo;
     @Column(name = "costoInscripcion")
     private Double costoInscripcion;
+    @Column(name = "imagen", nullable = true)
+    private byte[] picture;
+
+    private String pictureString;
+
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "tallerModel")
     private Set<AlumnoTallerModel> alumnoTallerModelset = new HashSet<AlumnoTallerModel>();
 
@@ -173,6 +178,22 @@ public class TallerModel {
 
     public void setCostoInscripcion(Double costoInscripcion) {
         this.costoInscripcion = costoInscripcion;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+    @Transient
+    public String getPictureString() {
+        return new String(this.picture);
+    }
+
+    public void setPictureString(String pictureString) {
+        this.pictureString = new String(this.picture);
     }
 
     /*    public Set<AlumnoModel> getAlumnoModelSet() {

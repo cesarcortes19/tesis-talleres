@@ -17,6 +17,30 @@
             $("#formEditarTaller").submit();
             }
         }
+        $(document).ready(function () {
+            //Subir imagen y mostrar en div
+            $('#input-image').change(function (e) {
+                addImage(e);
+            });
+
+        });
+
+        function addImage(e) {
+            var file = e.target.files[0],
+                    imageType = /image.*/;
+
+            if (!file.type.match(imageType))
+                return;
+
+            var reader = new FileReader();
+            reader.onload = fileOnload;
+            reader.readAsDataURL(file);
+        }
+
+        function fileOnload(e) {
+            var result = e.target.result;
+            $('#imgSalida').attr("src", result);
+        }
     </script>
 
 </head>
@@ -41,7 +65,14 @@
                 <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo" cssClass="box"/>
                 <s:textfield key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
                 <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
+                <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
             </s:form>
+            <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src="
+                                <s:url namespace="/todos/Image" action='ImageAction'>
+                                    <s:param name="imageId"><s:property value="id"/></s:param>
+                                </s:url>"/><br><br>
+                <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>
+            </div>
         </div>
     </div>
     <div class="botones">
