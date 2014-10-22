@@ -174,4 +174,10 @@
         <put-attribute name="body"   value="/pages/contacto/administrador/contactoEditar.jsp"/>
     </definition>
 
+    <!--Tiles-->
+    <definition name="cargarReporte" extends="mainTemplate">
+        <put-attribute name="title"  value="Reporte"/>
+        <put-attribute name="body"   value="/pages/reporte/reportes.jsp"/>
+    </definition>
+
 </tiles-definitions>
