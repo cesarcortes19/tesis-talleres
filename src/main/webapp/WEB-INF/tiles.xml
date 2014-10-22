@@ -89,6 +89,10 @@
         <put-attribute name="body"   value="/pages/usuario/administrador/editarPasswordAdministrador.jsp"/>
     </definition>
 
+    <definition name="editarCuentaUsuario" extends="mainTemplate">
+        <put-attribute name="title"  value="Usuario"/>
+        <put-attribute name="body"   value="/pages/usuario/administrador/editarCuentaUsuario.jsp"/>
+    </definition>
 <!--usuario-->
     <definition name="crearUsuario" extends="mainTemplate">
         <put-attribute name="title"  value="Usuario"/>
@@ -159,5 +163,15 @@
         <put-attribute name="body"   value="/login.jsp"/>
     </definition>
 
+    <!--Contacto-->
+    <definition name="contactoPrinicipal" extends="mainTemplate">
+        <put-attribute name="title"  value="Contacto"/>
+        <put-attribute name="body"   value="/pages/contacto/contacto.jsp"/>
+    </definition>
+
+    <definition name="editarContacto" extends="mainTemplate">
+        <put-attribute name="title"  value="Contacto"/>
+        <put-attribute name="body"   value="/pages/contacto/administrador/contactoEditar.jsp"/>
+    </definition>
 
 </tiles-definitions>

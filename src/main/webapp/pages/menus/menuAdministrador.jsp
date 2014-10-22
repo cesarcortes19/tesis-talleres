@@ -84,6 +84,12 @@
                 <a href="<s:url action="cargarEditarAdministrador" namespace="/administrador/usuario"/>"><span>Editar Cuenta</span></a>
             </li>
             <li><a href="<s:url value="/logout"/>"><span>Cerrar Sesi&oacute;n</span></a></li>
+            <li>
+                <a href="<s:url action="cargarVerContacto" namespace="/administrador/contacto"/>"><span>Ver Contactanos</span></a>
+            </li>
+            <li>
+                <a href="<s:url action="cargarEditarContacto" namespace="/administrador/contacto"/>"><span>Editar Contactanos</span></a>
+            </li>
         </ul>
     </div>
 </li>

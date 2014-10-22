@@ -7,7 +7,17 @@ function botonCancelar(){
     if (confirm('\u00BFEst\u00e1 seguro que desea cancelar?'))
         window.location.href = '/todos/cartelera/cargarCartelera.action';
 }
+/*redireccionar a administrar usuarios*/
+function botonCancelarEditarUsuario(){
+    if (confirm('¿Está seguro que desea cancelar?'))
+        window.location.href = '/administrador/usuario/cargarAdministrarUsuario.action';
+}
 
+/*redireccionar a talleres*/
+function botonCancelarEditarTaller(){
+    if (confirm('¿Está seguro que desea cancelar?'))
+        window.location.href = '/administrador/taller/cargarAdministrarTaller.action';
+}
 function addImage(e) {
     var file = e.target.files[0],
         imageType = /image.*/;

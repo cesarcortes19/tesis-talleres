@@ -13,7 +13,9 @@
     <title></title>
     <script>
         function editarTallerFunction() {
+            if(confirm("¿Está seguro que desea editar el taller?")){
             $("#formEditarTaller").submit();
+            }
         }
     </script>
 
@@ -46,7 +48,7 @@
         <sj:a id="guardar" button="true" buttonIcon="ui-icon-disk" onclick="editarTallerFunction();">
             Guardar
         </sj:a>
-        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelarEditarTaller();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
     </div>
 </div>
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="contacto" namespace="/administrador/contacto" extends="default">
+
+
+        <action name="cargarVerContacto" class="ContactoAction" method="cargarContacto">
+            <result name="success" type="tiles">contactoPrinicipal</result>
+        </action>
+
+        <action name="*EditarContacto" class="ContactoAction" method="{1}Editar">
+            <result name="success" type="tiles">editarContacto</result>
+            <result name="input" type="tiles">editarContacto</result>
+            <result name="cargarVerContactanos" type="redirectAction">cargarVerContacto</result>
+        </action>
+
+
+
+    </package>
+
+
+
+    <package name="todosContacto" namespace="/todos/contacto" extends="default">
+        <action name="cargarVerContacto" class="ContactoAction" method="cargarContacto">
+            <result name="success" type="tiles">contactoPrinicipal</result>
+        </action>
+    </package>
+
+</struts>

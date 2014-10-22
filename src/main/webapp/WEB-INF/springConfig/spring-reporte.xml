@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ReporteAction" class="com.cursos.action.reporte.ReporteAction" scope="prototype">
+        <property name="reporteService" ref="ReporteService"/>
+        <property name="tallerService" ref="TallerService"/>
+    </bean>
+
+    <bean id="ReporteService" class="com.cursos.service.reporte.ReporteService">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>

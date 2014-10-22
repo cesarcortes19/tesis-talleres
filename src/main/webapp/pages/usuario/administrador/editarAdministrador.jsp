@@ -16,7 +16,9 @@
 
     <script>
         function editarUsuarioFunction(){
-            $("#formEditarAdministrador").submit();
+            if(confirm("¿Está seguro que desea editar?")){
+                $("#formEditarAdministrador").submit();
+            }
         }
         function redireccionar(url){
             $("#formEditarPassword").submit();
