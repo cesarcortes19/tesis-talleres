@@ -17,7 +17,7 @@
     <title></title>
     <script>
         function editarContacto() {
-           if(confirm("¿Está seguro que desea editar la información de contacto?")){
+           if(confirm("\u00BFEst\u00e1 seguro que desea editar la información de contacto?")){
                $("#formEditarContacto").submit();
            }
 

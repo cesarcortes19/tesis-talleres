@@ -16,7 +16,7 @@
 
     <script>
         function crearUsuarioFunction() {
-            if(confirm("¿Está seguro que desea crear el usuario?")){
+            if(confirm("\u00BFEst\u00e1 seguro que desea crear el usuario?")){
                 var dataGrid = $("#gridAlumno").jqGrid("getRowData");
                 var dataJson = JSON.stringify(dataGrid);
                 $("#alumnoJson").val(dataJson);

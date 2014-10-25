@@ -17,7 +17,7 @@
 <script>
     function eliminarTallerFunction(element) {
         var x;
-        if (confirm("¿Está seguro que desea eliminar?") == true) {
+        if (confirm("\u00BFEst\u00e1 seguro que desea eliminar?") == true) {
             $("#hiddenIdEliminarTaller").val(element);
             $("#idFormEliminar").submit();
         }

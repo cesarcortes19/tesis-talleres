@@ -315,6 +315,12 @@ div.botones {
     text-align: center;
     padding-top: 4%;
 }
+div.botonFiltro {
+    margin: 0 auto;
+    font-size: 10px;
+    text-align: left;
+    padding-top: 4%;
+}
 div.botones2 {
     margin: 0 auto;
     font-size: 12px;

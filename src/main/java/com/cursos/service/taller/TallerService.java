@@ -120,8 +120,21 @@ public class TallerService {
         return alumnoTallerDao.getAllTalleresByUser(id);
     }
 
+    public List<AlumnoTallerModel> getTallerByUserAndTallerId(int idUsuario, int idTaller) throws Exception{
+        return alumnoTallerDao.getTallerByUserAndTallerId(idUsuario,idTaller);
+    }
+
     public List<AlumnoTallerModel> getAllTalleresAllUsuarios() throws Exception{
         List <AlumnoTallerModel> atm =alumnoTallerDao.getAllTalleresAllUsuarios();
+        for (AlumnoTallerModel alumnoTallerModel: atm  ){
+            Hibernate.initialize(alumnoTallerModel.getAlumnoModel().getUserModel());
+        }
+
+        return atm;
+    }
+
+    public List<AlumnoTallerModel> getAllUserByTallerId(int id) throws Exception{
+        List <AlumnoTallerModel> atm =alumnoTallerDao.getAllUserByTallerId(id);
         for (AlumnoTallerModel alumnoTallerModel: atm  ){
             Hibernate.initialize(alumnoTallerModel.getAlumnoModel().getUserModel());
         }

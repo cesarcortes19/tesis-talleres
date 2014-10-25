@@ -274,10 +274,6 @@ public class PagosService {
             }
             pagosModel.setStatus(PagosModel.StatusType.PAGO_RECHAZADO);
             pagosDao.actualizar(pagosModel);
-            Email email = new Email();
-            email.sendEmail(" ",pagosModel.getUserModel().getEmail(),construirMensajeRechazo(pagosModel)
-                    ,"Talleres C.A.P.U.C.V. Pago Rechazado");
-
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

@@ -13,7 +13,7 @@
     <title></title>
     <script>
         function editarTallerFunction() {
-            if(confirm("¿Está seguro que desea editar el taller?")){
+            if(confirm("\u00BFEst\u00e1 seguro que desea editar el taller?")){
             $("#formEditarTaller").submit();
             }
         }

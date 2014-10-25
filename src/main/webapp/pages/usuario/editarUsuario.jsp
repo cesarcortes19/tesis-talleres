@@ -16,7 +16,7 @@
 
     <script>
         function editarUsuarioFunction(){
-            if(confirm("¿Está seguro que desea editar?")){
+            if(confirm("\u00BFEst\u00e1 seguro que desea editar?")){
                 var dataGrid = $("#gridAlumno").jqGrid("getRowData");
                 var dataJson = JSON.stringify(dataGrid);
                 $("#alumnoJson").val(dataJson);

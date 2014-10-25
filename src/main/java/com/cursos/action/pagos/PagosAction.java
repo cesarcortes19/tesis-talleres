@@ -9,6 +9,7 @@ import com.cursos.service.pagos.PagosService;
 import com.cursos.service.taller.TallerService;
 import com.cursos.service.usuario.UsuarioService;
 import com.cursos.to.PagosTo;
+import com.cursos.util.Email;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.security.core.Authentication;
@@ -143,6 +144,19 @@ public class PagosAction extends ActionSupport {
     public String rechazarPago() throws Exception {
         try {
             pagosService.rechazarPago(idPago);
+            Email email = new Email();
+            email.sendEmail(" ",pagosModel.getUserModel().getEmail(),pagosService.construirMensajeRechazo(pagosModel)
+                    ,"Talleres C.A.P.U.C.V. Pago Rechazado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+    public String filtrarPagoPorTaller(){
+        try {
+            tallerModelList = tallerService.getAllTaller();
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;

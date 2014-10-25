@@ -17,7 +17,7 @@
     <title></title>
     <script>
         function crearNoticiaFunction() {
-            if(confirm("¿Está seguro que desea crear la noticia?")){
+            if(confirm("\u00BFEst\u00e1 seguro que desea crear la noticia?")){
             $("#guardarCartelera").submit();
             }
         }
@@ -53,7 +53,7 @@
 
 <div id="formulario" class="formulario">
     <div id="titulo" class="TituloformInterno">
-        Crear Noticia
+        Crear Noticia<br>
 
     <div id="formularioInterno" class="formInternoCrearNoticia">
         <s:form method="POST" action="guardarCartelera" namespace="/administrador/cartelera" id="guardarCartelera" enctype="multipart/form-data">

@@ -23,7 +23,7 @@
 
         function eliminarNoticia(element) {
             var x;
-            if (confirm("¿Está seguro que desea eliminar?") == true) {
+            if (confirm("\u00BFEst\u00e1 seguro que desea eliminar?") == true) {
                 $("#idNoticia").val(element);
                 $("#eliminarCartelera").submit();
             }

@@ -153,7 +153,6 @@ public class TallerAction extends ActionSupport {
                 User userAuth = (User) auth.getPrincipal();
                 userModel.setCedula(userAuth.getUsername());
                 userModel = usuarioService.getUsuarioByCi(userModel);
-                cantidadTalleresPorInscribir = tallerService.getTalleresNoInscritos(alumnoModel).size();
             }
         } catch (Exception e) {
             e.printStackTrace();

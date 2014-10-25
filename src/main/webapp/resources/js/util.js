@@ -9,13 +9,13 @@ function botonCancelar(){
 }
 /*redireccionar a administrar usuarios*/
 function botonCancelarEditarUsuario(){
-    if (confirm('¿Está seguro que desea cancelar?'))
+    if (confirm('\u00BFEst\u00e1 seguro que desea cancelar?'))
         window.location.href = '/administrador/usuario/cargarAdministrarUsuario.action';
 }
 
 /*redireccionar a talleres*/
 function botonCancelarEditarTaller(){
-    if (confirm('¿Está seguro que desea cancelar?'))
+    if (confirm('\u00BFEst\u00e1 seguro que desea cancelar?'))
         window.location.href = '/administrador/taller/cargarAdministrarTaller.action';
 }
 function addImage(e) {

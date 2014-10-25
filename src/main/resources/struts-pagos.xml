@@ -94,6 +94,11 @@
             </result>
         </action>
 
+        <action name="filtrarPorTaller" class="PagosAction" method="filtrarPagoPorTaller">
+            <result name="success" type="tiles">infoPagosTodosUsuario</result>
+
+        </action>
+
     </package>
 
 

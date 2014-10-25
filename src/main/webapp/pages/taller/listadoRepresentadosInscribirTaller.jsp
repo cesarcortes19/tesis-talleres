@@ -24,7 +24,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         }
 
         function desinscribirTaller(element) {
-            if(confirm("¿Está seguro que desea retirar el taller?")){
+            if(confirm("\u00BFEst\u00e1 seguro que desea retirar el taller?")){
                 $("#hiddenAlumnoModelDesinscribir").val(element);
                 $("#formDesinscribirTaller").submit();
             }

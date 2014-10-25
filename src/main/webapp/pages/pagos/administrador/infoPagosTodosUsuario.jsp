@@ -32,7 +32,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </div>
 
 <div id="selectTalleres" style="width: 50%">
+<table><tr><td>
     <label>Filtrar por taller: </label>
+    </td>
+    <td>
+<s:form action="filtrarPorTaller" namespace="/administrador/pagos" id="formSelect">
 <s:select label="Busqueda por taller"
           headerValue="Seleccione un taller"
           headerKey="-1"
@@ -41,10 +45,24 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
           listValue="name"
           name="tallerModel.id" id="selectTaller"
           theme="simple"/>
+</s:form>
+    </td>
+    <td>
+    <div class="botonFiltro">
+        <sj:a id="filtrar" button="true" buttonIcon="ui-icon-search" onclick="$('#formSelect').submit();">
+            Filtrar
+        </sj:a>
+    </div>
+    </td>
+    </tr>
+</table>
 </div>
+
+
 <br>
 
 <s:url id="remoteurl" action="cargarPagosJson" namespace="/administrador/pagos">
+    <s:param name="tallerModel.id"><s:property value="tallerModel.id"/></s:param>
 </s:url>
 
 <div class="ajusteciente">

@@ -23,15 +23,15 @@ public class AlumnoTallerDao {
         return sessionFactory;
     }
 
-    public AlumnoTallerModel getAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) throws Exception{
-        return (AlumnoTallerModel)sessionFactory.getCurrentSession().get(alumnoTallerModel.getClass(), alumnoTallerModel.getId());
+    public AlumnoTallerModel getAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) throws Exception {
+        return (AlumnoTallerModel) sessionFactory.getCurrentSession().get(alumnoTallerModel.getClass(), alumnoTallerModel.getId());
     }
 
-    public void updateAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) throws Exception{
+    public void updateAlumnoTallerModel(AlumnoTallerModel alumnoTallerModel) throws Exception {
         sessionFactory.getCurrentSession().update(alumnoTallerModel);
     }
 
-    public Integer getContadorAllTalleresByUser(int idUsuario)throws Exception{
+    public Integer getContadorAllTalleresByUser(int idUsuario) throws Exception {
         try {
             int list = ((Long) getSessionFactory().getCurrentSession()
                     .createQuery("select count (*) from AlumnoTallerModel where alumnoModel.userModel.id =:idUsuario")
@@ -44,12 +44,26 @@ public class AlumnoTallerDao {
         }
     }
 
-    public List<AlumnoTallerModel> getAllTalleresByUser(int idUsuario) throws Exception{
+    public List<AlumnoTallerModel> getAllTalleresByUser(int idUsuario) throws Exception {
 
         try {
             Query query = getSessionFactory().getCurrentSession()
                     .createQuery("from AlumnoTallerModel where alumnoModel.userModel.id =:idUsuario")
                     .setParameter("idUsuario", idUsuario);
+            return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public List<AlumnoTallerModel> getTallerByUserAndTallerId(int idUsuario, int idTaller) throws Exception {
+
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("from AlumnoTallerModel where alumnoModel.userModel.id =:idUsuario and tallerModel.id =: idTaller")
+                    .setParameter("idUsuario", idUsuario)
+                    .setParameter("idTaller", idTaller);
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -68,11 +82,11 @@ public class AlumnoTallerDao {
         }
     }
 
-    public AlumnoTallerModel getAlumnoTallerByTallerAndAlumno(AlumnoModel alumnoModel, TallerModel tallerModel) throws Exception{
+    public AlumnoTallerModel getAlumnoTallerByTallerAndAlumno(AlumnoModel alumnoModel, TallerModel tallerModel) throws Exception {
         try {
             return (AlumnoTallerModel) getSessionFactory().getCurrentSession()
                     .createQuery("from AlumnoTallerModel where alumnoModel.id=:idAlumno and tallerModel.id=:idTaller")
-                    .setParameter("idAlumno",alumnoModel.getId())
+                    .setParameter("idAlumno", alumnoModel.getId())
                     .setParameter("idTaller", tallerModel.getId())
                     .uniqueResult();
         } catch (HibernateException e) {
@@ -81,12 +95,23 @@ public class AlumnoTallerDao {
         }
     }
 
-    public AlumnoTallerModel getAlumnoTallerById(AlumnoTallerModel alumnoTallerModel) throws Exception{
+    public AlumnoTallerModel getAlumnoTallerById(AlumnoTallerModel alumnoTallerModel) throws Exception {
         try {
             return (AlumnoTallerModel) getSessionFactory().getCurrentSession()
                     .createQuery("from AlumnoTallerModel where id=:id")
-                    .setParameter("id",alumnoTallerModel.getId())
+                    .setParameter("id", alumnoTallerModel.getId())
                     .uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public List<AlumnoTallerModel> getAllUserByTallerId(int id) throws Exception {
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("from AlumnoTallerModel where tallerModel.id=:id").setParameter("id", id);
+            return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
             throw e;

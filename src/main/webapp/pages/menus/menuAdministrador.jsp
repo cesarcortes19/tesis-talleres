@@ -20,7 +20,7 @@
         </ul>
     </div>
 </li>
-<li><a href="#"><span>Gestionar Inscripcion</span></a>
+<li><a href="#"><span>Gestionar Inscripción</span></a>
 
     <div>
         <ul>
@@ -87,7 +87,7 @@
                 <a href="<s:url action="cargarVerContacto" namespace="/administrador/contacto"/>"><span>Ver Contactanos</span></a>
             </li>--%>
             <li>
-                <a href="<s:url action="cargarEditarContacto" namespace="/administrador/contacto"/>"><span>Editar Contactanos</span></a>
+                <a href="<s:url action="cargarEditarContacto" namespace="/administrador/contacto"/>"><span>Editar Cont&aacute;ctanos</span></a>
             </li>
             <li>
                 <a href="<s:url action="reporteLoad" namespace="/administrador/reporte"/>"><span>Reportes</span></a>

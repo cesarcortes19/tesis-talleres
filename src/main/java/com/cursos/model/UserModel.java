@@ -93,7 +93,7 @@ public class UserModel implements UsuarioInterface {
     }
 
     @Override
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", nullable = true)
     public RoleModel getRoleModel() {
         return roleModel;

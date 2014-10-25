@@ -1,6 +1,7 @@
 package com.cursos.action.pagos;
 
 import com.cursos.model.AlumnoTallerModel;
+import com.cursos.model.TallerModel;
 import com.cursos.model.UserModel;
 import com.cursos.service.pagos.PagosService;
 import com.cursos.service.taller.TallerService;
@@ -47,6 +48,7 @@ public class GridPagosAction extends ActionSupport {
     private TallerService tallerService;
     private UserModel userModel;
     private PagosService pagosService;
+    private TallerModel tallerModel;
 
 
     public String execute() {
@@ -80,11 +82,19 @@ public class GridPagosAction extends ActionSupport {
 
             /*Se valida que venga del administrador para mostrar todos los usuarios*/
             if (userModel.getId() == -989) {
-                myCustomers = tallerService.getAllTalleresAllUsuarios();
+                if(tallerModel == null || tallerModel.getId() == 0){
+                    myCustomers = tallerService.getAllTalleresAllUsuarios();
+                }else{
+                    myCustomers = tallerService.getAllUserByTallerId(tallerModel.getId());
+                }
 
             } else {
                 if (userModel.getId() > 0) {
-                    myCustomers = tallerService.getAllTalleresByUser(userModel.getId());
+                    if(tallerModel.getId() == 0){
+                        myCustomers = tallerService.getAllTalleresByUser(userModel.getId());
+                    }else{
+                        myCustomers = tallerService.getTallerByUserAndTallerId(userModel.getId(),tallerModel.getId());
+                    }
                 }
 
             }
@@ -290,6 +300,14 @@ public class GridPagosAction extends ActionSupport {
 
     public PagosService getPagosService() {
         return pagosService;
+    }
+
+    public TallerModel getTallerModel() {
+        return tallerModel;
+    }
+
+    public void setTallerModel(TallerModel tallerModel) {
+        this.tallerModel = tallerModel;
     }
 }
 
