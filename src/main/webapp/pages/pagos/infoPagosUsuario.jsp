@@ -12,7 +12,6 @@
 JSP en el cual el administrador introduce el numero de cedula del usuario
  y luego este puede inscribir a us representados en los diferentes talleres
  --%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>

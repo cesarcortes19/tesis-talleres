@@ -99,8 +99,6 @@ public class GridPagosAction extends ActionSupport {
 
 
             setGridModel(myCustomers);
-
-
             // Calculate total Pages
             total = (int) Math.ceil((double) records / (double) rows);
 
