@@ -78,6 +78,20 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 
         }
 
+        function validarCampos(comprobante) {
+
+            if($("input[type='radio'][name='pagosTo.modoPago']:checked").val() != "3"){
+                if(comprobante.val().trim() == ''){
+                    alert("Porfavor introduzca el Numero de comprobante");
+
+                }else{
+                    realizarPagoFunction();
+                }
+            }else{
+                realizarPagoFunction();
+            }
+        }
+
         function realizarPagoFunction() {
             list = $("#pagosGrid").jqGrid('getRowData');
             $("#stringPagos").val(JSON.stringify(list));
@@ -317,7 +331,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                 <label style="display:inline-block"><b>Tipo de pago:</b></label>
                     <%--<s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>--%>
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
-                    <s:radio theme="simple" name="pagosTo.modoPago"
+                    <s:radio id="tipoPago" theme="simple" name="pagosTo.modoPago"
                              list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo'}" value="2"/>
                 </sec:authorize>
                 <sec:authorize access="hasRole('REPRESENTANTE')">
@@ -335,7 +349,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     </table>
 
     <div class="botones">
-        <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="realizarPagoFunction();">
+        <sj:a id="guardar" button="true" buttonIcon="ui-icon-circle-check" onclick="validarCampos($('#idNumeroComprobante'));">
             Realizar Pago
         </sj:a>
         <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close"

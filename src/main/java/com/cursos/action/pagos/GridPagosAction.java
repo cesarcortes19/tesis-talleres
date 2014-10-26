@@ -90,11 +90,9 @@ public class GridPagosAction extends ActionSupport {
 
             } else {
                 if (userModel.getId() > 0) {
-                    if(tallerModel.getId() == 0){
+
                         myCustomers = tallerService.getAllTalleresByUser(userModel.getId());
-                    }else{
-                        myCustomers = tallerService.getTallerByUserAndTallerId(userModel.getId(),tallerModel.getId());
-                    }
+
                 }
 
             }
