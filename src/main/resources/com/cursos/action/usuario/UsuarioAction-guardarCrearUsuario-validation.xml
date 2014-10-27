@@ -24,6 +24,9 @@
         <field-validator type="requiredstring">
             <message key="requiredstring"/>
         </field-validator>
+        <field-validator type="email">
+            <message>Correo invalido</message>
+        </field-validator>
     </field>
 
     <field name="usuarioModel.telefono1">

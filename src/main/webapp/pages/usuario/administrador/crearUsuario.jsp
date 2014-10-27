@@ -82,7 +82,7 @@
                 >
             <sjg:gridColumn name="ID" index="id" title="ID" width="60" hidden="true"/>
             <sjg:gridColumn name="nombre" frozen="true" index="nombre" title="Nombre" width="200"
-                            editable="true" edittype="text" sortable="false"/>
+                            editable="true" edittype="text" sortable="false" requiredLabel="true"/>
             <sjg:gridColumn name="apellido" index="apellido" title="Apellido" editable="true" edittype="text"
                             width="200" sortable="false"/>
             <sjg:gridColumn name="grado" index="grado" title="Grado" editable="true" sortable="false"/>

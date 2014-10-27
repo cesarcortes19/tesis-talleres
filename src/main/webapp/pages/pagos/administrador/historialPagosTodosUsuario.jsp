@@ -105,7 +105,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             groupCollapse="false"
             >
         <sjg:gridColumn name="id"
-
                         title="id"
                         index="id"
                         align="center"
@@ -116,6 +115,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         index="representante"
                         align="center"
                         sortable="true"
+                        width="70"
                 />
 
 <%--        <sjg:gridColumn name="userModel.apellido"
@@ -129,12 +129,14 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         title="C.I."
                         index="cedula"
                         align="center"
+                        width="50"
                 />
 
         <sjg:gridColumn name="numeroComprobante"
                         title="Nro. Comprobante"
                         index="numeroComprobante"
                         align="center"
+                        width="70"
                 />
 
 <%--
@@ -148,10 +150,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 --%>
 
         <sjg:gridColumn name="montoCalculado"
-                        title="Monto Calculado"
+                        title="Monto Calculado (Bs.)"
                         index="montoCalculado"
                         align="center"
                         formatter="currency"
+                        width="70"
                         />
 
         <sjg:gridColumn name="logTransaccion"
@@ -160,6 +163,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         sortable="false"
                         edittype="textarea"
                         cssStyle="color: #BC1010"
+                        align="center"
                         />
 
         <sjg:gridColumn name="fechaPago"
@@ -169,6 +173,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         sortable="false"
                         formatter="date"
                         formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
+                        width="70"
                 />
 
         <sjg:gridColumn name="status"
@@ -177,6 +182,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         sortable="false"
                         formatter="formatLink"
+                        width="70"
                 />
     </sjg:grid>
 

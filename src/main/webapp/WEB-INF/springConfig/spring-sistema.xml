@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="SistemaAction" class="com.cursos.action.sistema.SistemaAction" scope="prototype">
+        <property name="sistemaService" ref="SistemaService"/>
+
+    </bean>
+
+    <bean id="SistemaService" class="com.cursos.service.sistema.SistemaService">
+        <property name="sistemaDao" ref="SistemaDao"/>
+    </bean>
+
+    <bean id="SistemaDao" class="com.cursos.dao.sistema.SistemaDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+</beans>

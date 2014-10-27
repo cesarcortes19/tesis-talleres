@@ -35,12 +35,12 @@
 <body>
 <div id="formulario" class="formulario">
     <div id="titulo" class="TituloformInterno">
-        Informacion de contacto
+        Informaci&oacute;n de contacto
     </div>
     <div id="formularioInterno" class="formInterno">
-        <b>Direccion:</b><s:property value="contactoModel.direccion"/><br>
+        <b>Direcci&oacute;n:</b><s:property value="contactoModel.direccion"/><br>
         <b>Correo:</b><s:property value="contactoModel.correo"/><br>
-        <b>Telefonos:</b><s:property value="contactoModel.telefonos"/><br>
+        <b>Tel&eacute;fonos:</b><s:property value="contactoModel.telefonos"/><br>
         <b>Nro de Cuenta:</b><s:property value="contactoModel.cuenta"/><br>
         <b>Otros:</b><s:property value="contactoModel.otros"/><br>
     </div>

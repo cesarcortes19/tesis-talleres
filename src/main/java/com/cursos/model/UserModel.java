@@ -74,7 +74,7 @@ public class UserModel implements UsuarioInterface {
         this.cedula = cedula;
     }
     @Override
-    @Column(name = "email2", unique = true)
+    @Column(name = "email2", unique = false)
     public String getEmail2() {
         return email2;
     }

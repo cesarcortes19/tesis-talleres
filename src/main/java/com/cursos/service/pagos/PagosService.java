@@ -45,6 +45,7 @@ public class PagosService {
         return pagosModels;
     }
 
+    /*solo para inscripcion*/
     public void realizarPagoTaller(AlumnoModel alumnoModel, TallerModel tallerModel, PagosModel pagosModel) throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
 
@@ -63,23 +64,22 @@ public class PagosService {
         } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
             pagosModel.setStatus(PagosModel.StatusType.REALIZADO_POR_REPRESENTANTE);
         }
-        pagosModel.setLogTransaccion(construirLogTransaccionInscripcionPago(pagosModel));
+        String logTransaccion = "Taller: "+alumnoTallerModel.getTallerModel().getName()+
+                " - Representado: "+ alumnoTallerModel.getAlumnoModel().getNombre() +
+                " - Pago: Inscripción-"+pagosModel.getModoPago().toString();
+        pagosModel.setLogTransaccion(logTransaccion);
         pagosModel.setFechaPago(DateUtil.getCurrentDate());
+
+        Set<DetallePagoModel> detallePagoModelList = new HashSet<DetallePagoModel>();
+        DetallePagoModel detallePagoModel = new DetallePagoModel();
+        detallePagoModel.setAlumnoTallerModel(alumnoTallerModel);
+        detallePagoModel.setInscripcion(true);
+        detallePagoModel.setPagosModel(pagosModel);
+        detallePagoModelList.add(detallePagoModel);
+        pagosModel.setDetallePagoModels(detallePagoModelList);
         pagosDao.guardar(pagosModel);
         alumnoTallerDao.updateAlumnoTallerModel(alumnoTallerModel);
     }
-
-
-    public String construirLogTransaccionInscripcionPago(PagosModel pagosModel) {
-        String usuarioCedula = "Usuario: " + pagosModel.getUserModel().getUserInfo() + " - ";
-        String tipoPago = pagosModel.getTipoPago().toString() + " - ";
-        String modoPago = pagosModel.getModoPago().toString() + " - ";
-        String cantidad = "Monto: " + pagosModel.getMontoIngresado() + "Bs. - ";
-        String comprobante = pagosModel.getNumeroComprobante() == "" ? "" : "Número comprobante: " + pagosModel.getNumeroComprobante();
-        String log = usuarioCedula + tipoPago + modoPago + cantidad + comprobante;
-        return log;
-    }
-
 
     /*.
     Obtiene el objeto con el json obtenido de los pagos, los construye como objeto y lo retorna
@@ -100,46 +100,73 @@ public class PagosService {
         DetallePagoModel detallePagoModel;
         UserModel userModel = new UserModel();
         Double montoCalculado = Double.valueOf(0);
+        boolean banderaPago;
+        String logTransaccion = "";
+        String logTransaccionGeneral = "";
         try {
             for (PagosTo pt : pagosTos) {
+                logTransaccion = "";
                 AlumnoTallerModel alumnoTaller = alumnoTallerDao.getAlumnoTallerById(new AlumnoTallerModel(pt.getId()));
                 detallePagoModel = new DetallePagoModel();
                 detallePagoModel.setAlumnoTallerModel(alumnoTaller);
                 userModel = alumnoTaller.getAlumnoModel().getUserModel();
+                banderaPago = false;
+
+                if (pt.getInscripcion() == true && alumnoTaller.getInscripcion() != true) {
+                    montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCostoInscripcion();
+                    detallePagoModel.setInscripcion(true);
+                    logTransaccion = logTransaccion +"Inscripción ";
+                    banderaPago = true;
+                }
+                alumnoTaller.setInscripcion(pt.getInscripcion());
+
 
                 if (pt.getEnero() == true && alumnoTaller.getEnero() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setEnero(true);
+                    logTransaccion = logTransaccion +"Enero ";
+                    banderaPago = true;
+
                 }
                 alumnoTaller.setEnero(pt.getEnero());
 
                 if (pt.getFebrero() == true && alumnoTaller.getFebrero() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setFebrero(true);
+                    logTransaccion = logTransaccion + "Febrero ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setFebrero(pt.getFebrero());
 
                 if (pt.getMarzo() == true && alumnoTaller.getMarzo() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setMarzo(true);
+                    logTransaccion = logTransaccion + "Marzo ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setMarzo(pt.getMarzo());
 
                 if (pt.getAbril() == true && alumnoTaller.getAbril() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setAbril(true);
+                    logTransaccion = logTransaccion + "Abril ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setAbril(pt.getAbril());
 
                 if (pt.getMayo() == true && alumnoTaller.getMayo() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setMayo(true);
+                    logTransaccion = logTransaccion + "Mayo ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setMayo(pt.getMayo());
 
                 if (pt.getJunio() == true && alumnoTaller.getJunio() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setJunio(true);
+                    logTransaccion = logTransaccion + "Junio ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setJunio(pt.getJunio());
 
@@ -158,37 +185,49 @@ public class PagosService {
                 if (pt.getSeptiembre() == true && alumnoTaller.getSeptiembre() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setSeptiembre(true);
+                    logTransaccion = logTransaccion + "Septiembre ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setSeptiembre(pt.getSeptiembre());
 
                 if (pt.getOctubre() == true && alumnoTaller.getOctubre() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setOctubre(true);
+                    logTransaccion = logTransaccion + "Octubre ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setOctubre(pt.getOctubre());
 
                 if (pt.getNoviembre() == true && alumnoTaller.getNoviembre() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setNoviembre(true);
+                    logTransaccion = logTransaccion + "Noviembre ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setNoviembre(pt.getNoviembre());
 
                 if (pt.getDiciembre() == true && alumnoTaller.getDiciembre() != true) {
                     montoCalculado = montoCalculado + alumnoTaller.getTallerModel().getCosto();
                     detallePagoModel.setDiciembre(true);
+                    logTransaccion = logTransaccion + "Diciembre ";
+                    banderaPago = true;
                 }
                 alumnoTaller.setDiciembre(pt.getDiciembre());
 
                 alumnoTallerDao.updateAlumnoTallerModel(alumnoTaller);
                 detallePagoModel.setPagosModel(pagosModel);
-                detallePagoModelList.add(detallePagoModel);
+                if(banderaPago){
+                    detallePagoModelList.add(detallePagoModel);
+                    logTransaccion = "Taller: "+alumnoTaller.getTallerModel().getName()
+                            + " - Representado: "+alumnoTaller.getAlumnoModel().getNombre() +" - Meses: "+logTransaccion+" / ";
+                    logTransaccionGeneral = logTransaccionGeneral +logTransaccion;
+                }
             }
 
             pagosModel.setDetallePagoModels(detallePagoModelList);
             pagosModel.setFechaPago(DateUtil.getCurrentDate());
             pagosModel.setTipoPago(PagosModel.TipoPago.MENSUALIDAD);
-            /*TODO GENERAR LOG*/
-            pagosModel.setLogTransaccion("Log transaccion");
+
             if (pagosTo.getModoPago().equals("1"))
                 pagosModel.setModoPago(PagosModel.ModoPago.DEPOSITO);
             else if (pagosTo.getModoPago().equals("2"))
@@ -197,7 +236,8 @@ public class PagosService {
                 pagosModel.setModoPago(PagosModel.ModoPago.EFECTIVO);
             else
                 return;
-
+            logTransaccionGeneral =logTransaccionGeneral + pagosModel.getModoPago().toString();
+            pagosModel.setLogTransaccion(logTransaccionGeneral);
             pagosModel.setUserModel(userModel);
             /*Comprobacion de quien esta logueado para realizar el apgo*/
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -229,6 +269,8 @@ public class PagosService {
 
             for (DetallePagoModel dpm : pagosModel.getDetallePagoModels()) {
                 AlumnoTallerModel alumnoTallerModel = dpm.getAlumnoTallerModel();
+
+
                 if (dpm.getEnero() != null && dpm.getEnero() == true) {
                     alumnoTallerModel.setEnero(false);
                 }
@@ -266,6 +308,10 @@ public class PagosService {
 
                 if (dpm.getDiciembre() != null && dpm.getDiciembre() == true) {
                     alumnoTallerModel.setDiciembre(false);
+                }
+
+                if (dpm.getInscripcion() != null && dpm.getInscripcion() == true) {
+                    alumnoTallerModel.setInscripcion(false);
                 }
 
                 alumnoTallerDao.updateAlumnoTallerModel(alumnoTallerModel);

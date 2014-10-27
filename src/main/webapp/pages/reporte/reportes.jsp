@@ -11,6 +11,30 @@
 <html>
 <head>
     <title></title>
+
+    <script>
+        function habilitarSeccion() {
+            if ($("#gradoReporte").val() == "") {
+                $("#seccionReporte").val("");
+                $("#seccionReporte").attr('disabled', true);
+                $("#seccionReporte").addClass("elementDisabled");
+            } else {
+                $("#seccionReporte").removeAttr('disabled');
+                $("#seccionReporte").removeClass("elementDisabled");
+            }
+        }
+
+        function generarReporte(){
+            if($("#selectTaller").val()==-1 && $("#gradoReporte").val() == ""){
+                alert("Debe seleccionar al menos un parametro de busqueda")
+            }else{
+            $('#reporteForm').submit();
+            }
+            return;
+        }
+    </script>
+
+
 </head>
 <body>
 
@@ -19,6 +43,7 @@
         Generar Reporte
     </div>
     <br>
+
     <div id="formularioInterno" class="formInterno">
         <s:form action="generarReporte" namespace="/administrador/reporte" id="reporteForm">
             <s:select label="Talleres"
@@ -27,21 +52,28 @@
                       list="tallerModelList"
                       listKey="id"
                       listValue="name"
-                      name="tallerModel.id" id="selectTaller" cssStyle="width: 220px; height: 40px"  cssClass="box"/>
+                      name="reporteTo.taller" id="selectTaller" cssStyle="width: 220px; height: 40px" cssClass="box"/>
 
-            <s:textfield label="Grado" name="reporteTo.grado" cssClass="box"/>
-            <s:textfield label="Sección" name="reporteTo.seccion" cssClass="box"/>
+            <s:textfield id="gradoReporte" onchange="habilitarSeccion();" label="Grado" name="reporteTo.grado"
+                         cssClass="box"/>
+            <s:textfield id="seccionReporte" label="Sección" name="reporteTo.seccion" cssClass="box elementDisabled" disabled="true"/>
+            <s:textfield id="tituloReporte" key="report.form.label.titulo" name="reporteTo.titulo" cssClass="box"/>
         </s:form>
     </div>
     <div class="botones">
-        <sj:a id="guardar" button="true" buttonIcon="ui-icon-check" onclick="$('#reporteForm').submit();">
+        <sj:a id="guardar" button="true" buttonIcon="ui-icon-check" onclick="generarReporte();">
             Generar
         </sj:a>
-        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close"
+              value="Cancelar">Cancelar</sj:a>
     </div>
+
 </div>
 
-
+<br>
+<br> <br>
+<br>
+<br>
 
 </body>
 </html>

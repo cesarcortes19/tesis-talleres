@@ -49,6 +49,7 @@
 
         <action name="*EliminarUsuario" class="UsuarioAction" method="{1}Eliminar">
             <result name="cargarAdministrarUsuario" type="redirectAction">cargarAdministrarUsuario</result>
+            <result name="input" type="tiles">administrarUsuario</result>
         </action>
 
         <action name="*AlumnosJson" class="GridAlumnoAction" method="{1}">

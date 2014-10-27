@@ -23,31 +23,31 @@ public class AlumnoTallerModel {
     @JoinColumn(name = "id_taller", nullable = false)
     private TallerModel tallerModel;
     @Column(name = "enero", nullable = true)
-    private Boolean enero;
+    private boolean enero;
     @Column(name = "febrero", nullable = true)
-    private Boolean febrero;
+    private boolean febrero;
     @Column(name = "marzo", nullable = true)
-    private Boolean marzo;
+    private boolean marzo;
     @Column(name = "abril", nullable = true)
-    private Boolean abril;
+    private boolean abril;
     @Column(name = "mayo", nullable = true)
-    private Boolean mayo;
+    private boolean mayo;
     @Column(name = "junio", nullable = true)
-    private Boolean junio;
+    private boolean junio;
     @Column(name = "julio", nullable = true)
-    private Boolean julio;
+    private boolean julio;
     @Column(name = "agosto", nullable = true)
-    private Boolean agosto;
+    private boolean agosto;
     @Column(name = "septiembre", nullable = true)
-    private Boolean septiembre;
+    private boolean septiembre;
     @Column(name = "octubre", nullable = true)
-    private Boolean octubre;
+    private boolean octubre;
     @Column(name = "noviembre", nullable = true)
-    private Boolean noviembre;
+    private boolean noviembre;
     @Column(name = "diciembre", nullable = true)
-    private Boolean diciembre;
+    private boolean diciembre;
     @Column(name = "inscripcion", nullable = true)
-    private Boolean inscripcion;
+    private boolean inscripcion;
     @Column(name = "fecha_desinscripcion", nullable = true)
     private Date fechaDesinscripcion;
     @Column(name = "fecha_inscripcion", nullable = true)
@@ -89,99 +89,99 @@ public class AlumnoTallerModel {
         this.tallerModel = tallerModel;
     }
 
-    public Boolean getEnero() {
+    public boolean getEnero() {
         return enero;
     }
 
-    public void setEnero(Boolean enero) {
+    public void setEnero(boolean enero) {
         this.enero = enero;
     }
 
-    public Boolean getFebrero() {
+    public boolean getFebrero() {
         return febrero;
     }
 
-    public void setFebrero(Boolean febrero) {
+    public void setFebrero(boolean febrero) {
         this.febrero = febrero;
     }
 
-    public Boolean getMarzo() {
+    public boolean getMarzo() {
         return marzo;
     }
 
-    public void setMarzo(Boolean marzo) {
+    public void setMarzo(boolean marzo) {
         this.marzo = marzo;
     }
 
-    public Boolean getAbril() {
+    public boolean getAbril() {
         return abril;
     }
 
-    public void setAbril(Boolean abril) {
+    public void setAbril(boolean abril) {
         this.abril = abril;
     }
 
-    public Boolean getMayo() {
+    public boolean getMayo() {
         return mayo;
     }
 
-    public void setMayo(Boolean mayo) {
+    public void setMayo(boolean mayo) {
         this.mayo = mayo;
     }
 
-    public Boolean getJunio() {
+    public boolean getJunio() {
         return junio;
     }
 
-    public void setJunio(Boolean junio) {
+    public void setJunio(boolean junio) {
         this.junio = junio;
     }
 
-    public Boolean getJulio() {
+    public boolean getJulio() {
         return julio;
     }
 
-    public void setJulio(Boolean julio) {
+    public void setJulio(boolean julio) {
         this.julio = julio;
     }
 
-    public Boolean getAgosto() {
+    public boolean getAgosto() {
         return agosto;
     }
 
-    public void setAgosto(Boolean agosto) {
+    public void setAgosto(boolean agosto) {
         this.agosto = agosto;
     }
 
-    public Boolean getSeptiembre() {
+    public boolean getSeptiembre() {
         return septiembre;
     }
 
-    public void setSeptiembre(Boolean septiembre) {
+    public void setSeptiembre(boolean septiembre) {
         this.septiembre = septiembre;
     }
 
-    public Boolean getOctubre() {
+    public boolean getOctubre() {
         return octubre;
     }
 
-    public void setOctubre(Boolean octubre) {
+    public void setOctubre(boolean octubre) {
         this.octubre = octubre;
     }
 
-    public Boolean getNoviembre() {
+    public boolean getNoviembre() {
         return noviembre;
     }
 
-    public void setNoviembre(Boolean noviembre) {
+    public void setNoviembre(boolean noviembre) {
         this.noviembre = noviembre;
     }
 
-    public Boolean getDiciembre() {
+    public boolean getDiciembre() {
         return diciembre;
     }
 
-    public void setDiciembre(Boolean diciembre) {
+    public void setDiciembre(boolean diciembre) {
         this.diciembre = diciembre;
     }
 
@@ -202,11 +202,11 @@ public class AlumnoTallerModel {
     }
 
 
-    public Boolean getInscripcion() {
+    public boolean getInscripcion() {
         return inscripcion;
     }
 
-    public void setInscripcion(Boolean inscripcion) {
+    public void setInscripcion(boolean inscripcion) {
         this.inscripcion = inscripcion;
     }
 }

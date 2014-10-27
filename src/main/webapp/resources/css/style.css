@@ -357,3 +357,8 @@ div.botonesHeader {
     margin-top: 6px;
     position: absolute;
 }
+
+.elementDisabled{
+    background-color: ghostwhite;
+}
+

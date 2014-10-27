@@ -56,7 +56,7 @@ public class ImageAction extends ActionSupport implements ServletRequestAware, S
             imageInByte = pictureMap.get(Integer.parseInt(imageId));
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

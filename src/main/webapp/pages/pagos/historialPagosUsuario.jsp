@@ -70,21 +70,24 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         title="Nro. Comprobante"
                         index="numeroComprobante"
                         align="center"
+                        width="70"
                 />
 
-        <sjg:gridColumn name="montoIngresado"
+<%--        <sjg:gridColumn name="montoIngresado"
                         title="Monto Ingresado"
                         index="montoIngresado"
                         align="center"
                         sortable="false"
                         formatter="currency"
-                />
+                        width="70"
+                />--%>
 
         <sjg:gridColumn name="montoCalculado"
                         title="Monto Calculado"
                         index="montoCalculado"
                         align="center"
                         formatter="currency"
+                        width="70"
                 />
 
         <sjg:gridColumn name="logTransaccion"
@@ -98,6 +101,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         title="Estado"
                         index="status"
                         sortable="false"
+                        align="center"
+                        width="100"
                 />
 
         <sjg:gridColumn name="fechaPago"
@@ -106,6 +111,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         sortable="false"
                         formatter="date"
+                        width="70"
                         formatoptions="{newformat : 'd/m/Y', srcformat : 'Y-m-d H:i:s'}"
                 />
     </sjg:grid>

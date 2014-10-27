@@ -1,6 +1,7 @@
 package com.cursos.action.usuario;
 
 import com.cursos.ViewNames;
+import com.cursos.excepciones.DuplicatedException;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.RoleModel;
@@ -34,7 +35,6 @@ public class UsuarioAction extends ActionSupport {
 
     public String cargar(){return SUCCESS;}
 
-    /*TODO validacion de que usuario esta logeado*/
     public String cargarEditar(){
         try {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -93,11 +93,15 @@ public class UsuarioAction extends ActionSupport {
         RoleModel roleModel = new RoleModel();
         roleModel.setId(2);
         usuarioModel.setRoleModel(roleModel);
-        /*TODO encriptar contrase;a*/
+        /*A petecion de la administrador de sistema, no se encriptara la contrase;a*/
         usuarioModel.setEnable(true);
         try{
             usuarioService.guardar(usuarioModel);
         }catch (Exception e){
+            if(e instanceof DuplicatedException){
+                addActionMessage(getText("exception.usuario.duplicado"));
+                return INPUT;
+            }
             return ERROR;
         }
         addActionMessage(getText("mensaje.transaccion.exitosa"));
@@ -152,7 +156,8 @@ public class UsuarioAction extends ActionSupport {
             usuarioService.eliminar(usuarioModel);
         } catch (Exception e) {
             e.printStackTrace();
-            return ERROR;
+            addActionMessage("Este usuario no puede ser eliminado");
+            return INPUT;
         }
         addActionMessage(getText("mensaje.transaccion.exitosa") + " (Eliminar)");
         return "cargarAdministrarUsuario";

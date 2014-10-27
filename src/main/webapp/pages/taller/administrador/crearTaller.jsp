@@ -13,6 +13,10 @@
     <title></title>
     <script>
         function crearTallerFuncion() {
+/*            if($("#mensualidadInput").val()=="")
+                addErrorMessage("mensualidadInput",)
+            if($("#inscripcionInput").val()=="")*/
+
             if(confirm("\u00BFEst\u00e1 seguro que desea crear el taller?")){
             $("#formCrearTaller").submit();
 
@@ -60,11 +64,9 @@
             <s:textfield key="taller.form.label.horario.martes" name="tallerModel.horarioMartes" cssClass="box"/>
             <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles" cssClass="box"/>
             <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario.sabado" name="tallerModel.horarioSabado" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
-            <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
+            <s:textfield  key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
+            <s:textfield id="mensualidadInput" key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);" value="0"/>
+            <s:textfield id="inscripcionInput" key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);" value="0"/>
             <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
         </s:form>
         <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src=""/><br><br>

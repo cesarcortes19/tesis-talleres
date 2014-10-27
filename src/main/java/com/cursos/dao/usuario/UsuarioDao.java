@@ -95,4 +95,16 @@ public class UsuarioDao {
             throw e;
         }
     }
+
+    public UserModel getUsuarioByEmail(String email) {
+        try {
+            return (UserModel)getSessionFactory().getCurrentSession()
+                    .createQuery("from UserModel where email =:email")
+                    .setParameter("email",email)
+                    .uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

@@ -81,7 +81,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 
             if($("input[type='radio'][name='pagosTo.modoPago']:checked").val() != "3"){
                 if(comprobante.val().trim() == ''){
-                    alert("Porfavor introduzca el Numero de comprobante");
+                    alert("Por favor introduzca el número de comprobante");
 
                 }else{
                     realizarPagoFunction();

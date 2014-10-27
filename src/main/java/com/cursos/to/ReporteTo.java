@@ -12,6 +12,7 @@ public class ReporteTo {
     private JasperPrint jasperPrint;
     private String nombre;
     private String fileReportName;
+    private String titulo;
 
     public String getSeccion() {
         return seccion;
@@ -59,5 +60,13 @@ public class ReporteTo {
 
     public void setFileReportName(String fileReportName) {
         this.fileReportName = fileReportName;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }

@@ -117,4 +117,23 @@ public class AlumnoTallerDao {
             throw e;
         }
     }
+
+    public void deleteAlumnoTallerById(int id) throws Exception {
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("DELETE AlumnoTallerModel where alumnoModel.id=:id").setParameter("id", id);
+            query.executeUpdate();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public AlumnoTallerModel getAlumnoTallerByTallerAndAlumno(int idAlumno, int idTaller) throws Exception{
+        AlumnoModel alumnoModel2 = new AlumnoModel();
+        TallerModel tallerModel2 = new TallerModel();
+        alumnoModel2.setId(idAlumno);
+        tallerModel2.setId(idTaller);
+        return getAlumnoTallerByTallerAndAlumno(alumnoModel2,tallerModel2);
+    }
 }

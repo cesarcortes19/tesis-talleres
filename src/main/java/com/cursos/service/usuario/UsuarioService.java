@@ -1,7 +1,10 @@
 package com.cursos.service.usuario;
 
+import com.cursos.dao.taller.AlumnoTallerDao;
 import com.cursos.dao.usuario.UsuarioDao;
+import com.cursos.excepciones.DuplicatedException;
 import com.cursos.excepciones.NotFoundException;
+import com.cursos.model.AlumnoModel;
 import com.cursos.model.UserModel;
 import com.cursos.util.convertidor.UsuarioConverter;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +17,7 @@ import java.util.List;
 @Transactional(readOnly = false)
 public class UsuarioService {
     private UsuarioDao usuarioDao;
+    private AlumnoTallerDao alumnoTallerDao;
 
     public UsuarioDao getUsuarioDao() {
         return usuarioDao;
@@ -24,6 +28,12 @@ public class UsuarioService {
     }
 
     public void guardar(UserModel userModel) throws Exception {
+        if(usuarioDao.getUsuarioByCi(userModel)!=null){
+            throw new DuplicatedException(userModel.getCedula());
+        }
+       if(usuarioDao.getUsuarioByEmail(userModel.getEmail())!=null){
+            throw new DuplicatedException(userModel.getEmail());
+        }
         usuarioDao.guardar(userModel);
     }
 
@@ -45,7 +55,6 @@ public class UsuarioService {
         return usuarioDao.getContador();
     }
 
-
     public UserModel getUsuarioById(int id) throws Exception{
         return usuarioDao.getUsuarioById(id);
     }
@@ -62,5 +71,13 @@ public class UsuarioService {
             throw new NotFoundException(userModelParam.getCedula());
 
         return userModel;
+    }
+
+    public void setAlumnoTallerDao(AlumnoTallerDao alumnoTallerDao) {
+        this.alumnoTallerDao = alumnoTallerDao;
+    }
+
+    public AlumnoTallerDao getAlumnoTallerDao() {
+        return alumnoTallerDao;
     }
 }

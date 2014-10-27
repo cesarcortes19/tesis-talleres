@@ -146,7 +146,6 @@ public class TallerAction extends ActionSupport {
         try {
             if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
                 userModel = usuarioService.getUsuarioByCi(userModel);
-                cantidadTalleresPorInscribir = tallerService.getTalleresNoInscritos(alumnoModel).size();
             } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
                 userModel = new UserModel();
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();

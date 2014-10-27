@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
     <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
-    <constant name="struts.devMode" value="true" />
+    <constant name="struts.devMode" value="false" />
     <constant name="struts.custom.i18n.resources" value="myapp,messages" />
 
 
@@ -30,6 +30,7 @@
     <include file="struts-alumno.xml"/>
     <include file="struts-contacto.xml"/>
     <include file="struts-reporte.xml"/>
+    <include file="struts-sistema.xml"/>
 
 
 </struts>

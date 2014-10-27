@@ -21,6 +21,7 @@ public class PagosTo {
     private String numeroComprobante;
     private String modoPago;
     private String montoCalculado;
+    private Boolean inscripcion;
 
     public String getJsonPagos() {
         return jsonPagos;
@@ -156,5 +157,13 @@ public class PagosTo {
 
     public void setMontoCalculado(String montoCalculado) {
         this.montoCalculado = montoCalculado;
+    }
+
+    public Boolean getInscripcion() {
+        return inscripcion;
+    }
+
+    public void setInscripcion(Boolean inscripcion) {
+        this.inscripcion = inscripcion;
     }
 }

@@ -48,6 +48,7 @@ public class TallerModel {
     @Column(name = "imagen", nullable = true)
     private byte[] picture;
 
+    @Transient
     private String pictureString;
 
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "tallerModel")

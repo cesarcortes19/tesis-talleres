@@ -79,6 +79,9 @@ public class TallerService {
 
     public void realizarInscripcion(int idAlumno, int idTaller) throws Exception{
 
+        if( alumnoTallerDao.getAlumnoTallerByTallerAndAlumno(idAlumno, idTaller)!=null)
+            return;
+
         TallerModel tallerModel = getTallerById(idTaller);
         if(tallerModel.getCantidadAlumnosactual() >= tallerModel.getCantidadAlumnosMaxima()){
             throw new TallerMaximaCapacidadException(tallerModel.getName());

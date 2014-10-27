@@ -36,11 +36,19 @@ public class ReporteAction extends ActionSupport implements ServletResponseAware
 
     public String generarReporte() throws Exception {
 
-        reporteTo.setNombre("downloadReport");
-        reporteTo.setFileReportName("TallerReport");
-        reporteService.generarReporte(reporteTo);
-        downloadReport(reporteTo);
-        return "success";
+        try {
+            if(reporteTo.getTitulo().equals("")) reporteTo.setTitulo("Reporte Taller");
+
+            reporteTo.setNombre("downloadReport");
+            reporteTo.setFileReportName("TallerReport");
+            reporteService.generarReporte(reporteTo);
+
+            downloadReport(reporteTo);
+            return SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
 

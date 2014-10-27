@@ -24,13 +24,15 @@
 
     <field name="tallerModel.costoInscripcion">
         <field-validator type="double">
-            <param name="minExclusive">0</param>
+            <param name="minInclusive">1.0</param>
+            <param name="maxInclusive">50000000.1</param>
             <message key="requiredstring"/>
         </field-validator>
     </field>
     <field name="tallerModel.costo">
         <field-validator type="double">
-            <param name="minInclusive">0.0</param>
+            <param name="minInclusive">1.0</param>
+            <param name="maxInclusive">50000000.1</param>
             <message key="requiredstring"/>
         </field-validator>
     </field>

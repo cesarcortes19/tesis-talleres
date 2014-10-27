@@ -13,9 +13,8 @@ function addInformativeMessage(idElement, message) {
 
 function addErrorMessage(idElement, message) {
 
-    $("#" + idElement).append("<div class='ui-widget actionMessage'><div class='ui-state-error ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>" +
-        "<p><span class='ui-icon ui-icon-info' style='float: left; margin-right: .3em;'></span>" +
-        "<strong>" + message + "</strong></p></div></div>");
+    $("#" + idElement).append("<p><span class='errorMessage' style='float: left; margin-right: .3em;'></span>" +
+        "<strong>" + message + "</strong></p>");
 
 
 }

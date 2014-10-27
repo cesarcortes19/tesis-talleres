@@ -20,6 +20,7 @@
     <bean id="UsuarioService"
           class="com.cursos.service.usuario.UsuarioService">
         <property name="usuarioDao" ref="UsuarioDao"/>
+        <property name="alumnoTallerDao" ref="AlumnoTallerDao"/>
     </bean>
 
 

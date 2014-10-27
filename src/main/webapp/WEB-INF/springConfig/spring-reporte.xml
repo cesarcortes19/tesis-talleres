@@ -10,6 +10,11 @@
 
     <bean id="ReporteService" class="com.cursos.service.reporte.ReporteService">
         <property name="dataSource" ref="dataSource"/>
+        <property name="reporteDao" ref="ReporteDao"/>
+    </bean>
+
+    <bean id="ReporteDao" class="com.cursos.dao.reporte.ReporteDao">
+        <property name="sessionFactory" ref="SessionFactory"/>
     </bean>
 
 </beans>

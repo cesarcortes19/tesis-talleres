@@ -11,22 +11,16 @@
 
         <action name="reporteLoad" class="ReporteAction" method="cargarReporte">
             <result name="success" type="tiles">cargarReporte</result>
+            <result name="input" type="tiles">cargarReporte</result>
         </action>
 
         <action name="generarReporte" class="ReporteAction" method="generarReporte">
             <result name="success" type="tiles">cargarReporte</result>
+            <result name="input" type="tiles">cargarReporte</result>
         </action>
 
 
 
-    </package>
-
-
-
-    <package name="todosContacto" namespace="/todos/contacto" extends="default">
-        <action name="cargarVerContacto" class="ContactoAction" method="cargarContacto">
-            <result name="success" type="tiles">contactoPrinicipal</result>
-        </action>
     </package>
 
 </struts>
