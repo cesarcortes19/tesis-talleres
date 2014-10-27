@@ -68,11 +68,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                                         <div class="botones2">
                                             <sj:a id="desinscribir%{#iteradorTalleresAlumno.id}" button="true"
                                                   buttonIcon="ui-icon-circle-close"
-                                                  onclick="desinscribirTaller(%{#iteradorTalleresAlumno.id})">Desinscribir</sj:a>
+                                                  onclick="desinscribirTaller(%{#iteradorTalleresAlumno.id})">Retirar</sj:a>
                                         </div>
                                     </s:if>
                                     <s:else>
-                                        <a style="color: red">Desinscrito el: <s:property value="fechaDesinscripcion"/></a>
+                                        <a style="color: red">Retirado el: <s:property value="fechaDesinscripcion"/></a>
                                     </s:else>
 
                                     <!--a href="#" class="ui-button-icon-primary ui-icon ui-icon-circle-close" onclick="desinscribirTaller('<!--s:property value="tallerModel.id"/>')"></a-->

@@ -22,6 +22,13 @@ public class DetallePagosDao {
         return sessionFactory;
     }
 
+
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from DetallePagoModel");
+        query.executeUpdate();
+    }
+
     public void guardar(DetallePagoModel detallePagoModel) throws Exception  {
         sessionFactory.getCurrentSession().save(detallePagoModel);
     }

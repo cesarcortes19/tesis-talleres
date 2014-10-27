@@ -77,8 +77,14 @@
 
         <action name="aceptarPago" class="PagosAction" method="aceptarPago">
             <result name="success" type="json">
+                <param name="includeProperties">
+                    msg
+                </param>
             </result>
             <result name="error" type="json">
+                <param name="includeProperties">
+                    msg
+                </param>
             </result>
         </action>
         <action name="rechazarPago" class="PagosAction" method="rechazarPago">

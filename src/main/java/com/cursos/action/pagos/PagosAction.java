@@ -133,7 +133,13 @@ public class PagosAction extends ActionSupport {
 
     public String aceptarPago() throws Exception {
         try {
-            pagosService.aceptarPago(idPago);
+
+            PagosModel pagosModel1 = pagosService.aceptarPago(idPago);
+
+            Email email = new Email();
+            email.sendEmail(" ",pagosModel1.getUserModel().getEmail(),pagosService.construirMensajeAceptacion(pagosModel1)
+                    ,"Talleres C.A.P.U.C.V. Pago Aceptado");
+
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
@@ -143,9 +149,9 @@ public class PagosAction extends ActionSupport {
 
     public String rechazarPago() throws Exception {
         try {
-            pagosService.rechazarPago(idPago);
+            PagosModel pagosModel1 = pagosService.rechazarPago(idPago);
             Email email = new Email();
-            email.sendEmail(" ",pagosModel.getUserModel().getEmail(),pagosService.construirMensajeRechazo(pagosModel)
+            email.sendEmail(" ",pagosModel1.getUserModel().getEmail(),pagosService.construirMensajeRechazo(pagosModel1)
                     ,"Talleres C.A.P.U.C.V. Pago Rechazado");
         } catch (Exception e) {
             e.printStackTrace();

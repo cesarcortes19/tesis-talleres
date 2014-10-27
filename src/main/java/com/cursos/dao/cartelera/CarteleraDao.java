@@ -67,4 +67,10 @@ public class CarteleraDao {
         noticiaModel.setFechaCreacion(new Date());
         getSessionFactory().getCurrentSession().save(noticiaModel);
     }
+
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from NoticiaModel");
+        query.executeUpdate();
+    }
 }

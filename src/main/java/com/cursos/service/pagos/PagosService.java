@@ -256,14 +256,16 @@ public class PagosService {
     }
 
 
-    public void aceptarPago(String idPago) throws Exception{
+    public PagosModel aceptarPago(String idPago) throws Exception{
         PagosModel pagosModel = pagosDao.getPagoById(Integer.parseInt(idPago));
         pagosModel.setStatus(PagosModel.StatusType.PAGO_APROBADO_ADMINISTRADOR);
         pagosDao.actualizar(pagosModel);
+        pagosModel.getUserModel().getEmail();
+        return pagosModel;
     }
 
 
-    public void rechazarPago(String idPago) throws Exception {
+    public PagosModel rechazarPago(String idPago) throws Exception {
         PagosModel pagosModel = pagosDao.getPagoById(Integer.parseInt(idPago));
         try {
 
@@ -324,12 +326,20 @@ public class PagosService {
             e.printStackTrace();
             throw e;
         }
+        pagosModel.getUserModel().getEmail();
+        return pagosModel;
     }
 
     public String construirMensajeRechazo(PagosModel pagosModel){
         return "Estimado(a) "+pagosModel.getUserModel().getFullName()+", lamentamos informarle que el " +
                 "pago asociado al comprobante: "+pagosModel.getNumeroComprobante()+", por el monto de: "+pagosModel.getMontoCalculado()+ "Bs. fue marcado como rechazado por el administrador" +
                 "del sistema, por favor ponerse en contacto";
+    }
+
+    public String construirMensajeAceptacion(PagosModel pagosModel){
+        return "Estimado(a) "+pagosModel.getUserModel().getFullName()+", le informamos que el " +
+                "pago asociado al comprobante: "+pagosModel.getNumeroComprobante()+", por el monto de: "+pagosModel.getMontoCalculado()+ "Bs. fue marcado como ACEPTADO por el administrador" +
+                "del sistema.";
     }
 
     public List<PagosModel> getHistorialPagosByUsuario(int id) throws Exception {

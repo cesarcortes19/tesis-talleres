@@ -3,6 +3,7 @@ package com.cursos.dao.taller;
 import com.cursos.model.AlumnoModel;
 import com.cursos.model.TallerModel;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
 import java.util.ArrayList;
@@ -85,5 +86,11 @@ public class TallerDao {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.
             throw e;
         }
+    }
+
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from TallerModel ");
+        query.executeUpdate();
     }
 }

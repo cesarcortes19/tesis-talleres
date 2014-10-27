@@ -57,7 +57,6 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                 dataType: "json",
                 type: 'post',
                 success: function (data) {
-                    alert("entroEnsuccess");
                     $("#pagosGrid").jqGrid('setCell', idRowObject, 'status', 'PAGO_APROBADO_ADMINISTRADOR');
                 }
             });

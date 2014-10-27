@@ -136,4 +136,11 @@ public class AlumnoTallerDao {
         tallerModel2.setId(idTaller);
         return getAlumnoTallerByTallerAndAlumno(alumnoModel2,tallerModel2);
     }
+
+
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from AlumnoTallerModel ");
+        query.executeUpdate();
+    }
 }

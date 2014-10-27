@@ -27,7 +27,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 
 <div class="formulario">
     <div id="titulo" class="TituloformInterno">
-        Inscripci&oacute;n/Desinscripci&oacute;n
+        Inscripci&oacute;n/Retiro
     <div class="formInterno">
         <s:form action="buscarInscribirTaller" namespace="/administrador/taller" id="buscarInscribirTaller">
             <s:textfield key="taller.form.label.inscripcion.cedula" cssClass="box" name="userModel.cedula"

@@ -249,7 +249,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                 />
 
         <sjg:gridColumn name="fechaDesinscripcion"
-                        title="Desinscripción"
+                        title="Retirado"
                         index="fechaDesinscripcion"
                         editable="true"
                         align="center"

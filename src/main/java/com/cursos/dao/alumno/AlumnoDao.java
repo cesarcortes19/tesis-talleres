@@ -52,4 +52,11 @@ public class AlumnoDao {
         }
 
     }
+
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from AlumnoModel");
+        query.executeUpdate();
+    }
+
 }

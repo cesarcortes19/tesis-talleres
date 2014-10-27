@@ -107,4 +107,10 @@ public class UsuarioDao {
             throw e;
         }
     }
+
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from UserModel where roleModel.id!=1");
+        query.executeUpdate();
+    }
 }

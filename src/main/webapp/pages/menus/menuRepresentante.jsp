@@ -22,7 +22,7 @@
                 <a href="<s:url action="cargarVerTaller" namespace="/todos/taller"/>"><span>Ver Talleres</span></a>
             </li>
             <li>
-                <a href="<s:url action="cargarRepresentadosInscribirTaller" namespace="/usuario/taller"/>"><span>Inscribir/Desinscribir</span></a>
+                <a href="<s:url action="cargarRepresentadosInscribirTaller" namespace="/usuario/taller"/>"><span>Inscribir/Retirar</span></a>
             </li>
         </ul>
     </div>

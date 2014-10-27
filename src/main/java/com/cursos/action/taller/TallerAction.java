@@ -225,7 +225,7 @@ public class TallerAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
-        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa")+" (Desinscripción)");
+        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa")+" (Retiro)");
         return "cargarRepresentadosInscribirTaller";
     }
 

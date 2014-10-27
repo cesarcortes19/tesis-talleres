@@ -5,11 +5,22 @@
 
     <bean id="SistemaAction" class="com.cursos.action.sistema.SistemaAction" scope="prototype">
         <property name="sistemaService" ref="SistemaService"/>
-
     </bean>
+
+<!--    <bean id="SistemaAction" class="com.cursos.action.sistema.SistemaAction" scope="prototype">
+        <property name="sistemaService" ref="SistemaService"/>
+    </bean>-->
 
     <bean id="SistemaService" class="com.cursos.service.sistema.SistemaService">
         <property name="sistemaDao" ref="SistemaDao"/>
+        <property name="detallePagosDao" ref="DetallePagosDao"/>
+        <property name="pagosDao" ref="PagosDao"/>
+        <property name="alumnoTallerDao" ref="AlumnoTallerDao"/>
+        <property name="tallerDao" ref="TallerDao"/>
+        <property name="alumnoDao" ref="AlumnoDao"/>
+        <property name="usuarioDao" ref="UsuarioDao"/>
+        <property name="carteleraDao" ref="CarteleraDao"/>
+        <property name="dataSource" ref="dataSource"></property>
     </bean>
 
     <bean id="SistemaDao" class="com.cursos.dao.sistema.SistemaDao">

@@ -69,5 +69,10 @@ public class PagosDao {
         }
     }
 
+    public void borrarTODOS() throws Exception{
+        Query query = getSessionFactory().getCurrentSession().
+                createQuery("delete from PagosModel ");
+        query.executeUpdate();
+    }
 
 }

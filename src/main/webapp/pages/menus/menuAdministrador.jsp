@@ -25,7 +25,7 @@
     <div>
         <ul>
             <li>
-                <a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir/Desinscribir</span></a>
+                <a href="<s:url action="cargarInscribirTaller" namespace="/administrador/taller"/>"><span>Inscribir/Retirar</span></a>
             </li>
         </ul>
     </div>
@@ -91,6 +91,10 @@
             </li>
             <li>
                 <a href="<s:url action="reporteLoad" namespace="/administrador/reporte"/>"><span>Reportes</span></a>
+            </li>
+
+            <li>
+                <a href="<s:url action="cargarReiniciarSistema" namespace="/administrador/sistema"/>"><span>Reiniciar Sistema</span></a>
             </li>
             <li><a href="<s:url value="/logout"/>"><span>Cerrar Sesi&oacute;n</span></a></li>
         </ul>
