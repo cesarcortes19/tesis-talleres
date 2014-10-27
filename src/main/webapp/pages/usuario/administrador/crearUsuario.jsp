@@ -30,7 +30,7 @@
     <div id="titulo" class="TituloformInterno">
         Crear Usuario
         <div id="formularioInterno" class="formInterno">
-            <s:form action="guardarCrearUsuario" namespace="/administrador/usuario" id="formCrearUsuario">
+            <s:form action="guardarCrearUsuario" namespace="/administrador/usuario" id="formCrearUsuario" acceptcharset="UTF-8">
 
                 <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" onkeypress="return onlyLetters(event);" cssClass="box"/>
                 <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" onkeypress="return onlyLetters(event);" cssClass="box"/>

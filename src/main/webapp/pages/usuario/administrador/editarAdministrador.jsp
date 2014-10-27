@@ -33,7 +33,7 @@
         Editar Administrador
         <div id="formularioInterno" class="formInterno">
 
-            <s:form action="guardarEditarAdministrador" namespace="/administrador/usuario" id="formEditarAdministrador">
+            <s:form action="guardarEditarAdministrador" namespace="/administrador/usuario" id="formEditarAdministrador" acceptcharset="UTF-8">
 
                 <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box"/>
                 <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"/>

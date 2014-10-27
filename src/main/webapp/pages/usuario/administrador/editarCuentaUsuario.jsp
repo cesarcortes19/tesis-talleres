@@ -27,7 +27,7 @@
     <div id="titulo" class="TituloformInterno">
         Editar Usuario
         <div id="formularioInterno" class="formInterno">
-            <s:form action="guardarEditarUsuario" namespace="/usuario" id="formEditarUsuario">
+            <s:form action="guardarEditarUsuario" namespace="/usuario" id="formEditarUsuario" acceptcharset="UTF-8">
 
                 <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box"/>
                 <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"/>

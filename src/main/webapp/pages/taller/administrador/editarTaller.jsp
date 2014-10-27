@@ -39,7 +39,7 @@
 
         function fileOnload(e) {
             var result = e.target.result;
-            $('#imgSalida').attr("src", result);
+            $('#idImageToShow').attr("src", result);
         }
     </script>
 
@@ -51,7 +51,7 @@
         Editar Taller
 
         <div id="formularioInterno" class="formInterno">
-            <s:form action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller">
+            <s:form method="POST" action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller" acceptcharset="UTF-8" enctype="multipart/form-data">
                 <s:hidden name="tallerModel.id"/>
                 <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box"/>
                 <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea"/>
@@ -67,12 +67,36 @@
                 <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" value="%{getText('format.number',{tallerModel.costoInscripcion})}" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
                 <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
             </s:form>
+
+            <s:if test="%{tallerModel.picture!=null}">
+            <div id="your-picture-bg">
+                <img id="idImageToShow" src="
+                                <s:url namespace="/todos/Image" action='ImageAction'>
+                                    <s:param name="imageId"><s:property value="tallerModel.id"/></s:param>
+                                </s:url>
+                            " width="200px" height="200px"/>
+            </div>
+            </s:if>
+            <s:else>
+            <div id="your-picture-bg">
+                <img id="idImageToShow<s:property value="id"/>" src="<s:url value="/resources/images/Logo_Ceapucv2.jpg"/>" width="100px"
+                     height="100px"/>
+            </div>
+            </s:else>
+
+
+<%--            <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src=""/><br><br>
+                <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>
+            </div>--%>
+
+<%--
+
             <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src="
                                 <s:url namespace="/todos/Image" action='ImageAction'>
                                     <s:param name="imageId"><s:property value="id"/></s:param>
                                 </s:url>"/><br><br>
                 <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>
-            </div>
+            </div>--%>
         </div>
     </div>
     <div class="botones">

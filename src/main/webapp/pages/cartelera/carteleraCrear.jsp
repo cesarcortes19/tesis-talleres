@@ -56,7 +56,7 @@
         Crear Noticia<br>
 
     <div id="formularioInterno" class="formInternoCrearNoticia">
-        <s:form method="POST" action="guardarCartelera" namespace="/administrador/cartelera" id="guardarCartelera" enctype="multipart/form-data">
+        <s:form method="POST" action="guardarCartelera" namespace="/administrador/cartelera" id="guardarCartelera" enctype="multipart/form-data" acceptcharset="UTF-8">
             <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box"/>
             <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea" />
             <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>

@@ -56,7 +56,7 @@
         Crear Taller
     </div>
     <div id="formularioInterno" class="formInterno">
-        <s:form action="guardarCrearTaller" namespace="/administrador/taller" id="formCrearTaller" enctype="multipart/form-data">
+        <s:form action="guardarCrearTaller" namespace="/administrador/taller" id="formCrearTaller" enctype="multipart/form-data" acceptcharset="UTF-8">
             <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box"/>
             <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea"/>
             <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);" cssClass="box"/>

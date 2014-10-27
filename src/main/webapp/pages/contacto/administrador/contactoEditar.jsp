@@ -34,7 +34,7 @@
         Editar Contacto
 
         <div id="formularioInterno" class="formInterno">
-            <s:form action="guardarEditarContacto" namespace="/administrador/contacto" id="formEditarContacto">
+            <s:form action="guardarEditarContacto" namespace="/administrador/contacto" id="formEditarContacto" acceptcharset="UTF-8">
                 <s:hidden name="contactoModel.id"/>
                 <s:textfield key="contacto.form.label.correo" name="contactoModel.correo" cssClass="box"/>
                 <s:textarea key="contacto.form.label.telefonos" name="contactoModel.telefonos" cssClass="boxArea"/>

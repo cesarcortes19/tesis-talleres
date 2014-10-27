@@ -57,9 +57,7 @@ public class TallerAction extends ActionSupport {
         try {
             tallerModel = tallerService.getTallerById(tallerModel.getId());
             Map<Integer, byte[]> pictureMap = new HashMap<Integer, byte[]>();
-
-                pictureMap.put(tallerModel.getId(), tallerModel.getPicture());
-
+            pictureMap.put(tallerModel.getId(), tallerModel.getPicture());
             session.removeAttribute("pictureMap");
             session.setAttribute("pictureMap", pictureMap);
         } catch (Exception e) {
@@ -90,7 +88,7 @@ public class TallerAction extends ActionSupport {
 
     public String guardar() {
         try {
-            if(fileUpload!=null) {
+            if (fileUpload != null) {
                 Path path = Paths.get(fileUpload.getPath());
                 byte[] data = Files.readAllBytes(path);
                 tallerModel.setPicture(data);
@@ -106,6 +104,14 @@ public class TallerAction extends ActionSupport {
 
     public String guardarEditar() {
         try {
+            if (fileUpload != null) {
+                Path path = Paths.get(fileUpload.getPath());
+                byte[] data = Files.readAllBytes(path);
+                tallerModel.setPicture(data);
+            }else{
+                TallerModel tallerModel2 = tallerService.getTallerById(tallerModel.getId());
+                tallerModel.setPicture(tallerModel2.getPicture());
+            }
             tallerService.updateTaller(tallerModel);
         } catch (Exception e) {
             e.printStackTrace();
@@ -203,7 +209,7 @@ public class TallerAction extends ActionSupport {
             /*Se defino quien realizo el pago*/
 
             tallerService.realizarInscripcion(alumnoModel.getId(), tallerModel.getId());
-            pagosService.realizarPagoTaller(alumnoModel,tallerModel, pagosModel);
+            pagosService.realizarPagoTaller(alumnoModel, tallerModel, pagosModel);
 
         } catch (Exception e) {
             if (e instanceof TallerMaximaCapacidadException) {
@@ -214,7 +220,7 @@ public class TallerAction extends ActionSupport {
             return ERROR;
         }
         addActionMessage(getText("mensaje.transaccion.exitosa"));
-        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa")+" (Inscripción)");
+        model.put(ViewNames.MENSAJE, getText("mensaje.transaccion.exitosa") + " (Inscripción)");
         return "cargarRepresentadosInscribirTaller";
     }
 
@@ -225,7 +231,7 @@ public class TallerAction extends ActionSupport {
             e.printStackTrace();
             return ERROR;
         }
-        model.put(ViewNames.MENSAJE,getText("mensaje.transaccion.exitosa")+" (Retiro)");
+        model.put(ViewNames.MENSAJE, getText("mensaje.transaccion.exitosa") + " (Retiro)");
         return "cargarRepresentadosInscribirTaller";
     }
 
@@ -318,12 +324,12 @@ public class TallerAction extends ActionSupport {
         this.modoPago = modoPago;
     }
 
-    public void setPagosService(PagosService pagosService) {
-        this.pagosService = pagosService;
-    }
-
     public PagosService getPagosService() {
         return pagosService;
+    }
+
+    public void setPagosService(PagosService pagosService) {
+        this.pagosService = pagosService;
     }
 
     public Map<String, Object> getModel() {
