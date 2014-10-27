@@ -362,3 +362,42 @@ div.botonesHeader {
     background-color: ghostwhite;
 }
 
+
+.boxAlumno {
+    width: 150px;
+    height: 15px;
+    background:#fff;
+    font-family: "Trebuchet MS";
+    font-size:8pt;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:8px;
+    padding:10px;
+    border-top:1px solid #CCCCCC;
+    border-left:1px solid #CCCCCC;
+    border-right:1px solid #999999;
+    border-bottom:1px solid #999999;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+
+.boxSelectAlumno {
+    width: 170px;
+    height: 35px;
+    background:#fff;
+    font-family: "Trebuchet MS";
+    font-size:10pt;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:8px;
+    padding:10px;
+    border-top:1px solid #CCCCCC;
+    border-left:1px solid #CCCCCC;
+    border-right:1px solid #999999;
+    border-bottom:1px solid #999999;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
