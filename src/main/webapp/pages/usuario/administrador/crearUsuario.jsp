@@ -172,9 +172,9 @@
     <s:textfield cssClass="boxAlumno" id="apellidoAlumno" label="Apellido"/>
     <s:select cssClass="boxSelectAlumno"
               id="gradoAlumno"
-              label="Nombre"
+              label="Grado"
               cssStyle="font-size: 12px;"
-              list="%{#{'0':'Seleccione','1er Nivel':'1er Nivel','2do Nivel':'2do Nivel','1er Grado':'1er Grado','2do Grado':'2do Grado','3er Grado':'3er Grado','4to Grado':'4to Grado','5to Grado':'5to Grado','6to Grado':'6to Grado','7mo Grado':'7mo Grado','8vo Grado':'8vo Grado','9no Grado':'9no Grado','4to Año':'4to Año','5to Año':'5to Año'}}">
+              list="%{#{'0':'Seleccione','Grupo I':'Grupo I','Grupo II':'Grupo II','Grupo III':'Grupo III','1er Grado':'1er Grado','2do Grado':'2do Grado','3er Grado':'3er Grado','4to Grado':'4to Grado','5to Grado':'5to Grado','6to Grado':'6to Grado','1er Año':'1er Año','2do Año':'2do Año','3er Año':'3er Año','4to Año':'4to Año','5to Año':'5to Año'}}">
     </s:select>
     <s:textfield cssClass="boxAlumno" id="seccionAlumno" label="Sección"/>
     <s:textfield cssClass="boxAlumno" id="edadAlumno" label="Edad" onkeypress="return onlyNumber(event);"/>

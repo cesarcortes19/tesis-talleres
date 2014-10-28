@@ -73,7 +73,7 @@ public class ReporteService {
                 alumnoTallerModels = reporteDao.getAlumnos(grado,seccion);
             }
         }else{
-            if(grado.equals("")){
+            if(grado == null || grado.equals("")){
                 alumnoTallerModels = reporteDao.getAlumnos(taller);
             }else{
                 if(seccion.equals("")){

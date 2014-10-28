@@ -61,8 +61,6 @@
                 <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles" cssClass="box"/>
                 <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves" cssClass="box"/>
                 <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
-                <s:textfield key="taller.form.label.horario.sabado" name="tallerModel.horarioSabado" cssClass="box"/>
-                <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo" cssClass="box"/>
                 <s:textfield key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" value="%{getText('format.number',{tallerModel.costo})}" onkeypress="return onlyNumberColonAndDot(event);"/>
                 <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" value="%{getText('format.number',{tallerModel.costoInscripcion})}" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);"/>
                 <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>

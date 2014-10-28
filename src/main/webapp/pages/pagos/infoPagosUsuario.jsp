@@ -162,7 +162,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         sortable="false"/>
 
         <sjg:gridColumn name="inscripcion"
-                        title="Inscripcion"
+                        title="Inscripción"
                         index="inscripcion"
                         editable="true"
                         formatter="checkbox"

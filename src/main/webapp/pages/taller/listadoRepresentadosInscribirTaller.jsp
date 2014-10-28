@@ -54,7 +54,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                     <a><b>Nombre:</b> <s:property value="nombre"/></a></br>
                     <a><b>Apellido:</b> <s:property value="apellido"/></a></br>
                     <a><b>Edad:</b> <s:property value="edad"/></a></br>
-                    <a><b>Grado:</b> <s:property value="grado"/><s:property value="seccion"/></a></br></br>
+                    <a><b>Grado:</b> <s:property value="grado"/>&nbsp<s:property value="seccion"/></a></br></br>
                     <a style="background-color:gainsboro">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <b>Talleres Inscritos</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></br></br>
                     <table id="tablaTalleres" border="0" width="100%">

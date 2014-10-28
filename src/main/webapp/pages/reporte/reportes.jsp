@@ -14,7 +14,7 @@
 
     <script>
         function habilitarSeccion() {
-            if ($("#gradoReporte").val() == "") {
+            if ($("#gradoReporte").val() == "0") {
                 $("#seccionReporte").val("");
                 $("#seccionReporte").attr('disabled', true);
                 $("#seccionReporte").addClass("elementDisabled");
@@ -24,11 +24,11 @@
             }
         }
 
-        function generarReporte(){
-            if($("#selectTaller").val()==-1 && $("#gradoReporte").val() == ""){
+        function generarReporte() {
+            if ($("#selectTaller").val() == -1 && $("#gradoReporte").val() == "") {
                 alert("Debe seleccionar al menos un parametro de busqueda")
-            }else{
-            $('#reporteForm').submit();
+            } else {
+                $('#reporteForm').submit();
             }
             return;
         }
@@ -54,9 +54,16 @@
                       listValue="name"
                       name="reporteTo.taller" id="selectTaller" cssStyle="width: 220px; height: 40px" cssClass="box"/>
 
-            <s:textfield id="gradoReporte" onchange="habilitarSeccion();" label="Grado" name="reporteTo.grado"
-                         cssClass="box"/>
-            <s:textfield id="seccionReporte" label="Sección" name="reporteTo.seccion" cssClass="box elementDisabled" disabled="true"/>
+            <s:select id="gradoReporte"
+                      label="Grado"
+                      cssStyle="width: 220px; height: 40px" cssClass="box"
+                      name="reporteTo.seccion"
+                      onchange="habilitarSeccion();"
+                      list="%{#{'0':'Seleccione','Grupo I':'Grupo I','Grupo II':'Grupo II','Grupo III':'Grupo III','1er Grado':'1er Grado','2do Grado':'2do Grado','3er Grado':'3er Grado','4to Grado':'4to Grado','5to Grado':'5to Grado','6to Grado':'6to Grado','1er Año':'1er Año','2do Año':'2do Año','3er Año':'3er Año','4to Año':'4to Año','5to Año':'5to Año'}}">
+
+            </s:select>
+            <s:textfield id="seccionReporte" label="Sección" name="reporteTo.seccion" cssClass="box elementDisabled"
+                         disabled="true"/>
             <s:textfield id="tituloReporte" key="report.form.label.titulo" name="reporteTo.titulo" cssClass="box"/>
         </s:form>
     </div>

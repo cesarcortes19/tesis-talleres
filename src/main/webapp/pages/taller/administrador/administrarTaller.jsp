@@ -63,8 +63,8 @@
                         <sj:tab id="tab2" target="ttwo" label="Horarios"/>
                         <sj:tab id="tab3" target="tthree" label="Alumnos"/>
                         <div id="tone" style="height: 150px; overflow: scroll;"><br>
-                            <b>Costo inscripci&oacute;n:</b> <s:property value="costo"/> Bs.<br><br>
-                            <b>Costo mensualidad:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
+                            <b>Costo inscripci&oacute;n:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
+                            <b>Costo mensualidad:</b> <s:property value="costo"/> Bs.<br><br>
                             <s:property value="descripcion"/>
                         </div>
                         <div id="ttwo" style="height: 150px; overflow: scroll;"><br>
@@ -83,13 +83,6 @@
                             <s:if test="%{horarioViernes!=''}">
                                 <b>Viernes: </b><s:property value="horarioViernes"/><br><br>
                             </s:if>
-                            <s:if test="%{horarioSabado!=''}">
-                                <b>S&aacute;bado:</b> <s:property value="horarioSabado"/><br><br>
-                            </s:if>
-                            <s:if test="%{horarioDomingo!=''}">
-                                <b>Domingo:</b> <s:property value="horarioDomingo"/><br><br>
-                            </s:if>
-
                         </div>
                         <div id="tthree" style="height: 150px; overflow: scroll;"><br>
                             <b>Cupos:</b> <s:property value="cantidadAlumnosactual"/>/<s:property
