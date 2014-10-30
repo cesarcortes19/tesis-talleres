@@ -67,7 +67,7 @@
             <s:textfield  key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
             <s:textfield id="mensualidadInput" key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);" value="0"/>
             <s:textfield id="inscripcionInput" key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);" value="0"/>
-            <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
+            <s:file key="cartelera.form.label.imagen" size="3194304" id="input-image" name="fileUpload" cssClass="boxFile"/>
         </s:form>
         <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src=""/><br><br>
             <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>

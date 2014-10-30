@@ -25,7 +25,7 @@
         }
 
         function generarReporte() {
-            if ($("#selectTaller").val() == -1 && $("#gradoReporte").val() == "") {
+            if ($("#selectTaller").val() == -1 && $("#gradoReporte").val() == "0") {
                 alert("Debe seleccionar al menos un parametro de busqueda")
             } else {
                 $('#reporteForm').submit();
@@ -57,7 +57,7 @@
             <s:select id="gradoReporte"
                       label="Grado"
                       cssStyle="width: 220px; height: 40px" cssClass="box"
-                      name="reporteTo.seccion"
+                      name="reporteTo.grado"
                       onchange="habilitarSeccion();"
                       list="%{#{'0':'Seleccione','Grupo I':'Grupo I','Grupo II':'Grupo II','Grupo III':'Grupo III','1er Grado':'1er Grado','2do Grado':'2do Grado','3er Grado':'3er Grado','4to Grado':'4to Grado','5to Grado':'5to Grado','6to Grado':'6to Grado','1er Año':'1er Año','2do Año':'2do Año','3er Año':'3er Año','4to Año':'4to Año','5to Año':'5to Año'}}">
 

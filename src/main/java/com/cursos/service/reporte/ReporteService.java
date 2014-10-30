@@ -46,9 +46,7 @@ public class ReporteService {
         List<AlumnoTallerTo> alumnoTallerModels
                 = obtenerAlumnosParaReporte(Integer.parseInt(reporteTo.getTaller()),reporteTo.getGrado(),reporteTo.getSeccion());
         /*setear parametros de busqueda*/
-        if(alumnoTallerModels.size()==0){
-            return false;
-        }
+
         path = URLDecoder.decode(pathReport.getPath(), "UTF-8")+"ReporteTaller.jasper";
         parameters.put("alumnoTaller", alumnoTallerModels);
         parameters.put("fecha", new Date());

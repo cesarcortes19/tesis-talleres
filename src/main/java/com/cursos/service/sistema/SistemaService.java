@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -43,9 +45,9 @@ public class SistemaService {
 
     public void reiniciarSistema() throws Exception {
         try {
-/*            String comand = "mysqldump -u "+dataSource.getUsername()+" -p"+dataSource.getPassword()+" db_taller > C:/desarrollo/respaldo2014.sql";
-            Process process = Runtime.getRuntime().exec(comand);*/
-            String respaldoDBname = "dbTalleres"+new Date().toString();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy");
+            Date date = new Date();
+            String respaldoDBname = "dbTalleres"+dateFormat.format(date)+".sql";
 
             Process process  = Runtime.getRuntime().exec(new String[]{"cmd.exe","/c","mysqldump -u "+dataSource.getUsername()+" -p"+dataSource.getPassword()+" db_taller -r C:\\desarrollo\\"+respaldoDBname});
             InputStream is = process.getInputStream();
