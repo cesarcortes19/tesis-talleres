@@ -57,8 +57,8 @@
 
     <div id="formularioInterno" class="formInternoCrearNoticia">
         <s:form method="POST" action="guardarCartelera" namespace="/administrador/cartelera" id="guardarCartelera" enctype="multipart/form-data" acceptcharset="UTF-8">
-            <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box"/>
-            <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea" />
+            <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box" maxlength="250"/>
+            <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea" maxlength="1800"/>
             <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
         </s:form>
         <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src=""/><br><br>

@@ -8,6 +8,7 @@ import com.cursos.dao.sistema.SistemaDao;
 import com.cursos.dao.taller.AlumnoTallerDao;
 import com.cursos.dao.taller.TallerDao;
 import com.cursos.dao.usuario.UsuarioDao;
+import com.cursos.model.ConfiguracionModel;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,11 +46,12 @@ public class SistemaService {
 
     public void reiniciarSistema() throws Exception {
         try {
+            ConfiguracionModel configuracionModel = sistemaDao.getConfigurationModel();
             DateFormat dateFormat = new SimpleDateFormat("yyyy");
             Date date = new Date();
             String respaldoDBname = "dbTalleres"+dateFormat.format(date)+".sql";
-
-            Process process  = Runtime.getRuntime().exec(new String[]{"cmd.exe","/c","mysqldump -u "+dataSource.getUsername()+" -p"+dataSource.getPassword()+" db_taller -r C:\\desarrollo\\"+respaldoDBname});
+            respaldoDBname = configuracionModel.getCarpetaScriptRespaldo() +respaldoDBname;
+            Process process  = Runtime.getRuntime().exec(new String[]{"cmd.exe","/c","mysqldump -u "+dataSource.getUsername()+" -p"+dataSource.getPassword()+" db_taller -r "+respaldoDBname});
             InputStream is = process.getInputStream();
             int in = -1;
             while ((in = is.read()) != -1) {
@@ -76,6 +78,10 @@ public class SistemaService {
             e.printStackTrace();
             throw e;
         }
+    }
+
+    public ConfiguracionModel getConfiguracion(){
+        return sistemaDao.getConfigurationModel();
     }
 
     public void setDataSource(DriverManagerDataSource dataSource) {

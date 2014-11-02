@@ -34,8 +34,6 @@
             <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles" cssClass="box"/>
             <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves" cssClass="box"/>
             <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario.sabado" name="tallerModel.horarioSabado" cssClass="box"/>
-            <s:textfield key="taller.form.label.horario.domingo" name="tallerModel.horarioDomingo" cssClass="box"/>
         </s:form>
     </div>
     <div class="botones">

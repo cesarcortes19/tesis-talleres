@@ -72,21 +72,21 @@
                     acceptcharset="UTF-8">
 
                 <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre"
-                             onkeypress="return onlyLetters(event);" cssClass="box"/>
+                             onkeypress="return onlyLetters(event);" cssClass="box" maxlength="250"/>
                 <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido"
-                             onkeypress="return onlyLetters(event);" cssClass="box"/>
+                             onkeypress="return onlyLetters(event);" cssClass="box" maxlength="250"/>
                 <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula"
-                             onkeypress="return onlyNumber(event);" cssClass="box"/>
-                <s:password key="usuario.form.label.password" name="usuarioModel.password" cssClass="box"/>
-                <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box"/>
-                <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box"/>
+                             onkeypress="return onlyNumber(event);" cssClass="box" maxlength="250"/>
+                <s:password key="usuario.form.label.password" name="usuarioModel.password" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box" maxlength="250"/>
                 <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1"
-                             onkeypress="return onlyNumber(event);" cssClass="box"/>
+                             onkeypress="return onlyNumber(event);" cssClass="box" maxlength="250"/>
                 <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2"
-                             onkeypress="return onlyNumber(event);" cssClass="box"/>
-                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea"/>
+                             onkeypress="return onlyNumber(event);" cssClass="box" maxlength="250"/>
+                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea" maxlength="250"/>
                 <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones"
-                            cssClass="boxArea"/>
+                            cssClass="boxArea" maxlength="1800"/>
                 <s:hidden name="listaAlumnoJson" id="alumnoJson"/>
             </s:form>
         </div>

@@ -115,13 +115,6 @@
                             <s:if test="%{horarioViernes!=''}">
                                 <b>Viernes: </b><s:property value="horarioViernes"/><br><br>
                             </s:if>
-                            <s:if test="%{horarioSabado!=''}">
-                                <b>S&aacute;bado:</b> <s:property value="horarioSabado"/><br><br>
-                            </s:if>
-                            <s:if test="%{horarioDomingo!=''}">
-                                <b>Domingo:</b> <s:property value="horarioDomingo"/><br><br>
-                            </s:if>
-
                         </div>
                         <div id="tthree" style="height: 150px; overflow: scroll;"><br>
                             <b>Cupos:</b> <s:property value="cantidadAlumnosactual"/>/<s:property

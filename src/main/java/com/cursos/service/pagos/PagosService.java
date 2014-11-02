@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -68,7 +69,8 @@ public class PagosService {
                 " - Representado: "+ alumnoTallerModel.getAlumnoModel().getNombre() +
                 " - Pago: Inscripción-"+pagosModel.getModoPago().toString();
         pagosModel.setLogTransaccion(logTransaccion);
-        pagosModel.setFechaPago(DateUtil.getCurrentDate());
+        java.util.Date date= new java.util.Date();
+        pagosModel.setFechaPago(new Timestamp(date.getTime()));
 
         Set<DetallePagoModel> detallePagoModelList = new HashSet<DetallePagoModel>();
         DetallePagoModel detallePagoModel = new DetallePagoModel();
@@ -225,7 +227,8 @@ public class PagosService {
             }
 
             pagosModel.setDetallePagoModels(detallePagoModelList);
-            pagosModel.setFechaPago(DateUtil.getCurrentDate());
+            java.util.Date date= new java.util.Date();
+            pagosModel.setFechaPago(new Timestamp(date.getTime()));
             pagosModel.setTipoPago(PagosModel.TipoPago.MENSUALIDAD);
 
             if (pagosTo.getModoPago().equals("1"))

@@ -29,15 +29,15 @@
         <div id="formularioInterno" class="formInterno">
             <s:form action="guardarEditarUsuario" namespace="/usuario" id="formEditarUsuario" acceptcharset="UTF-8">
 
-                <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box"/>
-                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"/>
-                <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box"/>
-                <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box"/>
-                <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box"/>
-                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box"/>
-                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box"/>
-                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea"/>
-                <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea"/>
+                <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box" maxlength="250"/>
+                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea" maxlength="250"/>
+                <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea" maxlength="250"/>
                 <s:hidden name="listaAlumnoJson" id="alumnoJson"/>
             </s:form>
         </div>

@@ -74,7 +74,7 @@ public class AlumnoTallerDao {
     public List<AlumnoTallerModel> getAllTalleresAllUsuarios() {
         try {
             Query query = getSessionFactory().getCurrentSession()
-                    .createQuery("from AlumnoTallerModel");
+                    .createQuery("from AlumnoTallerModel order by alumnoModel.userModel.apellido asc ");
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -110,7 +110,7 @@ public class AlumnoTallerDao {
     public List<AlumnoTallerModel> getAllUserByTallerId(int id) throws Exception {
         try {
             Query query = getSessionFactory().getCurrentSession()
-                    .createQuery("from AlumnoTallerModel where tallerModel.id=:id").setParameter("id", id);
+                    .createQuery("from AlumnoTallerModel where tallerModel.id=:id order by alumnoModel.userModel.apellido asc ").setParameter("id", id);
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();

@@ -4,6 +4,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class PagosModel {
     @Column(name = "log_transacion", nullable = true)
     private String logTransaccion;
     @Column(name = "fecha_pago", nullable = true)
-    private Date fechaPago;
+    private Timestamp fechaPago;
     @OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL, mappedBy = "pagosModel")
     private Set<DetallePagoModel> detallePagoModels = new HashSet<DetallePagoModel>();
 
@@ -119,11 +120,11 @@ public class PagosModel {
         this.status = status;
     }
 
-    public Date getFechaPago() {
+    public Timestamp getFechaPago() {
         return fechaPago;
     }
 
-    public void setFechaPago(Date fechaPago) {
+    public void setFechaPago(Timestamp fechaPago) {
         this.fechaPago = fechaPago;
     }
 

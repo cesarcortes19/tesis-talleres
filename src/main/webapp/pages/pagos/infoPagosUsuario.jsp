@@ -341,7 +341,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 
             <td>
                 <label style="display:inline-block"><b>N&uacutemero Comprobante:</b></label>
-                <s:textfield id="idNumeroComprobante" name="pagosTo.numeroComprobante" theme="simple"/>
+                <s:textfield id="idNumeroComprobante" name="pagosTo.numeroComprobante" theme="simple" maxlength="250"/>
             </td>
 
         </tr>

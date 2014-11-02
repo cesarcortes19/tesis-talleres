@@ -21,6 +21,7 @@
                 <value>com.cursos.model.PagosModel</value>
                 <value>com.cursos.model.DetallePagoModel</value>
                 <value>com.cursos.model.ContactoModel</value>
+                <value>com.cursos.model.ConfiguracionModel</value>
 
             </list>
         </property>

@@ -11,6 +11,11 @@
         <property name="sistemaService" ref="SistemaService"/>
     </bean>-->
 
+
+    <bean id="Email" class="com.cursos.util.Email" scope="prototype">
+        <property name="sistemaService" ref="SistemaService"/>
+    </bean>
+
     <bean id="SistemaService" class="com.cursos.service.sistema.SistemaService">
         <property name="sistemaDao" ref="SistemaDao"/>
         <property name="detallePagosDao" ref="DetallePagosDao"/>

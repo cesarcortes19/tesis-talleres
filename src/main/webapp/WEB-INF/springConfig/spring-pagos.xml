@@ -7,6 +7,7 @@
         <property name="pagosService" ref="PagosService"/>
         <property name="usuarioService" ref="UsuarioService"/>
         <property name="tallerService" ref="TallerService"/>
+        <property name="email" ref="Email"/>
     </bean>
 
     <bean id="GridPagosAction" class="com.cursos.action.pagos.GridPagosAction" scope="prototype">

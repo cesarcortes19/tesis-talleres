@@ -9,6 +9,9 @@ package com.cursos.util;
  */
 
 
+import com.cursos.model.ConfiguracionModel;
+import com.cursos.service.sistema.SistemaService;
+
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.*;
@@ -20,6 +23,7 @@ import java.util.Properties;
 public class Email {
 
     private Properties configuration = System.getProperties();
+    private SistemaService sistemaService;
 
 
     public void init() {
@@ -31,13 +35,14 @@ public class Email {
 
     public void sendEmail(String from, String to, String body, String subject) throws Exception{
         init();
-        from = "talleresceapucv@gmail.com";
-        try {
 
+        try {
+            final ConfiguracionModel configuracionModel = getSistemaService().getConfiguracion();
+            from = configuracionModel.getCorreo();
         Session session = Session.getDefaultInstance(configuration,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("talleresceapucv@gmail.com", "talleres123");
+                        return new PasswordAuthentication(configuracionModel.getCorreo(),configuracionModel.getPasswordCorreo());
                     }
                 }
         );
@@ -55,5 +60,13 @@ public class Email {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void setSistemaService(SistemaService sistemaService) {
+        this.sistemaService = sistemaService;
+    }
+
+    public SistemaService getSistemaService() {
+        return sistemaService;
     }
 }

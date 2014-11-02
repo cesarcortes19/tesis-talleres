@@ -31,6 +31,8 @@ public class NoticiaModel {
 
     private String pictureString;
 
+    private String subStringDescripcion;
+
 
     public int getId() {
         return id;
@@ -87,5 +89,19 @@ public class NoticiaModel {
 
     public void setPictureString(byte[] picture) {
         this.pictureString = new String(this.picture);
+    }
+
+    public void setPictureString(String pictureString) {
+        this.pictureString = pictureString;
+    }
+
+    @Transient
+    public String getSubStringDescripcion() {
+
+        return descripcion.length()>100?descripcion.substring(0,100)+"...":descripcion;
+    }
+
+    public void setSubStringDescripcion(String subStringDescripcion) {
+        this.subStringDescripcion = subStringDescripcion;
     }
 }

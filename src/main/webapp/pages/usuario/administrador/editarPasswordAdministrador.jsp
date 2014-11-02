@@ -33,8 +33,8 @@
         Editar Contraseña
         <div id="formularioInterno" class="formInternoCrearNoticia">
             <s:form action="guardarEditarPasswordAdmin" namespace="/administrador/usuario" id="editarPasswordadministrador">
-                <s:textfield id="newPass" key="usuario.form.label.newpassword" name="usuarioModel.password" cssClass="box"/>
-                <s:textfield id="newPassRepeat" key="usuario.form.label.confirmarpassword" name="usuarioModel.confirmPassword" cssClass="box" />
+                <s:textfield id="newPass" key="usuario.form.label.newpassword" name="usuarioModel.password" cssClass="box" maxlength="250"/>
+                <s:textfield id="newPassRepeat" key="usuario.form.label.confirmarpassword" name="usuarioModel.confirmPassword" cssClass="box" maxlength="250"/>
                 <s:hidden name="usuarioModel.id"/>
             </s:form>
         </div>

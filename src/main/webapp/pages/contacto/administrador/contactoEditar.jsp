@@ -36,11 +36,11 @@
         <div id="formularioInterno" class="formInterno">
             <s:form action="guardarEditarContacto" namespace="/administrador/contacto" id="formEditarContacto" acceptcharset="UTF-8">
                 <s:hidden name="contactoModel.id"/>
-                <s:textfield key="contacto.form.label.correo" name="contactoModel.correo" cssClass="box"/>
-                <s:textarea key="contacto.form.label.telefonos" name="contactoModel.telefonos" cssClass="boxArea"/>
-                <s:textarea key="contacto.form.label.cuentas" name="contactoModel.cuenta" cssClass="boxArea"/>
-                <s:textarea key="contacto.form.label.direccion" name="contactoModel.direccion" cssClass="boxArea"/>
-                <s:textarea key="contacto.form.label.otros" name="contactoModel.otros" cssClass="boxArea"/>
+                <s:textfield key="contacto.form.label.correo" name="contactoModel.correo" cssClass="box" maxlength="250"/>
+                <s:textarea key="contacto.form.label.telefonos" name="contactoModel.telefonos" cssClass="boxArea" maxlength="250"/>
+                <s:textarea key="contacto.form.label.cuentas" name="contactoModel.cuenta" cssClass="boxArea" maxlength="250"/>
+                <s:textarea key="contacto.form.label.direccion" name="contactoModel.direccion" cssClass="boxArea" maxlength="250"/>
+                <s:textarea key="contacto.form.label.otros" name="contactoModel.otros" cssClass="boxArea" maxlength="250"/>
 
 
             </s:form>

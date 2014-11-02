@@ -32,7 +32,7 @@ public class AlumnoDao {
     public List<AlumnoModel> getAlumnoByIdRepresentante(int idRepresentante) throws Exception {
         try {
             Query query = getSessionFactory().getCurrentSession().
-                    createQuery("from AlumnoModel where userModel.id =:idRepresentante").setParameter("idRepresentante", idRepresentante);
+                    createQuery("from AlumnoModel where userModel.id =:idRepresentante order by apellido asc").setParameter("idRepresentante", idRepresentante);
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class AlumnoDao {
     public List<AlumnoModel> getAlumnoByCedulaRepresentante(String cedulaRepresentante) throws Exception {
         try {
             Query query = getSessionFactory().getCurrentSession().
-                    createQuery("from AlumnoModel where userModel.cedula =:cedulaRepresentante").setParameter("cedulaRepresentante", cedulaRepresentante);
+                    createQuery("from AlumnoModel where userModel.cedula =:cedulaRepresentante order by apellido asc").setParameter("cedulaRepresentante", cedulaRepresentante);
             return query.list();
         } catch (HibernateException e) {
             e.printStackTrace();

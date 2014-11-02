@@ -35,8 +35,8 @@
 
         <div id="formularioInterno" class="formInternoCrearNoticia">
             <s:form action="passwordEditarUsuario" namespace="/usuario" id="editarPasswordUsuario">
-                <s:textfield id="newPass" key="usuario.form.label.newpassword" name="usuarioModel.password" cssClass="box"/>
-                <s:textfield id="newPassRepeat" key="usuario.form.label.confirmarpassword" name="usuarioModel.confirmPassword" cssClass="box" />
+                <s:textfield id="newPass" key="usuario.form.label.newpassword" name="usuarioModel.password" cssClass="box" maxlength="250"/>
+                <s:textfield id="newPassRepeat" key="usuario.form.label.confirmarpassword" name="usuarioModel.confirmPassword" cssClass="box" maxlength="250"/>
                 <s:hidden name="usuarioModel.id"/>
                 <s:hidden name="usuarioModel.cedula"/>
             </s:form>

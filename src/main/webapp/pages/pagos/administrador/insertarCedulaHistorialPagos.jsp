@@ -26,7 +26,7 @@
         <div class="formInterno">
             <s:form action="buscarUsuarioHistorialPagos" id="buscarUsuarioGestionarPagos" namespace="/administrador/pagos">
                 <s:textfield key="taller.form.label.inscripcion.cedula" cssClass="box" name="userModel.cedula"
-                             onkeypress="return onlyNumber(event);"/>
+                             onkeypress="return onlyNumber(event);" maxlength="10"/>
             </s:form>
         </div>
     </div>

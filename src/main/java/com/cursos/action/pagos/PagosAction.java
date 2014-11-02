@@ -34,6 +34,7 @@ public class PagosAction extends ActionSupport {
     private PagosModel pagosModel;
     private String idPago;
     private String msg;
+    private Email email;
 
     public String execute() {
         return SUCCESS;
@@ -136,7 +137,7 @@ public class PagosAction extends ActionSupport {
 
             PagosModel pagosModel1 = pagosService.aceptarPago(idPago);
 
-            Email email = new Email();
+
             email.sendEmail(" ",pagosModel1.getUserModel().getEmail(),pagosService.construirMensajeAceptacion(pagosModel1)
                     ,"Talleres C.A.P.U.C.V. Pago Aceptado");
 
@@ -150,7 +151,7 @@ public class PagosAction extends ActionSupport {
     public String rechazarPago() throws Exception {
         try {
             PagosModel pagosModel1 = pagosService.rechazarPago(idPago);
-            Email email = new Email();
+
             email.sendEmail(" ",pagosModel1.getUserModel().getEmail(),pagosService.construirMensajeRechazo(pagosModel1)
                     ,"Talleres C.A.P.U.C.V. Pago Rechazado");
         } catch (Exception e) {
@@ -244,5 +245,13 @@ public class PagosAction extends ActionSupport {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public Email getEmail() {
+        return email;
     }
 }

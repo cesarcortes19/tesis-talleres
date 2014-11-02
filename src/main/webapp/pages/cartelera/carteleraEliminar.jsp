@@ -86,7 +86,7 @@
                         </div>
                         </br>
                         <div class="descripcionNoticia">
-                            <s:property value="descripcion"/>
+                            <s:property value="subStringDescripcion"/>
                         </div>
                         </br><b>Creado: <s:property value="fechaCreacion"/></b>
                     </div>

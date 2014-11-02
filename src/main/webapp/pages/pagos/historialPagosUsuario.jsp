@@ -1,6 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Cesar
@@ -17,7 +18,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 <html>
 <head>
     <title></title>
-
+    <script type="text/javascript" src="<s:url value="/resources/js/jquery.blockUI.js"/>"></script>
     <style type="text/css">
         .ui-jqgrid tr.jqgrow td {
             white-space: normal;
@@ -25,6 +26,57 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             padding: 10px 2px 10px 2px;
         }
     </style>
+
+    <script>
+
+        $(document).ajaxStop($.unblockUI);
+        <sec:authorize access="hasRole('ADMINISTRADOR')">
+        function formatLink(cellvalue, options, rowObject) {
+            if (cellvalue == "REALIZADO_POR_REPRESENTANTE") {
+                return "<a href='#' onClick='javascript:aceptarPago(" + rowObject.id + ")'> ACEPTAR </a> <a>&nbsp &nbsp/&nbsp &nbsp</a>" +
+                        "<a href='#' onClick='javascript:rechazarPago(" + rowObject.id + ")'> RECHAZAR </a>";
+            }
+            if (cellvalue == "PAGO_APROBADO_ADMINISTRADOR") {
+                return "<a> PAGO APROBADO </a>";
+            }
+            if (cellvalue == "PAGO_RECHAZADO") {
+                return "<a> PAGO RECHAZADO </a>";
+            }
+        }
+
+        function aceptarPago(idRowObject) {
+            if (!confirm('\u00BFEst\u00e1 seguro que desea ACEPTAR el pago?'))
+                return;
+            $.blockUI();
+            /*Funcion ajax que actualiza el estado en aceptado*/
+            $.ajax({
+                url: "/administrador/pagos/aceptarPago.action",
+                data: { idPago: idRowObject },
+                dataType: "json",
+                type: 'post',
+                success: function (data) {
+                    $("#pagosGrid").jqGrid('setCell', idRowObject, 'status', 'PAGO_APROBADO_ADMINISTRADOR');
+                }
+            });
+        }
+
+        function rechazarPago(idRowObject) {
+            if (!confirm('\u00BFEst\u00e1 seguro que desea RECHAZAR el pago?'))
+                return;
+            $.blockUI();
+            /*Funcion ajax que actualiza el estado en aceptado*/
+            $.ajax({
+                url: "/administrador/pagos/rechazarPago.action",
+                data: { idPago: idRowObject},
+                dataType: "json",
+                type: 'post',
+                success: function (data) {
+                    $("#pagosGrid").jqGrid('setCell', idRowObject, 'status', 'PAGO_RECHAZADO');
+                }
+            });
+        }
+        </sec:authorize>
+    </script>
 </head>
 <body>
 <div id="formulario" class="formulario">
@@ -33,7 +85,9 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     </div>
 </div>
 <div class="tituloRepresentante">
-    <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Tel&eacute;fono:</b> <s:property value="userModel.telefono1"/>
+    <b>Representante:</b> <s:property value="userModel.nombre"/> <s:property value="userModel.apellido"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>C&eacute;dula:</b> <s:property value="userModel.cedula"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Tel&eacute;fono:</b> <s:property value="userModel.telefono1"/>
 </div>
 </br>
 </br>
@@ -60,11 +114,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         align="center"
                         hidden="true"/>
 
-<%--        <sjg:gridColumn name="userModel.nombre"
-                        title="Representante"
-                        index="representante"
-                        align="center"
-                />--%>
+        <%--        <sjg:gridColumn name="userModel.nombre"
+                                title="Representante"
+                                index="representante"
+                                align="center"
+                        />--%>
 
         <sjg:gridColumn name="numeroComprobante"
                         title="Nro. Comprobante"
@@ -73,14 +127,14 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         width="70"
                 />
 
-<%--        <sjg:gridColumn name="montoIngresado"
-                        title="Monto Ingresado"
-                        index="montoIngresado"
-                        align="center"
-                        sortable="false"
-                        formatter="currency"
-                        width="70"
-                />--%>
+        <%--        <sjg:gridColumn name="montoIngresado"
+                                title="Monto Ingresado"
+                                index="montoIngresado"
+                                align="center"
+                                sortable="false"
+                                formatter="currency"
+                                width="70"
+                        />--%>
 
         <sjg:gridColumn name="montoCalculado"
                         title="Monto Calculado"
@@ -97,13 +151,27 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                         edittype="textarea"
                         cssStyle="color: #BC1010"
                 />
-        <sjg:gridColumn name="status"
-                        title="Estado"
-                        index="status"
-                        sortable="false"
-                        align="center"
-                        width="100"
-                />
+
+        <sec:authorize access="hasRole('ADMINISTRADOR')">
+            <sjg:gridColumn name="status"
+                            title="Estado"
+                            index="status"
+                            sortable="false"
+                            formatter="formatLink"
+                            align="center"
+                            width="100"
+                    />
+        </sec:authorize>
+
+        <sec:authorize access="hasRole('REPRESENTANTE')">
+            <sjg:gridColumn name="status"
+                            title="Estado"
+                            index="status"
+                            sortable="false"
+                            align="center"
+                            width="100"
+                    />
+        </sec:authorize>
 
         <sjg:gridColumn name="fechaPago"
                         title="Fecha Pago"
