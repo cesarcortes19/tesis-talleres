@@ -64,7 +64,7 @@
             </s:select>
             <s:textfield id="seccionReporte" label="Sección" name="reporteTo.seccion" cssClass="box elementDisabled"
                          disabled="true" maxlength="2"/>
-            <s:textfield id="tituloReporte" key="report.form.label.titulo" name="reporteTo.titulo" cssClass="box" maxlength="250"/>
+            <s:textfield id="tituloReporte" key="report.form.label.titulo" name="reporteTo.titulo" cssClass="box" maxlength="250" tooltip="Si no se ingresa tal "/>
         </s:form>
     </div>
     <div class="botones">

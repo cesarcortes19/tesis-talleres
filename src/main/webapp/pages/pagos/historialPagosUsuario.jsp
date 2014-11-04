@@ -47,7 +47,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         function aceptarPago(idRowObject) {
             if (!confirm('\u00BFEst\u00e1 seguro que desea ACEPTAR el pago?'))
                 return;
-            $.blockUI();
+            $.blockUI({ message: '<h1> Enviando correo al representante...</h1>' });
             /*Funcion ajax que actualiza el estado en aceptado*/
             $.ajax({
                 url: "/administrador/pagos/aceptarPago.action",
@@ -63,7 +63,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
         function rechazarPago(idRowObject) {
             if (!confirm('\u00BFEst\u00e1 seguro que desea RECHAZAR el pago?'))
                 return;
-            $.blockUI();
+            $.blockUI({ message: '<h1> Enviando correo al representante...</h1>' });
             /*Funcion ajax que actualiza el estado en aceptado*/
             $.ajax({
                 url: "/administrador/pagos/rechazarPago.action",
@@ -92,9 +92,42 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
 </br>
 </br>
 
-<s:url id="remoteurl" action="cargarHistorialJson" namespace="/usuario/pagos">
-    <s:param name="userModel.id">
-        <s:property value="userModel.id"/></s:param>
+<div id="selectTalleres" style="width: 50%">
+    <table><tr><td>
+        <label>Filtrar por pago: </label>
+    </td>
+        <td>
+            <s:form action="filtrarPorEstadoPagoUsuario" namespace="/usuario/pagos" id="formSelect">
+                <s:select label="Busqueda por pago"
+                          headerValue="Todos"
+                          headerKey="0"
+                          list="%{#{'1':'Pagos Aceptados','2':'Pagos Rechazados','3':'Pagos Pendientes por Revisar'}}"
+                          name="pagosTo.modoPago"
+                          id="selectTaller"
+                          theme="simple"/>
+
+                <s:hidden name="userModel.id"/>
+            </s:form>
+        </td>
+        <td>
+            <div class="botonFiltro">
+                <sj:a id="filtrar" button="true" buttonIcon="ui-icon-search" onclick="$('#formSelect').submit();">
+                    Filtrar
+                </sj:a>
+            </div>
+        </td>
+    </tr>
+    </table>
+</div>
+
+
+<br>
+
+
+
+<s:url id="remoteurl" action="cargarHistorialJson" namespace="/usuario/pagos" escapeAmp="false">
+    <s:param name="pagosTo.modoPago"><s:property value="pagosTo.modoPago"/></s:param>
+    <s:param name="userModel.id"><s:property value="userModel.id"/></s:param>
 </s:url>
 
 <div class="ajusteciente">

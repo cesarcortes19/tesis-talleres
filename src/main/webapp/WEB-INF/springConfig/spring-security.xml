@@ -26,6 +26,11 @@
         <!-- access denied page -->
         <security:access-denied-handler error-page="/todos/cartelera/cargarCartelera.action" />
 
+<!--        <form-login
+                login-page="/todos/cartelera/cargarCartelera.action"
+                authentication-failure-url = "/login.htm?login_error=1" />-->
+
+
 <!--        <security:form-login
                 login-page="/todos/cartelera/cargarCartelera.action"
                 default-target-url="/todos/cartelera/cargarCartelera.action"

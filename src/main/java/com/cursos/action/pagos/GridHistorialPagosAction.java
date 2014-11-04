@@ -3,10 +3,8 @@ package com.cursos.action.pagos;
 import com.cursos.model.PagosModel;
 import com.cursos.model.UserModel;
 import com.cursos.service.pagos.PagosService;
-import com.cursos.service.taller.TallerService;
-import com.cursos.util.HibernateUtil;
+import com.cursos.to.PagosTo;
 import com.opensymphony.xwork2.ActionSupport;
-import org.hibernate.Hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +44,7 @@ public class GridHistorialPagosAction extends ActionSupport {
     private List<PagosModel> myCustomers;
     private UserModel userModel;
     private PagosService pagosService;
+    private PagosTo pagosTo;
 
 
     public String execute() {
@@ -79,11 +78,21 @@ public class GridHistorialPagosAction extends ActionSupport {
 
             /*Se valida que venga del administrador para mostrar todos los usuarios*/
             if (userModel.getId() == -989) {
-                myCustomers = pagosService.getHistorialPagosAllUsuarios();
+                if (pagosTo == null || pagosTo.getModoPago().equals("0") || pagosTo.getModoPago().equals("")) {
+                    myCustomers = pagosService.getHistorialPagosAllUsuarios();
+                } else {
+                    myCustomers = pagosService.getHistorialPagosBAllUsuariosAndStatus(pagosTo.getModoPago());
+                }
 
             } else {
                 if (userModel.getId() > 0) {
-                    myCustomers = pagosService.getHistorialPagosByUsuario(userModel.getId());
+                    if (pagosTo == null || pagosTo.getModoPago().equals("0") || pagosTo.getModoPago().equals("")) {
+                        myCustomers = pagosService.getHistorialPagosByUsuario(userModel.getId());
+                    } else {
+                        myCustomers = pagosService.getHistorialPagosByUsuarioAndStatus(pagosTo.getModoPago(), userModel.getId());
+                    }
+
+
                 }
 
             }
@@ -275,12 +284,20 @@ public class GridHistorialPagosAction extends ActionSupport {
         this.userModel = userModel;
     }
 
+    public PagosService getPagosService() {
+        return pagosService;
+    }
+
     public void setPagosService(PagosService pagosService) {
         this.pagosService = pagosService;
     }
 
-    public PagosService getPagosService() {
-        return pagosService;
+    public PagosTo getPagosTo() {
+        return pagosTo;
+    }
+
+    public void setPagosTo(PagosTo pagosTo) {
+        this.pagosTo = pagosTo;
     }
 }
 

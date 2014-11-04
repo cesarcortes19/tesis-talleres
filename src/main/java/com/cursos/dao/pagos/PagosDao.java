@@ -75,4 +75,27 @@ public class PagosDao {
         query.executeUpdate();
     }
 
+    public List<PagosModel> getHistorialPagosByUsuarioAndStatus(PagosModel.StatusType pago, int userModelId) {
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("from PagosModel where userModel.id=:id and status=:status order by fechaPago desc ").setParameter("id",userModelId)
+                    .setParameter("status",pago);
+            return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public List<PagosModel> getHistorialPagosAllUsuariosAndStatus(PagosModel.StatusType pago) {
+        try {
+            Query query = getSessionFactory().getCurrentSession()
+                    .createQuery("from PagosModel where status=:status order by fechaPago desc ")
+                    .setParameter("status",pago);
+            return query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

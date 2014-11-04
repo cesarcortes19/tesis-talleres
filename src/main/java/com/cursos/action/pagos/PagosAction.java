@@ -254,4 +254,12 @@ public class PagosAction extends ActionSupport {
     public Email getEmail() {
         return email;
     }
+
+    public String filtrarPagoPorEstadoPago() throws Exception {
+        return "success";
+    }
+    public String filtrarPagoPorEstadoPagoUsuario() throws Exception {
+        userModel = usuarioService.getUsuarioById(userModel.getId());
+        return "success";
+    }
 }

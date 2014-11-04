@@ -33,6 +33,9 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             <s:textfield key="taller.form.label.inscripcion.cedula" cssClass="box" name="userModel.cedula"
                          onkeypress="return onlyNumber(event);" maxlength="10"/>
         </s:form>
+                    <span style="font-size: 11px">
+                <br><br> * Campo obligatorio
+            </span>
     </div>
     </div>
 <div class="botones">

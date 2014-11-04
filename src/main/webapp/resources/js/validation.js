@@ -81,3 +81,16 @@ function onlyLetters(e) {
 
 
 }
+
+
+function validarText(){
+    bandera=true;
+    $('.requerido').each(function(){
+        if($(this).val()==""){
+            alert("Debe llenar todos los campos marcados como requeridos (*)")
+            bandera = false;
+            return false
+        }
+    });
+    return bandera;
+}

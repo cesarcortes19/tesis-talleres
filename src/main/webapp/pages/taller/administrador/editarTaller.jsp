@@ -13,8 +13,10 @@
     <title></title>
     <script>
         function editarTallerFunction() {
-            if(confirm("\u00BFEst\u00e1 seguro que desea editar el taller?")){
-            $("#formEditarTaller").submit();
+            if (validarText()) {
+                if (confirm("\u00BFEst\u00e1 seguro que desea editar el taller?")) {
+                    $("#formEditarTaller").submit();
+                }
             }
         }
         $(document).ready(function () {
@@ -53,16 +55,16 @@
         <div id="formularioInterno" class="formInterno">
             <s:form method="POST" action="guardarEditarTaller" namespace="/administrador/taller" id="formEditarTaller" acceptcharset="UTF-8" enctype="multipart/form-data">
                 <s:hidden name="tallerModel.id"/>
-                <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box" maxlength="250"/>
-                <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea" maxlength="250"/>
-                <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);" cssClass="box" maxlength="250"/>
+                <s:textfield key="taller.form.label.nombre" name="tallerModel.name" cssClass="box requerido" maxlength="250"/>
+                <s:textarea key="taller.form.label.descripcion" name="tallerModel.descripcion" cssClass="boxArea requerido" maxlength="250"/>
+                <s:textfield key="taller.form.label.cantidad.inscripciones" name="tallerModel.cantidadAlumnosMaxima" onkeypress="return onlyNumber(event);" cssClass="box requerido" maxlength="250"/>
                 <s:textfield key="taller.form.label.horario.lunes" name="tallerModel.horarioLunes" cssClass="box" maxlength="250"/>
                 <s:textfield key="taller.form.label.horario.martes" name="tallerModel.horarioMartes" cssClass="box" maxlength="250"/>
                 <s:textfield key="taller.form.label.horario.miercoles" name="tallerModel.horarioMiercoles" cssClass="box" maxlength="250"/>
                 <s:textfield key="taller.form.label.horario.jueves" name="tallerModel.horarioJueves" cssClass="box" maxlength="250"/>
                 <s:textfield key="taller.form.label.horario.viernes" name="tallerModel.horarioViernes" cssClass="box" maxlength="250"/>
-                <s:textfield key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box" value="%{getText('format.number',{tallerModel.costo})}" onkeypress="return onlyNumberColonAndDot(event);" maxlength="250"/>
-                <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" value="%{getText('format.number',{tallerModel.costoInscripcion})}" cssClass="box" onkeypress="return onlyNumberColonAndDot(event);" maxlength="250"/>
+                <s:textfield key="taller.form.label.horario.mensualidad" name="tallerModel.costo" cssClass="box requerido" value="%{getText('format.number',{tallerModel.costo})}" onkeypress="return onlyNumberColonAndDot(event);" maxlength="250"/>
+                <s:textfield key="taller.form.label.horario.inscripcion" name="tallerModel.costoInscripcion" value="%{getText('format.number',{tallerModel.costoInscripcion})}" cssClass="box requerido" onkeypress="return onlyNumberColonAndDot(event);" maxlength="250"/>
                 <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
             </s:form>
 
@@ -95,6 +97,9 @@
                                 </s:url>"/><br><br>
                 <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>
             </div>--%>
+            <span style="font-size: 11px">
+                <br> * Campo obligatorio
+            </span>
         </div>
     </div>
     <div class="botones">

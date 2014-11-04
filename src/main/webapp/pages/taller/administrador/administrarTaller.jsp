@@ -61,7 +61,7 @@
                     <sj:tabbedpanel id="%{#iteradorTaller.id}">
                         <sj:tab id="tab1" target="tone" label="Detalle"/>
                         <sj:tab id="tab2" target="ttwo" label="Horarios"/>
-                        <sj:tab id="tab3" target="tthree" label="Alumnos"/>
+                        <sj:tab id="tab3" target="tthree" label="Cupos"/>
                         <div id="tone" style="height: 150px; overflow: scroll;"><br>
                             <b>Costo inscripci&oacute;n:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
                             <b>Costo mensualidad:</b> <s:property value="costo"/> Bs.<br><br>

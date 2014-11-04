@@ -29,24 +29,26 @@
         $("#idFormEditar").submit();
     }
 
-    function abrirPopUpPagoInscripcion(element, costoInscripcion) {
+    function abrirPopUpPagoInscripcion(element, costoInscripcion, costoMensualidad) {
+        total = parseFloat(costoInscripcion) + parseFloat(costoMensualidad);
         $("#hiddenIdTallerInscribir").val(element);
         $("#hiddenMontoCalculado").val(costoInscripcion);
         $("#divCostoInscripcion").html('<b> Costo Inscripción: </b>' + costoInscripcion +' Bs.');
+        $("#divCostoMensualidad").html('<b> Costo Mensualidad: </b>' + costoMensualidad +' Bs.');
+        $("#totalPagar").html('<b> Total a Pagar: </b>' + total +' Bs.');
         $("#dialogPagoInscripcion").dialog('open');
     }
 
     function inscribirTallerFunction() {
         var bandera= true;
-        if($("#idNumeroComprobante").val()==''){
+        if($("#idNumeroComprobante").val()==""){
             bandera = false;
-            if($("input[name=modoPago]:checked").val()=='3'){
-                bandera = true;
-            }
         }
 
         if(bandera)
             $("#inscripcionFormulario").submit();
+        else
+            alert("Debe llenar todos los campos marcados como requeridos (*)");
     }
 
     function cambioModoPago(){
@@ -64,6 +66,8 @@
 
 <div>
     <table class="mostrarCurso" align="center">
+
+        <div align="center">¡IMPORTANTE! Recuerde que para realizar una inscripci&oacute;n, debe tener a mano el comprobante de pago correspondiente al costo de la inscripci&oacute;n m&aacute;s el primer mes de mensualidad </div>
 
         <s:iterator value="tallerList" var="iteradorTaller" status="statusTaller">
         <s:if test="%{#statusTaller.index%3 == 0}">
@@ -90,12 +94,12 @@
                         </s:else>
                     </div>
                     <sj:tabbedpanel id="%{#iteradorTaller.id}">
-                        <sj:tab id="tab1" target="tone" label="Descripcion"/>
+                        <sj:tab id="tab1" target="tone" label="Descripción"/>
                         <sj:tab id="tab2" target="ttwo" label="Horarios"/>
-                        <sj:tab id="tab3" target="tthree" label="Alumnos"/>
+                        <sj:tab id="tab3" target="tthree" label="Cupos"/>
                         <div id="tone" style="height: 150px; overflow: scroll;"><br>
-                            <b>Costo inscripci&oacute;n:</b> <s:property value="costo"/> Bs.<br><br>
-                            <b>Costo mensualidad:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
+                            <b>Costo inscripci&oacute;n:</b> <s:property value="costoInscripcion"/> Bs.<br><br>
+                            <b>Costo mensualidad:</b> <s:property value="costo"/> Bs.<br><br>
                             <s:property value="descripcion"/>
 
                         </div>
@@ -124,7 +128,7 @@
                     <br>
                     <s:if test="%{#iteradorTaller.cantidadAlumnosMaxima > #iteradorTaller.cantidadAlumnosactual}">
                         <sj:a id="inscribirTaller%{#iteradorTaller.id}" button="true" buttonIcon="ui-icon-circle-check"
-                             onclick="abrirPopUpPagoInscripcion('%{#iteradorTaller.id}','%{#iteradorTaller.costoInscripcion}');">Inscribir</sj:a>
+                             onclick="abrirPopUpPagoInscripcion('%{#iteradorTaller.id}','%{#iteradorTaller.costoInscripcion}','%{#iteradorTaller.costo}');">Inscribir</sj:a>
                     </s:if>
                     <s:else>
                         No hay cupos diposnibles
@@ -148,8 +152,10 @@
 
         <table width="100%">
         <br>
-            <div id="divCostoInscripcion" class="pagoInscripcionDialogo">
-            </div>
+            <div id="divCostoMensualidad" class="pagoInscripcionDialogo"></div>
+            <div id="divCostoInscripcion" class="pagoInscripcionDialogo"></div>
+            <div id="totalPagar" class="pagoInscripcionDialogo"></div><br>
+
 
 
         <s:form id="inscripcionFormulario" action="guardarInscribirTaller" namespace="/usuario/taller">
@@ -162,7 +168,7 @@
                 <%--Se comrpueba que usuario esta logueado por que el representante no puede pagar en efectivo--%>
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
                     <s:radio onchange="cambioModoPago();" id="idTipoPago" name="modoPago" key="label.pago.tipo"
-                             list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo' }" value="2"/>
+                             list="#{'1':'Deposito','2':'Transferencia'}" value="2"/>
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('REPRESENTANTE')">

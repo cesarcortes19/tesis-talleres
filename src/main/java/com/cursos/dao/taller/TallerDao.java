@@ -51,7 +51,7 @@ public class TallerDao {
     public List<TallerModel> getTallers() {
 
         try {
-            List list = getSessionFactory().getCurrentSession().createQuery("from TallerModel").list();
+            List list = getSessionFactory().getCurrentSession().createQuery("from TallerModel order by name asc ").list();
             return list;
         } catch (HibernateException e) {
             e.printStackTrace();  //To change body of catch countryment use File | Settings | File Templates.

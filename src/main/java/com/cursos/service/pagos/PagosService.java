@@ -49,7 +49,7 @@ public class PagosService {
     /*solo para inscripcion*/
     public void realizarPagoTaller(AlumnoModel alumnoModel, TallerModel tallerModel, PagosModel pagosModel) throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
-
+        int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
         AlumnoTallerModel alumnoTallerModel = alumnoTallerDao.getAlumnoTallerByTallerAndAlumno(alumnoModel, tallerModel);
 
         if (pagosModel.getTipoPago() == PagosModel.TipoPago.INSCRIPCION) {
@@ -58,8 +58,8 @@ public class PagosService {
             pagosModel.setMesesPagos(0);
         }
         pagosModel.setUserModel(alumnoTallerModel.getAlumnoModel().getUserModel());
-        pagosModel.setMontoIngresado(alumnoTallerModel.getTallerModel().getCostoInscripcion());
-        pagosModel.setMontoCalculado(alumnoTallerModel.getTallerModel().getCostoInscripcion());
+        pagosModel.setMontoIngresado(alumnoTallerModel.getTallerModel().getCostoInscripcion()+alumnoTallerModel.getTallerModel().getCosto());
+        pagosModel.setMontoCalculado(alumnoTallerModel.getTallerModel().getCostoInscripcion()+alumnoTallerModel.getTallerModel().getCosto());
         if (request.isUserInRole(ViewNames.ADMINISTRADOR)) {
             pagosModel.setStatus(PagosModel.StatusType.PAGO_APROBADO_ADMINISTRADOR);
         } else if (request.isUserInRole(ViewNames.REPRESENTATE)) {
@@ -67,13 +67,61 @@ public class PagosService {
         }
         String logTransaccion = "Taller: "+alumnoTallerModel.getTallerModel().getName()+
                 " - Representado: "+ alumnoTallerModel.getAlumnoModel().getNombre() +
-                " - Pago: Inscripción-"+pagosModel.getModoPago().toString();
+                " - Pago: Inscripción y mensualidad-"+pagosModel.getModoPago().toString();
         pagosModel.setLogTransaccion(logTransaccion);
         java.util.Date date= new java.util.Date();
         pagosModel.setFechaPago(new Timestamp(date.getTime()));
 
         Set<DetallePagoModel> detallePagoModelList = new HashSet<DetallePagoModel>();
         DetallePagoModel detallePagoModel = new DetallePagoModel();
+        if(currentMonth==0){
+            alumnoTallerModel.setEnero(true);
+            detallePagoModel.setEnero(true);
+        }
+        if(currentMonth==1){
+            alumnoTallerModel.setFebrero(true);
+            detallePagoModel.setFebrero(true);
+        }
+        if(currentMonth==2){
+            alumnoTallerModel.setMarzo(true);
+            detallePagoModel.setMarzo(true);
+        }
+        if(currentMonth==3){
+            alumnoTallerModel.setAbril(true);
+            detallePagoModel.setAbril(true);
+        }
+        if(currentMonth==4){
+            alumnoTallerModel.setMayo(true);
+            detallePagoModel.setMayo(true);
+        }
+        if(currentMonth==5){
+            alumnoTallerModel.setJunio(true);
+            detallePagoModel.setJunio(true);
+        }
+        if(currentMonth==6){
+            alumnoTallerModel.setJulio(true);
+            detallePagoModel.setJulio(true);
+        }
+        if(currentMonth==7){
+            alumnoTallerModel.setAgosto(true);
+            detallePagoModel.setAgosto(true);
+        }
+        if(currentMonth==8){
+            alumnoTallerModel.setSeptiembre(true);
+            detallePagoModel.setSeptiembre(true);
+        }
+        if(currentMonth==9){
+            alumnoTallerModel.setOctubre(true);
+            detallePagoModel.setOctubre(true);
+        }
+        if(currentMonth==10){
+            alumnoTallerModel.setNoviembre(true);
+            detallePagoModel.setNoviembre(true);
+        }
+        if(currentMonth==11){
+            alumnoTallerModel.setDiciembre(true);
+            detallePagoModel.setDiciembre(true);
+        }
         detallePagoModel.setAlumnoTallerModel(alumnoTallerModel);
         detallePagoModel.setInscripcion(true);
         detallePagoModel.setPagosModel(pagosModel);
@@ -374,4 +422,43 @@ public class PagosService {
     }
 
 
+    public List<PagosModel> getHistorialPagosByUsuarioAndStatus(String id, int userModelId) throws Exception{
+
+        if(id.equals("1")){
+            return pagosDao.getHistorialPagosByUsuarioAndStatus(PagosModel.StatusType.PAGO_APROBADO_ADMINISTRADOR,userModelId);
+        }
+        if(id.equals("2")){
+            return pagosDao.getHistorialPagosByUsuarioAndStatus(PagosModel.StatusType.PAGO_RECHAZADO,userModelId);
+        }
+
+        if(id.equals("3")){
+            return pagosDao.getHistorialPagosByUsuarioAndStatus(PagosModel.StatusType.REALIZADO_POR_REPRESENTANTE,userModelId);
+        }
+
+        return null;
+
+    }
+
+    public List<PagosModel> getHistorialPagosBAllUsuariosAndStatus(String modoPago) {
+
+        List<PagosModel> pagosModels = null;
+
+        if(modoPago.equals("1")){
+            pagosModels = pagosDao.getHistorialPagosAllUsuariosAndStatus(PagosModel.StatusType.PAGO_APROBADO_ADMINISTRADOR);
+        }
+        if(modoPago.equals("2")){
+            pagosModels = pagosDao.getHistorialPagosAllUsuariosAndStatus(PagosModel.StatusType.PAGO_RECHAZADO);
+        }
+
+        if(modoPago.equals("3")){
+            pagosModels = pagosDao.getHistorialPagosAllUsuariosAndStatus(PagosModel.StatusType.REALIZADO_POR_REPRESENTANTE);
+        }
+
+        for (PagosModel pagosModel : pagosModels) {
+            Hibernate.initialize(pagosModel.getUserModel());
+        }
+
+
+        return pagosModels;
+    }
 }

@@ -9,11 +9,13 @@
 
     <script>
         function editarUsuarioFunction(){
-            if(confirm("\u00BFEst\u00e1 seguro que desea editar?")){
-                var dataGrid = $("#gridAlumno").jqGrid("getRowData");
-                var dataJson = JSON.stringify(dataGrid);
-                $("#alumnoJson").val(dataJson);
-                $("#formEditarUsuario").submit();
+            if (validarText()) {
+                if (confirm("\u00BFEst\u00e1 seguro que desea editar?")) {
+                    var dataGrid = $("#gridAlumno").jqGrid("getRowData");
+                    var dataJson = JSON.stringify(dataGrid);
+                    $("#alumnoJson").val(dataJson);
+                    $("#formEditarUsuario").submit();
+                }
             }
         }
         function redireccionar(url){
@@ -25,19 +27,19 @@
 <body>
 <div id="formulario" class="formulario">
     <div id="titulo" class="TituloformInterno">
-        Editar Usuario
+        Editar Usuario Representante
         <div id="formularioInterno" class="formInterno">
             <s:form action="guardarEditarUsuario" namespace="/usuario" id="formEditarUsuario" acceptcharset="UTF-8">
 
-                <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box" maxlength="250"/>
-                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea" maxlength="250"/>
-                <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea" maxlength="250"/>
+                <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box requerido" maxlength="250"/>
+                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box requerido" maxlength="250"/>
+                <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box requerido" maxlength="250"/>
+                <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box requerido" maxlength="250"/>
+                <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box requerido" maxlength="250"/>
+                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box requerido" maxlength="250"/>
+                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box requerido" maxlength="250"/>
+                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea requerido" maxlength="250"/>
+                <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea requerido" maxlength="250"/>
                 <s:hidden name="listaAlumnoJson" id="alumnoJson"/>
             </s:form>
         </div>
@@ -54,7 +56,7 @@
         </s:url>
         <sjg:grid
                 id="gridAlumno"
-                caption="Alumnos"
+                caption="Representados"
                 dataType="json"
                 href="%{remoteurl}"
                 navigatorEdit="false"

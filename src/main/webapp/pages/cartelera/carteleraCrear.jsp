@@ -17,8 +17,10 @@
     <title></title>
     <script>
         function crearNoticiaFunction() {
-            if(confirm("\u00BFEst\u00e1 seguro que desea crear la noticia?")){
-            $("#guardarCartelera").submit();
+            if (validarText()) {
+                if (confirm("\u00BFEst\u00e1 seguro que desea crear la noticia?")) {
+                    $("#guardarCartelera").submit();
+                }
             }
         }
 
@@ -57,12 +59,14 @@
 
     <div id="formularioInterno" class="formInternoCrearNoticia">
         <s:form method="POST" action="guardarCartelera" namespace="/administrador/cartelera" id="guardarCartelera" enctype="multipart/form-data" acceptcharset="UTF-8">
-            <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box" maxlength="250"/>
-            <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea" maxlength="1800"/>
+            <s:textfield key="cartelera.form.label.titulo" name="noticiaModel.titulo" cssClass="box requerido" maxlength="250"/>
+            <s:textarea key="cartelera.form.label.descripcion" name="noticiaModel.descripcion" cssClass="boxArea requerido" maxlength="1800"/>
             <s:file key="cartelera.form.label.imagen" id="input-image" name="fileUpload" cssClass="boxFile"/>
         </s:form>
         <div id="your-picture-bg"><img id="imgSalida" width="200px" height="200px" src=""/><br><br>
-            <span style="font-size: 11px">*Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminada</span>
+            <span style="font-size: 11px">Si no sube una imagen, se mostrara el logo del colegio como imagen predeterminadan
+                <br><br> * Campo obligatorio
+            </span>
         </div>
     </div>
     </div>

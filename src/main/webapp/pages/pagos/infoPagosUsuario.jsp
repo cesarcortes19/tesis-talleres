@@ -84,9 +84,11 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                     alert("Por favor introduzca el número de comprobante");
 
                 }else{
+                    if (confirm('\u00BFEst\u00e1 seguro que desea realizar el pago?'))
                     realizarPagoFunction();
                 }
             }else{
+                if (confirm('\u00BFEst\u00e1 seguro que desea realizar el pago?'))
                 realizarPagoFunction();
             }
         }
@@ -331,7 +333,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
                     <%--<s:textfield id="namePlanPrize" name="pagosModel.modoPago" theme="simple"/>--%>
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
                     <s:radio id="tipoPago" theme="simple" name="pagosTo.modoPago"
-                             list="#{'1':'Deposito','2':'Transferencia','3':'Efectivo'}" value="2"/>
+                             list="#{'1':'Deposito','2':'Transferencia'}" value="2"/>
                 </sec:authorize>
                 <sec:authorize access="hasRole('REPRESENTANTE')">
                     <s:radio theme="simple" name="pagosTo.modoPago" list="#{'1':'Deposito','2':'Transferencia'}"

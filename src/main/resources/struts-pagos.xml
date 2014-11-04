@@ -102,8 +102,13 @@
 
         <action name="filtrarPorTaller" class="PagosAction" method="filtrarPagoPorTaller">
             <result name="success" type="tiles">infoPagosTodosUsuario</result>
-
         </action>
+
+        <action name="filtrarPorEstadoPagoTodos" class="PagosAction" method="filtrarPagoPorEstadoPago">
+            <result name="success" type="tiles">historialPagosTodosUsuario</result>
+        </action>
+
+
 
     </package>
 
@@ -169,5 +174,10 @@
             <result name="input" type="tiles">infoPagosUsuario</result>
             <!--<result name="cargarAdministrarTaller" type="redirectAction">cargarAdministrarTaller</result>-->
         </action>
+
+        <action name="filtrarPorEstadoPagoUsuario" class="PagosAction" method="filtrarPagoPorEstadoPagoUsuario">
+            <result name="success" type="tiles">histrorialPagosUsuario</result>
+        </action>
+
     </package>
 </struts>

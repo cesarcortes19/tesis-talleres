@@ -15,12 +15,12 @@
     <title>Editar Administrador</title>
 
     <script>
-        function editarUsuarioFunction(){
-            if(confirm("\u00BFEst\u00e1 seguro que desea editar?")){
+        function editarUsuarioFunction() {
+            if (confirm("\u00BFEst\u00e1 seguro que desea editar?")) {
                 $("#formEditarAdministrador").submit();
             }
         }
-        function redireccionar(url){
+        function redireccionar(url) {
             $("#formEditarPassword").submit();
         }
 
@@ -33,19 +33,29 @@
         Editar Administrador
         <div id="formularioInterno" class="formInterno">
 
-            <s:form action="guardarEditarAdministrador" namespace="/administrador/usuario" id="formEditarAdministrador" acceptcharset="UTF-8">
+            <s:form action="guardarEditarAdministrador" namespace="/administrador/usuario" id="formEditarAdministrador"
+                    acceptcharset="UTF-8">
 
                 <s:textfield key="usuario.form.label.nombre" name="usuarioModel.nombre" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box" maxlength="250"/>
+                <s:textfield key="usuario.form.label.apellido" name="usuarioModel.apellido" cssClass="box"
+                             maxlength="250"/>
                 <s:textfield key="usuario.form.label.cedula" name="usuarioModel.cedula" cssClass="box" maxlength="250"/>
                 <s:textfield key="usuario.form.label.email1" name="usuarioModel.email" cssClass="box" maxlength="250"/>
                 <s:textfield key="usuario.form.label.email2" name="usuarioModel.email2" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box" maxlength="250"/>
-                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box" maxlength="250"/>
-                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea" maxlength="250"/>
-                <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea" maxlength="250"/>
+                <s:textfield key="usuario.form.label.telefono" name="usuarioModel.telefono1" cssClass="box"
+                             maxlength="250"/>
+                <s:textfield key="usuario.form.label.telefono2" name="usuarioModel.telefono2" cssClass="box"
+                             maxlength="250"/>
+                <s:textarea key="usuario.form.label.direccion" name="usuarioModel.direccion" cssClass="boxArea"
+                            maxlength="250"/>
+                <s:textarea key="usuario.form.label.observaciones" name="usuarioModel.observaciones" cssClass="boxArea"
+                            maxlength="250"/>
                 <s:hidden name="usuarioModel.id"/>
             </s:form>
+
+            <span style="font-size: 11px">
+                <br> * Campo obligatorios
+            </span>
         </div>
     </div>
 
@@ -56,8 +66,10 @@
         <sj:a id="sadaszxc" button="true" buttonIcon="ui-icon-disk" onclick="editarUsuarioFunction();">
             Guardar
         </sj:a>
-        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close" value="Cancelar">Cancelar</sj:a>
-        <sj:a id="editarPassword" button="true" buttonIcon="ui-icon-pencil" onclick="redireccionar()">Editar Contraseña</sj:a>
+        <sj:a id="cancelar" button="true" onclick="botonCancelar();" buttonIcon="ui-icon-close"
+              value="Cancelar">Cancelar</sj:a>
+        <sj:a id="editarPassword" button="true" buttonIcon="ui-icon-pencil"
+              onclick="redireccionar()">Editar Contraseña</sj:a>
     </div>
 </div>
 

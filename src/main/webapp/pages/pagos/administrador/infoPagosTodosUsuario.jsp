@@ -38,8 +38,8 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
     <td>
 <s:form action="filtrarPorTaller" namespace="/administrador/pagos" id="formSelect">
 <s:select label="Busqueda por taller"
-          headerValue="Seleccione un taller"
-          headerKey="-1"
+          headerValue="Todos"
+          headerKey="0"
           list="tallerModelList"
           listKey="id"
           listValue="name"
@@ -80,7 +80,7 @@ JSP en el cual el administrador introduce el numero de cedula del usuario
             altRows="true"
             autowidth="true"
             groupField="['alumnoModel.userModel.userInfo']"
-            groupCollapse="false"
+            groupCollapse="true"
             groupText="['Representante: <b>{0}']"
             onGridCompleteTopics="grid_complete"
 

@@ -49,7 +49,7 @@
                         </s:else>
                     </div>
                     <sj:tabbedpanel id="%{#iteradorTaller.id}">
-                        <sj:tab id="tab1" target="tone" label="Descripcion"/>
+                        <sj:tab id="tab1" target="tone" label="Descripción"/>
                         <sj:tab id="tab2" target="ttwo" label="Horarios"/>
                         <sj:tab id="tab3" target="tthree" label="Alumnos"/>
                         <div id="tone" style="height: 150px; overflow: scroll;">
